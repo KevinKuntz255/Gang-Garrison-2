@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="OTHER" id="13">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if !owner.ubered owner.nutsNBolts -= 2;
+playsound(x,y,PistolSnd);
+var shot;
+randomize();
+shot = createShot(x, y, Shot, DAMAGE_SOURCE_SCATTERGUN, owner.aimDirection, 13);
+shot.sprite_index = NailS;
+shot.direction += random(7)-4;
+shot.hitDamage = 7;
+shot.hspeed += owner.hspeed;
+shot.direction += random(7)-4;
+// Move shot forward to avoid immediate collision with a wall behind the character
+shot.x += lengthdir_x(15, shot.direction);
+shot.y += lengthdir_y(15, shot.direction);
+shot.alarm[0] = 35 * ((min(1, abs(cos(degtorad(owner.aimDirection)))*13
+                      /abs(cos(degtorad(owner.aimDirection))*13+owner.hspeed))-1)/2+1)
+                / global.delta_factor;
+justShot = true;
+readyToShoot = false;
+alarm[0] = refireTime / global.delta_factor;
+alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

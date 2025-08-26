@@ -21,6 +21,7 @@
 
 target = noone;
 if (instance_exists(global.myself.object.currentWeapon)) {
+    if (global.myself.object.currentWeapon.object_index != Medigun) exit;
     target = global.myself.object.currentWeapon.healTarget;
 }
 </argument>

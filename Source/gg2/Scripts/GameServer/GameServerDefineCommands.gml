@@ -20,6 +20,7 @@ commandBytes[OMNOMNOMNOM] = 0;
 commandBytes[TOGGLE_ZOOM] = 0;
 commandBytes[PLAYER_CHANGENAME] = commandBytesPrefixLength1;
 commandBytes[INPUTSTATE] = 4;
+commandBytes[WEAPON_SWAP] = 0;          // the most important part
 commandBytes[REWARD_REQUEST] = commandBytesPrefixLength1;
 commandBytes[REWARD_CHALLENGE_RESPONSE] = 16;
 commandBytes[PLUGIN_PACKET] = commandBytesPrefixLength2;

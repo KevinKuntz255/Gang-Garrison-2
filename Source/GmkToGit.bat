@@ -1,3 +1,2 @@
 rmdir /S /Q gg2
-gmksplit.exe gg2.gmk gg2
-pause
+gmksplit.exe build\gg2.gmk gg2

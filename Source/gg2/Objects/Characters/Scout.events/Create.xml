@@ -15,7 +15,6 @@
       <arguments>
         <argument kind="STRING">baseRunPower = 1.4;
 maxHp = 100;
-weapons[0] = Scattergun;
 haxxyStatue = ScoutHaxxyStatueS;
 
 if (global.paramPlayer.team == TEAM_RED)

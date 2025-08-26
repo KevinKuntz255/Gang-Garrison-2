@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="checkType" type="RESOURCE"/>
+  <resource name="inputSwitch" type="RESOURCE"/>
+  <resource name="weapon_init" type="RESOURCE"/>
+  <resource name="weaponSwitch" type="RESOURCE"/>
+</resources>

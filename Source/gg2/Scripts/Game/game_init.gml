@@ -353,10 +353,12 @@ global.launchMap = "";
     global.changeTeam = ini_read_real("Controls", "changeTeam", ord("N"));
     global.changeClass = ini_read_real("Controls", "changeClass", ord("M"));
     global.showScores = ini_read_real("Controls", "showScores", vk_shift);
+    global.weaponswitch = ini_read_real("Controls", "Weapon Switch", ord("Q"));
     ini_close();
     
     calculateMonthAndDay();
-    
+    weapon_init();
+
     builder_init();
 
     character_init();

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">image_speed = 0.2;
+bloodchance=99999;
+snd=false;
+hfric=0.4;
+rotfric=0.6;
+direction = 270;
+alarm[0]=210 / global.delta_factor;
+rotspeed=0;
+fadeout = false;
+vis_angle = 0;
+air_friction = power(0.97, global.delta_factor);
+my_gravity = 0.7 * global.delta_factor;
+maxBloodiness = 1;
+bloodiness = maxBloodiness;
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -208,6 +208,43 @@ while(commandLimitRemaining > 0) {
             
             setChatBubble(player, bubbleImage);
             break;
+
+        case WEAPON_SWAP:
+            if player.object != -1 {
+                if player.object.taunting == true 
+                or player.object.omnomnomnom == true
+                or player.object.currentWeapon.ubering == true
+                break;
+                
+                /*or player.object.buffing == true
+                or player.object.currentWeapon.ubering == true 
+                or player.object.critting == true
+                or player.object.megaHealed == true
+                or player.object.stabbing == true
+                or player.object.carrySentry == true
+                or player.object.charge == true
+                or player.object.stunned == true
+                or player.object.spinning == true
+                or player.object.zoomed == true
+                //or global.medieval
+                //  or player.class == CLASS_QUOTE
+                or player.object.canSwitch = false*/ 
+                
+                //if player.object.loaded1 != -1 && player.object.loaded2 != -1 {
+                    var weapon;
+                    //if player.object.weapon_index == player.object.loaded1 weapon=player.object.loaded2;
+                    //else weapon = player.object.loaded1;
+                    if(player.object.currentWeapon.object_index != player.object.weapons[1]) weapon = player.object.weapons[1] else weapon = player.object.weapons[0];
+                    write_ubyte(global.sendBuffer, WEAPON_SWAP);
+                    write_ubyte(global.sendBuffer, playerId);
+                    write_ubyte(global.sendBuffer, weapon);
+                    with(player.object) {
+                        weaponSwitch(weapon);
+                   }
+                //}
+             }
+             break;
+
             
         case BUILD_SENTRY:
             if(player.object != -1)

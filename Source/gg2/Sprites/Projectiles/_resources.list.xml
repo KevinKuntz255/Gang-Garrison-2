@@ -16,4 +16,5 @@
   <resource name="StabMaskS" type="RESOURCE"/>
   <resource name="AirBlastS" type="RESOURCE"/>
   <resource name="AirBlastMaskS" type="RESOURCE"/>
+  <resource name="randomizer" type="GROUP"/>
 </resources>

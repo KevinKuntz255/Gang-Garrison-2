@@ -1,0 +1,41 @@
+LoadoutMenu
+Implement crits
+add abilityType system for universal implementation
+add uberType for ease of uber access
+add soakType
+add weaponType for simplification in if statements
+add headshots
+add randomizerMode
+
+Loadouts (Start Chronologically):
+
+# Runner
+Entire Kit
+make radioactive call for abilityType INVISIBLE
+
+# Firebug
+Entire Kit
+
+# Rocketman
+Entire Kit
+
+# Overweight
+Entire Kit
+
+# Detonator
+Entire Kit
+Re-add DASH calls
+# Healer
+Entire Kit
+
+# Constructor
+Entire Kit
+Leave Sentries as final due to the networking quirks
+
+# Infiltrator
+Entire Kit
+
+# Rifleman
+Entire Kit
+
+Q/C after all loadouts implemented

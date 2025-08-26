@@ -15,7 +15,6 @@
       <arguments>
         <argument kind="STRING">baseRunPower = .9;
 maxHp = 160;
-weapons[0] = Rocketlauncher;
 haxxyStatue = SoldierHaxxyStatueS;
 
 if (global.paramPlayer.team == TEAM_RED)

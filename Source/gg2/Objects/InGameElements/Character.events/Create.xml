@@ -22,8 +22,10 @@
     top_bound_offset = sprite_get_bbox_top(sprite_index)-sprite_get_yoffset(sprite_index);
     bottom_bound_offset = sprite_get_bbox_bottom(sprite_index)-sprite_get_yoffset(sprite_index);
     
+    
     // Default properties of Characters (those where defaults make sense)
     canDoublejump = 0;
+    canTripleJump = 0;
     canCloak = 0;
     canBuild = 0;
     baseJumpStrength = 8+(0.6/2); // reduce the part of the initial frame of gravity that we don't apply anymore (not framerate dependent, meant to match old 30fps arc)
@@ -33,6 +35,49 @@
     // for true framerate-independent jumping arcs
     applied_gravity = 0;
     
+    // the RM  stuffins
+    accel = 0;
+	flight = 0;
+	lastTurn = 0;
+	doubleTapped = true;
+
+    loaded1 = -1;
+    loaded2 = -1;
+    
+    canSwitch = true;
+    nomRate = 1.6;
+    soaked = false;
+	dashon = true;
+    
+    abilityActive = false;
+    abilityVisual = "";
+    
+    for(i=0; i&lt;4; i+=1) {
+        ammo[i] = -1;
+        soakType[i] = -1;
+        meter[i] = -1;
+		maxMeter[i] = -1;
+		abilityName[i] = "";
+		abilityActive[i] = -1;
+ 		weaponType[i] = -1;
+ 		ability[i] = -1;
+ 		rechargeAbility[i] = false;
+	}
+
+	for(i=0; i&lt;5; i+=1) {
+        uberType[i] = -1; // sounds bonkers to have more than one, or even 3 types of ubers at the same time but lets cover large public server cases.
+    }
+    
+    specialUber = false;
+    lastMeter=-1;
+    rechargeRate = 1;
+    abilityActive = false;
+    
+    lobbedC = 0;
+    uberChargeC = 0;
+    uberReadyC = false;
+
+      
     // 
     hp = maxHp;
     flamecount = 0;
@@ -196,6 +241,10 @@
     
     // Let's spawn our weapon
     global.paramOwner = id;
+
+    weapons[0] = global.weapons[real(string_copy(string(global.loadout[player.class]), 2, 2))];
+    weapons[1] = global.weapons[real(string_copy(string(global.loadout[player.class]), 4, 2))];
+
     currentWeapon = instance_create(x,y,weapons[0]);
     global.paramOwner = noone;
     
@@ -218,7 +267,7 @@
         deathmatch_invulnerable = 0;
         deathmatch_invuln_decay = 0;
     }
-    
+
     // THIS IS A TRUCK LOAD OF GARBAGE CODE THAT SHOULD BE REPLACED ASAP
     
     if(hasClassReward(player, 'Grey_Accessories_') and player.class != CLASS_QUOTE)

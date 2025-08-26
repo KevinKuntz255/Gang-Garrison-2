@@ -24,6 +24,7 @@ if global.myself.object != -1 {
     if instance_exists(global.myself.object.currentWeapon) {
         var weapon;
         weapon = global.myself.object.currentWeapon;
+        if (weapon.isMelee) exit;
         barcolor = make_color_rgb(217,217,183);
         draw_set_color(barcolor);
     
@@ -76,6 +77,7 @@ if global.myself.object != -1 {
             offset = 0;
             with(global.myself.object.currentWeapon)
             {
+                if(object_index != Flamethrower) exit;
                 var offset, flarecolor;
                 
                 if(readyToFlare)

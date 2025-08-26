@@ -19,8 +19,43 @@ readyToShoot = false;
 justShot = false;
 alarm[0] = refireTime / global.delta_factor;
 
+isMelee = false;
+ubering = false;
+
+spark = 0;
+alarm[9]= 2;
+
+abilityVisual = "";
+
+crit = 1;
+
+t = 0;
+baseDamage=-1; // stops crashing when youre zooming in
+unscopedDamage = 0; // this too
+
+// weaponGrade for Unique/Stock/Special
+weaponGrade = STOCK;
+// weaponType for each weapon
+weaponType = SHOTGUN;
+
+rechargeAbility = false;
+abilityName = "";
+maxMeter=-1;
+meter=-1;
+
 owner = global.paramOwner;
 ownerPlayer = global.paramOwner.player;
+// old variables are kept around for old plugins, can't replace em that easy
+switch(owner.player.class)
+{
+    case CLASS_MEDIC:
+    uberCharge = owner.uberChargeC;
+    uberReady = owner.uberReadyC;
+    break;
+    case CLASS_DEMOMAN:
+        lobbed = owner.lobbedC;
+    break;
+}
 // 'GW' reward - *G*olden *W*eapon
 golden = hasClassReward(ownerPlayer, 'GW');
 </argument>

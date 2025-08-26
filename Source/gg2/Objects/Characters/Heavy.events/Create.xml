@@ -15,7 +15,6 @@
       <arguments>
         <argument kind="STRING">baseRunPower = 0.8;
 maxHp = 200;
-weapons[0] = Minigun;
 haxxyStatue = HeavyHaxxyStatueS;
 
 if (global.paramPlayer.team == TEAM_RED)

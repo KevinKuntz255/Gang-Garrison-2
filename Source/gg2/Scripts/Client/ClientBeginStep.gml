@@ -314,7 +314,17 @@ do {
             player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
             setChatBubble(player, read_ubyte(global.tempBuffer));
             break;
-             
+            
+        case WEAPON_SWAP:
+            receiveCompleteMessage(global.serverSocket,2,global.tempBuffer);
+            player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
+            if player.object != -1 {
+                with player.object {
+                    weaponSwitch(read_ubyte(global.tempBuffer));
+                }
+            }
+            break;
+        
         case BUILD_SENTRY:
             receiveCompleteMessage(global.serverSocket,6,global.tempBuffer);
             player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));

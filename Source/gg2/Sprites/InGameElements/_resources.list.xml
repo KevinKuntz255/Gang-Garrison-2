@@ -27,4 +27,5 @@
   <resource name="SpectatorHealthCross" type="RESOURCE"/>
   <resource name="SpeedBoostS" type="RESOURCE"/>
   <resource name="SpectatorHealthFill" type="RESOURCE"/>
+  <resource name="randomizer" type="GROUP"/>
 </resources>

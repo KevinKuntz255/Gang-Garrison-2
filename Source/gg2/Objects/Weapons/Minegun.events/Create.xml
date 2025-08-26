@@ -20,7 +20,6 @@
     event_inherited();
     
     maxMines = 8;
-    lobbed = 0;
     reloadTime = 15;
     reloadBuffer = 26;
     maxAmmo = 8;

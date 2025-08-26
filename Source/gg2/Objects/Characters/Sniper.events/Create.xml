@@ -15,7 +15,6 @@
       <arguments>
         <argument kind="STRING">maxHp = 120;
 baseRunPower = 0.9;
-weapons[0]=Rifle;
 haxxyStatue = SniperHaxxyStatueS;
 
 if (global.paramPlayer.team == TEAM_RED)

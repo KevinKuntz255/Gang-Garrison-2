@@ -34,7 +34,7 @@ if (global.myself.object != -1 and global.myself.class == CLASS_DEMOMAN)
     draw_sprite_ext(sprite_index, image_index, xoffset+xsize-65, yoffset+ysize-78, 3, 3, 0, c_white, 1);
     if (instance_exists(global.myself.object.currentWeapon))
     {
-        draw_text_transformed(xoffset+xsize-83, yoffset+ysize-76, global.myself.object.currentWeapon.lobbed, 1.5, 1.5, 0);
+        if (global.myself.object.currentWeapon.object_index == Minegun) draw_text_transformed(xoffset+xsize-83, yoffset+ysize-76, global.myself.object.currentWeapon.lobbed, 1.5, 1.5, 0); else draw_text_transformed(xoffset+xsize-83, yoffset+ysize-76, global.myself.object.lobbedC, 1.5, 1.5, 0);
         draw_text_transformed(xoffset+xsize-70, yoffset+ysize-76, "/8", 1.5, 1.5, 0);
     }
 }

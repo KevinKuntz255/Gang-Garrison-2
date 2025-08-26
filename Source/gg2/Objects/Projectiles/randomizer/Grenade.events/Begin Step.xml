@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="1">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if (global.particles == PARTICLES_NORMAL &amp;&amp; index &gt; 1) {
+        effect_create_above(ef_smokeup, x, y, 0, c_gray);
+        index = 0;
+    }
+    index += 0.3 * global.delta_factor;
+    
+    if(!variable_local_exists("firststep")) firststep = true;
+    
+    vspeed += 0.6 * global.delta_factor;
+    image_angle = direction;
+    
+    if(!firststep &amp;&amp; global.delta_factor != 1) {
+        x += hspeed * global.delta_factor;
+        y += vspeed * global.delta_factor;
+        x -= hspeed;
+        y -= vspeed;
+    } else {
+        firststep = false;
+    }
+    
+    gunSetSolids();
+    if (!place_free(x + hspeed, y + vspeed)) {
+        if (place_free(x + hspeed, y)) {
+            hspeed *= 0.85;
+            vspeed *= -0.75;
+        } else {
+            speed *= -1;
+        }
+        if (slowOnCollide) hspeed *= bounced;
+        bounced -= 0.35;
+        playsound(x,y,ImpactSnd);
+        hitSelf = true;
+    }
+    gunUnsetSolids();
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

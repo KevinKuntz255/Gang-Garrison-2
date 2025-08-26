@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
   <resource name="Firing" type="GROUP"/>
+  <resource name="randomizer" type="GROUP"/>
   <resource name="Reloading" type="GROUP"/>
   <resource name="Other" type="GROUP"/>
   <resource name="MedigunS" type="RESOURCE"/>

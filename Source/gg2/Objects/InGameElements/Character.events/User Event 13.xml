@@ -47,7 +47,7 @@ if(global.updateType == FULL_UPDATE){
             cloakAlpha = read_ubyte(global.deserializeBuffer)/255;
             break;
         case CLASS_MEDIC:
-            currentWeapon.uberCharge = read_ubyte(global.deserializeBuffer)*2000/255;
+            uberChargeC = read_ubyte(global.deserializeBuffer)*2000/255;
             break;
         case CLASS_ENGINEER:
             nutsNBolts = read_ubyte(global.deserializeBuffer);

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="PistolSnd" type="RESOURCE"/>
+  <resource name="SwitchSnd" type="RESOURCE"/>
+  <resource name="MeleeHitSnd" type="RESOURCE"/>
+  <resource name="MeleeHitMapSnd" type="RESOURCE"/>
+  <resource name="swingSnd" type="RESOURCE"/>
+</resources>

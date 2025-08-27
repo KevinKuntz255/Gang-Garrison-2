@@ -7,6 +7,7 @@ createGlobalDamageSource("DAMAGE_SOURCE_MINEGUN",             MineKL);
 createGlobalDamageSource("DAMAGE_SOURCE_MINIGUN",             MinigunKL);
 createGlobalDamageSource("DAMAGE_SOURCE_FLAMETHROWER",        FlameKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SCATTERGUN",          ScatterKL);
+createGlobalDamageSource("DAMAGE_SOURCE_FAN",          ScatterKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SHOTGUN",             ShotgunKL);
 createGlobalDamageSource("DAMAGE_SOURCE_ROCKETLAUNCHER",      RocketKL);
 createGlobalDamageSource("DAMAGE_SOURCE_REVOLVER",            RevolverKL);

@@ -232,6 +232,13 @@ global.name[WEAPON_SCATTERGUN] = "Scattergun";
 global.weapons[WEAPON_PISTOL] = Pistol;
 global.name[WEAPON_PISTOL] = "Pistol";
 
+global.weapons[WEAPON_FAN] = ForceANature;
+global.name[WEAPON_FAN] = "Force A Nature";
+//global.weapons[WEAPON_BONK] = BonkHand;
+global.weapons[WEAPON_BONK] = ForceANature;
+global.name[WEAPON_BONK] = "Bonk! Atomic punch";
+
+
 global.weapons[WEAPON_FLAMETHROWER] = Flamethrower;
 global.name[WEAPON_FLAMETHROWER] = "Flamethrower";
 global.weapons[WEAPON_PYROSHOTGUN] = Shotgun;
@@ -276,7 +283,8 @@ global.name[WEAPON_SMG] = "SMG";
 
 //read the loadout file
 ini_open("Loadout.gg2");
-global.loadout[CLASS_SCOUT]=ini_read_real("Class","Scout",real("10"+string(WEAPON_SCATTERGUN)+"0"+string(WEAPON_PISTOL)));
+
+global.loadout=ini_read_real("Class","Scout",real("10"+string(WEAPON_SCATTERGUN)+"0"+string(WEAPON_PISTOL)));
 global.loadout[CLASS_PYRO]=ini_read_real("Class","Pyro",real("1"+string(WEAPON_FLAMETHROWER)+string(WEAPON_PYROSHOTGUN)));
 global.loadout[CLASS_SOLDIER]=ini_read_real("Class","Soldier",real("1"+string(WEAPON_ROCKETLAUNCHER)+string(WEAPON_SOLDIERSHOTGUN)));
 global.loadout[CLASS_HEAVY]=ini_read_real("Class","heavy",real("1"+string(WEAPON_MINIGUN)+string(WEAPON_HEAVYSHOTGUN)));

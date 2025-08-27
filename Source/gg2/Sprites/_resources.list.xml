@@ -10,6 +10,7 @@
   <resource name="GameElements" type="GROUP"/>
   <resource name="Alternative Sprites" type="GROUP"/>
   <resource name="Updater" type="GROUP"/>
+  <resource name="LoadoutMenusprites" type="GROUP"/>
   <resource name="DevMessagesCheckerS" type="RESOURCE"/>
   <resource name="pointS" type="RESOURCE"/>
   <resource name="emptyMaskS" type="RESOURCE"/>

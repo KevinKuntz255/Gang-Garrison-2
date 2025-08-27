@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="OTHER" id="11">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">ini_open("Loadout.gg2");
+if load1.loaded &lt;=9 load1='0'+string(load1.loaded);
+else load1 = string(load1.loaded);
+if load2.loaded &lt;=9 load2='0'+string(load2.loaded);
+else load2 = string(load2.loaded);
+
+switch(currentclass){
+    case 0:
+        global.loadout[CLASS_SCOUT]=real(string(1)+load1+load2);
+        ini_write_real("Class","Scout",global.loadout[CLASS_SCOUT]);
+        break;
+    case 1:
+        global.loadout[CLASS_PYRO]=real(string(1)+load1+load2);
+        ini_write_real("Class","Pyro",global.loadout[CLASS_PYRO]);
+        break;
+    case 2:
+        global.loadout[CLASS_SOLDIER]=real(string(1)+load1+load2);
+        ini_write_real("Class","Soldier",global.loadout[CLASS_SOLDIER]);
+        break;
+    case 3:
+        global.loadout[CLASS_HEAVY]=real(string(1)+load1+load2);
+        ini_write_real("Class","heavy",global.loadout[CLASS_HEAVY]);
+        break;
+    case 4:
+        global.loadout[CLASS_DEMOMAN]=real(string(1)+load1+load2);
+        ini_write_real("Class","Demoman",global.loadout[CLASS_DEMOMAN]);
+        break;
+    case 5:
+        global.loadout[CLASS_MEDIC]=real(string(1)+load1+load2);
+        ini_write_real("Class","Medic",global.loadout[CLASS_MEDIC]);
+        break;
+    case 6:
+        global.loadout[CLASS_ENGINEER]=real(string(1)+load1+load2);
+        ini_write_real("Class","Engineer",global.loadout[CLASS_ENGINEER]);
+        break;
+    case 7:
+        global.loadout[CLASS_SPY]=real(string(1)+load1+load2);
+        ini_write_real("Class","Spy",global.loadout[CLASS_SPY]);
+        break;
+    case 8:
+        global.loadout[CLASS_SNIPER]=real(string(1)+load1+load2);
+        ini_write_real("Class","sniper",global.loadout[CLASS_SNIPER]);
+        break;
+}
+ini_close();    
+
+if instance_exists(LoadoutSwitcher) with(LoadoutSwitcher) instance_destroy();
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

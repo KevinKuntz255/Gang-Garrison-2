@@ -357,12 +357,14 @@ global.launchMap = "";
     ini_close();
     
     calculateMonthAndDay();
-    weapon_init();
 
     builder_init();
 
     character_init();
     
+    special_init();
+    weapon_init();
+        
     if(!directory_exists(working_directory + "\Plugins")) directory_create(working_directory + "\Plugins");
     loadplugins();
     

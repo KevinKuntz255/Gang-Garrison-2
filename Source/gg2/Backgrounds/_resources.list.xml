@@ -5,4 +5,5 @@
   <resource name="BuilderWMB" type="RESOURCE"/>
   <resource name="BuilderBGB" type="RESOURCE"/>
   <resource name="CustomMapB" type="RESOURCE"/>
+  <resource name="LoadoutB" type="RESOURCE"/>
 </resources>

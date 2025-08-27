@@ -4,4 +4,5 @@
   <resource name="inputSwitch" type="RESOURCE"/>
   <resource name="weapon_init" type="RESOURCE"/>
   <resource name="weaponSwitch" type="RESOURCE"/>
+  <resource name="special_init" type="RESOURCE"/>
 </resources>

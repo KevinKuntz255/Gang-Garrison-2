@@ -43,7 +43,14 @@
         dealFlicker(other.id);
         with(other)
         {
-            motion_add(other.direction, other.speed*0.03);
+            if (other.weapon == DAMAGE_SOURCE_FAN) {
+                motion_add(other.direction, other.speed*0.1);
+             if (!onground) { // make em fly if theyre off ground
+                //motion_add(other.direction, other.speed*0.2);
+                other.moveStatus = 3;
+                }
+            } else
+                motion_add(other.direction, other.speed*0.03);
         }
         instance_destroy();
     }

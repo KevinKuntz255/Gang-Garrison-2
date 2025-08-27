@@ -38,6 +38,10 @@
         instance_destroy();
         instance_create(0,0,OptionsController);
     ');
+    menu_addlink("Loadout", '
+        instance_destroy();
+        instance_create(0,0,LoadoutMenu);
+    ');
     menu_addlink("Disconnect", '
         // Force dedicated mode to off so you can go to main menu instead of just restarting server
         if (show_question("Do you really want to leave this match?")) {

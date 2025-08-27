@@ -18,4 +18,5 @@
   <resource name="Heavy" type="GROUP"/>
   <resource name="Medic" type="GROUP"/>
   <resource name="Scout" type="GROUP"/>
+  <resource name="Templates" type="GROUP"/>
 </resources>

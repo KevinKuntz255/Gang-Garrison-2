@@ -5,6 +5,6 @@
   <visible>true</visible>
   <depth>-1</depth>
   <persistent>false</persistent>
-  <parent>Weapon</parent>
+  <parent>ShotT</parent>
   <mask/>
 </object>

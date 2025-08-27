@@ -14,24 +14,26 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">ammoCount = max(0, ammoCount-1);
-playsound(x,y,PistolSnd);
+playsound(x,y,specialSnd);
 var shot;
-randomize();
-shot = createShot(x, y, Shot, DAMAGE_SOURCE_SCATTERGUN, owner.aimDirection, 13);
-shot.direction += random(7)-4;
-shot.hitDamage = 7;
-shot.hspeed += owner.hspeed;
-shot.direction += random(7)-4;
-// Move shot forward to avoid immediate collision with a wall behind the character
-shot.x += lengthdir_x(15, shot.direction);
-shot.y += lengthdir_y(15, shot.direction);
-shot.alarm[0] = 35 * ((min(1, abs(cos(degtorad(owner.aimDirection)))*13
-                      /abs(cos(degtorad(owner.aimDirection))*13+owner.hspeed))-1)/2+1)
-                / global.delta_factor;
-justShot = true;
-readyToShoot = false;
+repeat(shots) {
+    shot = createShot(x, y, specialShot, damSource, owner.aimDirection, shotSpeed[0]);
+    shot.hitDamage = shotDamage;
+    
+    shot.hspeed += owner.hspeed;
+    if (randomizeSpeed) shot.speed += random(shotSpeed[1]) - shotSpeed[2];
+    shot.direction += random(shotDir[0]) - shotDir[1];
+    // Move shot forward to avoid immediate collision with a wall behind the character
+    shot.x += lengthdir_x(15, shot.direction);
+    shot.y += lengthdir_y(15, shot.direction);
+    
+    shot.sprite_index = specialSprite;
+}
+justShot=true;
+readyToShoot=false;
 alarm[0] = refireTime / global.delta_factor;
 alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
+if (!reloadShell) alarm[7] = alarm[0] / 2;
 </argument>
       </arguments>
     </action>

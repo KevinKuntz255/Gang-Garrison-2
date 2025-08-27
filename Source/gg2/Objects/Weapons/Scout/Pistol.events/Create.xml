@@ -17,28 +17,31 @@
     xoffset = -3;
     yoffset = -6;
     refireTime = 5;
+    spriteBase = PistolS;
+    spriteRecoil = PistolFS;
+    spriteReload = PistolS;
     event_inherited();
     
     maxAmmo = 12;
     ammoCount = maxAmmo;
     reloadTime = 20;
     reloadBuffer = 20;
-    idle=true;
-    
 
-    normalSprite = PistolS;
-    recoilSprite = PistolFS;
-    reloadSprite = PistolS;
-    //reloadSprite = PistolFRS;
+    damSource = DAMAGE_SOURCE_PISTOL;
     
-    sprite_index = normalSprite;
+    shots = 1;
+
+    shotDamage = 7;
+    fullReload = true;
     
-    recoilTime = refireTime;
-    recoilAnimLength = sprite_get_number(recoilSprite)/2;
-    recoilImageSpeed = recoilAnimLength/recoilTime;
+    shotDir[0] = 7;
+    shotDir[1] = 4;
     
-    reloadAnimLength = sprite_get_number(reloadSprite)/2;
-    reloadImageSpeed = reloadAnimLength/reloadTime;
+    randomizeSpeed = false;
+    
+    specialSnd = PistolSnd;
+
+    reloadShell = true;
 }
 </argument>
       </arguments>

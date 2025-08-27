@@ -7,7 +7,6 @@ createGlobalDamageSource("DAMAGE_SOURCE_MINEGUN",             MineKL);
 createGlobalDamageSource("DAMAGE_SOURCE_MINIGUN",             MinigunKL);
 createGlobalDamageSource("DAMAGE_SOURCE_FLAMETHROWER",        FlameKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SCATTERGUN",          ScatterKL);
-createGlobalDamageSource("DAMAGE_SOURCE_FAN",          ScatterKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SHOTGUN",             ShotgunKL);
 createGlobalDamageSource("DAMAGE_SOURCE_ROCKETLAUNCHER",      RocketKL);
 createGlobalDamageSource("DAMAGE_SOURCE_REVOLVER",            RevolverKL);
@@ -27,3 +26,7 @@ createGlobalDamageSource("DAMAGE_SOURCE_FINISHED_OFF",        DeadKL);
 createGlobalDamageSource("DAMAGE_SOURCE_FINISHED_OFF_GIB",    DeadKL);
 createGlobalDamageSource("DAMAGE_SOURCE_BID_FAREWELL",        DeadKL);
 createGlobalDamageSource("DAMAGE_SOURCE_GENERATOR_EXPLOSION", ExplodeKL);
+//Special Weapons
+createGlobalDamageSource("DAMAGE_SOURCE_FAN",                 FANKL);
+createGlobalDamageSource("DAMAGE_SOURCE_GRENADE",             GLKL);
+createGlobalDamageSource("DAMAGE_SOURCE_PISTOL",                 PistolKL);

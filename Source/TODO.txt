@@ -1,14 +1,9 @@
 Fix LoadoutMenu breaking positions in other resolutions
-Implement Base Weapon Templates, the same system GG2R uses
 Implement crits
 add abilityType system for universal implementation
-add uberType for ease of uber access
-add soakType
-add weaponType for simplification in if statements
-add weaponGrade, use it to call for unique colors when calling for weapon names in LoadoutMenu
 add headshots
 add randomizerMode
-
+add medievalMode
 Loadouts (Start Chronologically):
 
 # Runner
@@ -27,6 +22,7 @@ Entire Kit
 # Detonator
 Entire Kit
 Re-add DASH calls
+
 # Healer
 Entire Kit
 

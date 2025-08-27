@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <event category="OTHER" id="13">
   <actions>
+    <action id="604" library="1">
+      <!--action name: Inherited-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>FUNCTION</actionType>
+      <functionName>action_inherited</functionName>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments/>
+    </action>
     <action id="603" library="1">
       <!--action name: Code-->
       <kind>CODE</kind>
@@ -13,35 +26,13 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">ammoCount = max(0, ammoCount-1);
-playsound(x,y,ShotgunSnd);
-var shot;
-repeat(12) {
-    shot = createShot(x, y, Shot, DAMAGE_SOURCE_FAN, owner.aimDirection, 13+random(6));
-    shot.damage = 4;
-    if(golden)
-        shot.sprite_index = ShotGoldS;
-    shot.hspeed += owner.hspeed;
-    shot.speed += random(4)-2;
-    shot.direction += random(15)-7.5;
-    // Move shot forward to avoid immediate collision with a wall behind the character
-    shot.x += lengthdir_x(15, shot.direction);
-    shot.y += lengthdir_y(15, shot.direction);
-    shot.alarm[0] = 35 * ((min(1, abs(cos(degtorad(owner.aimDirection)))*13
-                          /abs(cos(degtorad(owner.aimDirection))*13+owner.hspeed))-1)/2+1)
-                    / global.delta_factor;
-}
-with(owner){
+        <argument kind="STRING">with(owner){
     motion_add(aimDirection, -3);
     vspeed*=0.9;
     vspeed -= 2;
         //moveStatus = 3;
     if abs(sin(aimDirection)) &gt; abs(cos(aimDirection)) speed*=0.8;
 }
-justShot = true;
-readyToShoot = false;
-alarm[0] = refireTime / global.delta_factor;
-alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
 </argument>
       </arguments>
     </action>

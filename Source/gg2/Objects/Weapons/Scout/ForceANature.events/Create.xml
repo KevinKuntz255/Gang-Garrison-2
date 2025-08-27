@@ -16,7 +16,10 @@
         <argument kind="STRING">{
     xoffset = -5;
     yoffset = -4;
-    refireTime = 10;
+    refireTime = 14;
+    spriteBase = ForceANatureS;
+    spriteRecoil = ForceANatureFS;
+    spriteReload = ForceANatureS;
     event_inherited();
     
     maxAmmo = 3;
@@ -25,19 +28,16 @@
     reloadBuffer = 20;
     idle=true;
     
-
-    normalSprite = ForceANatureS;
-    recoilSprite = ForceANatureFS;
-    reloadSprite = ForceANatureS;
-
-    sprite_index = normalSprite;
+    damSource = DAMAGE_SOURCE_FAN;
     
-    recoilTime = refireTime;
-    recoilAnimLength = sprite_get_number(recoilSprite)/2;
-    recoilImageSpeed = recoilAnimLength/recoilTime;
+    fullReload = true;
+    shotSpeed[0] = 16;
+    shotSpeed[1] = 6+10;
+    shotSpeed[2] = 10;
+    shotDir[0] = 15;
     
-    reloadAnimLength = sprite_get_number(reloadSprite)/2;
-    reloadImageSpeed = reloadAnimLength/reloadTime;
+    shots = 8;
+    reloadShell = true;
 }
 </argument>
       </arguments>

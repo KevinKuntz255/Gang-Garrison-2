@@ -14,26 +14,33 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">{
-    event_inherited();
-    
+    xoffset = -3;
+    yoffset = -6;
     refireTime = 6;
+    event_inherited();
     maxAmmo = 0;
     ammoCount = maxAmmo;
-    
 
-    normalSprite = NailgunS;
-    recoilSprite = NailgunFS;
-    reloadSprite = NailgunS;
-    //reloadSprite = PistolFRS;
+    shots = 1;
+
+    shotDamage = 7;
+    fullReload = true;
     
-    sprite_index = normalSprite;
+    shotDir[0] = 7;
+    shotDir[1] = 4;
     
-    recoilTime = refireTime;
-    recoilAnimLength = sprite_get_number(recoilSprite)/2;
-    recoilImageSpeed = recoilAnimLength/recoilTime;
+    randomizeSpeed = false;
     
-    reloadAnimLength = sprite_get_number(reloadSprite)/2;
-    reloadImageSpeed = reloadAnimLength/reloadTime;
+    damSource = DAMAGE_SOURCE_PISTOL;
+    
+    specialSnd = PistolSnd;
+    specialSprite = NailS;
+    
+    spriteBase = NailgunS;
+    spriteRecoil = NailgunFS;
+    spriteReload = NailgunS;
+
+    reloadShell = true;
 }
 </argument>
       </arguments>

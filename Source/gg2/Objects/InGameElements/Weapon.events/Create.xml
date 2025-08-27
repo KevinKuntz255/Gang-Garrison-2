@@ -33,12 +33,12 @@ t = 0;
 baseDamage=-1; // stops crashing when youre zooming in
 unscopedDamage = 0; // this too
 
-/*
+
 // weaponGrade for Unique/Stock/Special
 weaponGrade = STOCK;
 // weaponType for each weapon
-weaponType = SHOTGUN;
-*/
+weaponType = SHOT;
+
 
 rechargeAbility = false;
 abilityName = "";

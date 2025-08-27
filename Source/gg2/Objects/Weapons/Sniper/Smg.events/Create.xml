@@ -14,9 +14,12 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">{
-    xoffset=-3;
-    yoffset=-6;
+    xoffset = -3;
+    yoffset = -6;
     refireTime = 3;
+    spriteBase = SmgS;
+    spriteRecoil = SmgFS;
+    spriteReload = SmgS;
     event_inherited();
     
     maxAmmo = 25;
@@ -25,19 +28,19 @@
     reloadBuffer = 16;
     idle=true;
     
+    shots = 1;
 
-    normalSprite = SmgS;
-    recoilSprite = SmgFS;
-    reloadSprite = SmgS;
+    shotDamage = 7;
+    fullReload = true;
     
-    sprite_index = normalSprite;
+    shotDir[0] = 7;
+    shotDir[1] = 4;
     
-    recoilTime = refireTime;
-    recoilAnimLength = sprite_get_number(recoilSprite)/2;
-    recoilImageSpeed = recoilAnimLength/recoilTime;
+    randomizeSpeed = false;
     
-    reloadAnimLength = sprite_get_number(reloadSprite)/2;
-    reloadImageSpeed = reloadAnimLength/reloadTime;
+    specialSnd = ChaingunSnd;
+    
+    reloadShell = true;
 }
 </argument>
       </arguments>

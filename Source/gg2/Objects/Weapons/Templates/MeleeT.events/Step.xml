@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<event category="ALARM" id="7">
+<event category="STEP" id="0">
   <actions>
     <action id="603" library="1">
       <!--action name: Code-->
@@ -13,17 +13,18 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if (global.particles == PARTICLES_NORMAL &amp;&amp; image_alpha &gt; 0.1)
-{
-    repeat(maxAmmo-ammoCount-ejected)
-    {
-        var shell;
-        shell = instance_create(x + lengthdir_x(8, owner.aimDirection), y + lengthdir_y(8, owner.aimDirection) - 5, Shell);
-        shell.direction = 180 + owner.aimDirection + (70 - random(80)) * image_xscale;
-        shell.speed *= 0.7;
-        ejected +=1;
-    }
+        <argument kind="STRING">if smashing {
+    image_speed=0.3;
+    if image_index &gt;= 4*owner.team+3 {
+        image_speed=0;
+        image_index=4*owner.team;
+        stabbing = false;
+    }    
+} else {
+        image_index=4*owner.team;
 }
+if owner.cloak damage=10;
+else damage = min(35,damage+0.5);
 </argument>
       </arguments>
     </action>

@@ -271,19 +271,20 @@
   <constant name="GRENADELAUNCHER" value="8"/>
   <constant name="NEEDLEGUN" value="9"/>
   <constant name="MELEE" value="10"/>
-  <constant name="THROWABLE" value="11"/>
-  <constant name="SPECIAL" value="12"/>
-  <constant name="LASERGUN" value="13"/>
-  <constant name="BACKPACK" value="14"/>
-  <constant name="CROSSBOW" value="15"/>
-  <constant name="WEAR" value="16"/>
-  <constant name="BLADE" value="17"/>
+  <constant name="CONSUMABLE" value="11"/>
+  <constant name="THROWABLE" value="12"/>
+  <constant name="SPECIAL" value="13"/>
+  <constant name="LASERGUN" value="14"/>
+  <constant name="BACKPACK" value="15"/>
+  <constant name="CROSSBOW" value="16"/>
+  <constant name="WEAR" value="17"/>
+  <constant name="BLADE" value="18"/>
   <constant name="STOCK" value="0"/>
   <constant name="UNIQUE" value="1"/>
   <constant name="FUN" value="2"/>
   <constant name="MINICRIT" value="0"/>
   <constant name="CRIT" value="1"/>
-  <constant name="INVIS" value="2"/>
+  <constant name="INVINC" value="2"/>
   <constant name="DASH" value="3"/>
   <constant name="FLIGHT" value="4"/>
   <constant name="FLIGHT_HORIZONTAL" value="5"/>
@@ -296,6 +297,9 @@
   <constant name="KRITZ" value="0"/>
   <constant name="FIX" value="1"/>
   <constant name="FIRERATE" value="2"/>
+  <constant name="RECHARGE" value="0"/>
+  <constant name="RUN" value="1"/>
+  <constant name="ALARM" value="2"/>
   <constant name="GEAR_PARTY_HAT" value="&quot;PartyHat&quot;"/>
   <constant name="GEAR_CROWN" value="&quot;Crown&quot;"/>
   <constant name="GEAR_NAVIGATORHAT" value="&quot;NavigatorHat&quot;"/>

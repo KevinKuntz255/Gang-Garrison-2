@@ -23,7 +23,7 @@
     reloadTime = 15;
     reloadBuffer = 26;
     maxAmmo = 8;
-    ammoCount = maxAmmo;
+    ammoCount = owner.ammo[owner.activeWeapon];
     idle=true;
     
     if(golden)

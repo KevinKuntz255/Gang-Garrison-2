@@ -25,6 +25,8 @@
     
     fade = false;
     distanceToTravel = 800;
+    travelDistance=0; // prevent crashes for airstrike
+    crit = 1;
     playersPassed = ds_list_create();
     
     alarm[1] = 20 / global.delta_factor;

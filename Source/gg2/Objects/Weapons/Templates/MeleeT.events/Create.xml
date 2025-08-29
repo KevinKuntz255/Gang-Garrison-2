@@ -35,6 +35,9 @@
     
     damage = 10;
     
+    weaponGrade = UNIQUE;
+    weaponType = MELEE;
+    
     if (!variable_local_exists("spriteBase")) spriteBase = Knife2S;
     if (!variable_local_exists("spriteRecoil")) spriteRecoil = Knife2FS;
     if (!variable_local_exists("spriteReload")) spriteReload = Knife2S;

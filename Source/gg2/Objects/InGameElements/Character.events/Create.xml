@@ -25,7 +25,7 @@
     
     // Default properties of Characters (those where defaults make sense)
     canDoublejump = 0;
-    canTripleJump = 0;
+    canTriplejump = 0;
     canCloak = 0;
     canBuild = 0;
     baseJumpStrength = 8+(0.6/2); // reduce the part of the initial frame of gravity that we don't apply anymore (not framerate dependent, meant to match old 30fps arc)
@@ -37,9 +37,9 @@
     
     // the RM  stuffins
     accel = 0;
-	flight = 0;
-	lastTurn = 0;
-	doubleTapped = true;
+    flight = 0;
+    lastTurn = 0;
+    doubleTapped = true;
 
     loaded1 = -1;
     loaded2 = -1;
@@ -47,27 +47,29 @@
     canSwitch = true;
     nomRate = 1.6;
     soaked = false;
-	dashon = true;
-    
-    abilityActive = false;
-    abilityVisual = "";
+    dashon = true;
     
     for(i=0; i&lt;4; i+=1) {
         ammo[i] = -1;
         soakType[i] = -1;
         meter[i] = -1;
-		maxMeter[i] = -1;
-		abilityName[i] = "";
-		abilityActive[i] = -1;
- 		weaponType[i] = -1;
- 		ability[i] = -1;
- 		rechargeAbility[i] = false;
-	}
+        maxMeter[i] = -1;
+        abilityName[i] = "";
+        abilityVisual[i] = "";
+        abilityActive[i] = false;
+        weaponType[i] = -1;
+        ability[i] = -1;
+        rechargeAbility[i] = -1;
+        rechargeRate[i] = 1;
+    }
 
-	for(i=0; i&lt;5; i+=1) {
+    for(i=0; i&lt;5; i+=1) {
         uberType[i] = -1; // sounds bonkers to have more than one, or even 3 types of ubers at the same time but lets cover large public server cases.
     }
     
+    // aaaaaaaand I'm out of space okay lets just put this in then
+    tracker = instance_create(x,y,SpecialTracker);
+    tracker.owner = id;
     specialUber = false;
     lastMeter=-1;
     rechargeRate = 1;
@@ -85,6 +87,7 @@
     intel = false;
     taunting = false;
     doublejumpUsed = 0;
+    triplejumpUsed = 0;
     ubered = 0;
     stabbing = 0;
     onCabinet = 0;
@@ -244,8 +247,37 @@
 
     weapons[0] = global.weapons[real(string_copy(string(global.loadout[player.class]), 2, 2))];
     weapons[1] = global.weapons[real(string_copy(string(global.loadout[player.class]), 4, 2))];
-
+    
+    activeWeapon = 0;
+    
     currentWeapon = instance_create(x,y,weapons[0]);
+    
+    weaponType[0] = currentWeapon.weaponType;
+    
+    var checkWeapon;
+    checkWeapon = instance_create(0,0,weapons[1]);
+    weaponType[1] = checkWeapon.weaponType;
+    if (checkWeapon.weaponType == WEAR) canSwitch = false;
+    if (checkWeapon.ability != -1) {
+        ability[1] = checkWeapon.ability;
+        abilityName[1] = checkWeapon.abilityName;
+        meter[1] = checkWeapon.meter;
+        maxMeter[1] = checkWeapon.maxMeter;
+        rechargeAbility[1] = checkWeapon.rechargeAbility;
+    }
+    ammo[1] = checkWeapon.maxAmmo;
+    with(checkWeapon) instance_destroy();
+    //if (currentWeapon.weaponType == WEAR) inputSwitch();
+    if (currentWeapon.ability != -1) {
+        ability[0] = currentWeapon.ability;
+        meter[0] = currentWeapon.meter;
+        maxMeter[0] = currentWeapon.maxMeter;
+        abilityName[0] = currentWeapon.abilityName;
+        rechargeAbility[0] = currentWeapon.rechargeAbility;
+    }
+    ammo[0] = currentWeapon.maxAmmo;
+    currentWeapon.alarm[5] = -1;
+    
     global.paramOwner = noone;
     
     // Gear that drops with gibs

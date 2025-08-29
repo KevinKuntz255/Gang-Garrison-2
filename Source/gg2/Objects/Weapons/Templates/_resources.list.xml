@@ -2,4 +2,5 @@
 <resources>
   <resource name="ShotT" type="RESOURCE"/>
   <resource name="MeleeT" type="RESOURCE"/>
+  <resource name="ThrowableT" type="RESOURCE"/>
 </resources>

@@ -1,4 +1,31 @@
-// damageCharacter( sourcePlayer, damagedCharacter, damageDealt )
+// damageCharacter( sourcePlayer, damagedCharacter, damageDealt, shot)
+if (argument1.abilityActive[argument1.activeWeapon] and argument1.ability[argument1.activeWeapon] == INVINC)
+{
+    var text;
+    text=instance_create(argument3.x,argument3.y,Text);
+    text.sprite_index=MissS;
+    exit;
+}
+// generate these on collision, easier that way
+// todo: add a check for ownerPlayer to prevent so many distracting crit particles
+if (!variable_local_exists("argument3.crit")) argument3.crit = 1; // huh
+if (argument3.crit == 1.15) {
+    var text;
+    text=instance_create(argument3.x,argument3.y,Text);
+    text.sprite_index=MiniCritS;
+}
+if (argument3.crit == 1.35) {
+    var text;
+    text=instance_create(argument3.x,argument3.y,Text);
+    text.sprite_index=CritS;
+}
+/*
+var object;
+object = argument1.object_index;
+
+if(object_is_ancestor(object, Character) or object == Character ) {
+    if (argument3.weapon == DAMAGE_SOURCE_BLACKBOX) argument0.hp += argument2*0.35
+}*/
 
 dealDamage( argument0, argument1, argument2 );
 

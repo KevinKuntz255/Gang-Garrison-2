@@ -15,12 +15,12 @@
       <arguments>
         <argument kind="STRING">{
     event_inherited();
-    
-    maxAmmo = 6;
-    ammoCount = maxAmmo;
-    reloadTime = 15;
-    reloadBuffer = 20;
+
+    // default vars
+    ammoCount = owner.ammo[owner.activeWeapon];
     idle=true;
+    
+    if (owner.ammo[owner.activeWeapon] != maxAmmo) alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
     
     weaponGrade = UNIQUE;
     weaponType = SHOT;

@@ -26,8 +26,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">ammoCount = maxAmmo;
-</argument>
+        <argument kind="STRING">ammoCount = maxAmmo;</argument>
       </arguments>
     </action>
   </actions>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">image_index = owner.team+2*real(owner.canEat);
+
+if (owner.taunting &amp;&amp; owner.tauntsprite == ScoutBonkS) {
+    if (owner.team = TEAM_BLUE &amp;&amp; owner.tauntindex &lt;= 10) owner.tauntindex += sprite_get_number(owner.tauntsprite)/2; // its called we do a little jerry-rigging
+        if (owner.tauntindex &gt;= owner.tauntend &amp;&amp; !owner.abilityActive[owner.activeWeapon]) {
+            owner.abilityActive[owner.activeWeapon] = true;
+            playsound(x,y,BallSnd);
+            owner.tauntsprite = owner._oldTauntSprite;
+            owner.tauntlength = sprite_get_number(owner.tauntsprite)/2;
+            owner.tauntspeed = 3;
+            owner.canEat = false;
+            owner.alarm[6] = owner.eatCooldown / global.delta_factor;
+            owner.tracker.alarm[owner.activeWeapon] = 150 / global.delta_factor;
+            write_ubyte(global.serverSocket, WEAPON_SWAP);
+    }
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

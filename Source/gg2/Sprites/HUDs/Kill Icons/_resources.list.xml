@@ -33,7 +33,5 @@
   <resource name="FlareKL" type="RESOURCE"/>
   <resource name="ReflectedStickyS" type="RESOURCE"/>
   <resource name="ReflectedRocketS" type="RESOURCE"/>
-  <resource name="FANKL" type="RESOURCE"/>
-  <resource name="GLKL" type="RESOURCE"/>
-  <resource name="PistolKL" type="RESOURCE"/>
+  <resource name="randomizer" type="GROUP"/>
 </resources>

@@ -17,6 +17,7 @@
     // prevent sputtering
     if (ammoCount &lt; 2)
         ammoCount -= 2;
+        
     if(readyToShoot and ammoCount &gt;= 2)
     {
         playsound(x,y,ChaingunSnd);

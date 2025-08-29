@@ -28,7 +28,6 @@
       <arguments>
         <argument kind="STRING">if (ammoCount &lt; maxAmmo) {
     if fullReload ammoCount = maxAmmo; else ammoCount += 1;
-
     if (reloadShell) {
       if (global.particles == PARTICLES_NORMAL)
       {

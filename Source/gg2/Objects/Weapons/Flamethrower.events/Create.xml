@@ -33,7 +33,7 @@
     justBlast = false;
     
     maxAmmo = 200;
-    ammoCount = maxAmmo;
+    ammoCount = owner.ammo[owner.activeWeapon];
     soundLoopTime = 30;
     currentTime = 0;
     

@@ -17,15 +17,16 @@
     xoffset = -3;
     yoffset = -6;
     refireTime = 3;
+    
     spriteBase = SmgS;
     spriteRecoil = SmgFS;
     spriteReload = SmgS;
-    event_inherited();
     
     maxAmmo = 25;
-    ammoCount = maxAmmo;
     reloadTime = 45;
     reloadBuffer = 16;
+    event_inherited();
+    
     idle=true;
     
     shots = 1;
@@ -35,7 +36,8 @@
     
     shotDir[0] = 7;
     shotDir[1] = 4;
-    
+
+    damSource = DAMAGE_SOURCE_SMG;    
     randomizeSpeed = false;
     
     specialSnd = ChaingunSnd;

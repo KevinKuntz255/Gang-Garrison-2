@@ -21,9 +21,13 @@
     reloadTime = 15;
     reloadBuffer = 26;
     maxAmmo = 4;
-    ammoCount = maxAmmo;
+    ammoCount = owner.ammo[owner.activeWeapon];
     idle=true;
-
+    
+    damSource = DAMAGE_SOURCE_GRENADE;
+    
+    if (ammoCount &lt; maxAmmo) alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
+    
     normalSprite = grenadeLauncherS;
     recoilSprite = grenadeLauncherFS;
     reloadSprite = grenadeLauncherS;

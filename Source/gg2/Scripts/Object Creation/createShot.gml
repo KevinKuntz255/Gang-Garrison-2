@@ -18,6 +18,7 @@ with(shot)
     ownerPlayer = other.ownerPlayer;
     team = owner.team;
     weapon = damageSource;
+    crit = other.owner.currentWeapon.crit;
 }
 
 return shot;

@@ -17,15 +17,15 @@
     xoffset = -3;
     yoffset = -6;
     refireTime = 5;
+    
     spriteBase = PistolS;
     spriteRecoil = PistolFS;
     spriteReload = PistolS;
-    event_inherited();
     
     maxAmmo = 12;
-    ammoCount = maxAmmo;
     reloadTime = 20;
     reloadBuffer = 20;
+    event_inherited();
 
     damSource = DAMAGE_SOURCE_PISTOL;
     

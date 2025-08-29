@@ -1,14 +1,17 @@
+# next commit:
+fix ALARM rechargeAbility tracker being inaccurate
+givePassiveEffect
+add reload anims
+implement ammo HUD
+Track variables into server
+all:
 Fix LoadoutMenu breaking positions in other resolutions
-Implement crits
-add abilityType system for universal implementation
+Implement crits in kill log
 add headshots
 add randomizerMode
 add medievalMode
+Figure out soakType
 Loadouts (Start Chronologically):
-
-# Runner
-Entire Kit
-make radioactive call for abilityType INVISIBLE
 
 # Firebug
 Entire Kit

@@ -2,12 +2,12 @@
 //the first 5 are primaries and the last 6 are secondaries for the classes
 //PS: This was A LOT of work. A LOT.
 // Scout
-/*
+
 global.weapons[WEAPON_SCATTERGUN] = Scattergun;
 global.name[WEAPON_SCATTERGUN] = "Scattergun";
 global.weapons[WEAPON_FAN] = ForceANature;
 global.name[WEAPON_FAN] = "Force A Nature";
-global.weapons[WEAPON_RUNDOWN] = Rundown;
+global.weapons[WEAPON_RUNDOWN] = ShortStop;
 global.name[WEAPON_RUNDOWN] = "Shortstop";
 global.weapons[WEAPON_SODAPOPPER] = SodaPopper;
 global.name[WEAPON_SODAPOPPER] = "Sodapopper";
@@ -23,7 +23,7 @@ global.weapons[WEAPON_MADMILK] = MadmilkHand;
 global.name[WEAPON_MADMILK] = "Madmilk";
 global.weapons[WEAPON_ATOMIZER] = Atomizer;
 global.name[WEAPON_ATOMIZER] = "Atomizer";
-
+/*
 // Soldier
 global.weapons[WEAPON_ROCKETLAUNCHER] = Rocketlauncher;
 global.name[WEAPON_ROCKETLAUNCHER] = "Rocketlauncher";
@@ -227,17 +227,6 @@ global.name[WEAPON_SAXTONHALE] = "HAXTON SAAAAAAAAALE";
 */
 
 // defaults
-global.weapons[WEAPON_SCATTERGUN] = Scattergun;
-global.name[WEAPON_SCATTERGUN] = "Scattergun";
-global.weapons[WEAPON_PISTOL] = Pistol;
-global.name[WEAPON_PISTOL] = "Pistol";
-
-global.weapons[WEAPON_FAN] = ForceANature;
-global.name[WEAPON_FAN] = "Force A Nature";
-//global.weapons[WEAPON_BONK] = BonkHand;
-global.weapons[WEAPON_BONK] = ForceANature;
-global.name[WEAPON_BONK] = "Bonk! Atomic punch";
-
 
 global.weapons[WEAPON_FLAMETHROWER] = Flamethrower;
 global.name[WEAPON_FLAMETHROWER] = "Flamethrower";

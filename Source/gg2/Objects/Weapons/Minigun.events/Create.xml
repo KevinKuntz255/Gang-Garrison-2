@@ -21,7 +21,7 @@
     
     sndlooping = false;
     maxAmmo = 200;
-    ammoCount = maxAmmo;
+    ammoCount = owner.ammo[owner.activeWeapon];
     reloadBuffer = 10;
     isRefilling = false;
     

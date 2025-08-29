@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="1">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">Reset ability</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(owner) {
+    abilityActive[1] = false;
+    if (ability[1] == INVINC)
+    {
+        currentWeapon.readyToShoot = true;
+        currentWeapon.readyToStab = true;
+        currentWeapon.readyToFlare = true;
+        currentWeapon.readyToBlast = true;
+    }
+    if (currentWeapon.object_index == BonkHand)
+    {
+        if (owner.team == TEAM_BLUE) owner._oldTauntSprite = ScoutBlueTauntS; else owner._oldTauntSprite = ScoutRedTauntS;
+        owner.tauntsprite = ScoutBonkS;
+        owner.tauntlength = sprite_get_number(owner.tauntsprite)/2;
+        owner.tauntindex=owner.tauntlength * owner.player.team;
+        owner.tauntend=owner.tauntlength * (1 + owner.player.team) - 1;
+        owner.tauntspeed = 4;
+    }
+    if (rechargeAbility[1] == ALARM)
+    {
+        meter[1] = maxMeter[1];
+    }
+    playsound(x,y,PickupSnd);
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

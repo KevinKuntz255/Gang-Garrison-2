@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset = -3;
+    yoffset = -12;
+    refireTime = 13;
+    
+    spriteBase = ShortStopS;
+    spriteRecoil = ShortStopFS;
+    spriteReload = ShortStopS;
+    maxAmmo = 4;
+    reloadTime = 45.6;
+    reloadBuffer = 20;
+    event_inherited();
+    
+    damSource = DAMAGE_SOURCE_SHORTSTOP;
+    
+    fullReload = true;
+    shotSpeed[1] = 2;
+    shotSpeed[2] = 12;
+    shotDir[0] = 9;
+    shotDir[1] = 5;
+    
+    shots = 3;
+    shotDamage = 14;
+    
+    reloadShell = true;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

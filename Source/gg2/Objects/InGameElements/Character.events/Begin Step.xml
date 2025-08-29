@@ -51,8 +51,10 @@ if(vspeed &gt;= 0)
 if(onNonSurfingGround)
     moveStatus = 0;
     
-if(onground)
+if(onground) {
     doublejumpUsed = 0;
+    triplejumpUsed = 0;
+}
 
 // Apply afterburn
 if (global.run_virtual_ticks)
@@ -127,6 +129,16 @@ if(!taunting and !omnomnomnom)
             onground = false; // Correct unless you are standing on a platform which moves up faster than jumpStrength
             playsound(x,y,JumpSnd);
             doublejumpUsed = 1;
+            moveStatus = 0;
+        }
+        else if(canTriplejump and !triplejumpUsed)
+        {
+            deathmatch_invuln_decay = 1;
+            wantToJump = false;
+            vspeed = -jumpStrength;
+            onground = false; // Correct unless you are standing on a platform which moves up faster than jumpStrength
+            playsound(x,y,JumpSnd);
+            triplejumpUsed = 1;
             moveStatus = 0;
         }
     }

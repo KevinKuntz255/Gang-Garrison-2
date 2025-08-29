@@ -5,4 +5,10 @@
   <resource name="MeleeHitSnd" type="RESOURCE"/>
   <resource name="MeleeHitMapSnd" type="RESOURCE"/>
   <resource name="swingSnd" type="RESOURCE"/>
+  <resource name="CritSnd" type="RESOURCE"/>
+  <resource name="CritHitSnd" type="RESOURCE"/>
+  <resource name="CritLoopSnd" type="RESOURCE"/>
+  <resource name="DetoChargeSnd" type="RESOURCE"/>
+  <resource name="BallSnd" type="RESOURCE"/>
+  <resource name="FlashlightSnd" type="RESOURCE"/>
 </resources>

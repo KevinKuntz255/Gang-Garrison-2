@@ -16,6 +16,12 @@
         <argument kind="STRING">{
     loopsoundstop(UberIdleSnd);
     
+    with(RadioBlur) {
+        if (owner == other.id) {
+            instance_destroy();
+        }
+	   }
+
     var map;
     with(currentWeapon) {
         instance_destroy();

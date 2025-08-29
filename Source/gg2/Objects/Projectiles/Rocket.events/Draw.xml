@@ -13,7 +13,16 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">draw_sprite_ext(sprite_index,team,x,y,image_xscale,image_yscale,image_angle,c_white,image_alpha);
+        <argument kind="STRING">if (crit &gt; 1)
+{
+    if (owner.team == TEAM_RED)
+        ubercolour = c_orange;
+    else if (owner.team == TEAM_BLUE)
+        ubercolour = c_aqua;
+    
+    draw_sprite_ext(sprite_index,team,x,y,image_xscale,image_yscale,image_angle,ubercolour,0.7);
+}
+draw_sprite_ext(sprite_index,team,x,y,image_xscale,image_yscale,image_angle,c_white,image_alpha);
 
 </argument>
       </arguments>

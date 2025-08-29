@@ -25,25 +25,27 @@ ubering = false;
 spark = 0;
 alarm[9]= 2;
 
+ability = -1;
 abilityVisual = "";
+abilityCharge = -1;
+
+meter = 0;
+maxMeter = 100;
+abilityName = "";
+rechargeAbility = RECHARGE;
 
 crit = 1;
 
+// stops crashing as sniper for randomizerMode
 t = 0;
-baseDamage=-1; // stops crashing when youre zooming in
-unscopedDamage = 0; // this too
+baseDamage=-1;
+unscopedDamage = 0;
 
 
 // weaponGrade for Unique/Stock/Special
 weaponGrade = STOCK;
 // weaponType for each weapon
 weaponType = SHOT;
-
-
-rechargeAbility = false;
-abilityName = "";
-maxMeter=-1;
-meter=-1;
 
 owner = global.paramOwner;
 ownerPlayer = global.paramOwner.player;

@@ -20,12 +20,15 @@
     event_inherited();
 
     maxAmmo = 1;
-    ammoCount = maxAmmo;
+    ammoCount = owner.ammo[owner.activeWeapon];
     reloadTime = 300;
     reloadBuffer = refireTime;
     idle=true;
     
     isMelee = true;
+    
+    weaponGrade = STOCK;
+    weaponType = CONSUMABLE;
     
     normalSprite = SandvichHandS;
     recoilSprite = SandvichHandS;

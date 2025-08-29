@@ -61,6 +61,9 @@ if  !instance_exists(HealthHud) instance_create(0,0,HealthHud);
 
 // Healed HUD
 if !instance_exists(HealedHud) &amp;&amp; global.showHealer = 1 instance_create(0,0,HealedHud);
+
+//this hud does most of the special displays (cooldown &amp; charge timers)
+	if !instance_exists(SpecialHud) instance_create(0,0,SpecialHud);
 </argument>
       </arguments>
     </action>

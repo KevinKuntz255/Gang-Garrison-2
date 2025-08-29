@@ -22,4 +22,5 @@
   <resource name="CollisionDummy" type="RESOURCE"/>
   <resource name="SpriteObject" type="RESOURCE"/>
   <resource name="ParallaxController" type="RESOURCE"/>
+  <resource name="randomizer" type="GROUP"/>
 </resources>

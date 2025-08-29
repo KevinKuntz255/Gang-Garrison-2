@@ -26,7 +26,7 @@
     maxHealDistance = 300;
     maxMouseSelectDistance = 150; // Heal target selection will favor the character closest to the mouse, as long as it is within this distance of the mouse cursor.
     maxAmmo = 40
-    ammoCount = maxAmmo;
+    ammoCount = owner.ammo[owner.activeWeapon];
     reloadTime = 55;
     reloadBuffer = 0;
     idle=true;

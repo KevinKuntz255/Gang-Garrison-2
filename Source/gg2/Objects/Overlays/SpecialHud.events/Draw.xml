@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">    if (global.myself.object = -1)
+    {
+        instance_destroy();
+        exit;
+    }
+    xoffset = view_xview[0];
+    yoffset = view_yview[0];
+    xsize = view_wview[0];
+    ysize = view_hview[0];
+    if (global.myself.team == TEAM_BLUE)
+        uberoffset=1;
+    else
+        uberoffset = 0;
+    
+    draw_set_valign(fa_center);
+    draw_set_halign(fa_center);
+    draw_set_alpha(1);
+
+    message1 = -1;
+    message2 = -1;
+    title1 = "";
+    title2 = "";
+
+    messageoffset = 140;
+
+    var me;
+    me = global.myself.object;
+    if (me.weaponType[0] == MINEGUN || me.weaponType[1] == MINEGUN || me.weaponType[1] == GRENADELAUNCHER || me.weaponType[0] == GRENADELAUNCHER)
+        yoffset -= 50;
+
+    if me.abilityName[0] != "" {
+        message1 = (global.myself.object.meter[0] / global.myself.object.maxMeter[0]) * 100;
+        title1 = global.myself.object.abilityName[0];
+    }
+    if me.abilityName[1] != "" {
+        message2 = (global.myself.object.meter[1] / global.myself.object.maxMeter[1]) * 100;
+        title2 = global.myself.object.abilityName[1];
+    }
+    
+    if (me.rechargeAbility[0] == ALARM and me.meter[0] == me.maxMeter[0]) message1 = -1;
+    if (me.rechargeAbility[1] == ALARM and me.meter[1] == me.maxMeter[1]) message2 = -1;
+    if (message1 = -1) messageoffset = 0;
+    if message1 != -1 {
+        draw_healthbar(xoffset+665, yoffset+500, xoffset+785, yoffset+532,message1,c_black,c_white,c_white,0,true,true);
+        draw_sprite_ext(UberHudS,uberoffset,xoffset+720,yoffset+515,2,2,0,c_white,1);
+        draw_text_color(xoffset+730,yoffset+510,title1,c_white,c_white,c_white,c_white,1);
+    }
+    if message2 != -1 {
+        draw_healthbar(xoffset+665-messageoffset, yoffset+500, xoffset+785-messageoffset, yoffset+532,message2,c_black,c_white,c_white,0,true,true);
+        draw_sprite_ext(UberHudS,uberoffset,xoffset+720-messageoffset,yoffset+515,2,2,0,c_white,1);
+        draw_text_color(xoffset+730-messageoffset,yoffset+510,title2,c_white,c_white,c_white,c_white,1);
+    }
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

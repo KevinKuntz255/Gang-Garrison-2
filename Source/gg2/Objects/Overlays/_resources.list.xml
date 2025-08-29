@@ -11,6 +11,7 @@
   <resource name="NutsNBoltsHud" type="RESOURCE"/>
   <resource name="SandwichHud" type="RESOURCE"/>
   <resource name="UberHud" type="RESOURCE"/>
+  <resource name="SpecialHud" type="RESOURCE"/>
   <resource name="StickyCounter" type="RESOURCE"/>
   <resource name="AmmoCounter" type="RESOURCE"/>
   <resource name="DeathCam" type="RESOURCE"/>

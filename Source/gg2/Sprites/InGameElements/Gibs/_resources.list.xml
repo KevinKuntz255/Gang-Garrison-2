@@ -9,4 +9,5 @@
   <resource name="FeetS" type="RESOURCE"/>
   <resource name="BloodS" type="RESOURCE"/>
   <resource name="BloodDropS" type="RESOURCE"/>
+  <resource name="randomizer" type="GROUP"/>
 </resources>

@@ -2,4 +2,11 @@
 <resources>
   <resource name="Pistol" type="RESOURCE"/>
   <resource name="ForceANature" type="RESOURCE"/>
+  <resource name="SodaPopper" type="RESOURCE"/>
+  <resource name="ShortStop" type="RESOURCE"/>
+  <resource name="BonkHand" type="RESOURCE"/>
+  <resource name="Lasergun" type="RESOURCE"/>
+  <resource name="Sandman" type="RESOURCE"/>
+  <resource name="Atomizer" type="RESOURCE"/>
+  <resource name="MadmilkHand" type="RESOURCE"/>
 </resources>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">wallSetSolid();
+    if 1 &gt; 1 image_index=team+1;
+    damage+=0.2;
+
+    if (global.run_virtual_ticks)
+    {
+        particleCycle = (particleCycle + 1) mod 2;
+        if(particleCycle) {
+            var trail, color;
+            trail = instance_create(x, y, MineTrail);
+            if team == TEAM_RED color = c_red;
+            else color = c_blue;
+            trail.image_blend = color;
+        }
+    }
+
+    if(abs(vspeed)&lt;0.2) {
+        vspeed=0;
+    }
+
+    if (place_free(x, y+1))
+        vspeed += 0.7 * global.delta_factor;
+    else
+    {
+        vspeed = min(vspeed, 0);
+        hspeed = hspeed * delta_mult(0.9);
+        bounced+=1;
+        if bounced &gt; 3 used = 1; 
+    }
+    if (vspeed &gt; 11)
+        vspeed = 11;
+        
+    if (speed &lt; 0.2)
+        speed = 0;
+    if (abs(rotspeed) &lt; 0.2)
+        rotspeed = 0;
+    
+    rotspeed *= power(0.97, global.delta_factor);
+    
+    vis_angle += rotspeed * global.delta_factor;
+    //image_angle = vis_angle;
+    
+    if(!place_free(x+hspeed, y+vspeed)){
+        hspeed*=hfric;
+        rotspeed*=rotfric;
+        collided=true;
+
+        wallSetSolid();
+
+        really_move_contact_solid(point_direction(x,y,x+hspeed,y+vspeed), speed);
+
+        if(!place_free(x,y+sign(vspeed)))
+        {
+            vspeed *= -0.4;
+            if(!place_free(x+hspeed,y))
+            {
+                really_move_contact_solid(point_direction(x,y,x+hspeed,y+vspeed), speed);
+                hspeed *= -0.4;
+            }
+        }
+        if(!place_free(x+sign(hspeed),y))
+        {
+            hspeed *= -0.4;
+            if(!place_free(x,y+vspeed))
+            {
+                really_move_contact_solid(point_direction(x,y,x+hspeed,y+vspeed), speed);
+                vspeed *= -0.4;
+            }
+        }
+
+        bounced+=1;
+        if bounced &gt; 3 used = 1; 
+    }
+    
+    if (speed &gt; 0)
+        if (point_distance(x,y,view_xview[0],view_yview[0]) &gt; 2000)
+            instance_destroy();
+    
+    x += hspeed * global.delta_factor;
+    y += vspeed * global.delta_factor;
+    x -= hspeed;
+    y -= vspeed;
+
+
+    wallUnsetSolid();
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -17,9 +17,15 @@
     xoffset = -3;
     yoffset = -6;
     refireTime = 6;
-    event_inherited();
+    
+    spriteBase = NailgunS;
+    spriteRecoil = NailgunFS;
+    spriteReload = NailgunS;
+    
     maxAmmo = 0;
-    ammoCount = maxAmmo;
+    reloadTime = 20;
+    reloadBuffer = 20;
+    event_inherited();
 
     shots = 1;
 
@@ -36,9 +42,7 @@
     specialSnd = PistolSnd;
     specialSprite = NailS;
     
-    spriteBase = NailgunS;
-    spriteRecoil = NailgunFS;
-    spriteReload = NailgunS;
+    
 
     reloadShell = true;
 }

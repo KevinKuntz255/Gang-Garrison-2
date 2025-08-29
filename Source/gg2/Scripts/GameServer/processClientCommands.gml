@@ -199,8 +199,8 @@ while(commandLimitRemaining > 0) {
                 bubbleImage = 61;
             }
             else if (bubbleImage == 61 and !global.aFirst) {
-            	// Player sent an april fools bubble on another day
-            	break;
+            // Player sent an april fools bubble on another day
+            break;
             }
             write_ubyte(global.sendBuffer, CHAT_BUBBLE);
             write_ubyte(global.sendBuffer, playerId);
@@ -214,6 +214,7 @@ while(commandLimitRemaining > 0) {
                 if player.object.taunting == true 
                 or player.object.omnomnomnom == true
                 or player.object.currentWeapon.ubering == true
+                or player.object.canSwitch == false
                 break;
                 
                 /*or player.object.buffing == true
@@ -229,19 +230,23 @@ while(commandLimitRemaining > 0) {
                 //or global.medieval
                 //  or player.class == CLASS_QUOTE
                 or player.object.canSwitch = false*/ 
-                
-                //if player.object.loaded1 != -1 && player.object.loaded2 != -1 {
-                    var weapon;
+                var weapon;
                     //if player.object.weapon_index == player.object.loaded1 weapon=player.object.loaded2;
                     //else weapon = player.object.loaded1;
-                    if(player.object.currentWeapon.object_index != player.object.weapons[1]) weapon = player.object.weapons[1] else weapon = player.object.weapons[0];
-                    write_ubyte(global.sendBuffer, WEAPON_SWAP);
-                    write_ubyte(global.sendBuffer, playerId);
-                    write_ubyte(global.sendBuffer, weapon);
-                    with(player.object) {
-                        weaponSwitch(weapon);
-                   }
-                //}
+                if(player.object.currentWeapon.object_index != player.object.weapons[1]) {
+                    weapon = player.object.weapons[1] 
+                    player.object.activeWeapon = 1;
+                } else {
+                    weapon = player.object.weapons[0];
+                    player.object.activeWeapon = 0;
+                }
+                write_ubyte(global.sendBuffer, WEAPON_SWAP);
+                write_ubyte(global.sendBuffer, playerId);
+                write_ubyte(global.sendBuffer, weapon);
+                //write_ubyte(global.sendBuffer, player.object.activeWeapon);
+                with(player.object) {
+                    weaponSwitch(weapon);
+                }
              }
              break;
 

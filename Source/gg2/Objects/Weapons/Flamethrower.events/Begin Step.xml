@@ -17,6 +17,7 @@
     ammoCount = 0;
 else if (ammoCount &lt;= maxAmmo and isRefilling)
     ammoCount += 1.8 * global.delta_factor;
+  
 </argument>
       </arguments>
     </action>

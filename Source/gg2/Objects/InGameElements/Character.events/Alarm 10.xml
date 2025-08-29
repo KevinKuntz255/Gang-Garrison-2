@@ -28,7 +28,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">abilityActive = false;
+        <argument kind="STRING">player.humiliated = false;
 </argument>
       </arguments>
     </action>

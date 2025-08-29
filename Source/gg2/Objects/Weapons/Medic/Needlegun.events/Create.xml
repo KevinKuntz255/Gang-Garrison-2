@@ -20,7 +20,7 @@
     event_inherited();
     
     maxAmmo = 40
-    ammoCount = maxAmmo;
+    ammoCount = owner.ammo[owner.activeWeapon];
     reloadTime = 55;
     reloadBuffer = 0;
     idle=true;

@@ -2,4 +2,6 @@
 <resources>
   <resource name="Sandvich" type="RESOURCE"/>
   <resource name="Grenade" type="RESOURCE"/>
+  <resource name="MadMilk" type="RESOURCE"/>
+  <resource name="Ball" type="RESOURCE"/>
 </resources>

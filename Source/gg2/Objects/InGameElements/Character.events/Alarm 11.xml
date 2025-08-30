@@ -28,20 +28,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">for(i=0; i&lt;2; i+=1) {
-    if (abilityActive[i]) abilityActive[i] = false;
-    if (ability[i] == INVINC)
-    {
-        currentWeapon.readyToShoot = true;
-        currentWeapon.readyToStab = true;
-        currentWeapon.readyToFlare = true;
-        currentWeapon.readyToBlast = true;
-        abilityActive[i] = false;
-    }
-    /*if (ability[i] == MINICRIT and weaponType[i] == BANNER)*/
-}
-player.humiliated = false;
-//abilityActive = false;
+        <argument kind="STRING">player.humiliated = false;
 </argument>
       </arguments>
     </action>

@@ -18,7 +18,7 @@ yoffset += sprite_yoffset;
 readyToShoot = false;
 justShot = false;
 alarm[0] = refireTime / global.delta_factor;
-
+    
 isMelee = false;
 ubering = false;
 
@@ -43,11 +43,24 @@ unscopedDamage = 0;
 
 
 // weaponGrade for Unique/Stock/Special
-weaponGrade = STOCK;
+if (!variable_local_exists("weaponGrade")) weaponGrade = STOCK;
 // weaponType for each weapon
-weaponType = SHOT;
+if (!variable_local_exists("weaponType")) weaponType = SHOT;
 
 owner = global.paramOwner;
+// todo: use an alarm instead
+if (owner.runCombo) {
+    readyToShoot = true;
+    readyToStab = true;
+    readyToFlare = true;
+    readyToBlast = true;
+}
+
+if (owner.ammo[owner.activeWeapon] &lt; maxAmmo) {
+    alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
+    alarm[6] = refireTime / global.delta_factor;
+}
+
 ownerPlayer = global.paramOwner.player;
 // old variables are kept around for old plugins, can't replace em that easy
 switch(owner.player.class)

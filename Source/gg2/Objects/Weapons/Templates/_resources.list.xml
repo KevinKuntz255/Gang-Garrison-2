@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
   <resource name="ShotT" type="RESOURCE"/>
+  <resource name="ProjectileT" type="RESOURCE"/>
   <resource name="MeleeT" type="RESOURCE"/>
   <resource name="ThrowableT" type="RESOURCE"/>
+  <resource name="FlameT" type="RESOURCE"/>
 </resources>

@@ -17,12 +17,14 @@
     xoffset= -3;
     yoffset= -2;
     refireTime = 18;
-    event_inherited();
 
     maxAmmo = 1;
-    ammoCount = maxAmmo;
+    
     reloadTime = 300;
     reloadBuffer = refireTime;
+    event_inherited();
+
+    ammoCount = maxAmmo;
     idle=true;
     
     isMelee = true;
@@ -33,8 +35,8 @@
     abilityVisual = "BLUR";
     rechargeAbility = ALARM;
     
-    owner.eatCooldown = 900;
-    maxMeter = (1-(owner.alarm[6]/(owner.eatCooldown / global.delta_factor))) * 100
+    owner.eatCooldown = 300;
+    maxMeter = owner.eatCooldown;
     meter = maxMeter;
     
     weaponGrade = UNIQUE;

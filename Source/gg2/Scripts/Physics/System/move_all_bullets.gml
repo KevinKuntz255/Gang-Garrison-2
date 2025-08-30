@@ -164,6 +164,19 @@ if(global.particles == PARTICLES_ALTERNATIVE)
         part_system_depth(global.flameParticleSystem, 10);
     }
     part_type_life(global.flameParticleType, 4/global.delta_factor, 7/global.delta_factor);
+    // just incase of desyncs since overriding a global system seems risky
+    if(not variable_global_exists("snowflakeParticleType"))
+    {
+        global.snowflakeParticleType = part_type_create();
+        part_type_sprite(global.snowflakeParticleType, SnowflakeS, true, false, true);
+        part_type_alpha2(global.snowflakeParticleType, 1, 0.3);
+    }
+    if(not variable_global_exists("snowflakeParticleSystem"))
+    {
+        global.snowflakeParticleSystem = part_system_create();
+        part_system_depth(global.snowflakeParticleSystem, 10);
+    }
+    part_type_life(global.snowflakeParticleType, 4/global.delta_factor, 7/global.delta_factor);
 }
 with(BurningProjectile)
 {
@@ -175,13 +188,22 @@ with(BurningProjectile)
     
     if(global.particles == PARTICLES_NORMAL and global.run_virtual_ticks)
     {
-        if(random(5) < 1)
-            effect_create_below(ef_smokeup, x, y-8, 0, c_gray);
+        if(object_index == Snowflake){
+            if(random(5) < 1){
+                effect_create_below(ef_smoke,x,y,0,c_silver);
+            }
+        }else{
+            if(random(5) < 1){
+                effect_create_below(ef_smokeup, x, y-8, 0, c_gray);
+            }
+        }
     }
     else if(global.particles == PARTICLES_ALTERNATIVE and global.run_virtual_ticks)
     {
-        if(random(8) < 1)
-            part_particles_create(global.flameParticleSystem,x,y,global.flameParticleType,1);
+        if(random(8) < 1) {
+            if(object_index == Snowflake) part_particles_create(global.snowflakeParticleSystem,x,y,global.snowflakeParticleType,1);
+            else part_particles_create(global.flameParticleSystem,x,y,global.flameParticleType,1);
+        }
     }
     
     dx = hspeed * global.delta_factor;

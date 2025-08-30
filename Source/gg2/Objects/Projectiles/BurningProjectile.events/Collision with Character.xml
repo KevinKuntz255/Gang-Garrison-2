@@ -30,7 +30,9 @@
     other.lastDamageSource = weapon;
     
     // afterburn stuff
-    {
+    if(!object_is_ancestor(object.object_index, Pyro) &amp;&amp; object.abilityActive[0] and object.ability[0] != INVINC or object.abilityActive[1] and object.ability[1] != INVINC) {
+        if variable_local_exists("isSnowflake") other.frozen = true; else other.frozen = false;
+    
         other.burnDuration += durationIncrease; 
         
         var falloffAmount;

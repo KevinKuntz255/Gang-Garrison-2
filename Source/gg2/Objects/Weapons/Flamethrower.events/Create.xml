@@ -17,6 +17,10 @@
     xoffset = -11;
     yoffset = 4;
     refireTime = 1;
+    
+    maxAmmo = 200;
+    reloadTime = 0;
+    reloadBuffer = 7;
     event_inherited();
     
     blastDistance = 150;
@@ -32,12 +36,12 @@
     readyToFlare = false;
     justBlast = false;
     
-    maxAmmo = 200;
+    
     ammoCount = owner.ammo[owner.activeWeapon];
     soundLoopTime = 30;
     currentTime = 0;
     
-    reloadBuffer = 7;
+    
     isRefilling = false;
     
     if(golden)

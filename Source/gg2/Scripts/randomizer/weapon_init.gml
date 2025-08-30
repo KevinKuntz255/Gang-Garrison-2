@@ -23,6 +23,29 @@ global.weapons[WEAPON_MADMILK] = MadmilkHand;
 global.name[WEAPON_MADMILK] = "Madmilk";
 global.weapons[WEAPON_ATOMIZER] = Atomizer;
 global.name[WEAPON_ATOMIZER] = "Atomizer";
+
+
+// Pyro
+global.weapons[WEAPON_FLAMETHROWER] = Flamethrower;
+global.name[WEAPON_FLAMETHROWER] = "Flamethrower";
+global.weapons[WEAPON_PHLOG] = Phlog;
+global.name[WEAPON_PHLOG] = "Phlogistinator";
+global.weapons[WEAPON_TRANSMUTATOR] = Transmutator;
+global.name[WEAPON_TRANSMUTATOR] = "Transmutator";
+global.weapons[WEAPON_FROSTBITE] = Frostbite;
+global.name[WEAPON_FROSTBITE] = "Frostbite";
+global.weapons[WEAPON_BACKBURNER] = Backburner;
+global.name[WEAPON_BACKBURNER] = "Backburner";
+global.weapons[WEAPON_PYROSHOTGUN] = Shotgun;
+global.name[WEAPON_PYROSHOTGUN] = "Shotgun";
+global.weapons[WEAPON_FLAREGUN] = Flaregun;
+global.name[WEAPON_FLAREGUN] = "Flaregun";
+global.weapons[WEAPON_DETONATOR] = Detonator;
+global.name[WEAPON_DETONATOR] = "Detonator";
+global.weapons[WEAPON_NAPALM] = NapalmHand;
+global.name[WEAPON_NAPALM] = "Napalm Grenade";
+global.weapons[WEAPON_WRECKER] = Axe;
+global.name[WEAPON_WRECKER] = "Homewrecker";
 /*
 // Soldier
 global.weapons[WEAPON_ROCKETLAUNCHER] = Rocketlauncher;
@@ -178,27 +201,7 @@ global.name[WEAPON_SPYCICLE] = "Spycicle";
 global.weapons[WEAPON_ZAPPER] = Zapper;
 global.name[WEAPON_ZAPPER] = "Zapper";
 
-// Pyro
-global.weapons[WEAPON_FLAMETHROWER] = Flamethrower;
-global.name[WEAPON_FLAMETHROWER] = "Flamethrower";
-global.weapons[WEAPON_PHLOG] = Phlog;
-global.name[WEAPON_PHLOG] = "Phlogistinator";
-global.weapons[WEAPON_TRANSMUTATOR] = Transmutator;
-global.name[WEAPON_TRANSMUTATOR] = "Transmutator";
-global.weapons[WEAPON_FROSTBITE] = Frostbite;
-global.name[WEAPON_FROSTBITE] = "Frostbite";
-global.weapons[WEAPON_BACKBURNER] = Backburner;
-global.name[WEAPON_BACKBURNER] = "Backburner";
-global.weapons[WEAPON_PYROSHOTGUN] = PyroShotgun;
-global.name[WEAPON_PYROSHOTGUN] = "Shotgun";
-global.weapons[WEAPON_FLAREGUN] = Flaregun;
-global.name[WEAPON_FLAREGUN] = "Flaregun";
-global.weapons[WEAPON_DETONATOR] = Detonator;
-global.name[WEAPON_DETONATOR] = "Detonator";
-global.weapons[WEAPON_NAPALM] = NapalmHand;
-global.name[WEAPON_NAPALM] = "Napalm Grenade";
-global.weapons[WEAPON_WRECKER] = Axe;
-global.name[WEAPON_WRECKER] = "Homewrecker";
+
 
 // Quote and Curly
 global.weapons[WEAPON_BLADE] = Blade;
@@ -227,11 +230,6 @@ global.name[WEAPON_SAXTONHALE] = "HAXTON SAAAAAAAAALE";
 */
 
 // defaults
-
-global.weapons[WEAPON_FLAMETHROWER] = Flamethrower;
-global.name[WEAPON_FLAMETHROWER] = "Flamethrower";
-global.weapons[WEAPON_PYROSHOTGUN] = Shotgun;
-global.name[WEAPON_PYROSHOTGUN] = "Shotgun";
 
 global.weapons[WEAPON_ROCKETLAUNCHER] = Rocketlauncher;
 global.name[WEAPON_ROCKETLAUNCHER] = "Rocketlauncher";

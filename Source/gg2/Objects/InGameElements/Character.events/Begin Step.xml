@@ -71,9 +71,20 @@ if (global.run_virtual_ticks)
             alarm[3] = ASSIST_TIME / global.delta_factor;
             lastDamageDealer = burnedBy;
             lastDamageSource = afterburnSource;
-            dealDamage(lastDamageDealer, id, burnIntensity / 30);
+            dealDamage(lastDamageDealer, id, burnIntensity / (30*(frozen+1)));
         }
         burnDuration -= durationDecay;
+        
+        if instance_exists(lastDamageDealer) {
+            if lastDamageDealer.object != -1 {
+                for(i=0; i&lt;2; i+=1) {
+                    if (lastDamageDealer.object.rechargeAbility[i] == DAMAGE)
+                    {
+                        lastDamageDealer.object.meter[i] += burnIntensity / (30*(frozen+1));
+                    }
+                }
+            }
+        }
         timeUnscathed = 0;
     }
     if (alarm[0] == -1 &amp;&amp; burnIntensity &gt; 0) burnIntensity -= intensityDecay;
@@ -83,6 +94,7 @@ if (global.run_virtual_ticks)
         burnIntensity = 0;
         burnedBy = -1;
         afterburnSource = -1;
+        frozen = false;
     }
 }
 // Handle input

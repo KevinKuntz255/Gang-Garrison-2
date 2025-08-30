@@ -125,6 +125,7 @@
                         }
                         stickied = false;
                     }
+                    if (object_index == Grenade) team = other.owner.team;
                 }
             }
         }
@@ -151,6 +152,7 @@
                     alarm[3] = ASSIST_TIME / global.delta_factor;
                     lastDamageDealer = other.ownerPlayer;
                     lastDamageSource = -1;
+                    other.owner.runCombo = true;
                 } 
                 //Extinguishes
                 else if (burnIntensity &gt; 0 or burnDuration &gt; 0)

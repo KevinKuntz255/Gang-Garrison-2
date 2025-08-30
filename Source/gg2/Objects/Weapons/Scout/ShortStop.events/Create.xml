@@ -14,13 +14,14 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">{
-    xoffset = -3;
-    yoffset = -12;
+    xoffset=-3;
+    yoffset=-6;
     refireTime = 13;
     
-    spriteBase = ShortStopS;
-    spriteRecoil = ShortStopFS;
-    spriteReload = ShortStopS;
+    normalSprite = ShortStopS;
+    recoilSprite = ShortStopFS;
+    reloadSprite = ShortStopFRS;
+    
     maxAmmo = 4;
     reloadTime = 45.6;
     reloadBuffer = 20;

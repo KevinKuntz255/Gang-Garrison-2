@@ -18,9 +18,9 @@
     yoffset = -6;
     refireTime = 6;
     
-    spriteBase = NailgunS;
-    spriteRecoil = NailgunFS;
-    spriteReload = NailgunS;
+    normalSprite = NailgunS;
+    recoilSprite = NailgunFS;
+    reloadSprite = NailgunS;
     
     maxAmmo = 0;
     reloadTime = 20;

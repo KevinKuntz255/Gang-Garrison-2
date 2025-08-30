@@ -109,16 +109,21 @@ x -= hspeed;
 y -= vspeed;
 
 // blurring
-blur = (abilityActive &amp;&amp; string_count("BLUR",currentWeapon.abilityVisual) != 0);
-if (blur) {
-    with(RadioBlur) {
-			     if (owner == other.id) exit;
-        blur=instance_create(x,y,RadioBlur);
-		      blur.owner=id;
-    }
-} else {
-    with(RadioBlur) {
-        if (owner == other.id) owner = -1;
+for(i=0; i&lt;2; i+=1) {
+    if (abilityActive[i]) {
+        if (string_count("BLUR",abilityVisual[i]) != 0 ) {
+            if (blur) {
+                with(RadioBlur) {
+                    if (owner == other.id) exit;
+                    blur=instance_create(x,y,RadioBlur);
+                    blur.owner=id;
+                }
+            } else {
+                with(RadioBlur) {
+                    if (owner == other.id) owner = -1;
+                }
+            }
+        }
     }
 }
 

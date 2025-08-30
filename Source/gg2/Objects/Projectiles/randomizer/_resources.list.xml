@@ -4,4 +4,7 @@
   <resource name="Grenade" type="RESOURCE"/>
   <resource name="MadMilk" type="RESOURCE"/>
   <resource name="Ball" type="RESOURCE"/>
+  <resource name="Snowflake" type="RESOURCE"/>
+  <resource name="NapalmGrenade" type="RESOURCE"/>
+  <resource name="NapalmFlame" type="RESOURCE"/>
 </resources>

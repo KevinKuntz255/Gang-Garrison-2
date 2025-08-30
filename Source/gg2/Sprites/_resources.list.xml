@@ -14,5 +14,4 @@
   <resource name="DevMessagesCheckerS" type="RESOURCE"/>
   <resource name="pointS" type="RESOURCE"/>
   <resource name="emptyMaskS" type="RESOURCE"/>
-  <resource name="randomizer" type="GROUP"/>
 </resources>

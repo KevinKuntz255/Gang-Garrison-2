@@ -29,28 +29,31 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">with(owner) {
-    abilityActive[1] = false;
+    if (ability[1] != ALARM) abilityActive[1] = false;
     if (ability[1] == INVINC)
     {
         currentWeapon.readyToShoot = true;
         currentWeapon.readyToStab = true;
         currentWeapon.readyToFlare = true;
         currentWeapon.readyToBlast = true;
-    }
-    if (currentWeapon.object_index == BonkHand)
-    {
-        if (owner.team == TEAM_BLUE) owner._oldTauntSprite = ScoutBlueTauntS; else owner._oldTauntSprite = ScoutRedTauntS;
-        owner.tauntsprite = ScoutBonkS;
-        owner.tauntlength = sprite_get_number(owner.tauntsprite)/2;
-        owner.tauntindex=owner.tauntlength * owner.player.team;
-        owner.tauntend=owner.tauntlength * (1 + owner.player.team) - 1;
-        owner.tauntspeed = 4;
+        // todo: call for weapons[0] being BonkHand, need to work on throwable timer atm
+        if (weapons[1] == BonkHand and activeWeapon == 1)
+        {
+            playsound(x,y,UberEndSnd);
+            if (team == TEAM_BLUE) _oldTauntSprite = ScoutBlueTauntS; else _oldTauntSprite = ScoutRedTauntS;
+            tauntsprite = ScoutBonkS;
+            tauntlength = sprite_get_number(tauntsprite)/2;
+            tauntindex=tauntlength * player.team;
+            tauntend=tauntlength * (1 + player.team) - 1;
+            tauntspeed = 4;
+        }
     }
     if (rechargeAbility[1] == ALARM)
     {
         meter[1] = maxMeter[1];
+        if (weaponType[1] == THROWABLE and activeWeapon == 1) currentWeapon.ammoCount = currentWeapon.maxAmmo;
     }
-    playsound(x,y,PickupSnd);
+    playsound(x,y,rechargeSnd);
 }
 </argument>
       </arguments>

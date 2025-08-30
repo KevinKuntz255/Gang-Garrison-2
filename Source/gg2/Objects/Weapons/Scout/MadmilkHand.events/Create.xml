@@ -19,9 +19,9 @@
     
     refireTime = 18;
     
-    spriteBase = MadMilkHandS;
-    spriteRecoil = MadMilkHandS;
-    spriteReload = MadMilkHandS;
+    normalSprite = MadMilkHandS;
+    recoilSprite = MadMilkHandS;
+    reloadSprite = MadMilkHandS;
     event_inherited();
 
     throwProjectile = MadMilk;

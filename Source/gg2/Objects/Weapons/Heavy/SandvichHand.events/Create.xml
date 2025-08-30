@@ -17,12 +17,15 @@
     xoffset= -12;
     yoffset= -8;
     refireTime = 18;
-    event_inherited();
-
+    
     maxAmmo = 1;
-    ammoCount = owner.ammo[owner.activeWeapon];
     reloadTime = 300;
     reloadBuffer = refireTime;
+    event_inherited();
+
+    
+    ammoCount = owner.ammo[owner.activeWeapon];
+    
     idle=true;
     
     isMelee = true;

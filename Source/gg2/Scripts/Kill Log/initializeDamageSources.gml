@@ -26,7 +26,7 @@ createGlobalDamageSource("DAMAGE_SOURCE_FINISHED_OFF",        DeadKL);
 createGlobalDamageSource("DAMAGE_SOURCE_FINISHED_OFF_GIB",    DeadKL);
 createGlobalDamageSource("DAMAGE_SOURCE_BID_FAREWELL",        DeadKL);
 createGlobalDamageSource("DAMAGE_SOURCE_GENERATOR_EXPLOSION", ExplodeKL);
-//Special Weapons
+//Special Weapons, sorted chronologically
 createGlobalDamageSource("DAMAGE_SOURCE_PISTOL",              PistolKL);
 createGlobalDamageSource("DAMAGE_SOURCE_GRENADE",             GrenadelauncherKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SMG",                 SmgKL);
@@ -36,4 +36,10 @@ createGlobalDamageSource("DAMAGE_SOURCE_SODAPOPPER",          SodaPopperKL);
 createGlobalDamageSource("DAMAGE_SOURCE_FLASHLIGHT",          LasergunKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SANDMAN",             BatKL);
 createGlobalDamageSource("DAMAGE_SOURCE_BALL",                BallHitKL);
-createGlobalDamageSource("DAMAGE_SOURCE_ATOMIZER",          AtomizerKL);
+createGlobalDamageSource("DAMAGE_SOURCE_ATOMIZER",            AtomizerKL);
+createGlobalDamageSource("DAMAGE_SOURCE_BACKBURNER",          BackBurnerKL);
+createGlobalDamageSource("DAMAGE_SOURCE_TRANSMUTATOR",        TransmutatorKL);
+createGlobalDamageSource("DAMAGE_SOURCE_FROSTBITE",           FrostbiteKL);
+createGlobalDamageSource("DAMAGE_SOURCE_PHLOG",               PhlogKL);
+createGlobalDamageSource("DAMAGE_SOURCE_FLAREGUN",            FlaregunKL);
+createGlobalDamageSource("DAMAGE_SOURCE_DETONATOR",           DetonatorKL);

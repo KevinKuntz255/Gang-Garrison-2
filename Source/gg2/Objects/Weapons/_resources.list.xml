@@ -12,6 +12,7 @@
   <resource name="Rifle" type="RESOURCE"/>
   <resource name="Blade" type="RESOURCE"/>
   <resource name="Scout" type="GROUP"/>
+  <resource name="Pyro" type="GROUP"/>
   <resource name="Demoman" type="GROUP"/>
   <resource name="Heavy" type="GROUP"/>
   <resource name="Engineer" type="GROUP"/>

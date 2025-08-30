@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
   <resource name="Firing" type="GROUP"/>
+  <resource name="Reloading" type="GROUP"/>
   <resource name="Scout" type="GROUP"/>
+  <resource name="Pyro" type="GROUP"/>
   <resource name="Demoman" type="GROUP"/>
   <resource name="Heavy" type="GROUP"/>
   <resource name="Spy" type="GROUP"/>

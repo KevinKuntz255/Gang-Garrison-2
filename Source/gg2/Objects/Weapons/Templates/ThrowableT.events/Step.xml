@@ -13,7 +13,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">image_index = owner.team + 2 * real(owner.meter[owner.activeWeapon]);
+        <argument kind="STRING">image_index = owner.team + 2 * real(ammoCount);
 </argument>
       </arguments>
     </action>

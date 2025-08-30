@@ -15,15 +15,21 @@
       <arguments>
         <argument kind="STRING">{
     refireTime = 18;
+    
+    maxAmmo = 1;
+    
+    reloadTime = 300;
+    reloadBuffer = reloadTime;
     event_inherited();
 
     isMelee = true;
 
-    maxAmmo = 1;
-    ammoCount = maxAmmo;
+    ability = ALARM;
+    rechargeAbility = ALARM;
+    maxMeter = 300;
+    meter = maxMeter;
     
-    reloadTime = 300;
-    reloadBuffer = refireTime;
+    if (meter &gt;= maxAmmo) ammoCount = maxAmmo; else ammoCount = 0;
 
     shotSpeed = 13;
 
@@ -33,22 +39,14 @@
     projectileDir[0] = 7;
     projectileDir[1] = 4;
     
-    ability = ALARM;
-    rechargeAbility = ALARM;
-    maxMeter = 1;
-    meter = maxMeter;
     
     weaponType = THROWABLE;
     weaponGrade = UNIQUE;
     
-    if (!variable_local_exists("spriteBase")) spriteBase = JarateHandS;
-    if (!variable_local_exists("spriteRecoil")) spriteRecoil = JarateHandS;
-    if (!variable_local_exists("spriteReload")) spriteReload = JarateHandS;
-    
-    normalSprite = spriteBase;
-    recoilSprite = spriteRecoil;
-    reloadSprite = spriteReload;
-    
+    if (!variable_local_exists("normalSprite")) normalSprite = JarateHandS;
+    if (!variable_local_exists("recoilSprite")) recoilSprite = JarateHandS;
+    if (!variable_local_exists("reloadSprite")) reloadSprite = JarateHandS;
+  
     sprite_index = normalSprite;
     
     image_speed = 0;

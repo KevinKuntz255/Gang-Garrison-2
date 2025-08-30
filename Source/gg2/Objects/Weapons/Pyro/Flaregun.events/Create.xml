@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{  
+    xoffset=-3;
+    yoffset=-2;
+    refireTime = 45;
+    
+    normalSprite = FlaregunS;
+    recoilSprite = FlaregunFS;
+    reloadSprite = FlaregunS;
+    
+    maxAmmo = 1;
+    reloadTime = 30;
+    reloadBuffer = refireTime;
+    event_inherited();
+
+    specialProjectile = Flare;
+    projectilePosition = 15;
+    projectileSpeed = 15;
+    directDamage = 30;
+    
+    damSource = DAMAGE_SOURCE_FLAREGUN;
+
+    fullReload = true;
+        
+    specialSnd = FlaregunSnd;
+
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

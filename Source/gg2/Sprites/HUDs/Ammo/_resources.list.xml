@@ -9,4 +9,8 @@
   <resource name="NeedleAmmoS" type="RESOURCE"/>
   <resource name="ScattergunAmmoS" type="RESOURCE"/>
   <resource name="MinegunAmmoS" type="RESOURCE"/>
+  <resource name="TemplateS" type="RESOURCE"/>
+  <resource name="BlackBoxClipS" type="RESOURCE"/>
+  <resource name="DirectHitClipS" type="RESOURCE"/>
+  <resource name="AmmoHUDsS" type="RESOURCE"/>
 </resources>

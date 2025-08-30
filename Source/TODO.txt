@@ -1,20 +1,22 @@
 # next commit:
-fix ALARM rechargeAbility tracker being inaccurate
-givePassiveEffect
-add reload anims
-implement ammo HUD
-Track variables into server
+TauntKills
+fix AmmoCounter bugging out with flamethrowers, related to addition of reload on swap
+
 all:
 Fix LoadoutMenu breaking positions in other resolutions
 Implement crits in kill log
 add headshots
 add randomizerMode
 add medievalMode
+overheal
 Figure out soakType
+Add TauntKills
+chat
+
 Loadouts (Start Chronologically):
 
 # Firebug
-Entire Kit
+homewrecker additional damage
 
 # Rocketman
 Entire Kit
@@ -31,7 +33,6 @@ Entire Kit
 
 # Constructor
 Entire Kit
-Leave Sentries as final due to the networking quirks
 
 # Infiltrator
 Entire Kit
@@ -39,4 +40,6 @@ Entire Kit
 # Rifleman
 Entire Kit
 
+FINAL:
 Q/C after all loadouts implemented
+Implement sentry upgrades

@@ -17,6 +17,10 @@
     xoffset = -7;
     yoffset = 0;
     refireTime = 3;
+    
+    maxAmmo = 40;
+    reloadTime = 55;
+    reloadBuffer = 1;
     event_inherited();
     
     healTarget = noone;
@@ -25,10 +29,8 @@
     hphealed = 0;
     maxHealDistance = 300;
     maxMouseSelectDistance = 150; // Heal target selection will favor the character closest to the mouse, as long as it is within this distance of the mouse cursor.
-    maxAmmo = 40
     ammoCount = owner.ammo[owner.activeWeapon];
-    reloadTime = 55;
-    reloadBuffer = 0;
+    
     idle=true;
     
     // Threshhold system numbers

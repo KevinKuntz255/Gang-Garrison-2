@@ -18,9 +18,9 @@
     yoffset = -6;
     refireTime = 5;
     
-    spriteBase = PistolS;
-    spriteRecoil = PistolFS;
-    spriteReload = PistolS;
+    normalSprite = PistolS;
+    recoilSprite = PistolFS;
+    reloadSprite = PistolFRS;
     
     maxAmmo = 12;
     reloadTime = 20;

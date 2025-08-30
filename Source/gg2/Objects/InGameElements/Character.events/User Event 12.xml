@@ -25,7 +25,8 @@
         write_byte(global.serializeBuffer, hspeed*8.5);
         write_byte(global.serializeBuffer, vspeed*8.5);
         write_ubyte(global.serializeBuffer, ceil(hp));
-        write_ubyte(global.serializeBuffer, currentWeapon.ammoCount);
+        write_ubyte(global.serializeBuffer, ammo[0]);
+        write_ubyte(global.serializeBuffer, ammo[1]);
         
         temp = 0;
         if(cloak) temp |= $01;

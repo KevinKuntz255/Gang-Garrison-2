@@ -17,6 +17,10 @@
     xoffset = 0;
     yoffset = -3;
     refireTime = 5;
+
+    maxAmmo = 90;
+    reloadTime = 55;
+    reloadBuffer = 1;
     event_inherited();
     
     bubbleRefireTime = 4;
@@ -28,13 +32,10 @@
     maxBlades = 1;
     bladeDamage = 17;
     depletedBladeDamage = 8;
-    maxAmmo = 90;
     replenishingRate = 2;
     ammoCount = owner.ammo[owner.activeWeapon];
     lowAmmoThreshold = 1/3 * maxAmmo;
     highAmmoThreshold = 2/3 * maxAmmo;
-    reloadTime = 55;
-    reloadBuffer = 0;
     
     if(golden)
     {

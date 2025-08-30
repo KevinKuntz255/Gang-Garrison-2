@@ -18,9 +18,9 @@
     yoffset = -4;
     refireTime = 14;
     
-    spriteBase = ForceANatureS;
-    spriteRecoil = ForceANatureFS;
-    spriteReload = ForceANatureS;
+    normalSprite = ForceANatureS;
+    recoilSprite = ForceANatureFS;
+    reloadSprite = ForceANatureFRS;
     
     maxAmmo = 3;
     reloadTime = 90;

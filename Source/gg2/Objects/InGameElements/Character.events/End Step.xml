@@ -53,11 +53,9 @@ if(hp&gt;maxHp) {
 // ability tracking
 if (rechargeAbility[activeWeapon] == RUN)
 {
-    if (abilityActive[activeWeapon])
-        meter[activeWeapon] -= 1 * global.delta_factor;
-        if (hspeed != 0 &amp;&amp; onground &amp;&amp; !abilityActive[activeWeapon]) {
-            meter[activeWeapon] += rechargeRate[activeWeapon]/16 * speed;
-        }
+    if (hspeed != 0 &amp;&amp; onground &amp;&amp; !abilityActive[activeWeapon]) {
+        meter[activeWeapon] += (rechargeRate[activeWeapon] / 16 * speed) * global.delta_factor;
+    }
     if (meter[activeWeapon] &gt;= maxMeter[activeWeapon]) {
         abilityActive[activeWeapon] = true;
     } else if (meter[activeWeapon] &lt;= 0) {
@@ -65,13 +63,14 @@ if (rechargeAbility[activeWeapon] == RUN)
     }
 }
 for(i=0; i&lt;2; i+=1) {
-    if (rechargeAbility[i] == ALARM &amp;&amp; meter[i] != maxMeter[i]) {
+    if (rechargeAbility[i] == ALARM) {
         if (weaponType[i] == CONSUMABLE) {
-            meter[i] = (1-(alarm[6]/(eatCooldown / global.delta_factor))) * 100;
+            if (alarm[6] != -1) meter[i] = alarm[6];
         } else {
-            meter[i] = (1-(tracker.alarm[i]/(maxMeter[i] / global.delta_factor))) * 100;
+            if (meter[i] != maxMeter[i]) meter[i] = tracker.alarm[i];
         }
     }
+    if (i == activeWeapon) meter[i] -= 1 * global.delta_factor;
     if (abilityActive[i]) {
         switch(ability[i])
         {
@@ -82,6 +81,7 @@ for(i=0; i&lt;2; i+=1) {
             case CRIT:
                 currentWeapon.crit = 1.35;
                 alarm[9] = 2 / global.delta_factor;
+            break;
             case INVINC:
                 currentWeapon.readyToShoot = false;
                 currentWeapon.readyToStab = false;

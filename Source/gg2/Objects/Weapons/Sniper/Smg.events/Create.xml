@@ -18,9 +18,9 @@
     yoffset = -6;
     refireTime = 3;
     
-    spriteBase = SmgS;
-    spriteRecoil = SmgFS;
-    spriteReload = SmgS;
+    normalSprite = SmgS;
+    recoilSprite = SmgFS;
+    reloadSprite = SmgS;
     
     maxAmmo = 25;
     reloadTime = 45;

@@ -52,9 +52,15 @@
         title2 = global.myself.object.abilityName[1];
     }
     
-    if (me.rechargeAbility[0] == ALARM and me.meter[0] == me.maxMeter[0]) message1 = -1;
-    if (me.rechargeAbility[1] == ALARM and me.meter[1] == me.maxMeter[1]) message2 = -1;
-    if (message1 = -1) messageoffset = 0;
+    if (me.rechargeAbility[0] == ALARM){
+        if (me.meter[0] == me.maxMeter[0]) message1 = -1;
+        if (me.weaponType[0] == CONSUMABLE &amp;&amp; me.canEat) message1 = -1;
+    }
+    if (me.rechargeAbility[1] == ALARM){
+        if (me.meter[1] == me.maxMeter[1]) message2 = -1;
+        if (me.weaponType[1] == CONSUMABLE &amp;&amp; me.canEat) message2 = -1;
+    }
+    if (message1 == -1) messageoffset = 0;
     if message1 != -1 {
         draw_healthbar(xoffset+665, yoffset+500, xoffset+785, yoffset+532,message1,c_black,c_white,c_white,0,true,true);
         draw_sprite_ext(UberHudS,uberoffset,xoffset+720,yoffset+515,2,2,0,c_white,1);

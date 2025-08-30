@@ -16,14 +16,13 @@
         <argument kind="STRING">{
     xoffset=-15;
     yoffset=-25;
-    spriteBase = AtomizerS;
-    spriteRecoil = AtomizerFS;
-    spriteReload = AtomizerS;
+    
+    normalSprite = AtomizerS;
+    recoilSprite = AtomizerFS;
+    reloadSprite = AtomizerS;
     event_inherited();
     
     damSource = DAMAGE_SOURCE_ATOMIZER;
-    
-    owner.canTriplejump = 1;
 }
 </argument>
       </arguments>

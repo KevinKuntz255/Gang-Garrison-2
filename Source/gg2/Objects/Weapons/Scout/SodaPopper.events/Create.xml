@@ -17,9 +17,11 @@
     xoffset = -5;
     yoffset = -4;
     refireTime = 12;
-    spriteBase = SodaPopperS;
-    spriteRecoil = SodaPopperFS;
-    spriteReload = SodaPopperS;
+    
+    normalSprite = SodaPopperS;
+    recoilSprite = SodaPopperFS;
+    reloadSprite = SodaPopperFRS;
+    
     maxAmmo = 2;
     reloadTime = 20;
     reloadBuffer = 20;

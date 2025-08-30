@@ -4,4 +4,7 @@
   <resource name="Sandvich2S" type="RESOURCE"/>
   <resource name="NailS" type="RESOURCE"/>
   <resource name="BallS" type="RESOURCE"/>
+  <resource name="SnowflakeS" type="RESOURCE"/>
+  <resource name="PhlogBeamS" type="RESOURCE"/>
+  <resource name="PhlogBurnS" type="RESOURCE"/>
 </resources>

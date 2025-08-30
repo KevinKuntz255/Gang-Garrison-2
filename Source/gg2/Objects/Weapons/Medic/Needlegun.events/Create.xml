@@ -17,12 +17,14 @@
     xoffset = -7;
     yoffset = 0;
     refireTime = 3;
+    
+    maxAmmo = 40;
+    reloadTime = 55;
+    reloadBuffer = 1;
     event_inherited();
     
-    maxAmmo = 40
     ammoCount = owner.ammo[owner.activeWeapon];
-    reloadTime = 55;
-    reloadBuffer = 0;
+    
     idle=true;
     
     if(golden)

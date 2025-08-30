@@ -14,6 +14,6 @@
   <resource name="Mine" type="RESOURCE"/>
   <resource name="Needle" type="RESOURCE"/>
   <resource name="AirBlastO" type="RESOURCE"/>
-  <resource name="randomizer" type="GROUP"/>
   <resource name="Rocket" type="RESOURCE"/>
+  <resource name="randomizer" type="GROUP"/>
 </resources>

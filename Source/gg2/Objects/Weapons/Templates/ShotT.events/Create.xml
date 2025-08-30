@@ -20,8 +20,6 @@
     ammoCount = owner.ammo[owner.activeWeapon];
     idle=true;
     
-    if (owner.ammo[owner.activeWeapon] != maxAmmo) alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
-    
     weaponGrade = UNIQUE;
     weaponType = SHOT;
     
@@ -45,13 +43,10 @@
     
     reloadShell = false;
 
-    if (!variable_local_exists("spriteBase")) spriteBase = ShotgunS;
-    if (!variable_local_exists("spriteRecoil")) spriteRecoil = ShotgunFS;
-    if (!variable_local_exists("spriteReload")) spriteReload = ShotgunFRS;
+    if (!variable_local_exists("normalSprite")) normalSprite = ShotgunS;
+    if (!variable_local_exists("recoilSprite")) recoilSprite = ShotgunFS;
+    if (!variable_local_exists("reloadSprite")) reloadSprite = ShotgunFRS;
     
-    normalSprite = spriteBase;
-    recoilSprite = spriteRecoil;
-    reloadSprite = spriteReload;
     sprite_index = normalSprite;
 
     recoilTime = refireTime;

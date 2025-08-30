@@ -15,7 +15,8 @@
       <arguments>
         <argument kind="STRING">if(owner.meter[owner.activeWeapon] == owner.maxMeter[owner.activeWeapon] &amp;&amp; readyToShoot) {
     playsound(x, y, swingSnd);
-    owner.meter[owner.activeWeapon] = 0; 
+    owner.meter[owner.activeWeapon] = 0;
+    ammoCount = 0;
     shot = instance_create(x,y + yoffset + 1,throwProjectile);
     if (randomDir) shot.direction = owner.aimDirection + random(projectileDir[0]) - projectileDir[1]; else shot.direction = owner.aimDirection;
     shot.speed = projectileSpeed;
@@ -24,7 +25,7 @@
     shot.team = owner.team;
     with(shot)
         hspeed += owner.hspeed;    
-    owner.tracker.alarm[owner.activeWeapon] = (reloadBuffer + reloadTime) / global.delta_factor;
+    owner.tracker.alarm[owner.activeWeapon] = owner.maxMeter[owner.activeWeapon] / global.delta_factor;
     readyToShoot = false;
     alarm[0] = refireTime / global.delta_factor;
 }

@@ -11,4 +11,7 @@
   <resource name="DetoChargeSnd" type="RESOURCE"/>
   <resource name="BallSnd" type="RESOURCE"/>
   <resource name="FlashlightSnd" type="RESOURCE"/>
+  <resource name="JarateSnd" type="RESOURCE"/>
+  <resource name="FlaregunSnd" type="RESOURCE"/>
+  <resource name="rechargeSnd" type="RESOURCE"/>
 </resources>

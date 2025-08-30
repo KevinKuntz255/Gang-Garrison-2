@@ -16,18 +16,20 @@
         <argument kind="STRING">{
     xoffset=-15;
     yoffset=-25;
-    spriteBase = SandmanS;
-    spriteRecoil = SandmanFS;
-    spriteReload = SandmanS;
+    
+    normalSprite = SandmanS;
+    recoilSprite = SandmanFS;
+    reloadSprite = SandmanS;
     event_inherited();
+    
+    reloadTime = 300;
     
     ability = ALARM;
     rechargeAbility = ALARM;
-    maxMeter = 250;
-    meter = 250;
+    maxMeter = reloadTime;
+    meter = maxMeter;
     abilityName = "BALL";
     
-    reloadTime = 300;
     
     damSource = DAMAGE_SOURCE_SANDMAN;
 }

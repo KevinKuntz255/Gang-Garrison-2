@@ -13,7 +13,10 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if (readyToStab &amp;&amp; !owner.cloak &amp;&amp; owner.meter[owner.activeWeapon]&gt;=owner.maxMeter[owner.activeWeapon]) {
+        <argument kind="STRING">if (readyToStab &amp;&amp; !owner.cloak &amp;&amp; owner.meter[owner.activeWeapon] &gt;= owner.maxMeter[owner.activeWeapon]) {
+        with(Ball){
+            if (owner == other.owner) instance_destroy();
+        }
         var oid, newx, newy;
         playsound(x,y,BallSnd);
         ammoCount -= 1;

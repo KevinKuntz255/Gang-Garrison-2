@@ -17,12 +17,14 @@
     xoffset = -5;
     yoffset = -2;
     refireTime = 20;
-    event_inherited();
     
     maxAmmo = 6;
-    ammoCount = owner.ammo[owner.activeWeapon];;
     reloadTime = 15;
     reloadBuffer = 20;
+    event_inherited();
+    
+    ammoCount = owner.ammo[owner.activeWeapon];;
+    
     idle=true;
     
     if(golden)
@@ -33,9 +35,20 @@
     }
     else
     {
-        normalSprite = ShotgunS;
-        recoilSprite = ShotgunFS;
-        reloadSprite = ShotgunFRS;
+        if (ownerPlayer.class == CLASS_PYRO) {
+            normalSprite = PyroShotgunS;
+            recoilSprite = PyroShotgunFS;
+            reloadSprite = PyroShotgunFRS;
+        /*else if (player.class == CLASS_HEAVY) {
+            normalSprite = HeavyShotgunS;
+            recoilSprite = HeavyShotgunFS;
+            reloadSprite = HeavyShotgunFRS;
+        */
+        } else {
+            normalSprite = ShotgunS;
+            recoilSprite = ShotgunFS;
+            reloadSprite = ShotgunFRS;
+        }
     }
     sprite_index = normalSprite;
 

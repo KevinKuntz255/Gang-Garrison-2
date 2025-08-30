@@ -17,12 +17,15 @@
     xoffset = -11;
     yoffset = 0;
     refireTime = 2;
+    
+    maxAmmo = 200;
+    reloadBuffer = 10;
+    reloadTime = 1;
     event_inherited();
     
     sndlooping = false;
-    maxAmmo = 200;
     ammoCount = owner.ammo[owner.activeWeapon];
-    reloadBuffer = 10;
+    
     isRefilling = false;
     
     if(golden)

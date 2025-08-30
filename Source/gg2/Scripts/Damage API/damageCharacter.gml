@@ -1,10 +1,16 @@
 // damageCharacter( sourcePlayer, damagedCharacter, damageDealt, shot)
-if (argument1.abilityActive[argument1.activeWeapon] and argument1.ability[argument1.activeWeapon] == INVINC)
-{
-    var text;
-    text=instance_create(argument3.x,argument3.y,Text);
-    text.sprite_index=MissS;
-    exit;
+for(i=0; i<2; i+=1) {
+    if (argument1.abilityActive[i] and argument1.ability[i] == INVINC)
+    {
+        var text;
+        text=instance_create(argument3.x,argument3.y,Text);
+        text.sprite_index=MissS;
+        exit;
+    }
+    if (argument1.rechargeAbility[i] == DAMAGE)
+    {
+        meter[i] += argument2;
+    }
 }
 // generate these on collision, easier that way
 // todo: add a check for ownerPlayer to prevent so many distracting crit particles

@@ -26,6 +26,7 @@ if (owner.taunting &amp;&amp; owner.tauntsprite == ScoutBonkS) {
             owner.canEat = false;
             owner.alarm[6] = owner.eatCooldown / global.delta_factor;
             owner.tracker.alarm[owner.activeWeapon] = 150 / global.delta_factor;
+            owner.burnDuration = 0; // extinguish bonked player
             write_ubyte(global.serverSocket, WEAPON_SWAP);
     }
 }

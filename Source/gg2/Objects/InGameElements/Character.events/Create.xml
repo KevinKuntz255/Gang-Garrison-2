@@ -48,9 +48,10 @@
     nomRate = 1.6;
     soaked = false;
     dashon = true;
+    runCombo = false; // for quick switching after airblasting
     
     for(i=0; i&lt;4; i+=1) {
-        ammo[i] = -1;
+        ammo[i] = 400; // largest number, todo: change this with some proper reloading
         soakType[i] = -1;
         meter[i] = -1;
         maxMeter[i] = -1;
@@ -61,6 +62,7 @@
         ability[i] = -1;
         rechargeAbility[i] = -1;
         rechargeRate[i] = 1;
+        timeLeft[i] = -1;
     }
 
     for(i=0; i&lt;5; i+=1) {
@@ -265,9 +267,13 @@
         maxMeter[1] = checkWeapon.maxMeter;
         rechargeAbility[1] = checkWeapon.rechargeAbility;
     }
+    // reset max ammo on character create since ammo[i] is the largest number possible
+    checkWeapon.ammoCount = checkWeapon.maxAmmo;
     ammo[1] = checkWeapon.maxAmmo;
     with(checkWeapon) instance_destroy();
     //if (currentWeapon.weaponType == WEAR) inputSwitch();
+    currentWeapon.ammoCount = currentWeapon.maxAmmo;
+    ammo[0] = currentWeapon.maxAmmo;
     if (currentWeapon.ability != -1) {
         ability[0] = currentWeapon.ability;
         meter[0] = currentWeapon.meter;
@@ -275,9 +281,11 @@
         abilityName[0] = currentWeapon.abilityName;
         rechargeAbility[0] = currentWeapon.rechargeAbility;
     }
-    ammo[0] = currentWeapon.maxAmmo;
     currentWeapon.alarm[5] = -1;
     
+    for(i=0; i&lt;2; i+=1)
+        givePassiveEffect(id, weapons[i]);
+        
     global.paramOwner = noone;
     
     // Gear that drops with gibs

@@ -28,6 +28,9 @@
     ammoCount = owner.ammo[owner.activeWeapon];
     idle=true;
     
+    weaponGrade = STOCK;
+    weaponType = MINEGUN;
+    
     if(golden)
     {
         normalSprite = MinegunGoldS;
@@ -40,6 +43,9 @@
         recoilSprite = MinegunFS;
         reloadSprite = MinegunFRS;
     }
+    
+    specialProjectile = Mine;
+    
     sprite_index = normalSprite;
     
     recoilTime = refireTime;

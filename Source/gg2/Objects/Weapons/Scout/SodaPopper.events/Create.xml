@@ -33,6 +33,10 @@
     abilityName = "HYPE";
     rechargeAbility = RUN;
     abilityVisual = "WEAPON";
+    chargeWhileActive = true;
+    pauseOnDestruction = true;
+    activateAbility = MAX;
+    cancelAbility = DEPLETE;
     
     meter = 0;
     maxMeter = 210;

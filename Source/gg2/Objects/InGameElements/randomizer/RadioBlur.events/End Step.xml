@@ -14,12 +14,9 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">if owner != -1 {
-  x=owner.x;
-	y=owner.y;
-  } else {
-    image_alpha -= 0.1 / global.delta_factor;
-		if image_alpha &lt;= 0.01 instance_destroy();
-  }
+    x=owner.x;
+    y=owner.y;
+}
 </argument>
       </arguments>
     </action>

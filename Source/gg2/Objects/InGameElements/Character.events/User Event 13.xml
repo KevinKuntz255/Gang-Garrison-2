@@ -30,8 +30,8 @@
         yprevious = y;
         
         hp = read_ubyte(global.deserializeBuffer);
-        ammo[0] = read_ubyte(global.desieralizeBuffer);
-        ammo[1] = read_ubyte(global.desieralizeBuffer);
+        ammo[0] = read_ubyte(global.deserializeBuffer);
+        ammo[1] = read_ubyte(global.deserializeBuffer);
         
         temp = read_ubyte(global.deserializeBuffer);
         cloak = (temp &amp; $01 != 0);
@@ -39,7 +39,7 @@
     }
     
 if(global.updateType == FULL_UPDATE){
-        receiveCompleteMessage(global.serverSocket,7,global.deserializeBuffer);
+        receiveCompleteMessage(global.serverSocket,9,global.deserializeBuffer);
         animationOffset = read_ubyte(global.deserializeBuffer);
         //class specific syncs
         switch(player.class)
@@ -65,6 +65,10 @@ if(global.updateType == FULL_UPDATE){
             canGrabIntel = false;
         intel = read_ubyte(global.deserializeBuffer);
         intelRecharge = read_short(global.deserializeBuffer);
+        
+        weapons[0] = read_ubyte(global.deserializeBuffer);
+        weapons[1] = read_ubyte(global.deserializeBuffer);
+        
         with(currentWeapon) {
             event_user(13);
         }

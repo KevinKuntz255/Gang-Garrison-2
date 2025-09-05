@@ -5,7 +5,7 @@ with(Shot)
     if(!variable_local_exists("firststep"))
         firststep = true;
     
-    vspeed += 0.15 * global.delta_factor;
+    if (sprite_index != LaserShotS) vspeed += 0.15 * global.delta_factor;
     if(global.particles != PARTICLES_OFF)
     {
         //We don't want it to be almost invisible if it's still "active", so
@@ -64,15 +64,38 @@ with(Rocket)
     {
         if (image_alpha > 0)
         {
-            if(global.particles = PARTICLES_NORMAL)
-                effect_create_below(ef_smoke,x-hspeed*1.3,y-vspeed*1.3,0,c_gray);
+            if(global.particles = PARTICLES_NORMAL) {
+                if (sprite_index == ManglerShotS) {
+                    effect_create_below(ef_smoke,x-hspeed*1.3,y-vspeed*1.3,0,c_silver);
+                    /* commented due to looks too obnoxious
+                    if (team == TEAM_RED)
+                        //effect_create_below(ef_smoke,x-hspeed*1.3,y-vspeed*1.3,0,c_red);
+                    else
+                        effect_create_below(ef_smoke,x-hspeed*1.3,y-vspeed*1.3,0,c_blue);
+                    */
+                } else
+                    effect_create_below(ef_smoke,x-hspeed*1.3,y-vspeed*1.3,0,c_gray);
+            }
             else if(global.particles == PARTICLES_ALTERNATIVE)
             {
                 if (!variable_local_exists("rocketblurParticleType"))
                 {
                     rocketblurParticleType = part_type_create();
-                    if team == TEAM_RED rocketParticleSprite = RedRocketS;
-                    else rocketParticleSprite = BlueRocketS;
+                    if team == TEAM_RED {
+                        if (sprite_index == AirstrikeS)
+                            rocketParticleSprite = RedAirstrikeS;
+                        else if (sprite_index == ManglerShotS)
+                            rocketParticleSprite = RedManglerShotS;
+                        else
+                            rocketParticleSprite = RedRocketS;
+                    } else {
+                        if (sprite_index == AirstrikeS)
+                            rocketParticleSprite = BlueAirstrikeS;
+                        else if (sprite_index == ManglerShotS)
+                            rocketParticleSprite = BlueManglerShotS;
+                        else
+                        rocketParticleSprite = BlueRocketS;
+                    }
                     part_type_sprite(rocketblurParticleType,rocketParticleSprite,false,true,false);
                     part_type_alpha2(rocketblurParticleType,0.7,0.1);
                     

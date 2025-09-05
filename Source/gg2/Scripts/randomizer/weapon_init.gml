@@ -46,7 +46,7 @@ global.weapons[WEAPON_NAPALM] = NapalmHand;
 global.name[WEAPON_NAPALM] = "Napalm Grenade";
 global.weapons[WEAPON_WRECKER] = Axe;
 global.name[WEAPON_WRECKER] = "Homewrecker";
-/*
+
 // Soldier
 global.weapons[WEAPON_ROCKETLAUNCHER] = Rocketlauncher;
 global.name[WEAPON_ROCKETLAUNCHER] = "Rocketlauncher";
@@ -58,7 +58,7 @@ global.weapons[WEAPON_BLACKBOX] = BlackBox;
 global.name[WEAPON_BLACKBOX] = "Black Box";
 global.weapons[WEAPON_AIRSTRIKE] = Airstrike;
 global.name[WEAPON_AIRSTRIKE] = "Airstrike";
-global.weapons[WEAPON_SOLDIERSHOTGUN] = SoldierShotgun;
+global.weapons[WEAPON_SOLDIERSHOTGUN] = Shotgun;
 global.name[WEAPON_SOLDIERSHOTGUN] = "Shotgun";
 global.weapons[WEAPON_BUFFBANNER] = BuffBanner;
 global.name[WEAPON_BUFFBANNER] = "Buff Banner";
@@ -69,27 +69,27 @@ global.name[WEAPON_EQUALIZER] = "Equalizer";
 global.weapons[WEAPON_RESERVESHOOTER] = Reserveshooter;
 global.name[WEAPON_RESERVESHOOTER] = "Reserve Shooter";
 
-// Sniper
-global.weapons[WEAPON_RIFLE] = Rifle;
-global.name[WEAPON_RIFLE] = "Sniper Rifle"
-global.weapons[WEAPON_BAZAARBARGAIN] = BazaarBargain;
-global.name[WEAPON_BAZAARBARGAIN] = "Bazaar Bargain";
-global.weapons[WEAPON_HUNTSMAN] = HuntsMan;
-global.name[WEAPON_HUNTSMAN] = "Huntsman";
-global.weapons[WEAPON_MACHINA] = Machina;
-global.name[WEAPON_MACHINA] = "Machina";
-global.weapons[WEAPON_SYDNEYSLEEPER] = SydneySleeper;
-global.name[WEAPON_SYDNEYSLEEPER] = "Sydney Sleeper";
-global.weapons[WEAPON_SMG] = Smg;
-global.name[WEAPON_SMG] = "SMG";
-global.weapons[WEAPON_JARATE] = JarateHand;
-global.name[WEAPON_JARATE] = "Jarate";
-global.weapons[WEAPON_KUKRI] = Kukri;
-global.name[WEAPON_KUKRI] = "Kukri & Darwin's Danger Shield";
-global.weapons[WEAPON_SHIV] = Shiv;
-global.name[WEAPON_SHIV] = "Tribalman's Shiv & Razorback";
-global.weapons[WEAPON_BOOTS] = Shiv;
-global.name[WEAPON_BOOTS] = "Rocket Boots";
+// Heavy
+global.weapons[WEAPON_MINIGUN] = Minigun;
+global.name[WEAPON_MINIGUN] = "Minigun";/*
+global.weapons[WEAPON_TOMISLAV] = Tomislav;
+global.name[WEAPON_TOMISLAV] = "Tomislav";
+global.weapons[WEAPON_NATACHA] = Natacha;
+global.name[WEAPON_NATACHA] = "Natascha";
+global.weapons[WEAPON_BRASSBEAST] = BrassBeast;
+global.name[WEAPON_BRASSBEAST] = "Brass Beast";
+global.weapons[WEAPON_IRON] = IronMaiden;
+global.name[WEAPON_IRON] = "Iron Maiden";
+global.weapons[WEAPON_HEAVYSHOTGUN] = HeavyShotgun;
+global.name[WEAPON_HEAVYSHOTGUN] = "Shotgun";
+global.weapons[WEAPON_SANDVICH] = SandvichHand;
+global.name[WEAPON_SANDVICH] = "Sandvich";
+global.weapons[WEAPON_FAMILYBUSINESS] = FamilyBusiness;
+global.name[WEAPON_FAMILYBUSINESS] = "Family Business";
+global.weapons[WEAPON_CHOCOLATE] = ChocolateHand;
+global.name[WEAPON_CHOCOLATE] = "Dalokohs Bar"
+global.weapons[WEAPON_KGOB] = KGOB;
+global.name[WEAPON_KGOB] = "Killing Gloves Of Boxing";
 
 // Demoman
 global.weapons[WEAPON_MINEGUN] = Minegun;
@@ -157,28 +157,6 @@ global.name[WEAPON_WRANGLER] = "Wrangler";
 global.weapons[WEAPON_EUREKAEFFECT] = Eeffect;
 global.name[WEAPON_EUREKAEFFECT] = "Eureka Effect";
 
-// Heavy
-global.weapons[WEAPON_MINIGUN] = Minigun;
-global.name[WEAPON_MINIGUN] = "Minigun";
-global.weapons[WEAPON_TOMISLAV] = Tomislav;
-global.name[WEAPON_TOMISLAV] = "Tomislav";
-global.weapons[WEAPON_NATACHA] = Natacha;
-global.name[WEAPON_NATACHA] = "Natascha";
-global.weapons[WEAPON_BRASSBEAST] = BrassBeast;
-global.name[WEAPON_BRASSBEAST] = "Brass Beast";
-global.weapons[WEAPON_IRON] = IronMaiden;
-global.name[WEAPON_IRON] = "Iron Maiden";
-global.weapons[WEAPON_HEAVYSHOTGUN] = HeavyShotgun;
-global.name[WEAPON_HEAVYSHOTGUN] = "Shotgun";
-global.weapons[WEAPON_SANDVICH] = SandvichHand;
-global.name[WEAPON_SANDVICH] = "Sandvich";
-global.weapons[WEAPON_FAMILYBUSINESS] = FamilyBusiness;
-global.name[WEAPON_FAMILYBUSINESS] = "Family Business";
-global.weapons[WEAPON_CHOCOLATE] = ChocolateHand;
-global.name[WEAPON_CHOCOLATE] = "Dalokohs Bar"
-global.weapons[WEAPON_KGOB] = KGOB;
-global.name[WEAPON_KGOB] = "Killing Gloves Of Boxing";
-
 // Spy
 global.weapons[WEAPON_REVOLVER] = Revolver;
 global.name[WEAPON_REVOLVER] = "Revolver";
@@ -200,6 +178,28 @@ global.weapons[WEAPON_SPYCICLE] = Spycicle;
 global.name[WEAPON_SPYCICLE] = "Spycicle";
 global.weapons[WEAPON_ZAPPER] = Zapper;
 global.name[WEAPON_ZAPPER] = "Zapper";
+
+// Sniper
+global.weapons[WEAPON_RIFLE] = Rifle;
+global.name[WEAPON_RIFLE] = "Sniper Rifle"
+global.weapons[WEAPON_BAZAARBARGAIN] = BazaarBargain;
+global.name[WEAPON_BAZAARBARGAIN] = "Bazaar Bargain";
+global.weapons[WEAPON_HUNTSMAN] = HuntsMan;
+global.name[WEAPON_HUNTSMAN] = "Huntsman";
+global.weapons[WEAPON_MACHINA] = Machina;
+global.name[WEAPON_MACHINA] = "Machina";
+global.weapons[WEAPON_SYDNEYSLEEPER] = SydneySleeper;
+global.name[WEAPON_SYDNEYSLEEPER] = "Sydney Sleeper";
+global.weapons[WEAPON_SMG] = Smg;
+global.name[WEAPON_SMG] = "SMG";
+global.weapons[WEAPON_JARATE] = JarateHand;
+global.name[WEAPON_JARATE] = "Jarate";
+global.weapons[WEAPON_KUKRI] = Kukri;
+global.name[WEAPON_KUKRI] = "Kukri & Darwin's Danger Shield";
+global.weapons[WEAPON_SHIV] = Shiv;
+global.name[WEAPON_SHIV] = "Tribalman's Shiv & Razorback";
+global.weapons[WEAPON_BOOTS] = Shiv;
+global.name[WEAPON_BOOTS] = "Rocket Boots";
 
 
 
@@ -231,13 +231,6 @@ global.name[WEAPON_SAXTONHALE] = "HAXTON SAAAAAAAAALE";
 
 // defaults
 
-global.weapons[WEAPON_ROCKETLAUNCHER] = Rocketlauncher;
-global.name[WEAPON_ROCKETLAUNCHER] = "Rocketlauncher";
-global.weapons[WEAPON_SOLDIERSHOTGUN] = Shotgun;
-global.name[WEAPON_SOLDIERSHOTGUN] = "Shotgun";
-
-global.weapons[WEAPON_MINIGUN] = Minigun;
-global.name[WEAPON_MINIGUN] = "Minigun";
 global.weapons[WEAPON_HEAVYSHOTGUN] = Shotgun;
 global.name[WEAPON_HEAVYSHOTGUN] = "Shotgun";
 global.weapons[WEAPON_SANDVICH] = SandvichHand;
@@ -291,5 +284,6 @@ ini_write_real("Class","Medic",global.loadout[CLASS_MEDIC]);
 ini_write_real("Class","Engineer",global.loadout[CLASS_ENGINEER]);
 ini_write_real("Class","Spy",global.loadout[CLASS_SPY]);
 ini_write_real("Class","sniper",global.loadout[CLASS_SNIPER]);
+//ini_write_real("Class","Quote",global.loadout[CLASS_QUOTE]);
 
 ini_close(); 

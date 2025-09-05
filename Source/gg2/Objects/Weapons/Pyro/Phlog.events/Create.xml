@@ -34,6 +34,7 @@
     maxMeter = 250;
     meter = 0;
     rechargeAbility = DAMAGE;
+    activateAbility = MAX;
     
     damSource = DAMAGE_SOURCE_PHLOG;
 }

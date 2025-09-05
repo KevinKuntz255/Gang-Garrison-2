@@ -23,6 +23,7 @@
     bubbled = false;
     explodeImmediately = false;
     
+    weapon = -1;
     fade = false;
     distanceToTravel = 800;
     travelDistance=0; // prevent crashes for airstrike

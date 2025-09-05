@@ -18,7 +18,7 @@
     {
         if(!other.ubered)
         { 
-            damageCharacter(ownerPlayer, other.id, hitDamage);
+            damageCharacter(ownerPlayer, other.id, hitDamage, id);
             other.timeUnscathed = 0;
             if (other.lastDamageDealer != ownerPlayer and other.lastDamageDealer != other.player)
             {

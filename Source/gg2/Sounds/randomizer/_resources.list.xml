@@ -14,4 +14,10 @@
   <resource name="JarateSnd" type="RESOURCE"/>
   <resource name="FlaregunSnd" type="RESOURCE"/>
   <resource name="rechargeSnd" type="RESOURCE"/>
+  <resource name="DirecthitSnd" type="RESOURCE"/>
+  <resource name="ManglerShotSnd" type="RESOURCE"/>
+  <resource name="ChargeSnd" type="RESOURCE"/>
+  <resource name="BuffbannerSnd" type="RESOURCE"/>
+  <resource name="ManglerChargeSnd" type="RESOURCE"/>
+  <resource name="LaserShotSnd" type="RESOURCE"/>
 </resources>

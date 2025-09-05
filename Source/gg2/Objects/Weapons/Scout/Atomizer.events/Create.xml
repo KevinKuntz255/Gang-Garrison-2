@@ -23,6 +23,13 @@
     event_inherited();
     
     damSource = DAMAGE_SOURCE_ATOMIZER;
+    
+    owner._oldTauntSprite = owner.tauntsprite;
+    owner.tauntsprite = ScoutTKillS;
+    owner.tauntlength = sprite_get_number(owner.tauntsprite)/2;
+    owner.tauntindex=owner.tauntlength * owner.player.team;
+    owner.tauntend=owner.tauntlength * (1 + owner.player.team) - 1;
+    owner.tauntspeed = 4;
 }
 </argument>
       </arguments>

@@ -108,24 +108,62 @@ if(!(keyState &amp; $02))
 x -= hspeed;
 y -= vspeed;
 
-// blurring
+
+// blurring, abilities
+
 for(i=0; i&lt;2; i+=1) {
-    if (abilityActive[i]) {
-        if (string_count("BLUR",abilityVisual[i]) != 0 ) {
-            if (blur) {
-                with(RadioBlur) {
-                    if (owner == other.id) exit;
-                    blur=instance_create(x,y,RadioBlur);
-                    blur.owner=id;
-                }
-            } else {
-                with(RadioBlur) {
-                    if (owner == other.id) owner = -1;
-                }
+    if (abilityActive[i] &amp;&amp; weaponType[i] == BANNER)
+    {
+        // todo: add the whole library of abilities, oops copy pasting
+        with(Character){
+            if distance_to_point(other.x,other.y) &lt; 128 &amp;&amp; team == other.team {
+                currentWeapon.crit=1.15;
+                alarm[9] = 2;
             }
         }
     }
 }
+
+var canBlur1, canBlur2;
+canBlur1 = (abilityActive[1] &amp;&amp; string_count("BLUR", abilityVisual[1]) != 0);
+canBlur2 = (abilityActive[0] &amp;&amp; string_count("BLUR", abilityVisual[0]) != 0);
+
+if (canBlur1 || canBlur2) {
+    if (blur == -1) {
+        blur =instance_create(x,y,RadioBlur);
+        blur.owner = id;
+    }
+} else {
+    if (blur != -1) {
+        with(blur) {
+            image_alpha -= 0.1 / global.delta_factor;
+            if image_alpha &lt;= 0.01 {
+                instance_destroy();
+                other.blur = -1;
+            }
+        }
+    }
+}
+/* commented cause this i statement is not working too good, fix later!
+for(i=0; i&lt;2; i+=1) {
+    canBlur = (abilityActive[i] &amp;&amp; string_count("BLUR", abilityVisual[i]) != 0);
+    if (canBlur) {
+        if (blur == -1) {
+            blur =instance_create(x,y,RadioBlur);
+            blur.owner = id;
+        }
+    } else {
+        if (blur != -1) {
+            with(blur) {
+                image_alpha -= 0.1 / global.delta_factor;
+                if image_alpha &lt;= 0.01 {
+                    instance_destroy();
+                    other.blur = -1;
+                }
+            }
+        }
+    }
+}*/
 
 charUnsetSolids();
 </argument>

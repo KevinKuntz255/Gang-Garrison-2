@@ -73,8 +73,8 @@
         with(Player) {
             if(id != other.ownerPlayer and team != other.owner.team and object != -1) {
                 if(collision_line(other.x,other.y,other.a[i],other.b[i],object,true,false)&gt;=0) &amp;&amp; object.ubered == 0 {
-                    other.hitDamage *= (1+0*0.35);
-                    damageCharacter(other.ownerPlayer, object, other.hitDamage);
+                    other.hitDamage *= (1+0*0.35)*crit;
+                    damageCharacter(other.ownerPlayer, object, other.hitDamage, id);
 
                     //if true == true object.hp -= other.hitDamage*(1+0*0.35)*1; //Yeah MCBoss removed crits here
                     //object.lastDamageCrit=other.crit; // not sure if this should be readded, I think its for crit kill log

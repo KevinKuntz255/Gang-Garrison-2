@@ -22,7 +22,7 @@
     //new stuff
         other.lastDamageDealer = ownerPlayer;
         other.lastDamageSource = weapon;
-        other.lastDamageCrit = crit;
+        //other.lastDamageCrit = crit;
     //end new stuff
         instance_destroy();
     }

@@ -21,14 +21,14 @@
         other.alarm[3] = ASSIST_TIME / global.delta_factor;
         other.lastDamageDealer = ownerPlayer;
         other.lastDamageSource = weapon;
-        other.lastDamageCrit = 1;
+        //other.lastDamageCrit = 1;
 
 if bounced &lt; 1
 damage *= (1+0*0.35);
 else
 damage *= (1+0*0.35)*.50;
 
-damageCharacter(ownerPlayer, other.id, damage);
+damageCharacter(ownerPlayer, other.id, damage, id);
 
 //other.hp -= damage*(1+0*0.35); else other.hp -= damage*(1+0*0.35)*.50;
 

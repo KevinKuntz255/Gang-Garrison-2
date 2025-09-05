@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset = -15;
+    yoffset = -10;
+    
+    normalSprite = DirectHitS;
+    recoilSprite = DirectHitFS;
+    reloadSprite = DirectHitS;
+    
+    refireTime = 30;
+    reloadTime = 25;
+    reloadBuffer = 30;
+    
+    maxAmmo = 3;
+    event_inherited();
+
+    // default vars
+    ammoCount = owner.ammo[owner.activeWeapon];
+    
+    damSource = DAMAGE_SOURCE_DIRECTHIT;
+
+    projectileSpeed = 24;
+    projectilePosition = 20;
+    projectileBlastRadius = 40;
+    specialSnd = DirecthitSnd;
+    
+    directDamage = 35;
+    splashDamage = 20;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

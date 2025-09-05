@@ -17,22 +17,29 @@
 yoffset += sprite_yoffset;
 readyToShoot = false;
 justShot = false;
+// todo: switchBuffer?
 alarm[0] = refireTime / global.delta_factor;
-    
-isMelee = false;
+
 ubering = false;
+isMelee = false;
 
 spark = 0;
 alarm[9]= 2;
 
 ability = -1;
+abilityName = "";
 abilityVisual = "";
 abilityCharge = -1;
+activateAbility = -1;
+cancelAbility = -1;
+rechargeAbility = RECHARGE;
 
 meter = 0;
 maxMeter = 100;
-abilityName = "";
-rechargeAbility = RECHARGE;
+chargeWhileActive = false; // new, for weapons like BuffBanner and SodaPopper
+pauseOnDestruction = false;
+drainRate = 1;
+rechargeRate = 1;
 
 crit = 1;
 
@@ -41,19 +48,27 @@ t = 0;
 baseDamage=-1;
 unscopedDamage = 0;
 
+// need this for projectile destruction, todo: minegun template
+specialProjectile = -1;
+
+isThrowable = false;
 
 // weaponGrade for Unique/Stock/Special
-if (!variable_local_exists("weaponGrade")) weaponGrade = STOCK;
+weaponGrade = STOCK;
 // weaponType for each weapon
-if (!variable_local_exists("weaponType")) weaponType = SHOT;
+weaponType = SHOT;
 
 owner = global.paramOwner;
-// todo: use an alarm instead
+
+pauseMeter[owner.activeWeapon] = false;
+// todo: decrease the alarm instead, or make a switchBuffer alarm instead of using refireTime, that's too strict
 if (owner.runCombo) {
     readyToShoot = true;
     readyToStab = true;
     readyToFlare = true;
     readyToBlast = true;
+    readyToSwing = true;
+    owner.runCombo = false;
 }
 
 if (owner.ammo[owner.activeWeapon] &lt; maxAmmo) {

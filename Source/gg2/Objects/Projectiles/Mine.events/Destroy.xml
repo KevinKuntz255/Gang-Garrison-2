@@ -13,8 +13,9 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if (object_index == Grenade) exit;
-if (owner.currentWeapon.object_index == Minegun) owner.currentWeapon.lobbed -= 1; else owner.lobbedC -= 1;
+        <argument kind="STRING">if (object_index == Grenade || !owner) exit;
+if (owner.hp &lt;= 0) exit;
+if (owner.weaponType[owner.activeWeapon] == MINEGUN) owner.currentWeapon.lobbed -= 1; else owner.lobbedC -= 1;
 </argument>
       </arguments>
     </action>

@@ -9,8 +9,10 @@ for(i=0; i<256; i+=1) {
     commandBytes[i] = commandBytesInvalidCommand;
 }
 
+// reminder: work on this when modifying processClientCommands
 commandBytes[PLAYER_LEAVE] = 0;
-commandBytes[PLAYER_CHANGECLASS] = 1;
+commandBytes[PLAYER_CHANGECLASS] = 3;
+commandBytes[UPDATE_LOADOUT] = 2;
 commandBytes[PLAYER_CHANGETEAM] = 1;
 commandBytes[CHAT_BUBBLE] = 1;
 commandBytes[BUILD_SENTRY] = 0;

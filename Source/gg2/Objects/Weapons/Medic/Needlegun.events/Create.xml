@@ -27,6 +27,9 @@
     
     idle=true;
     
+    weaponGrade = STOCK;
+    weaponType = SHOT;
+    
     if(golden)
     {
         normalSprite = MedigunGoldS;
@@ -40,7 +43,7 @@
         reloadSprite = MedigunFRS;
     }
     sprite_index = normalSprite;
-        
+    
     //This makes it so that the timer will keep resetting
     //Until Mouse1 is let go
     recoilTime = refireTime+1;

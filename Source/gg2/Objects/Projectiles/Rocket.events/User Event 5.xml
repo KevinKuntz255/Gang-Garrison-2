@@ -23,7 +23,7 @@
         if(characterHit != -1) {
             if(characterHit.team != team || characterHit.id == ownerPlayer.object and !characterHit.ubered )
             {
-                damageAuto( ownerPlayer, characterHit, hitDamage );
+                damageAuto( ownerPlayer, characterHit, hitDamage, id);
                 if object_is_ancestor(characterHit.object_index, Character)
                 {
                     if (characterHit.lastDamageDealer != ownerPlayer and characterHit.lastDamageDealer != characterHit.player)
@@ -55,7 +55,7 @@
                 {
                     if (other.team != team) or (id==other.ownerPlayer.object)
                     {
-                        damageCharacter( other.ownerPlayer, id, other.explosionDamage*(1-(fake_distance/other.blastRadius)) );
+                        damageCharacter( other.ownerPlayer, id, other.explosionDamage*(1-(fake_distance/other.blastRadius)), other.id);
                         
                         if(id == other.ownerPlayer.object and instance_exists(lastDamageDealer) and lastDamageDealer != other.ownerPlayer)
                             lastDamageSource = DAMAGE_SOURCE_FINISHED_OFF_GIB;

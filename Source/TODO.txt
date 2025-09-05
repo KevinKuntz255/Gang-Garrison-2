@@ -1,35 +1,43 @@
 # next commit:
-TauntKills
-fix AmmoCounter bugging out with flamethrowers, related to addition of reload on swap
+FIX THE NETWORKING (HEADACHE)
+open these three:
+- ClientBeginStep.gml
+- processClientCommands.gml 
+- GameServerDefineCommands.gml 
+make the following make sense
+- LOADOUT_SYNC 
+- UPDATE_LOADOUT
+- WEAPON_SWITCH
+- PLAYER_CHANGECLASS
+
+move soakType and uberType into a ds_map
+move damageCharacter checks to projectileCollision
 
 all:
 Fix LoadoutMenu breaking positions in other resolutions
 Implement crits in kill log
+overheal
 add headshots
 add randomizerMode
 add medievalMode
-overheal
-Figure out soakType
-Add TauntKills
-chat
+add HALE
 
 Loadouts (Start Chronologically):
-
-# Firebug
-homewrecker additional damage
-
-# Rocketman
-Entire Kit
 
 # Overweight
 Entire Kit
 
 # Detonator
 Entire Kit
-Re-add DASH calls
+randomizerMode specific:
+	make M2 detonate both stickybombs (client option tracked to serverside)
+	add lobbed[0] and lobbed[1]
 
 # Healer
 Entire Kit
+randomizerMode specific:
+	gee billy why does ur mom let u have two medic beams
+	same deal as detonator
 
 # Constructor
 Entire Kit

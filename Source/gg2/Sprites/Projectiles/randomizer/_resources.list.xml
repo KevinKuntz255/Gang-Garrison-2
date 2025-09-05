@@ -7,4 +7,11 @@
   <resource name="SnowflakeS" type="RESOURCE"/>
   <resource name="PhlogBeamS" type="RESOURCE"/>
   <resource name="PhlogBurnS" type="RESOURCE"/>
+  <resource name="ManglerShotS" type="RESOURCE"/>
+  <resource name="BlueManglerShotS" type="RESOURCE"/>
+  <resource name="RedManglerShotS" type="RESOURCE"/>
+  <resource name="AirstrikeRocketS" type="RESOURCE"/>
+  <resource name="BlueAirstrikeS" type="RESOURCE"/>
+  <resource name="RedAirstrikeS" type="RESOURCE"/>
+  <resource name="LaserShotS" type="RESOURCE"/>
 </resources>

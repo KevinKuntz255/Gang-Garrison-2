@@ -101,15 +101,43 @@ while(commandLimitRemaining > 0) {
                         }
                         else 
                         instance_destroy(); 
-                        
                     }
                 }
                 else if(player.alarm[5]<=0)
                     player.alarm[5] = 1; // Will spawn in the same step (between Begin Step and Step)
                 class = checkClasslimits(player, player.team, class);
                 player.class = class;
+                // this clump right here took me a week to figure out, It was so obvious in hindsight, all i had to change was commandBytes
+                
                 ServerPlayerChangeclass(playerId, player.class, global.sendBuffer);
+                
+                // right, do it twice, on char create, and on sync
+                player.weapons[0] = real(string_copy(string(global.loadout[player.class]),2,2));
+                player.weapons[1] = real(string_copy(string(global.loadout[player.class]),4,2)); 
+                /*syncLoadout(global.loadout[player.class], global.serverSocket);
+                socket_send(global.serverSocket);
+                ServerLoadoutSync(playerId,player.weapons[0],player.weapons[1],global.sendBuffer,0);
+                //global.loadout[player.class] = read_ushort(socket);
+                //show_message(global.loadout[player.class]);
+                
+                
+                //player.weapons[0] = real(string_copy(string(Loadout),2,2));
+                
+                //player.object.weapons[1] = real(string_copy(string(Loadout),4,2));*/
             }
+            break;
+        
+        case UPDATE_LOADOUT:
+            /*var loadout;
+            loadout = read_ushort(socket);
+            global.loadout[player.class] = loadout;
+            //show_message(global.loadout[player.class]);
+            player.weapons[0] = real(string_copy(string(loadout),2,2));
+            player.weapons[1] = real(string_copy(string(loadout),4,2)); 
+            ServerLoadoutSync(playerId,player.weapons[0],player.weapons[1],global.sendBuffer,0);
+            //var socketcheck;
+            //socketcheck = read_ushort(socket);
+            //show_message("hi");*/
             break;
             
         case PLAYER_CHANGETEAM:
@@ -230,11 +258,10 @@ while(commandLimitRemaining > 0) {
                 //or global.medieval
                 //  or player.class == CLASS_QUOTE
                 or player.object.canSwitch = false*/ 
+                
                 var weapon;
-                    //if player.object.weapon_index == player.object.loaded1 weapon=player.object.loaded2;
-                    //else weapon = player.object.loaded1;
                 if(player.object.currentWeapon.object_index != player.object.weapons[1]) {
-                    weapon = player.object.weapons[1] 
+                    weapon = player.object.weapons[1];
                     player.object.activeWeapon = 1;
                 } else {
                     weapon = player.object.weapons[0];
@@ -243,7 +270,7 @@ while(commandLimitRemaining > 0) {
                 write_ubyte(global.sendBuffer, WEAPON_SWAP);
                 write_ubyte(global.sendBuffer, playerId);
                 write_ubyte(global.sendBuffer, weapon);
-                //write_ubyte(global.sendBuffer, player.object.activeWeapon);
+                write_ubyte(global.sendBuffer, player.object.activeWeapon);
                 with(player.object) {
                     weaponSwitch(weapon);
                 }

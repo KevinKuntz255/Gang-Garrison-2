@@ -2,6 +2,7 @@
 <resources>
   <resource name="Scout" type="GROUP"/>
   <resource name="Pyro" type="GROUP"/>
+  <resource name="Soldier" type="GROUP"/>
   <resource name="Demoman" type="GROUP"/>
   <resource name="Engineer" type="GROUP"/>
   <resource name="Spy" type="GROUP"/>

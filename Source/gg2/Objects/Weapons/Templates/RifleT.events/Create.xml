@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    event_inherited();
+
+    // default vars
+    ammoCount = owner.ammo[owner.activeWeapon];
+    idle=true;
+    
+    weaponGrade = UNIQUE;
+    weaponType = SHOT;
+    
+    damSource = DAMAGE_SOURCE_SHOTGUN;
+
+    specialShot = Shot;
+    shots = 5;
+    shotSpeed[0] = 13;
+    shotSpeed[1] = 4;
+    shotSpeed[2] = 2;
+    shotDir[0] = 11;
+    shotDir[1] = 5;
+    
+    randomizeSpeed = true;
+    
+    specialSprite = ShotS;
+    specialSnd = ShotgunSnd;
+    
+    shotDamage = 7;
+    fullReload = false;
+    
+    reloadShell = false;
+
+    if (!variable_local_exists("normalSprite")) normalSprite = ShotgunS;
+    if (!variable_local_exists("recoilSprite")) recoilSprite = ShotgunFS;
+    if (!variable_local_exists("reloadSprite")) reloadSprite = ShotgunFRS;
+    
+    sprite_index = normalSprite;
+
+    recoilTime = refireTime;
+    recoilAnimLength = sprite_get_number(recoilSprite)/2;
+    recoilImageSpeed = recoilAnimLength/recoilTime;
+    
+    reloadAnimLength = sprite_get_number(reloadSprite)/2;
+    reloadImageSpeed = reloadAnimLength/reloadTime;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

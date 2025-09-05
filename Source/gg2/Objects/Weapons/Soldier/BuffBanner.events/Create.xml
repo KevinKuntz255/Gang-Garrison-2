@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset=-9;
+    yoffset=-9;
+    refireTime = 18;
+    
+    maxAmmo = 1;
+    reloadTime = 300;
+    reloadBuffer = refireTime;
+    event_inherited();
+
+    
+    ammoCount = maxAmmo;
+    
+    idle=true;
+    
+    isMelee = true;
+    
+    weaponGrade = UNIQUE;
+    weaponType = BANNER;
+    
+    ability = MINICRIT;
+    abilityName = "RAGE";
+    rechargeAbility = KILLS;
+    abilityDuration = reloadTime;
+    cancelAbility = ALARM;
+    maxMeter = 4;
+    meter = 0;
+    
+    normalSprite = BuffBannerS;
+    recoilSprite = BuffBannerS;
+    reloadSprite = BuffBannerS;
+
+    specialSnd = BuffbannerSnd;
+    
+    sprite_index = normalSprite;
+
+    image_speed = 0;
+
+    recoilTime = refireTime;
+    recoilAnimLength = sprite_get_number(recoilSprite) / 2;
+    recoilImageSpeed = recoilAnimLength / recoilTime;
+
+    reloadAnimLength = sprite_get_number(reloadSprite) / 2;
+    reloadImageSpeed = reloadAnimLength / reloadTime;
+    
+    image_index = owner.team+2;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -27,7 +27,7 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">if (ammoCount &lt; maxAmmo) {
-    if fullReload ammoCount = maxAmmo; else ammoCount += 1;
+    if fullReload ammoCount = maxAmmo; else ammoCount += ammoGain;
 }
 if ammoCount &lt; maxAmmo {
     alarm[5] = reloadTime / global.delta_factor;

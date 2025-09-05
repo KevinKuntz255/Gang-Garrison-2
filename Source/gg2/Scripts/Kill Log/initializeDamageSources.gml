@@ -30,6 +30,7 @@ createGlobalDamageSource("DAMAGE_SOURCE_GENERATOR_EXPLOSION", ExplodeKL);
 createGlobalDamageSource("DAMAGE_SOURCE_PISTOL",              PistolKL);
 createGlobalDamageSource("DAMAGE_SOURCE_GRENADE",             GrenadelauncherKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SMG",                 SmgKL);
+
 createGlobalDamageSource("DAMAGE_SOURCE_FAN",                 FANKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SHORTSTOP",           ShortStopKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SODAPOPPER",          SodaPopperKL);
@@ -37,9 +38,38 @@ createGlobalDamageSource("DAMAGE_SOURCE_FLASHLIGHT",          LasergunKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SANDMAN",             BatKL);
 createGlobalDamageSource("DAMAGE_SOURCE_BALL",                BallHitKL);
 createGlobalDamageSource("DAMAGE_SOURCE_ATOMIZER",            AtomizerKL);
+
 createGlobalDamageSource("DAMAGE_SOURCE_BACKBURNER",          BackBurnerKL);
 createGlobalDamageSource("DAMAGE_SOURCE_TRANSMUTATOR",        TransmutatorKL);
 createGlobalDamageSource("DAMAGE_SOURCE_FROSTBITE",           FrostbiteKL);
 createGlobalDamageSource("DAMAGE_SOURCE_PHLOG",               PhlogKL);
 createGlobalDamageSource("DAMAGE_SOURCE_FLAREGUN",            FlaregunKL);
 createGlobalDamageSource("DAMAGE_SOURCE_DETONATOR",           DetonatorKL);
+createGlobalDamageSource("DAMAGE_SOURCE_AXE",                 AxeKL);
+
+createGlobalDamageSource("DAMAGE_SOURCE_DIRECTHIT",           DirectHitKL);
+createGlobalDamageSource("DAMAGE_SOURCE_COWMANGLER",          CowManglerKL);
+createGlobalDamageSource("DAMAGE_SOURCE_BLACKBOX",            BlackboxKL);
+createGlobalDamageSource("DAMAGE_SOURCE_AIRSTRIKE",           AirstrikeKL);
+createGlobalDamageSource("DAMAGE_SOURCE_RBISON",              RBisonKL);
+createGlobalDamageSource("DAMAGE_SOURCE_SHOVEL",              ShovelKL); // technically axe
+createGlobalDamageSource("DAMAGE_SOURCE_RSHOOTER",            ReserveshooterKL);/*
+
+createGlobalDamageSource("DAMAGE_SOURCE_TOMISLAV",            TomislavKL);
+createGlobalDamageSource("DAMAGE_SOURCE_NATACHA",             NatachaKL);
+createGlobalDamageSource("DAMAGE_SOURCE_BRASSBEAST",          BrassBeastKL);
+createGlobalDamageSource("DAMAGE_SOURCE_IRON",                IronMaidenKL);
+createGlobalDamageSource("DAMAGE_SOURCE_FAMILYBUSINESS",      FamilyBusinessKL);
+createGlobalDamageSource("DAMAGE_SOURCE_KGOB",                FistsKL);
+
+createGlobalDamageSource("DAMAGE_SOURCE_TIGERUPPERCUT",       TigerUppercutKL);
+createGlobalDamageSource("DAMAGE_SOURCE_SCOTTISHRESISTANCE",  ScottishResistanceKL);
+createGlobalDamageSource("DAMAGE_SOURCE_STICKYSTICKER",       StickyStickerKL);
+createGlobalDamageSource("DAMAGE_SOURCE_EYELANDER",           EyelanderKL);
+createGlobalDamageSource("DAMAGE_SOURCE_PAINTRAIN",           PaintrainKL);
+
+createGlobalDamageSource("DAMAGE_SOURCE_BLUTSAUGER",          BlutsaugerKL);
+
+
+
+

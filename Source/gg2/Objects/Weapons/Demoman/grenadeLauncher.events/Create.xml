@@ -30,6 +30,9 @@
     
     if (ammoCount &lt; maxAmmo) alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
     
+    weaponGrade = STOCK;
+    weaponType = GRENADELAUNCHER;
+    
     normalSprite = grenadeLauncherS;
     recoilSprite = grenadeLauncherFS;
     reloadSprite = grenadeLauncherS;

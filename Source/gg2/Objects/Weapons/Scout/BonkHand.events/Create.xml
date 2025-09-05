@@ -29,11 +29,12 @@
     
     isMelee = true;
     
-    // used to be INVIS, maybe use that later?
-    ability = INVINC;
+    // used to be INVIS, maybe make that later?
+    ability = INVULN;
     abilityName = "BONK";
     abilityVisual = "BLUR";
     rechargeAbility = ALARM;
+    cancelAbility = ALARM;
     
     owner.eatCooldown = 300;
     maxMeter = owner.eatCooldown;
@@ -58,7 +59,7 @@
     reloadImageSpeed = reloadAnimLength / reloadTime;
     
     if (!owner.abilityActive[owner.activeWeapon]) {
-        if (owner.team == TEAM_BLUE) owner._oldTauntSprite = ScoutBlueTauntS; else owner._oldTauntSprite = ScoutRedTauntS;
+        owner._oldTauntSprite = owner.tauntsprite;
         owner.tauntsprite = ScoutBonkS;
         owner.tauntlength = sprite_get_number(owner.tauntsprite)/2;
         owner.tauntindex=owner.tauntlength * owner.player.team;

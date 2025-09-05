@@ -354,6 +354,8 @@ global.launchMap = "";
     global.changeClass = ini_read_real("Controls", "changeClass", ord("M"));
     global.showScores = ini_read_real("Controls", "showScores", vk_shift);
     global.weaponswitch = ini_read_real("Controls", "Weapon Switch", ord("Q"));
+    global.abilityButton = ini_read_real("Controls", "Ability Button", ord("S")); // prep for spy in randomizerMode, will allow you to backstab on all secondaries, no matter how impossible
+    
     ini_close();
     
     calculateMonthAndDay();

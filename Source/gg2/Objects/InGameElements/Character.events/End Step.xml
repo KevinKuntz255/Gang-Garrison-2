@@ -50,27 +50,23 @@ if(hp&gt;maxHp) {
     hp=maxHp;
 }
 
-// ability tracking
-if (rechargeAbility[activeWeapon] == RUN)
-{
-    if (hspeed != 0 &amp;&amp; onground &amp;&amp; !abilityActive[activeWeapon]) {
-        meter[activeWeapon] += (rechargeRate[activeWeapon] / 16 * speed) * global.delta_factor;
+// misc tracking
+with (currentWeapon) {
+    if (variable_local_exists("lobbed")) {
+        other.lobbedC = lobbed;
     }
-    if (meter[activeWeapon] &gt;= maxMeter[activeWeapon]) {
-        abilityActive[activeWeapon] = true;
-    } else if (meter[activeWeapon] &lt;= 0) {
-        abilityActive[activeWeapon] = false;
+    if (variable_local_exists("uberCharge"))
+    {
+        other.uberChargeC = uberCharge;
+        other.uberReadyC = uberReady;
     }
 }
+
+ammo[activeWeapon] = currentWeapon.ammoCount;
+
+// ability tracking
+// todo: move to a networking call, find out after playtesting
 for(i=0; i&lt;2; i+=1) {
-    if (rechargeAbility[i] == ALARM) {
-        if (weaponType[i] == CONSUMABLE) {
-            if (alarm[6] != -1) meter[i] = alarm[6];
-        } else {
-            if (meter[i] != maxMeter[i]) meter[i] = tracker.alarm[i];
-        }
-    }
-    if (i == activeWeapon) meter[i] -= 1 * global.delta_factor;
     if (abilityActive[i]) {
         switch(ability[i])
         {
@@ -81,28 +77,74 @@ for(i=0; i&lt;2; i+=1) {
             case CRIT:
                 currentWeapon.crit = 1.35;
                 alarm[9] = 2 / global.delta_factor;
+            case CHARGEUP:
+                if (meter[i] &gt; 0) {
+                    runPower = 0.6;
+                    jumpStrength = 6;
+                    with(currentWeapon) {
+                        readyToShoot = false;
+                        readyToStab = false;
+                        readyToSwing = false;
+                        readyToFlare = false;
+                        readyToBlast = false;
+                    }
+                }
+                else if (meter[i] &lt;= 0) {
+                    abilityActive[i] = false;
+                    canSwitch = true;
+                    meter[i] = 25;
+                    with(currentWeapon) {
+                        crit = 1.35;
+                        readyToShoot = true;
+                        readyToSwing = true;
+                        event_user(1);
+                        crit = 1;
+                        ammoCount = 25;
+                    }
+                    runPower = baseRunPower;
+                    jumpStrength = baseJumpStrength;
+                }
             break;
-            case INVINC:
-                currentWeapon.readyToShoot = false;
-                currentWeapon.readyToStab = false;
-                currentWeapon.readyToFlare = false;
-                currentWeapon.readyToBlast = false;
+            case INVULN:
+                // todo: its very unorganized how there's multiple readyToGun variables, change this in later releases?
+                with(currentWeapon) {
+                    readyToShoot = false;
+                    readyToStab = false;
+                    readyToSwing = false;
+                    readyToFlare = false;
+                    readyToBlast = false;
+                }
+            break;
+            case DASH:
+                // dash code clump, add when coding Detonator
             break;   
         }
+        if (meter[i] &lt;= 0 and cancelAbility[i] == DEPLETE) abilityActive[i] = false;
+    }
+    if (i != activeWeapon and chargeWhileActive[i] || pauseMeter[i]) continue;
+    if (meter[i] &gt;= maxMeter[i] and activateAbility[i] == MAX) abilityActive[i] = true;
+    if (abilityActive[i]) meter[i] -= drainRate[i] * global.delta_factor;
+    
+    switch(rechargeAbility[i])
+    {
+        case ALARM:
+            if (weaponType[i] == CONSUMABLE) {
+                if (alarm[6] != -1) meter[i] = alarm[6];
+            } else {
+                if (meter[i] != maxMeter[i]) meter[i] = tracker.alarm[i];
+            }
+        break;
+        case AMMO:
+            if (!abilityActive) meter[i] = ammo[i];
+        break;
+        case RUN:
+            if (hspeed != 0 &amp;&amp; onground &amp;&amp; !abilityActive[i]) {
+                meter[i] += (rechargeRate[i] / 16 * speed) * global.delta_factor;
+            }
+        break;
     }
 }
 
-// ammo tracking
-if(currentWeapon.object_index == Minegun)
-{
-    lobbedC = currentWeapon.lobbed;
-}
-if(currentWeapon.object_index == Medigun)
-{
-    uberChargeC = currentWeapon.uberCharge;
-    uberReadyC = currentWeapon.uberReady;
-}
-ammo[activeWeapon] = currentWeapon.ammoCount;
 
 if(((aimDirection+270) mod 360)&gt;180) {
     image_xscale=1;

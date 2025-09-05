@@ -29,6 +29,7 @@
     idle=true;
     
     isMelee = true;
+    isThrowable = true;
     
     weaponGrade = STOCK;
     weaponType = CONSUMABLE;

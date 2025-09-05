@@ -33,4 +33,5 @@
   <resource name="ggon" type="GROUP"/>
   <resource name="Dominations" type="GROUP"/>
   <resource name="randomizer" type="GROUP"/>
+  <resource name="Organization" type="GROUP"/>
 </resources>

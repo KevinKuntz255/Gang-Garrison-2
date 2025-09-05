@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if (owner.taunting &amp;&amp; owner.tauntsprite == ScoutTKillS) {
+    //if (owner.tauntindex &gt;= sprite_get_number(owner.tauntsprite) &amp;&amp; !abilityActive) {
+            //owner.inheritAbility = true;
+
+    if (owner.team == TEAM_BLUE &amp;&amp; owner.tauntindex &lt;= 29) owner.tauntindex += sprite_get_number(owner.tauntsprite)/2; // its called we do a little jerry-rigging
+    if (owner.tauntindex &gt;= TKF &amp;&amp; !TK) {
+        shot = instance_create(x,y,MeleeMask);
+        shot.direction = owner.aimDirection;
+        shot.speed = owner.speed;
+        shot.owner = owner;
+        shot.ownerPlayer = ownerPlayer;
+        shot.team = owner.team;
+        shot.hitDamage = 200;
+        shot.weapon=DAMAGE_SOURCE_ATOMIZER_TKILL;
+        playsound(x,y,BallSnd);
+        TK = true;
+    }
+  if (owner.tauntindex &gt;= owner.tauntend &amp;&amp; team == TEAM_RED) {
+        owner.taunting = false;
+  }
+} else {
+TK = false;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -27,17 +27,26 @@
         // allow knockback to radioactive players as god gaben intended
         with(other)
         {
-            if (other.weapon == DAMAGE_SOURCE_FAN) {
-                motion_add(other.direction, other.speed*0.1);
-             if (!onground) { // make em fly if theyre off ground
-                //motion_add(other.direction, other.speed*0.2);
-                other.moveStatus = 3;
-                }
-            } else
-                motion_add(other.direction, other.speed*0.03);
+            switch(other.weapon)
+            {
+                case DAMAGE_SOURCE_FAN:
+                    motion_add(other.direction, other.speed*0.1);
+                    if (!onground) { // make em fly if theyre off ground
+                        //motion_add(other.direction, other.speed*0.2);
+                        other.moveStatus = 3;
+                    }
+                break;
+                case DAMAGE_SOURCE_RSHOOTER:
+                    if (!onground and moveStatus == 3 and crit &lt; 1) crit *= 1.15; // would be insane if it counted up while existing crits
+                    motion_add(other.direction, other.speed*0.03);
+                break;
+                default:
+                    motion_add(other.direction, other.speed*0.03);
+                break;
+            }
         }
         damageCharacter(ownerPlayer, other.id, hitDamage, id);
-        if (other.abilityActive[0] &amp;&amp; other.ability[0] == INVINC || other.abilityActive[1] &amp;&amp; other.ability[1] == INVINC) exit;
+        if (other.abilityActive[0] &amp;&amp; other.ability[0] == INVULN || other.abilityActive[1] &amp;&amp; other.ability[1] == INVULN) exit;
         if (other.lastDamageDealer != ownerPlayer and other.lastDamageDealer != other.player)
         {
             other.secondToLastDamageDealer = other.lastDamageDealer;
@@ -55,7 +64,7 @@
         }
         dealFlicker(other.id);
 
-        instance_destroy();
+        if (sprite_index != LaserShotS) instance_destroy(); // lorgan made 50 shots when he could just do a single if sttatement, boom done
     }
 
 </argument>

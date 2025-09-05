@@ -39,11 +39,15 @@
             normalSprite = PyroShotgunS;
             recoilSprite = PyroShotgunFS;
             reloadSprite = PyroShotgunFRS;
-        /*else if (player.class == CLASS_HEAVY) {
+        /*else if (ownerPlayer.class == CLASS_HEAVY) {
             normalSprite = HeavyShotgunS;
             recoilSprite = HeavyShotgunFS;
             reloadSprite = HeavyShotgunFRS;
         */
+        } else if (ownerPlayer.class == CLASS_SOLDIER) {
+            normalSprite = SoldierShotgunS;
+            recoilSprite = SoldierShotgunFS;
+            reloadSprite = SoldierShotgunFRS;
         } else {
             normalSprite = ShotgunS;
             recoilSprite = ShotgunFS;

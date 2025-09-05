@@ -40,29 +40,30 @@
     flight = 0;
     lastTurn = 0;
     doubleTapped = true;
-
-    loaded1 = -1;
-    loaded2 = -1;
     
     canSwitch = true;
-    nomRate = 1.6;
-    soaked = false;
     dashon = true;
     runCombo = false; // for quick switching after airblasting
     
+    // todo: replace soakType and uberType with YB's suggestion
     for(i=0; i&lt;4; i+=1) {
         ammo[i] = 400; // largest number, todo: change this with some proper reloading
         soakType[i] = -1;
-        meter[i] = -1;
-        maxMeter[i] = -1;
+        ability[i] = -1;
         abilityName[i] = "";
         abilityVisual[i] = "";
         abilityActive[i] = false;
-        weaponType[i] = -1;
-        ability[i] = -1;
+        activateAbility[i] = -1;
+        cancelAbility[i] = -1;
         rechargeAbility[i] = -1;
+        chargeWhileActive[i] = false;
+        meter[i] = -1;
+        maxMeter[i] = -1;
         rechargeRate[i] = 1;
-        timeLeft[i] = -1;
+        drainRate[i] = 1;
+        pauseMeter[i] = false;
+        weaponType[i] = -1;
+        specialProjectile[i] = -1;
     }
 
     for(i=0; i&lt;5; i+=1) {
@@ -72,10 +73,9 @@
     // aaaaaaaand I'm out of space okay lets just put this in then
     tracker = instance_create(x,y,SpecialTracker);
     tracker.owner = id;
+    blur = -1;
+    // use the effects variable on this instead
     specialUber = false;
-    lastMeter=-1;
-    rechargeRate = 1;
-    abilityActive = false;
     
     lobbedC = 0;
     uberChargeC = 0;
@@ -199,6 +199,7 @@
     //sandvich
     omnomnomnom = false;
     canEat = true;
+    nomRate = 1.6;
     eatCooldown = 1350; //45 sec cooldown
     
     //sniper zoom
@@ -246,42 +247,73 @@
     
     // Let's spawn our weapon
     global.paramOwner = id;
+    
+    //syncLoadout(global.loadout[player.class], global.serverSocket);
+    //socket_send(global.serverSocket);
 
     weapons[0] = global.weapons[real(string_copy(string(global.loadout[player.class]), 2, 2))];
     weapons[1] = global.weapons[real(string_copy(string(global.loadout[player.class]), 4, 2))];
     
+    // remnant from my anger with networking, gonna keep it, I bet this isn't the end of the work I'm doing
+    /*if (player == global.myself) {
+    } else {*/
+        //weapons[0] = global.weapons[player.weapons[0]];
+        //weapons[1] = global.weapons[player.weapons[1]];
+    //}
+    
+    // bulk of the magic
     activeWeapon = 0;
     
     currentWeapon = instance_create(x,y,weapons[0]);
     
     weaponType[0] = currentWeapon.weaponType;
     
+    //if (currentWeapon.weaponType == WEAR) inputSwitch(); not sure about this until randomizerMode is implemented
+    
+    currentWeapon.ammoCount = currentWeapon.maxAmmo;
+    ammo[0] = currentWeapon.maxAmmo;
+    
+    if (currentWeapon.ability != -1) {
+        ability[0] = currentWeapon.ability;
+        abilityName[0] = currentWeapon.abilityName;
+        abilityVisual[0] = currentWeapon.abilityVisual;
+        activateAbility[0] = currentWeapon.activateAbility;
+        cancelAbility[0] = currentWeapon.cancelAbility;
+        rechargeAbility[0] = currentWeapon.rechargeAbility;
+        chargeWhileActive[0] = currentWeapon.chargeWhileActive;
+        meter[0] = currentWeapon.meter;
+        maxMeter[0] = currentWeapon.maxMeter;
+    }
+    specialProjectile[0] = currentWeapon.specialProjectile;
+
+    //currentWeapon.alarm[5] = -1;
+
     var checkWeapon;
     checkWeapon = instance_create(0,0,weapons[1]);
+
     weaponType[1] = checkWeapon.weaponType;
+
     if (checkWeapon.weaponType == WEAR) canSwitch = false;
+
     if (checkWeapon.ability != -1) {
         ability[1] = checkWeapon.ability;
         abilityName[1] = checkWeapon.abilityName;
+        abilityVisual[1] = checkWeapon.abilityVisual;
+        activateAbility[1] = checkWeapon.activateAbility;
+        cancelAbility[1] = checkWeapon.cancelAbility;
+        rechargeAbility[1] = checkWeapon.rechargeAbility;
+        chargeWhileActive[1] = checkWeapon.chargeWhileActive;
         meter[1] = checkWeapon.meter;
         maxMeter[1] = checkWeapon.maxMeter;
-        rechargeAbility[1] = checkWeapon.rechargeAbility;
     }
+    specialProjectile[1] = checkWeapon.specialProjectile;
+
     // reset max ammo on character create since ammo[i] is the largest number possible
     checkWeapon.ammoCount = checkWeapon.maxAmmo;
     ammo[1] = checkWeapon.maxAmmo;
+    
     with(checkWeapon) instance_destroy();
-    //if (currentWeapon.weaponType == WEAR) inputSwitch();
-    currentWeapon.ammoCount = currentWeapon.maxAmmo;
-    ammo[0] = currentWeapon.maxAmmo;
-    if (currentWeapon.ability != -1) {
-        ability[0] = currentWeapon.ability;
-        meter[0] = currentWeapon.meter;
-        maxMeter[0] = currentWeapon.maxMeter;
-        abilityName[0] = currentWeapon.abilityName;
-        rechargeAbility[0] = currentWeapon.rechargeAbility;
-    }
-    currentWeapon.alarm[5] = -1;
+    
     
     for(i=0; i&lt;2; i+=1)
         givePassiveEffect(id, weapons[i]);

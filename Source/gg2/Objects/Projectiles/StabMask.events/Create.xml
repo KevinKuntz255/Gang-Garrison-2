@@ -19,6 +19,7 @@
     playsound(x,y,KnifeSnd)
     numKills = 0;
     maxKills = 2;
+    crit = 2; // already an auto-kill, crank up some visuals on that baby
 }
 </argument>
       </arguments>

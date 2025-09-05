@@ -5,4 +5,6 @@
   <resource name="weapon_init" type="RESOURCE"/>
   <resource name="weaponSwitch" type="RESOURCE"/>
   <resource name="givePassiveEffect" type="RESOURCE"/>
+  <resource name="ServerLoadoutSync" type="RESOURCE"/>
+  <resource name="syncLoadout" type="RESOURCE"/>
 </resources>

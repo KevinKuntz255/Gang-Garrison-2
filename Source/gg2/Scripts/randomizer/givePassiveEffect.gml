@@ -9,6 +9,7 @@ switch(weapon)
   //case BigEarner:
      character.maxHp -= 20;
      character.hp -= 20;
+  break;
   case Atomizer:
     character.canTriplejump = 1;
   break;

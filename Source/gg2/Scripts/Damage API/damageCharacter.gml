@@ -1,29 +1,46 @@
-// damageCharacter( sourcePlayer, damagedCharacter, damageDealt, shot)
+// damageCharacter( sourcePlayer, damagedCharacter, damageDealt, damageSource)
 for(i=0; i<2; i+=1) {
-    if (argument1.abilityActive[i] and argument1.ability[i] == INVINC)
+    if (argument1.abilityActive[i] and argument1.ability[i] == INVULN)
     {
         var text;
         text=instance_create(argument3.x,argument3.y,Text);
         text.sprite_index=MissS;
         exit;
     }
-    if (argument1.rechargeAbility[i] == DAMAGE)
+    if (argument0.object.rechargeAbility[i] == DAMAGE)
     {
         meter[i] += argument2;
     }
 }
 // generate these on collision, easier that way
-// todo: add a check for ownerPlayer to prevent so many distracting crit particles
-if (!variable_local_exists("argument3.crit")) argument3.crit = 1; // huh
-if (argument3.crit == 1.15) {
+var canCreateText;
+canCreateText = true;
+with(Text)
+{
+    if (variable_local_exists("owner")) {
+        if (owner == other.argument0) {
+            other.canCreateText = false;
+        }    
+    }
+}
+if (argument3.crit == 1.15 and canCreateText) {
     var text;
     text=instance_create(argument3.x,argument3.y,Text);
     text.sprite_index=MiniCritS;
+    text.owner = argument0;
 }
-if (argument3.crit == 1.35) {
+if (argument3.crit >= 1.35 and canCreateText) {
     var text;
     text=instance_create(argument3.x,argument3.y,Text);
     text.sprite_index=CritS;
+    text.owner = argument0;
+}
+
+switch(argument3.weapon)
+{
+    case DAMAGE_SOURCE_BLACKBOX:
+        if (argument1 != argument0.object) argument0.object.hp += argument2*0.35;
+    break;
 }
 /*
 var object;

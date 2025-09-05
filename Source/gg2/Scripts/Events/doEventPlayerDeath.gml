@@ -30,6 +30,14 @@ recordKillInLog(victim, killer, assistant, damageSource);
 victim.stats[DEATHS] += 1;
 if(killer)
 {
+    if (killer.object) {
+        for(i=0; i<2; i+=1) {
+            if (killer.object.rechargeAbility[i] == KILLS) {
+                killer.object.meter[i] = min(killer.object.maxMeter[i], killer.object.meter[i] + 1);
+            }
+        }
+    }
+    
     if(damageSource == DAMAGE_SOURCE_KNIFE || damageSource == DAMAGE_SOURCE_BACKSTAB)
     {
         killer.stats[STABS] += 1;
@@ -37,6 +45,8 @@ if(killer)
         killer.stats[POINTS] += 1;
         killer.roundStats[POINTS] +=1;
     }
+    
+    
     
     if (victim.object.currentWeapon.object_index == Medigun)
     {
@@ -124,6 +134,7 @@ with(victim.object) {
         or damageSource == DAMAGE_SOURCE_GENERATOR_EXPLOSION;
     gibsWhenExploded = (player.class != CLASS_QUOTE) and (global.gibLevel>1);
     isCloseBy = distance_to_point(xoffset+xsize/2,yoffset+ysize/2) < 900;
+    
     
     if(diedOfExplosion and gibsWhenExploded)
     {
@@ -287,7 +298,7 @@ if (hasReward(victim, 'Ghost') and victim.ghost == noone) {
     victim.ghost.vspeed = vspeed;
 }
 
-with(victim.object) {       
+with(victim.object) {
     instance_destroy();
 }
 

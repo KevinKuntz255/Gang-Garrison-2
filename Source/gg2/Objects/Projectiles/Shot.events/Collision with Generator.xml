@@ -15,7 +15,7 @@
       <arguments>
         <argument kind="STRING">if(other.team != team) {
     damageGenerator(ownerPlayer, other.id, hitDamage);
-    instance_destroy();
+    if (sprite_index != LaserShotS) instance_destroy();
 }
 </argument>
       </arguments>

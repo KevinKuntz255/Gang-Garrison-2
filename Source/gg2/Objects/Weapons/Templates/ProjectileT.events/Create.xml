@@ -21,24 +21,33 @@
     idle=true;
     
     weaponGrade = UNIQUE;
-    weaponType = SHOT;
+    weaponType = PROJECTILE;
     
     damSource = DAMAGE_SOURCE_ROCKETLAUNCHER;
 
     specialProjectile = Rocket;
     projectileSpeed = 13;
     projectilePosition = 20;
+    projectileBlastRadius = 65;
     
+    // this isnt commonly used, and having to type it over and over to every weapon seems excessive
+    useSpecialSprite = false;
+    specialSprite = RocketS;
     specialSpriteR = RedRocketS;
     specialSpriteB = BlueRocketS;
     specialSnd = RocketSnd;
     
-    shotDamage = 7;
     fullReload = false;
     
     directDamage = 25;
-    splashDamage = 30; 
-
+    splashDamage = 30;
+    ammoDrain = 1; // added due to CowMangler
+    ammoGain = 1;
+    
+    // minegun specific
+    destructProjectiles = false;
+    trackProjectileNetworking = false;
+    
     if (!variable_local_exists("normalSprite")) normalSprite = RocketlauncherS;
     if (!variable_local_exists("recoilSprite")) recoilSprite = RocketlauncherFS;
     if (!variable_local_exists("reloadSprite")) reloadSprite = RocketlauncherFRS;

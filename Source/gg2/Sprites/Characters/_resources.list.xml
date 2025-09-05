@@ -10,4 +10,5 @@
   <resource name="Spy" type="GROUP"/>
   <resource name="Pyro" type="GROUP"/>
   <resource name="Querly" type="GROUP"/>
+  <resource name="randomizer" type="GROUP"/>
 </resources>

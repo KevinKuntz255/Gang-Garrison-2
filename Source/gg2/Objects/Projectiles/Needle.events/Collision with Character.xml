@@ -24,7 +24,7 @@
     
     if(other.id != ownerPlayer.object and other.team != team  and other.hp &gt; 0 and other.ubered == 0)
     {
-        damageCharacter(ownerPlayer, other.id, hitDamage);
+        damageCharacter(ownerPlayer, other.id, hitDamage, id);
         if (other.lastDamageDealer != ownerPlayer and other.lastDamageDealer != other.player)
         {
             other.secondToLastDamageDealer = other.lastDamageDealer;

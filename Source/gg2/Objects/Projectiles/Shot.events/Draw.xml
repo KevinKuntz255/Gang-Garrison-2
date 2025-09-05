@@ -13,15 +13,21 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if (crit &gt; 1)
+        <argument kind="STRING">if (sprite_index == ManglerShotS || sprite_index == LaserShotS)
+{
+    if (owner.team == TEAM_RED)
+        image_index = 0;
+    else
+        image_index = 1;
+}
+if (crit &gt; 1)
 {
     if (owner.team == TEAM_RED)
         ubercolour = c_orange;
     else if (owner.team == TEAM_BLUE)
         ubercolour = c_aqua;
-    // todo: add some spark code
     draw_sprite_ext(sprite_index,image_index, x, y,image_xscale,image_yscale,image_angle,ubercolour,0.7);
-} else
+}
 draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 </argument>
       </arguments>

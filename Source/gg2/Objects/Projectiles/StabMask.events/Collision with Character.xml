@@ -26,7 +26,7 @@
     connecting |= !collision_line_bulletblocking(x, y-12, other.x, other.y);
     if(connecting)
     {
-        damageCharacter(ownerPlayer, other.id, hitDamage);
+        damageCharacter(ownerPlayer, other.id, hitDamage, other.id);
         if (other.lastDamageDealer != ownerPlayer &amp;&amp; other.lastDamageDealer != other.player)
         {
             other.secondToLastDamageDealer = other.lastDamageDealer;

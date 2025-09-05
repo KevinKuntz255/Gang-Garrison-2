@@ -123,7 +123,7 @@ ds_list_destroy(bulletStoppingObjects);
 with(hitInstance) {
     if(object_index == Character or object_is_ancestor(object_index, Character)) {
         if(!ubered and team != other.owner.team) {
-            damageCharacter(other.ownerPlayer, id, other.hitDamage);
+            damageCharacter(other.ownerPlayer, id, other.hitDamage, id);
             if (lastDamageDealer != other.ownerPlayer and lastDamageDealer != player)
             {
                 secondToLastDamageDealer = lastDamageDealer;

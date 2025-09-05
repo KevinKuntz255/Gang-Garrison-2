@@ -54,6 +54,9 @@
     roundStats[REVENGE] = 0;
     roundStats[POINTS] = 0;
     
+    weapons[0] = 00;
+    weapons[1] = 10;
+    
     timesChangedCapLimit = 0;
     
     lastKnownx = 0;

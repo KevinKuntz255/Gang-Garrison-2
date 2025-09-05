@@ -41,6 +41,7 @@
         perseverant = choose(0, 0, 1); // 1/3 chance
         index = 0;
         bounced = 1;
+        crit = 1;
 }
 </argument>
       </arguments>

@@ -291,6 +291,8 @@ do {
                 player.object = -1;
             }
             player.class = read_ubyte(global.tempBuffer);
+            player.weapons[0] = player.class*10;
+            player.weapons[1] = player.class*10+5;
             break;             
         
         case PLAYER_CHANGENAME:
@@ -316,15 +318,24 @@ do {
             break;
             
         case WEAPON_SWAP:
-            receiveCompleteMessage(global.serverSocket,2,global.tempBuffer);
+            receiveCompleteMessage(global.serverSocket,3,global.tempBuffer);
             player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
             if player.object != -1 {
                 with player.object {
                     weaponSwitch(read_ubyte(global.tempBuffer));
+                    activeWeapon = read_ubyte(global.tempBuffer);
                 }
             }
             break;
         
+        case LOADOUT_SYNC:
+            receiveCompleteMessage(global.serverSocket,3,global.tempBuffer);
+            player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
+            player.weapons[0] = read_ubyte(global.tempBuffer);
+            player.weapons[1] = read_ubyte(global.tempBuffer);
+            show_message(string(player.weapons[0]));
+            break;
+            
         case BUILD_SENTRY:
             receiveCompleteMessage(global.serverSocket,6,global.tempBuffer);
             player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));

@@ -20,13 +20,25 @@
         if (owner == other.id) {
             instance_destroy();
         }
-	   }
+   }
 
     var map;
     with(currentWeapon) {
         instance_destroy();
     }
     
+    for(i=0; i&lt;2; i+=1) {
+        if (weaponType[i] == MINEGUN || weaponType[i] == GRENADELAUNCHER)
+        {
+            with(specialProjectile[i])
+            {
+                if (ownerPlayer == other.player) {
+                    owner = -1;
+                    instance_destroy();
+                }
+            }
+        }
+    }
     with(bubble) {
         instance_destroy();
     }

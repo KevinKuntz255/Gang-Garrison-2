@@ -48,9 +48,12 @@
                         afterburnSource = WEAPON_DETONATOR;
                         alarm[0] = decayDelay / global.delta_factor;
                     }
-if (player != other.ownerPlayer) damageCharacter(other.ownerPlayer, id, other.explosionDamage*sqr((1-(distance_to_object(other)/other.blastRadius)))*(1+0*0.35)*1*bonus);
-else if (player == other.ownerPlayer)
-damageCharacter(other.ownerPlayer, other.ownerPlayer.object, 10*sqr((1-(distance_to_object(other)/other.blastRadius)))*(1+0*0.35)*1);
+                    var dmg;
+                dmg = other.explosionDamage*(1-(distance_to_object(other)/other.blastRadius));
+                dmg *= (1+0*0.35*crit*bonus); // todo: findout what bonus is, bazaar bargain related? huh?
+                if id == other.ownerPlayer.object// self damage resistance
+                    dmg *= 5/9;
+                damageCharacter(other.ownerPlayer, id, dmg, other.id);
                     // todo: ownerPlayer gets afterburn for a lil while, fix that
 
 //if true hp -= other.explosionDamage*sqr((1-(distance_to_object(other)/other.blastRadius)))*(1+0*0.35)*1*bonus;
@@ -117,7 +120,7 @@ damageCharacter(other.ownerPlayer, other.ownerPlayer.object, 10*sqr((1-(distance
             //hp -= other.explosionDamage*sqr((1-(distance_to_object(other)/other.blastRadius)))*other.crit;
             lastDamageDealer = other.ownerPlayer;
             lastDamageSource = other.weapon;
-            lastDamageCrit = 1;
+            //lastDamageCrit = 1;
             }   
         }    
          

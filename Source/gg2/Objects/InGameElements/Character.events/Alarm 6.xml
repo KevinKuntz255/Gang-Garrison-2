@@ -29,6 +29,7 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">canEat = true;
+playsound(x,y,rechargeSnd);
 </argument>
       </arguments>
     </action>

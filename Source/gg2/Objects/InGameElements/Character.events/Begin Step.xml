@@ -80,7 +80,7 @@ if (global.run_virtual_ticks)
                 for(i=0; i&lt;2; i+=1) {
                     if (lastDamageDealer.object.rechargeAbility[i] == DAMAGE)
                     {
-                        lastDamageDealer.object.meter[i] += burnIntensity / (30*(frozen+1));
+                        if (lastDamageDealer.object.meter[i] &lt;= lastDamageDealer.object.maxMeter[i]) lastDamageDealer.object.meter[i] += burnIntensity / (30*(frozen+1));
                     }
                 }
             }
@@ -106,6 +106,9 @@ if(player.queueJump)
         wantToJump = false;
 }
 
+// prevent accidentally charging
+if (pressedKeys &amp; $10) doubleTapped = true;
+    
 if(!taunting and !omnomnomnom)
 {
     if(!player.humiliated and downOrPressedKeys &amp; $10)
@@ -155,6 +158,11 @@ if(!taunting and !omnomnomnom)
         }
     }
 }
+if (taunting)
+{
+    if (!abilityActive[activeWeapon] and activateAbility[activeWeapon] == TAUNT) {
+    }
+}
 
 // Right click
 if (!player.humiliated and (downOrPressedKeys &amp; $08)
@@ -165,18 +173,59 @@ if (!player.humiliated and (downOrPressedKeys &amp; $08)
         event_user(2);
 }
 
-// Cloak
-if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)
-    &amp;&amp; canCloak &amp;&amp; ((cloakAlpha == 1 and !cloak) or cloak)
-    &amp;&amp; !intel  &amp;&amp; !taunting)
-{
-    deathmatch_invulnerable = 0;
-    if(currentWeapon.readyToStab) {
-        if (cloak) { // stop spies immediately picking up intel after uncloaking
-            canGrabIntel = false;
-            alarm[1] = max(alarm[1], 25 / global.delta_factor); // avoid decreasing the alarm on accident
+// Abilities
+if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
+    if (canCloak &amp;&amp; ((cloakAlpha == 1 and !cloak) or cloak) &amp;&amp; !intel  &amp;&amp; !taunting) {
+        deathmatch_invulnerable = 0;
+        if(currentWeapon.readyToStab) {
+            if (cloak) { // stop spies immediately picking up intel after uncloaking
+                canGrabIntel = false;
+                alarm[1] = max(alarm[1], 25 / global.delta_factor); // avoid decreasing the alarm on accident
+            }
+            cloak = !cloak;
         }
-        cloak = !cloak;
+    }
+    // todo: 3rd ability button for spies for the specific case of randomizerMode
+    for(i=0; i&lt;2; i+=1) {
+        if (ability[activeWeapon] == -1) break; // stop abilities passing if they dont exist
+        if (!abilityActive[i]) {
+            switch(ability[i])
+            {
+                case CHARGEUP:
+                    //if (i != activeWeapon) continue;
+                    if (i == activeWeapon &amp;&amp; meter[activeWeapon] &gt;= maxMeter[activeWeapon]) abilityActive = true;
+                    with(currentWeapon) {
+                        readyToShoot = false;
+                        readyToStab = false;
+                        readyToSwing = false;
+                        readyToFlare = false;
+                        readyToBlast = false;
+                    }
+                    canSwitch = false;
+                    playsound(x,y,ManglerChargeSnd);
+                break;
+                case DASH:
+                    doubleTapped = !doubleTapped;
+                    if ((currentWeapon.weaponType == MINEGUN || currentWeapon.weaponType == HEALBEAM || currentWeapon.isThrowable) &amp;&amp; !doubleTapped) exit; // a sort of buffer for weapons like SandvichHand and Minegun
+                    if (abilityActive[i] &amp;&amp; meter[i] &gt;= 20) {
+                        abilityActive[i] = false;
+                        meter[i] = 0;
+                    } // stop, no matter what
+                    if (!abilityActive[i] &amp;&amp; !cloak &amp;&amp; meter[i] &gt;= maxMeter[i]) {
+                        abilityActive[i] = true;
+                        accel = 0;
+                        moveStatus = 0;
+                        dashon = true;
+                        doubleTapped = true;
+                        playsound(x,y,ChargeSnd);
+                        // its very unorganized how there's multiple readyToGun variables, change this in later releases?
+                        readyToSwing = true;
+                    }
+                break;
+                default:
+                break;
+            }
+        }
     }
 }
 

@@ -1,14 +1,7 @@
 # next commit:
-FIX THE NETWORKING (HEADACHE)
-open these three:
-- ClientBeginStep.gml
-- processClientCommands.gml 
-- GameServerDefineCommands.gml 
-make the following make sense
-- LOADOUT_SYNC 
-- UPDATE_LOADOUT
-- WEAPON_SWITCH
-- PLAYER_CHANGECLASS
+
+bugfixes requiring testing:
+spawning without an assigned class erroring
 
 move soakType and uberType into a ds_map
 move damageCharacter checks to projectileCollision

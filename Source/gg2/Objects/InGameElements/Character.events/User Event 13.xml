@@ -39,8 +39,10 @@
     }
     
 if(global.updateType == FULL_UPDATE){
-        receiveCompleteMessage(global.serverSocket,9,global.deserializeBuffer);
+        receiveCompleteMessage(global.serverSocket,10,global.deserializeBuffer);
         animationOffset = read_ubyte(global.deserializeBuffer);
+        
+        activeWeapon = read_ubyte(global.deserializeBuffer);
         //class specific syncs
         switch(player.class)
         {
@@ -68,6 +70,10 @@ if(global.updateType == FULL_UPDATE){
         
         weapons[0] = read_ubyte(global.deserializeBuffer);
         weapons[1] = read_ubyte(global.deserializeBuffer);
+        player.weapons[0] = weapons[0];
+        player.weapons[1] = weapons[1];
+        
+        weaponSwitch(weapons[activeWeapon]);
         
         with(currentWeapon) {
             event_user(13);

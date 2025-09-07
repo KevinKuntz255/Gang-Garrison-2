@@ -323,9 +323,9 @@ do {
             if player.object != -1 {
                 with player.object {
                     weaponSwitch(read_ubyte(global.tempBuffer));
-                    activeWeapon = read_ubyte(global.tempBuffer);
                 }
             }
+            player.activeWeapon = read_ubyte(global.tempBuffer);
             break;
         
         case LOADOUT_SYNC:
@@ -333,7 +333,11 @@ do {
             player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
             player.weapons[0] = read_ubyte(global.tempBuffer);
             player.weapons[1] = read_ubyte(global.tempBuffer);
-            show_message(string(player.weapons[0]));
+            /*if player.object != -1 {
+                player.object.weapons[0] = read_ubyte(global.tempBuffer);
+                player.object.weapons[1] = read_ubyte(global.tempBuffer);
+                show_message(player.object.weapons[0]);
+            }*/
             break;
             
         case BUILD_SENTRY:

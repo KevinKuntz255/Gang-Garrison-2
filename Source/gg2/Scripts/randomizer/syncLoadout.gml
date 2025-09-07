@@ -1,2 +1,3 @@
-write_ubyte(argument1, UPDATE_LOADOUT);
-write_ushort(argument1, argument0);
+write_ubyte(argument2, PLAYER_LOADOUT);
+write_ubyte(argument2, argument0);
+write_ushort(argument2, argument1);

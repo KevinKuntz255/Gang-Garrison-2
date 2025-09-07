@@ -4,7 +4,7 @@ currentWeapon = -1;
 
 global.paramOwner = id;
 
-currentWeapon = instance_create(x,y,argument0);
+currentWeapon = instance_create(x,y,global.weapons[argument0]);
 
 global.paramOwner = noone;
 

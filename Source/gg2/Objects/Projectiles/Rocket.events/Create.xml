@@ -28,10 +28,14 @@
     distanceToTravel = 800;
     travelDistance=0; // prevent crashes for airstrike
     crit = 1;
+    team = TEAM_RED;
+    
     playersPassed = ds_list_create();
     
     alarm[1] = 20 / global.delta_factor;
     alarm[2] = 30 / global.delta_factor;
+    
+   
 }
 </argument>
       </arguments>

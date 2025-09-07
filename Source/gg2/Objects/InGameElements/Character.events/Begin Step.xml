@@ -187,11 +187,13 @@ if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
     }
     // todo: 3rd ability button for spies for the specific case of randomizerMode
     for(i=0; i&lt;2; i+=1) {
-        if (ability[activeWeapon] == -1) break; // stop abilities passing if they dont exist
+        //if (ability[i] != ability[activeWeapon]) break; // stop abilities passing if they dont exist, added specifically for CHARGEUP
         if (!abilityActive[i]) {
             switch(ability[i])
             {
                 case CHARGEUP:
+                    if (ability[activeWeapon] != CHARGEUP) break; // stop abilities passing if they're not chargeup, this is single-weapon-specific
+                    // todo: figure this out without the above if statement
                     //if (i != activeWeapon) continue;
                     if (i == activeWeapon &amp;&amp; meter[activeWeapon] &gt;= maxMeter[activeWeapon]) abilityActive = true;
                     with(currentWeapon) {
@@ -205,6 +207,7 @@ if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
                     playsound(x,y,ManglerChargeSnd);
                 break;
                 case DASH:
+                    if (ability[i] != DASH) break; // same deal, happens wit sandman
                     doubleTapped = !doubleTapped;
                     if ((currentWeapon.weaponType == MINEGUN || currentWeapon.weaponType == HEALBEAM || currentWeapon.isThrowable) &amp;&amp; !doubleTapped) exit; // a sort of buffer for weapons like SandvichHand and Minegun
                     if (abilityActive[i] &amp;&amp; meter[i] &gt;= 20) {

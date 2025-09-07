@@ -23,6 +23,8 @@
     
     // client setting stuff; set to defaults
     queueJump = false;
+    // variable intended to test ClientPlayerClass when failing, error is hard to replicate at the mo
+    firstSpawn = false;
     
     //stat tracking array
     stats[KILLS] = 0;
@@ -54,8 +56,13 @@
     roundStats[REVENGE] = 0;
     roundStats[POINTS] = 0;
     
-    weapons[0] = 00;
-    weapons[1] = 10;
+    //weapons[0] = 00;
+    //weapons[1] = 10;
+    
+    weapons[0] = real(string_copy(string(global.loadout[class]), 2, 2));
+    weapons[1] = real(string_copy(string(global.loadout[class]), 4, 2));
+    
+    activeWeapon = 0;
     
     timesChangedCapLimit = 0;
     

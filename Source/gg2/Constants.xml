@@ -75,7 +75,7 @@
   <constant name="KICK_MULTI_CLIENT" value="59"/>
   <constant name="RESERVE_SLOT" value="60"/>
   <constant name="LOADOUT_SYNC" value="61"/>
-  <constant name="UPDATE_LOADOUT" value="62"/>
+  <constant name="PLAYER_LOADOUT" value="62"/>
   <constant name="WEAPON_AIRSTRIKE" value="14"/>
   <constant name="WEAPON_ARROWHEADSHOT" value="109"/>
   <constant name="WEAPON_ATOMIZER" value="9"/>

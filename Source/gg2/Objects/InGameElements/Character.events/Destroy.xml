@@ -18,7 +18,7 @@
     
     with(RadioBlur) {
         if (owner == other.id) {
-            instance_destroy();
+            owner = -1;
         }
    }
 
@@ -32,9 +32,11 @@
         {
             with(specialProjectile[i])
             {
-                if (ownerPlayer == other.player) {
-                    owner = -1;
-                    instance_destroy();
+                if variable_local_exists("owner") {
+                    if (owner == other.id) {
+                        owner = -1;
+                        instance_destroy();
+                    }
                 }
             }
         }
@@ -65,6 +67,10 @@
             sendEventReturnIntel(intelTeam);
         }
     }
+    
+    // yeah ammoCounter keeps crashing, out you go
+    with(AmmoCounter) instance_destroy();
+    with(HealedHud) instance_destroy();
     
     player.object=-1;
     if (place_meeting(x,y,SpawnRoom) or deathmatch_invulnerable != 0)

@@ -144,7 +144,7 @@
                     motion_add(other.owner.aimDirection,
                                other.characterBlastStrength*(1-dist/other.blastDistance));
                     vspeed -= 2;
-                    moveStatus = airblastMove;
+                    moveStatus = other.airblastMove;
                     if (damageOnBlast) damageCharacter(other.ownerPlayer, id, (airblastDamage*(1-dist/other.blastDistance))+15, other.id); // how do u get an airblast crit. todo: add airblast crits, with visuals, specifically for frostbite :)
                     if (lastDamageDealer != other.ownerPlayer and lastDamageDealer != player)
                     {

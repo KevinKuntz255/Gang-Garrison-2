@@ -42,6 +42,9 @@
             if (victim != id)
                 write_ubyte(global.serializeBuffer, domination_kills_get(dominationKills, victim));
         }
+        
+        // least by the books implementation, I don't want to be hooked to a weapon_index
+        write_ubyte(global.serializeBuffer, activeWeapon);
     } 
     
     subobjects=0;

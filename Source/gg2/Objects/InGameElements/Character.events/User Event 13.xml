@@ -21,7 +21,7 @@
     
     var temp, newIntel;
     if(global.updateType == QUICK_UPDATE) or (global.updateType == FULL_UPDATE) {
-        receiveCompleteMessage(global.serverSocket,10,global.deserializeBuffer);
+        receiveCompleteMessage(global.serverSocket,12,global.deserializeBuffer);
         x = read_ushort(global.deserializeBuffer)/5;
         y = read_ushort(global.deserializeBuffer)/5;
         hspeed = read_byte(global.deserializeBuffer)/8.5;
@@ -32,6 +32,10 @@
         hp = read_ubyte(global.deserializeBuffer);
         ammo[0] = read_ubyte(global.deserializeBuffer);
         ammo[1] = read_ubyte(global.deserializeBuffer);
+        
+        // overheal
+        overhealHp = read_byte(global.deserializeBuffer);
+        overhealed = read_ubyte(global.deserializeBuffer);
         
         temp = read_ubyte(global.deserializeBuffer);
         cloak = (temp &amp; $01 != 0);

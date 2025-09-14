@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if (chainGun) {
+    if(owner.taunting or owner.omnomnomnom or owner.player.humiliated)
+    exit;
+    var imageOffset, xdrawpos, ydrawpos;
+    imageOffset = owner.team;
+    xdrawpos = round(x+xoffset*image_xscale);
+    ydrawpos = round(y+yoffset);
+    if (alarm[6] &lt;= 0){
+        //set the sprite to idle
+        imageOffset = owner.team;
+    }else{
+        //We are shooting, loop the shoot animation
+        imageOffset = floor(image_index mod recoilAnimLength) + recoilAnimLength*owner.team
+    }
+        draw_sprite_ext(sprite_index,imageOffset,round(x+xoffset*image_xscale),round(y+yoffset),image_xscale,image_yscale,image_angle,c_white,image_alpha);
+        /*if (sprite_index == normalSprite) {
+             draw_sprite_ext(overlaySprite,imageOffset, xdrawpos, ydrawpos, image_xscale, image_yscale, image_angle, c_red,0.5*(1-(ammoCount/maxAmmo)));
+        }else if (sprite_index == recoilSprite) {
+            draw_sprite_ext(overlayFiringSprite,imageOffset, xdrawpos, ydrawpos, image_xscale, image_yscale, image_angle, c_red,0.5*(1-(ammoCount/maxAmmo)));
+        }*/
+        // ^- I'm leaving this note here for NAGN in case he doesn't learn that i undid this, we need to have a forum debate about whether you should show the overheat to both teams before we put it in the game
+        // kevin here: did he ever have that forum debate
+    if (owner.ubered) {
+        if owner.team == TEAM_RED
+            ubercolour = c_red;
+        else if owner.team == TEAM_BLUE
+            ubercolour = c_blue;
+        draw_sprite_ext(sprite_index,imageOffset,round(x+xoffset*image_xscale),round(y+yoffset),image_xscale,image_yscale,image_angle,ubercolour,0.7*image_alpha);
+    }
+} else {
+    if (distance_to_point(view_xview + view_wview/2, view_yview + view_hview/2) &gt; 800)
+        exit;
+        
+    var imageOffset;
+    if ((alarm[6] &lt;= 0 and alarm[5] &lt;= 0) or object_index == Blade) {
+        //if we are not shooting or recoiling
+        imageOffset = owner.team;
+    } else {
+        //Play the current animation normally
+        var animLength;
+        if (object_index != Rifle &amp;&amp; alarm[5] &lt;= 0)
+            animLength = recoilAnimLength;
+        else if (sprite_index == recoilSprite)
+            animLength = recoilAnimLength;
+        else
+            animLength = reloadAnimLength;
+            
+        imageOffset = floor(image_index mod animLength) + animLength*owner.team;
+    }
+    if (!owner.invisible and !owner.taunting and !owner.omnomnomnom and !owner.player.humiliated)
+    {
+        if (!owner.cloak)
+            image_alpha = power(owner.cloakAlpha, 0.5);
+        else
+            image_alpha = power(owner.cloakAlpha, 2);
+        draw_sprite_ext(sprite_index, imageOffset, round(x+xoffset*image_xscale), round(y+yoffset) + owner.equipmentOffset, image_xscale, image_yscale, image_angle, c_white, image_alpha);
+        if (owner.ubered)
+        {
+            if (owner.team == TEAM_RED)
+                ubercolour = c_red;
+            else if (owner.team == TEAM_BLUE)
+                ubercolour = c_blue;
+            draw_sprite_ext(sprite_index, imageOffset, round(x+xoffset*image_xscale), round(y+yoffset) + owner.equipmentOffset, image_xscale, image_yscale, image_angle, ubercolour, 0.7*image_alpha);
+        }
+        if ((owner.abilityActive &amp;&amp; string_count("WEAPON", abilityVisual) &gt; 0) || crit &gt; 1) 
+       {
+            if (owner.team == TEAM_RED)
+           ubercolour = c_orange;
+        else if (owner.team == TEAM_BLUE)
+           ubercolour = c_aqua;
+           //draw_sprite_ext(sprite_index, imageOffset, round(x+xoffset*image_xscale), round(y+yoffset) + owner.equipmentOffset, image_xscale, image_yscale, image_angle, ubercolour, 0.7*image_alpha);
+        draw_sprite_ext(sprite_index,4+imageOffset/2,round(x+xoffset*image_xscale),round(y+yoffset) + owner.equipmentOffset,image_xscale,image_yscale,image_angle,ubercolour,0.7);
+        if (!isMelee) 
+           draw_sprite_ext(Spark2S,spark,round(x+xoffset*image_xscale),round(y+yoffset) + owner.equipmentOffset ,image_xscale,image_yscale,image_angle,ubercolour,0.3);
+        else
+           draw_sprite_ext(Spark2S,spark,round(x+xoffset*image_xscale),round(y+yoffset+40) + owner.equipmentOffset ,image_xscale,image_yscale,image_angle,ubercolour,0.3);
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

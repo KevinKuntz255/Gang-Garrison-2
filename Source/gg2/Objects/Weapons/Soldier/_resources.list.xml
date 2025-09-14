@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
   <resource name="DirectHit" type="RESOURCE"/>
-  <resource name="BlackBox" type="RESOURCE"/>
   <resource name="CowMangler" type="RESOURCE"/>
+  <resource name="BlackBox" type="RESOURCE"/>
   <resource name="Airstrike" type="RESOURCE"/>
   <resource name="BuffBanner" type="RESOURCE"/>
   <resource name="RBison" type="RESOURCE"/>

@@ -13,9 +13,11 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if (destructProjectiles)
-    with(specialProjectile)
+        <argument kind="STRING">if (destructProjectilesOnDeath) {
+    with(specialProjectile) {
         instance_destroy();
+    }
+}
 </argument>
       </arguments>
     </action>

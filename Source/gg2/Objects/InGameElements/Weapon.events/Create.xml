@@ -38,10 +38,16 @@ meter = 0;
 maxMeter = 100;
 chargeWhileActive = false; // new, for weapons like BuffBanner and SodaPopper
 pauseOnDestruction = false;
-drainRate = 1;
+meterDrain = 1;
+meterGain = 1;
 rechargeRate = 1;
 
 crit = 1;
+
+// heavy specific, used in ShotT
+chainGun = false;
+// exact values
+revSlowdown = 0.3;
 
 // stops crashing as sniper for randomizerMode
 t = 0;
@@ -59,6 +65,8 @@ weaponGrade = STOCK;
 weaponType = SHOT;
 
 owner = global.paramOwner;
+
+jumpSlowdown = owner.baseJumpStrength;
 
 pauseMeter[owner.activeWeapon] = false;
 // todo: decrease the alarm instead, or make a switchBuffer alarm instead of using refireTime, that's too strict

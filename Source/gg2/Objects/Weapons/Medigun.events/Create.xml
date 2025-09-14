@@ -23,6 +23,11 @@
     reloadBuffer = 1;
     event_inherited();
     
+    weaponGrade = STOCK;
+    weaponType = HEALBEAM;
+    
+    canOverheal = false;
+    
     healTarget = noone;
     healedThisStep = false;
     healAmount = 2/3;

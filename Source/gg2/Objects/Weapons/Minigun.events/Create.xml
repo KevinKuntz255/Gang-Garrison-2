@@ -28,6 +28,8 @@
     
     isRefilling = false;
     
+    chainGun = true;
+    
     if(golden)
     {
         normalSprite = MinigunGoldS;

@@ -55,6 +55,13 @@ if (team == global.myself.team and (player != global.myself or global.showHealth
 {
     draw_set_alpha(1);
     draw_healthbar(xr-10, yr-30, xr+10, yr-25,hp*100/maxHp,c_black,c_red,c_green,0,true,true);
+    // overheal from BassMakesPaste, this is added 3 times for tracking in/out of commit
+    if overhealed = true &amp;&amp; overhealHp &gt; 0 {
+        depth = -1;
+        draw_set_alpha(1);
+        draw_healthbar(xr-10, yr-30, xr+10, yr-25,overhealHp*100/overhealMaxHp,c_green,c_teal,c_blue,0,true,true);
+        depth = 0
+    }
 }
 
 draw_set_alpha(1);

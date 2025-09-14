@@ -53,7 +53,7 @@ createGlobalDamageSource("DAMAGE_SOURCE_BLACKBOX",            BlackboxKL);
 createGlobalDamageSource("DAMAGE_SOURCE_AIRSTRIKE",           AirstrikeKL);
 createGlobalDamageSource("DAMAGE_SOURCE_RBISON",              RBisonKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SHOVEL",              ShovelKL); // technically axe
-createGlobalDamageSource("DAMAGE_SOURCE_RSHOOTER",            ReserveshooterKL);/*
+createGlobalDamageSource("DAMAGE_SOURCE_RSHOOTER",            ReserveshooterKL);
 
 createGlobalDamageSource("DAMAGE_SOURCE_TOMISLAV",            TomislavKL);
 createGlobalDamageSource("DAMAGE_SOURCE_NATACHA",             NatachaKL);
@@ -61,7 +61,7 @@ createGlobalDamageSource("DAMAGE_SOURCE_BRASSBEAST",          BrassBeastKL);
 createGlobalDamageSource("DAMAGE_SOURCE_IRON",                IronMaidenKL);
 createGlobalDamageSource("DAMAGE_SOURCE_FAMILYBUSINESS",      FamilyBusinessKL);
 createGlobalDamageSource("DAMAGE_SOURCE_KGOB",                FistsKL);
-
+/*
 createGlobalDamageSource("DAMAGE_SOURCE_TIGERUPPERCUT",       TigerUppercutKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SCOTTISHRESISTANCE",  ScottishResistanceKL);
 createGlobalDamageSource("DAMAGE_SOURCE_STICKYSTICKER",       StickyStickerKL);

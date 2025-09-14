@@ -29,7 +29,7 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">with(owner) {
-    if (ability[1] != ALARM) abilityActive[1] = false;
+    if (ability[1] != ALARM || cancelAbility == ALARM) abilityActive[1] = false;
     if (ability[1] == INVULN)
     {
         currentWeapon.readyToShoot = true;
@@ -52,6 +52,7 @@
         meter[1] = maxMeter[1];
         if (weaponType[1] == THROWABLE and activeWeapon == 1) currentWeapon.ammoCount = currentWeapon.maxAmmo;
     }
+    if (depleteAbility[1] == ALARM) meter[1] = 0;
     if (weaponType[1] != CONSUMABLE) playsound(x,y,rechargeSnd);
 }
 </argument>

@@ -29,6 +29,32 @@ if(global.myself.object == -1) {
 
 drawHealth(45, ysize-53, global.myself.object.hp, global.myself.object.maxHp);
 draw_sprite_ext(sprite_index, image_index, view_xview[0]+5, view_yview[0]+ysize-75, 2, 2, 0, c_white, 1);
+if global.myself.object.overhealed = true &amp;&amp; global.myself.object.overhealHp &gt; 0 {
+    var xoffset, yoffset, xsize, ysize, xpos, ypos, hp, maxHp;
+    xoffset = view_xview[0];
+    yoffset = view_yview[0];
+    xsize = view_wview[0];
+    ysize = view_hview[0];
+    
+    xpos = 45;
+    ypos = ysize - 53;
+    hp = global.myself.object.overhealHp;
+    maxHp = global.myself.object.overhealMaxHp;
+    
+    draw_set_valign(fa_center);
+    draw_set_halign(fa_center);
+    draw_set_alpha(1);
+    draw_healthbar(xoffset+xpos, yoffset+ypos, xoffset+xpos+42, yoffset+ypos+37, hp*100/maxHp, c_green, c_teal, c_blue, 3, true, false);
+    
+    var hpText,hpColor;
+    hpColor = c_white;
+    
+    
+    hpText = string(ceil(min(max(hp+global.myself.object.hp,0),maxHp+global.myself.object.maxHp)));
+    
+    draw_text_color(xoffset+xpos+24, yoffset+ypos+18, hpText, hpColor, hpColor, hpColor, hpColor, 1);
+    draw_sprite_ext(sprite_index, image_index, view_xview[0]+5, view_yview[0]+ysize-75, 2, 2, 0, c_white, 1);
+}
 </argument>
       </arguments>
     </action>

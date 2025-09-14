@@ -71,7 +71,7 @@ global.name[WEAPON_RESERVESHOOTER] = "Reserve Shooter";
 
 // Heavy
 global.weapons[WEAPON_MINIGUN] = Minigun;
-global.name[WEAPON_MINIGUN] = "Minigun";/*
+global.name[WEAPON_MINIGUN] = "Minigun";
 global.weapons[WEAPON_TOMISLAV] = Tomislav;
 global.name[WEAPON_TOMISLAV] = "Tomislav";
 global.weapons[WEAPON_NATACHA] = Natacha;
@@ -80,7 +80,7 @@ global.weapons[WEAPON_BRASSBEAST] = BrassBeast;
 global.name[WEAPON_BRASSBEAST] = "Brass Beast";
 global.weapons[WEAPON_IRON] = IronMaiden;
 global.name[WEAPON_IRON] = "Iron Maiden";
-global.weapons[WEAPON_HEAVYSHOTGUN] = HeavyShotgun;
+global.weapons[WEAPON_HEAVYSHOTGUN] = Shotgun;
 global.name[WEAPON_HEAVYSHOTGUN] = "Shotgun";
 global.weapons[WEAPON_SANDVICH] = SandvichHand;
 global.name[WEAPON_SANDVICH] = "Sandvich";
@@ -89,7 +89,7 @@ global.name[WEAPON_FAMILYBUSINESS] = "Family Business";
 global.weapons[WEAPON_CHOCOLATE] = ChocolateHand;
 global.name[WEAPON_CHOCOLATE] = "Dalokohs Bar"
 global.weapons[WEAPON_KGOB] = KGOB;
-global.name[WEAPON_KGOB] = "Killing Gloves Of Boxing";
+global.name[WEAPON_KGOB] = "Killing Gloves Of Boxing";/*
 
 // Demoman
 global.weapons[WEAPON_MINEGUN] = Minegun;
@@ -230,11 +230,6 @@ global.name[WEAPON_SAXTONHALE] = "HAXTON SAAAAAAAAALE";
 */
 
 // defaults
-
-global.weapons[WEAPON_HEAVYSHOTGUN] = Shotgun;
-global.name[WEAPON_HEAVYSHOTGUN] = "Shotgun";
-global.weapons[WEAPON_SANDVICH] = SandvichHand;
-global.name[WEAPON_SANDVICH] = "Sandvich";
 
 global.weapons[WEAPON_MINEGUN] = Minegun;
 global.name[WEAPON_MINEGUN] = "Minegun";

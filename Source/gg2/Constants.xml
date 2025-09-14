@@ -265,18 +265,19 @@
   <constant name="SHOT" value="0"/>
   <constant name="FLAMETHROWER" value="1"/>
   <constant name="PROJECTILE" value="2"/>
-  <constant name="MINEGUN" value="3"/>
-  <constant name="CONSUMABLE" value="4"/>
-  <constant name="GRENADELAUNCHER" value="5"/>
-  <constant name="HEALBEAM" value="6"/>
-  <constant name="RIFLE" value="7"/>
-  <constant name="MELEE" value="8"/>
-  <constant name="BANNER" value="9"/>
-  <constant name="THROWABLE" value="10"/>
-  <constant name="SPECIAL" value="11"/>
-  <constant name="LASERGUN" value="12"/>
-  <constant name="BACKPACK" value="13"/>
-  <constant name="CROSSBOW" value="14"/>
+  <constant name="MINIGUN" value="3"/>
+  <constant name="MINEGUN" value="4"/>
+  <constant name="CONSUMABLE" value="5"/>
+  <constant name="GRENADELAUNCHER" value="6"/>
+  <constant name="HEALBEAM" value="7"/>
+  <constant name="RIFLE" value="8"/>
+  <constant name="MELEE" value="9"/>
+  <constant name="BANNER" value="10"/>
+  <constant name="THROWABLE" value="11"/>
+  <constant name="SPECIAL" value="12"/>
+  <constant name="LASERGUN" value="13"/>
+  <constant name="BACKPACK" value="14"/>
+  <constant name="CROSSBOW" value="15"/>
   <constant name="WEAR" value="16"/>
   <constant name="BLADE" value="17"/>
   <constant name="STOCK" value="0"/>
@@ -302,7 +303,8 @@
   <constant name="DAMAGE" value="2"/>
   <constant name="ALARM" value="3"/>
   <constant name="AMMO" value="4"/>
-  <constant name="KILLS" value="5"/>
+  <constant name="MAXAMMO" value="5"/>
+  <constant name="KILLS" value="6"/>
   <constant name="PRESSM1" value="0"/>
   <constant name="HOLDM1" value="1"/>
   <constant name="PRESSM2" value="2"/>

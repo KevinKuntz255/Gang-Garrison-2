@@ -41,6 +41,10 @@
             }
         }
     }
+    with HealingParticle {
+        if owner=other.id owner=-1
+    }
+    
     with(bubble) {
         instance_destroy();
     }

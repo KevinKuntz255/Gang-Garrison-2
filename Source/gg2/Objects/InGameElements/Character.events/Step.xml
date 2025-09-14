@@ -108,8 +108,28 @@ if(!(keyState &amp; $02))
 x -= hspeed;
 y -= vspeed;
 
+// overheal from BassMakesPaste
+if healer = -1 or !instance_exists(healer) {
+   // todo: use global.delta_factor instead, its one line instead of 4
+    if global.game_fps = 30 {
+      overhealHp -= min(overhealHp, 0.1);
+   } else if global.game_fps = 60 {
+      overhealHp -= min(overhealHp, 0.05);
+   }
+} else if hp = maxHp {
+    overhealed = true;
+}
 
-// blurring, abilities
+// abilities
+
+if(keyState &amp; $10 &amp;&amp; currentWeapon.chainGun) {
+    runPower = currentWeapon.revSlowdown;
+    jumpStrength = currentWeapon.jumpSlowdown;
+    //if (class != CLASS_HEAVY) jumpStrength = 0; // u want scouts jumping up n down?
+} else {
+    runPower = baseRunPower;
+    jumpStrength = baseJumpStrength;
+}
 
 for(i=0; i&lt;2; i+=1) {
     if (abilityActive[i] &amp;&amp; weaponType[i] == BANNER)
@@ -123,6 +143,8 @@ for(i=0; i&lt;2; i+=1) {
         }
     }
 }
+
+// blurring
 
 var canBlur1, canBlur2;
 canBlur1 = (abilityActive[1] &amp;&amp; string_count("BLUR", abilityVisual[1]) != 0);

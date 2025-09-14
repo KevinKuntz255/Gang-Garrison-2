@@ -7,5 +7,5 @@
   <resource name="SoldierShotgunFS" type="RESOURCE"/>
   <resource name="RBisonFS" type="RESOURCE"/>
   <resource name="ShovelFS" type="RESOURCE"/>
-  <resource name="reservershooterFS" type="RESOURCE"/>
+  <resource name="reserveshooterFS" type="RESOURCE"/>
 </resources>

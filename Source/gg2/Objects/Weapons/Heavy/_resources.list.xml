@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+  <resource name="Tomislav" type="RESOURCE"/>
+  <resource name="Natacha" type="RESOURCE"/>
+  <resource name="BrassBeast" type="RESOURCE"/>
+  <resource name="IronMaiden" type="RESOURCE"/>
   <resource name="SandvichHand" type="RESOURCE"/>
+  <resource name="FamilyBusiness" type="RESOURCE"/>
+  <resource name="ChocolateHand" type="RESOURCE"/>
+  <resource name="KGOB" type="RESOURCE"/>
 </resources>

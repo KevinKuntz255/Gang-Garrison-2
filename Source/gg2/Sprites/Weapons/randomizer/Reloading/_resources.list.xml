@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
   <resource name="Scout" type="GROUP"/>
-  <resource name="Soldier" type="GROUP"/>
   <resource name="Pyro" type="GROUP"/>
+  <resource name="Soldier" type="GROUP"/>
+  <resource name="Heavy" type="GROUP"/>
 </resources>

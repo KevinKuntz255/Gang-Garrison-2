@@ -28,6 +28,10 @@
         write_ubyte(global.serializeBuffer, ammo[0]);
         write_ubyte(global.serializeBuffer, ammo[1]);
         
+        //overheal
+        write_byte(global.serializeBuffer, overhealHp);
+        write_ubyte(global.serializeBuffer, overhealed);      
+
         temp = 0;
         if(cloak) temp |= $01;
         //allocate the next three bits of the byte for movestatus sync

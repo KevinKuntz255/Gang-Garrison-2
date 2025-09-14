@@ -256,7 +256,7 @@ while(commandLimitRemaining > 0) {
                 if(player.object.activeWeapon == 0) {
                     weapon = player.object.weapons[1];
                     player.object.activeWeapon = 1;
-                    player.activeWeapon = 0;
+                    player.activeWeapon = 1;
                 } else {
                     weapon = player.object.weapons[0];
                     player.object.activeWeapon = 0;

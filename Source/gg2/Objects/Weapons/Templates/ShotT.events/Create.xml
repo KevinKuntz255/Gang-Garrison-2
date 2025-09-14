@@ -32,6 +32,13 @@
     shotSpeed[2] = 2;
     shotDir[0] = 11;
     shotDir[1] = 5;
+    shotPosition = 15; 
+    
+    /*chaingun template
+        shotDir[0] = 14;
+        shotDir[1] = 7;
+        shotPosition = 20;
+    */
     
     randomizeSpeed = true;
     
@@ -42,7 +49,17 @@
     fullReload = false;
     
     reloadShell = false;
-
+    
+    // added for miniguns;
+    
+    chainGun = false;
+    isRefilling = false;
+    // special case for stuff like smgs, pistols
+    refillChainGun = true;
+    // exact values
+    revSlowdown = 0.3;
+    jumpSlowdown = owner.baseJumpStrength;
+    
     if (!variable_local_exists("normalSprite")) normalSprite = ShotgunS;
     if (!variable_local_exists("recoilSprite")) recoilSprite = ShotgunFS;
     if (!variable_local_exists("reloadSprite")) reloadSprite = ShotgunFRS;

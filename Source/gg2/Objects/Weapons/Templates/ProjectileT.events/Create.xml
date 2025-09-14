@@ -45,7 +45,7 @@
     ammoGain = 1;
     
     // minegun specific
-    destructProjectiles = false;
+    destructProjectilesOnDeath = false;
     trackProjectileNetworking = false;
     
     if (!variable_local_exists("normalSprite")) normalSprite = RocketlauncherS;

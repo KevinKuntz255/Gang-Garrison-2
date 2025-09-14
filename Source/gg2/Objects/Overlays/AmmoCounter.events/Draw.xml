@@ -117,13 +117,13 @@ if global.myself.object != -1 {
                 draw_healthbar(xoffset+689,yoffset+ysize/1.26+90,xoffset+723,yoffset+ysize/1.26+98,
                 weapon.ammoCount/weapon.maxAmmo*100,c_black,barcolor,barcolor,0,true,false);
             break;
-            /*case IronMaiden:
+            case IronMaiden:
                 draw_sprite_ext(TemplateS,toffset,xoffset+728,yoffset+ysize/1.26+86,2.4,2.4,0,c_white,100);
                 draw_sprite_ext(AmmoHUDsS,weapon_index,xoffset+728,yoffset+ysize/1.26+86,2.4,2.4,0,c_white,100);
                 if (weapon.ammoCount &lt;= 1/4 * weapon.maxAmmo) { barcolor = make_color_rgb(255,0,0); } //ammoCount*1.111
                 draw_healthbar(xoffset+689,yoffset+ysize/1.26+90,xoffset+723,yoffset+ysize/1.26+98,
                 weapon.ammoCount/3,c_black,barcolor,barcolor,0,true,false);
-            break;*/
+            break;
             case Blade:     
                 draw_sprite_ext(BladeAmmoS,toffset,xoffset+728,yoffset+ysize/1.26+86,2.4,2.4,0,c_white,100);
                 draw_healthbar(xoffset+689,yoffset+ysize/1.26+90,xoffset+723,yoffset+ysize/1.26+98,weapon.ammoCount/weapon.maxAmmo*100,c_black,barcolor,barcolor,0,true,false);
@@ -133,6 +133,12 @@ if global.myself.object != -1 {
                 draw_sprite_ext(AmmoHUDsS,weapon_index,xoffset+728,yoffset+ysize/1.26+86,2.4,2.4,0,c_white,100);
                 reloadscalar = 100-weapon.alarm[5]/weapon.reloadTime*100;
                 switch(weaponType) {
+                    case MINIGUN:
+                        barcolor = merge_color(barcolor, make_color_rgb(255,0,0), 1-(weapon.ammoCount/weapon.maxAmmo));
+                        barcolor = merge_color(barcolor, make_color_rgb(50,50,50), max(0,weapon.alarm[5]*global.delta_factor)/25);
+                        draw_healthbar(xoffset+689,yoffset+ysize/1.26+90,xoffset+723,yoffset+ysize/1.26+98,
+                        weapon.ammoCount/weapon.maxAmmo*100,c_black,barcolor,barcolor,0,true,false);
+                    break;
                     case FLAMETHROWER:
                         if (weapon.ammoCount &lt;= 1/4 * weapon.maxAmmo) { barcolor = make_color_rgb(255,0,0); }
                         draw_healthbar(xoffset+689,yoffset+ysize/1.26+90,xoffset+723,yoffset+ysize/1.26+98,weapon.ammoCount/2,c_black,barcolor,barcolor,0,true,false);

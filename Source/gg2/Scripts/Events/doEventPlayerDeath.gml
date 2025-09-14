@@ -33,7 +33,7 @@ if(killer)
     if (killer.object) {
         for(i=0; i<2; i+=1) {
             if (killer.object.rechargeAbility[i] == KILLS) {
-                killer.object.meter[i] = min(killer.object.maxMeter[i], killer.object.meter[i] + 1);
+                killer.object.meter[i] = min(killer.object.maxMeter[i], killer.object.meter[i] + meterGain[i]);
             }
         }
     }
@@ -86,6 +86,12 @@ if (assistant)
     assistant.roundStats[POINTS] += .5;
     
     ds_list_add(killersForDomination, assistant);
+    for(i=0; i<2; i+=1) 
+    {
+        if (assistant.object.rechargeAbility[i] == KILLS) {
+            if (meterGain[i] > 1) killer.object.meter[i] = min(killer.object.maxMeter[i], killer.object.meter[i] + (meterGain[i] * 0.5));
+        } // iron maiden exclusive
+    }
 }
 
 var i, killerForDomination;

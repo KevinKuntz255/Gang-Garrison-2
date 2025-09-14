@@ -31,7 +31,7 @@
     
     shots = 1;
 
-    shotDamage = 7;
+    shotDamage = 8;
     fullReload = true;
     
     shotDir[0] = 7;

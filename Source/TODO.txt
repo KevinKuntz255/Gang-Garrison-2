@@ -1,15 +1,12 @@
 # next commit:
 
-bugfixes requiring testing:
-spawning without an assigned class erroring
-
-move soakType and uberType into a ds_map
-move damageCharacter checks to projectileCollision
 
 all:
+move mines instance destruction in Character Destroy Event to trackProjectile as a variable instead of weaponType check
+move soakType and uberType into a ds_map
+move damageCharacter checks to projectileCollision
 Fix LoadoutMenu breaking positions in other resolutions
 Implement crits in kill log
-overheal
 add headshots
 add randomizerMode
 add medievalMode
@@ -18,7 +15,10 @@ add HALE
 Loadouts (Start Chronologically):
 
 # Overweight
-Entire Kit
+finalize IronMaiden MAXAMMO ability
+finalize/test KGOB crit mechanic
+create overheal when eating ChocolateHand
+add overlay for each omnomnom weapon instead of copy-pasting the whole animation
 
 # Detonator
 Entire Kit

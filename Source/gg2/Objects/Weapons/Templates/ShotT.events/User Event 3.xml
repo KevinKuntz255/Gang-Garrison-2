@@ -24,8 +24,8 @@ repeat(shots) {
     if (randomizeSpeed) shot.speed += random(shotSpeed[1]) - shotSpeed[2];
     shot.direction += random(shotDir[0]) - shotDir[1];
     // Move shot forward to avoid immediate collision with a wall behind the character
-    shot.x += lengthdir_x(15, shot.direction);
-    shot.y += lengthdir_y(15, shot.direction);
+    shot.x += lengthdir_x(shotPosition, shot.direction);
+    shot.y += lengthdir_y(shotPosition, shot.direction);
     
     shot.sprite_index = specialSprite;
 }

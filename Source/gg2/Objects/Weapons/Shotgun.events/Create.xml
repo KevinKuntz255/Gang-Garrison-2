@@ -27,33 +27,40 @@
     
     idle=true;
     
-    if(golden)
+    /*if(golden)
     {
         normalSprite = ShotgunGoldS;
         recoilSprite = ShotgunGoldFS;
         reloadSprite = ShotgunGoldFRS;
-    }
-    else
-    {
-        if (ownerPlayer.class == CLASS_PYRO) {
-            normalSprite = PyroShotgunS;
-            recoilSprite = PyroShotgunFS;
-            reloadSprite = PyroShotgunFRS;
-        /*else if (ownerPlayer.class == CLASS_HEAVY) {
-            normalSprite = HeavyShotgunS;
-            recoilSprite = HeavyShotgunFS;
-            reloadSprite = HeavyShotgunFRS;
-        */
-        } else if (ownerPlayer.class == CLASS_SOLDIER) {
-            normalSprite = SoldierShotgunS;
-            recoilSprite = SoldierShotgunFS;
-            reloadSprite = SoldierShotgunFRS;
+    }*/
+    
+    // todo: gold
+    
+    if (ownerPlayer.class == CLASS_PYRO) {
+        normalSprite = PyroShotgunS;
+        recoilSprite = PyroShotgunFS;
+        reloadSprite = PyroShotgunFRS;
+    } else if (ownerPlayer.class == CLASS_HEAVY) {
+        normalSprite = HeavyShotgunS;
+        recoilSprite = HeavyShotgunFS;
+        reloadSprite = HeavyShotgunFRS;
+    } else if (ownerPlayer.class == CLASS_SOLDIER) {
+        normalSprite = SoldierShotgunS;
+        recoilSprite = SoldierShotgunFS;
+        reloadSprite = SoldierShotgunFRS;
+    } else {
+        if(golden)
+        {
+            normalSprite = ShotgunGoldS;
+            recoilSprite = ShotgunGoldFS;
+            reloadSprite = ShotgunGoldFRS;
         } else {
             normalSprite = ShotgunS;
             recoilSprite = ShotgunFS;
             reloadSprite = ShotgunFRS;
         }
     }
+    
     sprite_index = normalSprite;
 
     recoilTime = refireTime;

@@ -50,6 +50,31 @@ if(hp&gt;maxHp) {
     hp=maxHp;
 }
 
+// overheal from BassMakesPaste
+if overhealHp &lt;= 0 {
+    overhealed = false;
+    overhealHp = 0;
+}
+
+if overhealHp &gt; 0 {
+//if (global.particles=PARTICLES_NORMAL or global.particles=PARTICLES_ALTERNATIVE){ ignore that, this is vital to HP tracking
+if random((30 * overhealMaxHp / overhealHp) / global.delta_factor) &lt; 10 {
+    xr= round(x);
+    yr= round(y);
+    xh= random_range(-10,10);
+    yh= random_range(-6,3);
+    healie = instance_create(xh+xr,yh+yr,HealingParticle);
+    healie.owner = id;
+    healie.xoffset = xh;
+    healie.yoffset = yh;
+    healie.depth = choose(2,-2);
+    }
+}
+
+if (overhealHp&gt;overhealMaxHp) {
+    overhealHp=overhealMaxHp;
+}
+
 // misc tracking
 with (currentWeapon) {
     if (variable_local_exists("lobbed")) {
@@ -66,6 +91,7 @@ ammo[activeWeapon] = currentWeapon.ammoCount;
 
 // ability tracking
 // todo: move to a networking call, find out after playtesting
+if (ability[activeWeapon] == MAXAMMO and currentWeapon.maxAmmo != meter[activeWeapon]) currentWeapon.maxAmmo = meter[activeWeapon];
 for(i=0; i&lt;2; i+=1) {
     if (abilityActive[i]) {
         switch(ability[i])
@@ -123,7 +149,7 @@ for(i=0; i&lt;2; i+=1) {
     }
     if (i != activeWeapon and chargeWhileActive[i] || pauseMeter[i]) continue;
     if (meter[i] &gt;= maxMeter[i] and activateAbility[i] == MAX) abilityActive[i] = true;
-    if (abilityActive[i]) meter[i] -= drainRate[i] * global.delta_factor;
+    if (abilityActive[i]) meter[i] -= meterDrain[i] * global.delta_factor;
     
     switch(rechargeAbility[i])
     {

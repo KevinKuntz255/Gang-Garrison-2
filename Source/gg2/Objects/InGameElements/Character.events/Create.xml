@@ -47,7 +47,7 @@
     
     // todo: replace soakType and uberType with YB's suggestion
     for(i=0; i&lt;4; i+=1) {
-        ammo[i] = 400; // largest number, todo: change this with some proper reloading
+        ammo[i] = 255; // largest number, todo: change this with some proper reloading
         soakType[i] = -1;
         ability[i] = -1;
         abilityName[i] = "";
@@ -58,9 +58,10 @@
         rechargeAbility[i] = -1;
         chargeWhileActive[i] = false;
         meter[i] = -1;
+        meterGain[i] = 1;
         maxMeter[i] = -1;
         rechargeRate[i] = 1;
-        drainRate[i] = 1;
+        meterDrain[i] = 1;
         pauseMeter[i] = false;
         weaponType[i] = -1;
         specialProjectile[i] = -1;
@@ -187,7 +188,13 @@
 
     //healer
     healer = -1;
-        
+    
+    // overheal from BassMakesPaste
+    overhealHp=0;
+    overhealed=false;
+    overhealMaxHp=floor(maxHp/2);
+    //overhealies=0; what did he mean by this
+    
     //canGrabIntel- used for droppan intel
     canGrabIntel = true;
     alarm[1] = 0;
@@ -297,6 +304,8 @@
         chargeWhileActive[0] = currentWeapon.chargeWhileActive;
         meter[0] = currentWeapon.meter;
         maxMeter[0] = currentWeapon.maxMeter;
+        meterGain[0] = currentWeapon.meterGain;
+        meterDrain[0] = currentWeapon.meterDrain;
     }
     specialProjectile[0] = currentWeapon.specialProjectile;
 
@@ -319,6 +328,8 @@
         chargeWhileActive[1] = checkWeapon.chargeWhileActive;
         meter[1] = checkWeapon.meter;
         maxMeter[1] = checkWeapon.maxMeter;
+        meterGain[1] = checkWeapon.meterGain;
+        meterDrain[1] = checkWeapon.meterDrain;
     }
     specialProjectile[1] = checkWeapon.specialProjectile;
 

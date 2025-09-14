@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset= -12;
+    yoffset= -8;
+    refireTime = 18;
+    
+    maxAmmo = 1;
+    reloadTime = 300;
+    reloadBuffer = refireTime;
+    event_inherited();
+
+    
+    ammoCount = owner.ammo[owner.activeWeapon];
+    
+    idle=true;
+    
+    isMelee = true;
+    isThrowable = true;
+    
+    weaponGrade = UNIQUE;
+    weaponType = CONSUMABLE;
+    
+    normalSprite = ChocolateHandS;
+    recoilSprite = ChocolateHandS;
+    reloadSprite = ChocolateHandS;
+
+    sprite_index = normalSprite;
+
+    image_speed = 0;
+
+    recoilTime = refireTime;
+    recoilAnimLength = sprite_get_number(recoilSprite) / 2;
+    recoilImageSpeed = recoilAnimLength / recoilTime;
+
+    reloadAnimLength = sprite_get_number(reloadSprite) / 2;
+    reloadImageSpeed = reloadAnimLength / reloadTime;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

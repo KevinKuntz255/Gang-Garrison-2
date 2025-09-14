@@ -174,6 +174,8 @@ if (!player.humiliated and (downOrPressedKeys &amp; $08)
 }
 
 // Abilities
+// todo: 3rd ability button for spies for the specific case of randomizerMode
+// todo: allow any player carrying a knife to cloak...make stab animations for each class?
 if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
     if (canCloak &amp;&amp; ((cloakAlpha == 1 and !cloak) or cloak) &amp;&amp; !intel  &amp;&amp; !taunting) {
         deathmatch_invulnerable = 0;
@@ -185,7 +187,6 @@ if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
             cloak = !cloak;
         }
     }
-    // todo: 3rd ability button for spies for the specific case of randomizerMode
     for(i=0; i&lt;2; i+=1) {
         //if (ability[i] != ability[activeWeapon]) break; // stop abilities passing if they dont exist, added specifically for CHARGEUP
         if (!abilityActive[i]) {

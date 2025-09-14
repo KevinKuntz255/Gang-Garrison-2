@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset=-5;
+    yoffset=-2;
+    refireTime = 17;
+    
+    normalSprite = FamilyBusinessS;
+    recoilSprite = FamilyBusinessFS;
+    reloadSprite = FamilyBusinessS;
+    
+    maxAmmo = 8;
+    reloadTime = 15;
+    reloadBuffer = 20;
+    event_inherited();
+    
+    damSource = DAMAGE_SOURCE_FAMILYBUSINESS;
+    
+    randomizeSpeed = true;
+    shots = 5;
+    shotSpeed[0] = 11;
+    shotSpeed[1] = 4;
+    shotSpeed[2] = 0;
+    shotDir[0] = 11;
+    shotDir[1] = 5;
+    
+    shotDamage = 6;
+    
+    shots = 5;
+    reloadShell = false;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

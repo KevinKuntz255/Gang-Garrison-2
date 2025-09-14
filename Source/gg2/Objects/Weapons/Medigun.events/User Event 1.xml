@@ -89,6 +89,12 @@
                     ownerPlayer.stats[HEALING] += healthGained * global.delta_factor;
                     ownerPlayer.roundStats[HEALING] += healthGained * global.delta_factor;
                     
+                    if (canOverheal) {
+                        if (healTarget.object.hp &gt;= healTarget.object.maxHp) {
+                            healTarget.overhealed=true;
+                            healTarget.object.overhealHp = min(healTarget.object.overhealHp + healthGained * global.delta_factor, healTarget.object.overhealMaxHp);
+                        }
+                    }
                     
                     if(ubering == false &amp;&amp; uberCharge&lt;2000){
                         var setup;

@@ -30,7 +30,7 @@
             switch(other.weapon)
             {
                 case DAMAGE_SOURCE_FAN:
-                    motion_add(other.direction, other.speed*0.1);
+                    //motion_add(other.direction, other.speed*0.1);
                     if (!onground) { // make em fly if theyre off ground
                         //motion_add(other.direction, other.speed*0.2);
                         other.moveStatus = 3;
@@ -40,9 +40,12 @@
                     if (!onground and moveStatus == 3 and crit &lt; 1) crit *= 1.15; // would be insane if it counted up while existing crits
                     motion_add(other.direction, other.speed*0.03);
                 break;
-                default:
-                    motion_add(other.direction, other.speed*0.03);
+                case DAMAGE_SOURCE_NATACHA:
+                    speed *= 0.93;
                 break;
+                default:
+                break;
+                motion_add(other.direction, other.speed*other.speedMultiply);
             }
         }
         damageCharacter(ownerPlayer, other.id, hitDamage, id);

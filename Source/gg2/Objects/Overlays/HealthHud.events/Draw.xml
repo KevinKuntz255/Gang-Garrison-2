@@ -30,11 +30,9 @@ if(global.myself.object == -1) {
 drawHealth(45, ysize-53, global.myself.object.hp, global.myself.object.maxHp);
 draw_sprite_ext(sprite_index, image_index, view_xview[0]+5, view_yview[0]+ysize-75, 2, 2, 0, c_white, 1);
 if global.myself.object.overhealed = true &amp;&amp; global.myself.object.overhealHp &gt; 0 {
-    var xoffset, yoffset, xsize, ysize, xpos, ypos, hp, maxHp;
+    var xoffset, yoffset, xpos, ypos, hp, maxHp;
     xoffset = view_xview[0];
     yoffset = view_yview[0];
-    xsize = view_wview[0];
-    ysize = view_hview[0];
     
     xpos = 45;
     ypos = ysize - 53;

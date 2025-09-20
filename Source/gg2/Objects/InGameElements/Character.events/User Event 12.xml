@@ -43,7 +43,7 @@
 if(global.updateType == FULL_UPDATE){
     write_ubyte(global.serializeBuffer, animationOffset);
     
-    // my entire process working on this is making my own solution then realizing "oh what's why they did that"
+    // tracking whether holding primary or secondary
     write_ubyte(global.serializeBuffer, activeWeapon);
     
     //class specific syncs
@@ -68,12 +68,9 @@ if(global.updateType == FULL_UPDATE){
     write_ubyte(global.serializeBuffer, intel);
     write_short(global.serializeBuffer, intelRecharge);
     
+    // tracking weapons themselves
     write_ubyte(global.serializeBuffer, weapons[0]);
     write_ubyte(global.serializeBuffer, weapons[1]);
-    
-    with(currentWeapon) {
-        event_user(12);
-    }
     }
 }
 

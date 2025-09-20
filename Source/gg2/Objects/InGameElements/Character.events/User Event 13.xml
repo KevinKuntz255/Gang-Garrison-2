@@ -41,11 +41,13 @@
         cloak = (temp &amp; $01 != 0);
         moveStatus = (temp &gt;&gt; 1) &amp; $07;
     }
-    
+
+// todo: add readyToShoot, currentWeapon.alarm[0], lobbedC
 if(global.updateType == FULL_UPDATE){
         receiveCompleteMessage(global.serverSocket,10,global.deserializeBuffer);
         animationOffset = read_ubyte(global.deserializeBuffer);
         
+        // track whether holding primary/secondary
         activeWeapon = read_ubyte(global.deserializeBuffer);
         //class specific syncs
         switch(player.class)
@@ -72,16 +74,15 @@ if(global.updateType == FULL_UPDATE){
         intel = read_ubyte(global.deserializeBuffer);
         intelRecharge = read_short(global.deserializeBuffer);
         
+        // track the primary/secondary
         weapons[0] = read_ubyte(global.deserializeBuffer);
         weapons[1] = read_ubyte(global.deserializeBuffer);
+        // todo: maybe remove this? needs to get used somewhere
         player.weapons[0] = weapons[0];
         player.weapons[1] = weapons[1];
         
+        // switch to primary/secondary
         weaponSwitch(weapons[activeWeapon]);
-        
-        with(currentWeapon) {
-            event_user(13);
-        }
     }
     event_user(1);
 }

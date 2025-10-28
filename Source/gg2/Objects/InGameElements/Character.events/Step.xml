@@ -122,6 +122,7 @@ if healer = -1 or !instance_exists(healer) {
 
 // abilities
 
+if((keyState &amp; $10 &amp;&amp; currentWeapon.chainGun) || zoomed) {
     runPower = currentWeapon.revSlowdown;
     jumpStrength = currentWeapon.jumpSlowdown;
     //if (class != CLASS_HEAVY) jumpStrength = 0; // u want scouts jumping up n down?

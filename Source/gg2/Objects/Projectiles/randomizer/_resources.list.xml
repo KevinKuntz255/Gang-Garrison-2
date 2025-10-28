@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
   <resource name="Sandvich" type="RESOURCE"/>
+  <resource name="MeleeMask" type="RESOURCE"/>
   <resource name="Grenade" type="RESOURCE"/>
   <resource name="MadMilk" type="RESOURCE"/>
   <resource name="Ball" type="RESOURCE"/>
   <resource name="Snowflake" type="RESOURCE"/>
   <resource name="NapalmGrenade" type="RESOURCE"/>
   <resource name="NapalmFlame" type="RESOURCE"/>
+  <resource name="Mines" type="GROUP"/>
 </resources>

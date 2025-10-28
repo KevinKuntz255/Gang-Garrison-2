@@ -28,8 +28,10 @@
     
     shot = 0;
     hitDamage = 12;
+    crit = 1;
     
     damSource = DAMAGE_SOURCE_FLASHLIGHT;
+    weapon = damSource;
     
     if (ammoCount &lt; maxAmmo) alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
     

@@ -40,15 +40,22 @@
 
     var me;
     me = global.myself.object;
-    if (me.weaponType[0] == MINEGUN || me.weaponType[1] == MINEGUN || me.weaponType[1] == GRENADELAUNCHER || me.weaponType[0] == GRENADELAUNCHER)
+    if (instance_exists(StickyCounter))
         yoffset -= 50;
-
+    
+    // todo: not this
     if me.abilityName[0] != "" {
-        message1 = (global.myself.object.meter[0] / global.myself.object.maxMeter[0]) * 100;
+        if me.currentWeapon.object_index == GrenadeHand
+            message1 = (me.currentWeapon.time / 90) * 100;
+        else 
+            message1 = (global.myself.object.meter[0] / global.myself.object.maxMeter[0]) * 100;
         title1 = global.myself.object.abilityName[0];
     }
     if me.abilityName[1] != "" {
-        message2 = (global.myself.object.meter[1] / global.myself.object.maxMeter[1]) * 100;
+        if me.currentWeapon.object_index == GrenadeHand
+            message2 = (me.currentWeapon.time / 90) * 100;
+        else 
+            message2 = (global.myself.object.meter[1] / global.myself.object.maxMeter[1]) * 100;
         title2 = global.myself.object.abilityName[1];
     }
     

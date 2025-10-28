@@ -15,7 +15,7 @@
       <arguments>
         <argument kind="STRING">{
     xoffset = -7;
-    yoffset = 0;
+    yoffset = -3;
     refireTime = 3;
     
     maxAmmo = 40;
@@ -30,18 +30,12 @@
     weaponGrade = STOCK;
     weaponType = SHOT;
     
-    if(golden)
-    {
-        normalSprite = MedigunGoldS;
-        recoilSprite = MedigunGoldFS;
-        reloadSprite = MedigunGoldFRS;
-    }
-    else
-    {
-        normalSprite = MedigunS;
-        recoilSprite = MedigunFS;
-        reloadSprite = MedigunFRS;
-    }
+
+
+    normalSprite = NeedlegunS;
+    recoilSprite = NeedlegunFS;
+    reloadSprite = NeedlegunS;
+    
     sprite_index = normalSprite;
     
     //This makes it so that the timer will keep resetting

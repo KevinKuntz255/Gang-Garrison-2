@@ -123,20 +123,8 @@ ds_list_destroy(bulletStoppingObjects);
 with(hitInstance) {
     if(object_index == Character or object_is_ancestor(object_index, Character)) {
         if(!ubered and team != other.owner.team) {
-            damageCharacter(other.ownerPlayer, id, other.hitDamage, id);
-            if (lastDamageDealer != other.ownerPlayer and lastDamageDealer != player)
-            {
-                secondToLastDamageDealer = lastDamageDealer;
-                alarm[4] = alarm[3]
-            }
-            alarm[3] = ASSIST_TIME / global.delta_factor;
-            lastDamageDealer = other.ownerPlayer;
-            dealFlicker(id);
-            if(global.gibLevel &gt; 0)
-            {
-                blood = instance_create(x, y, Blood);
-                blood.direction = other.owner.aimDirection - 180;
-            }
+            projectileCollision(ownerPlayer, other, other.hitDamage, object_index, 1);
+            // todo: move bottom (and other such areas such as gibbing by Rocket) to projectileCollision via projectile object_index check
             if (!other.owner.zoomed) {
                 lastDamageSource = DAMAGE_SOURCE_RIFLE;
             } else {

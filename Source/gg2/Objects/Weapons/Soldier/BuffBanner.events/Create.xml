@@ -38,6 +38,7 @@
     rechargeAbility = KILLS;
     abilityDuration = reloadTime;
     cancelAbility = ALARM;
+    activateAbility = PRESSM1;
     maxMeter = 4;
     meter = 0;
     

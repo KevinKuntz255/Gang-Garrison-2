@@ -13,7 +13,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">draw_sprite_ext(PipeS, ownerPlayer.team, x, y, 1, 1, image_angle, c_white, 1);
+        <argument kind="STRING">draw_sprite_ext(PipeS, team, x, y, 1, 1, image_angle, c_white, 1);
 </argument>
       </arguments>
     </action>

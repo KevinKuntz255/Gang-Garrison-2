@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="OTHER" id="13">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">var oid, newx, newy;
+playsound(x,y,specialSnd);
+ammoCount = max(0, ammoCount-ammoDrain);
+
+
+oid = createShot(x+lengthdir_x(projectilePosition,owner.aimDirection),y+lengthdir_y(projectilePosition,owner.aimDirection), specialProjectile, damSource, owner.aimDirection, projectileSpeed);
+with(oid) {
+    explosionDamage = other.splashDamage;
+    blastRadius = other.projectileBlastRadius;
+    crit = other.crit;
+}
+oid.image_angle = 0;
+lobbed += 1;
+justShot=true;
+readyToShoot = false;
+alarm[0] = refireTime / global.delta_factor;
+alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
+
+if (crit &gt; 1) playsound(x,y,CritSnd);
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

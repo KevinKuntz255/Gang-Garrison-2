@@ -26,7 +26,7 @@ createGlobalDamageSource("DAMAGE_SOURCE_FINISHED_OFF",        DeadKL);
 createGlobalDamageSource("DAMAGE_SOURCE_FINISHED_OFF_GIB",    DeadKL);
 createGlobalDamageSource("DAMAGE_SOURCE_BID_FAREWELL",        DeadKL);
 createGlobalDamageSource("DAMAGE_SOURCE_GENERATOR_EXPLOSION", ExplodeKL);
-//Special Weapons, sorted chronologically
+//Special Weapons, sorted by addition
 createGlobalDamageSource("DAMAGE_SOURCE_PISTOL",              PistolKL);
 createGlobalDamageSource("DAMAGE_SOURCE_GRENADE",             GrenadelauncherKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SMG",                 SmgKL);
@@ -38,6 +38,7 @@ createGlobalDamageSource("DAMAGE_SOURCE_FLASHLIGHT",          LasergunKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SANDMAN",             BatKL);
 createGlobalDamageSource("DAMAGE_SOURCE_BALL",                BallHitKL);
 createGlobalDamageSource("DAMAGE_SOURCE_ATOMIZER",            AtomizerKL);
+createGlobalDamageSource("SCOUT_TAUNTKILL",                   ScoutTauntKL);
 
 createGlobalDamageSource("DAMAGE_SOURCE_BACKBURNER",          BackBurnerKL);
 createGlobalDamageSource("DAMAGE_SOURCE_TRANSMUTATOR",        TransmutatorKL);
@@ -61,12 +62,12 @@ createGlobalDamageSource("DAMAGE_SOURCE_BRASSBEAST",          BrassBeastKL);
 createGlobalDamageSource("DAMAGE_SOURCE_IRON",                IronMaidenKL);
 createGlobalDamageSource("DAMAGE_SOURCE_FAMILYBUSINESS",      FamilyBusinessKL);
 createGlobalDamageSource("DAMAGE_SOURCE_KGOB",                FistsKL);
-/*
+
 createGlobalDamageSource("DAMAGE_SOURCE_TIGERUPPERCUT",       TigerUppercutKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SCOTTISHRESISTANCE",  ScottishResistanceKL);
 createGlobalDamageSource("DAMAGE_SOURCE_STICKYSTICKER",       StickyStickerKL);
 createGlobalDamageSource("DAMAGE_SOURCE_EYELANDER",           EyelanderKL);
-createGlobalDamageSource("DAMAGE_SOURCE_PAINTRAIN",           PaintrainKL);
+createGlobalDamageSource("DAMAGE_SOURCE_PAINTRAIN",           PaintrainKL);/*
 
 createGlobalDamageSource("DAMAGE_SOURCE_BLUTSAUGER",          BlutsaugerKL);
 

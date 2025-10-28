@@ -18,7 +18,7 @@
     if (ammoCount &lt; 2)
         ammoCount -= 2;
         
-    if(readyToShoot and ammoCount &gt;= 2)
+    if(readyToShoot and ammoCount &gt;= 2 and !owner.cloak)
     {
         playsound(x,y,ChaingunSnd);
         var shot, shotx, shoty;

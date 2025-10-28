@@ -1,12 +1,12 @@
 # next commit:
 
-
 all:
-move mines instance destruction in Character Destroy Event to trackProjectile as a variable instead of weaponType check
-move soakType and uberType into a ds_map
-move damageCharacter checks to projectileCollision
+BUG: Rocket sometimes doesnt find other.shootingPlayer
+light reminder: bonus is a minicrit factor from flares hitting
+try moving ability activation to network calls, they will eventually desync, right?
+
 Fix LoadoutMenu breaking positions in other resolutions
-Implement crits in kill log
+Implement crits in kill log (re-add lastDamageCrit?)
 add headshots
 add randomizerMode
 add medievalMode
@@ -21,13 +21,16 @@ create overheal when eating ChocolateHand
 add overlay for each omnomnom weapon instead of copy-pasting the whole animation
 
 # Detonator
-Entire Kit
+DETONATION_POS
+GrenadeHand team affiliation image_index
+DASH doubleTapped fix
 randomizerMode specific:
 	make M2 detonate both stickybombs (client option tracked to serverside)
 	add lobbed[0] and lobbed[1]
 
 # Healer
 Entire Kit
+options for merging Needleguns into one + an entire substituted Melee Kit with more purpose
 randomizerMode specific:
 	gee billy why does ur mom let u have two medic beams
 	same deal as detonator

@@ -33,9 +33,18 @@
                 {
                     bonus = 1;
                     if burnDuration &gt; 0 {
-                        //if other.crit == 1 bonus = MINICRIT_FACTOR;
+                        //if other.crit == 1 bonus = MINICRIT_FACTOR; ohhh this is bonus
                     }
-                    if(!object_is_ancestor(object_index, Pyro) &amp;&amp; !radioactive) {
+                    // todo: move to projectileCollision
+                    var dmg;
+                    dmg = other.explosionDamage*(1-(distance_to_object(other)/other.blastRadius));
+                    //dmg *= (1+0*0.35*crit*bonus);
+                    if id == other.ownerPlayer.object // self damage resistance
+                        dmg *= 5/9;
+                    
+                    projectileCollision(other.ownerPlayer, id, dmg, other, 0);
+                    if(!object_is_ancestor(object_index, Pyro) || id != other.ownerPlayer.object) {
+                        if ((abilityActive[0] &amp;&amp; ability[0] != INVULN) or (abilityActive[1] and ability[1] != INVULN)) exit;
                         if (burnDuration &lt; maxDuration) {
                             burnDuration += other.durationIncrease; 
                             burnDuration = min(burnDuration, maxDuration);
@@ -48,15 +57,9 @@
                         afterburnSource = WEAPON_DETONATOR;
                         alarm[0] = decayDelay / global.delta_factor;
                     }
-                    var dmg;
-                dmg = other.explosionDamage*(1-(distance_to_object(other)/other.blastRadius));
-                dmg *= (1+0*0.35*crit*bonus); // todo: findout what bonus is, bazaar bargain related? huh?
-                if id == other.ownerPlayer.object// self damage resistance
-                    dmg *= 5/9;
-                damageCharacter(other.ownerPlayer, id, dmg, other.id);
                     // todo: ownerPlayer gets afterburn for a lil while, fix that
 
-//if true hp -= other.explosionDamage*sqr((1-(distance_to_object(other)/other.blastRadius)))*(1+0*0.35)*1*bonus;
+                    //if true hp -= other.explosionDamage*sqr((1-(distance_to_object(other)/other.blastRadius)))*(1+0*0.35)*1*bonus;
                     //if player == other.ownerPlayer hp-= 10*sqr((1-(distance_to_object(other)/other.blastRadius)))*(1+0*0.35)*1;
                     if (id == other.ownerPlayer.object and lastDamageDealer != -1 and lastDamageDealer != other.ownerPlayer and other.reflector == noone)
                     {
@@ -80,15 +83,6 @@
                             lastDamageSource = WEAPON_REFLECTED_FLARE;
                         }
                     }
-                    if(global.gibLevel &gt; 0 &amp;&amp; !radioactive)
-                    {
-                        repeat(3)
-                        {
-                            var blood;
-                            blood = instance_create(x,y,Blood);
-                            blood.direction = point_direction(other.x,other.y,x,y)-180;
-                        }
-                    }
                     if (id==other.ownerPlayer.object)
                     {
                         moveStatus = 1;
@@ -101,12 +95,7 @@
                     {
                         moveStatus = 4;
                     }
-                } else if false {
-                    var text;
-                    text=instance_create(x,y,Text);
-                    text=sprite_index = MissS;
                 }
-                cloakAlpha = min(cloakAlpha + 0.2, 1);
             }
         }
 

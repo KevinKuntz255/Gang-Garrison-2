@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="3">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">var oid, newx, newy;
+playsound(x,y,swingSnd);
+ammoCount = max(0, ammoCount-1);
+
+oid = createShot(x+lengthdir_x(10,owner.aimDirection),y+lengthdir_y(10,owner.aimDirection), Grenade, DAMAGE_SOURCE_GRENADE, owner.aimDirection, 17);
+oid.image_angle = 0;
+oid.vspeed-=2.5;
+oid.explosionDamage = 40;
+oid.explodeOnChar = false;
+oid.explosionDamage = 60;
+oid.slowOnCollide = false;
+readyToShoot = false;
+oid.alarm[2] = 90-min(89,time);
+alarm[0] = refireTime / global.delta_factor;
+alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
+
+time = 0;
+charge = false;
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -19,7 +19,6 @@ var oid, newx, newy;
 newx = x+lengthdir_x(projectilePosition,owner.aimDirection);
 newy = y+lengthdir_y(projectilePosition,owner.aimDirection);
 oid = createShot(newx, newy, specialProjectile, damSource, owner.aimDirection, projectileSpeed);
-oid.gun = id; // uhh where is this used? its both in RocketLauncher and Blade...huh?
 with (oid)
 {
     hitDamage = other.directDamage;

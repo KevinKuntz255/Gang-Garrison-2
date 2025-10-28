@@ -26,11 +26,11 @@
         shot.ownerPlayer = ownerPlayer;
         shot.team = owner.team;
         shot.hitDamage = 200;
-        shot.weapon=DAMAGE_SOURCE_ATOMIZER_TKILL;
+        shot.weapon=SCOUT_TAUNTKILL;
         playsound(x,y,BallSnd);
         TK = true;
     }
-  if (owner.tauntindex &gt;= owner.tauntend &amp;&amp; team == TEAM_RED) {
+  if (owner.tauntindex &gt;= owner.tauntend &amp;&amp; owner.team == TEAM_RED) {
         owner.taunting = false;
   }
 } else {

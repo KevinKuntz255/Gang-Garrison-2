@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="TUMineS" type="RESOURCE"/>
+  <resource name="StickyMineS" type="RESOURCE"/>
+  <resource name="JumperMineS" type="RESOURCE"/>
+</resources>

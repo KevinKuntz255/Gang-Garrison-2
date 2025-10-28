@@ -3,6 +3,7 @@
   <resource name="ShotT" type="RESOURCE"/>
   <resource name="RifleT" type="RESOURCE"/>
   <resource name="ProjectileT" type="RESOURCE"/>
+  <resource name="MineT" type="RESOURCE"/>
   <resource name="MeleeT" type="RESOURCE"/>
   <resource name="ThrowableT" type="RESOURCE"/>
   <resource name="FlameT" type="RESOURCE"/>

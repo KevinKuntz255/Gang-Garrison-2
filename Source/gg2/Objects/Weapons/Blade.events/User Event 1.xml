@@ -14,7 +14,7 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">{
-    if(readyToShoot and bubbleCount &lt; maxBubbles)
+    if(readyToShoot and bubbleCount &lt; maxBubbles and !owner.cloak)
     {
         var shot;
         randomize();

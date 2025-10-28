@@ -14,7 +14,7 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">{
-    if (readyToShoot and ammoCount &gt; 0)
+    if (readyToShoot and ammoCount &gt; 0 and !owner.cloak)
     {
         ammoCount -= 1;
         playsound(x,y,MedichaingunSnd);

@@ -19,7 +19,7 @@
     seed = irandom(65535);
     sendEventFireWeapon(ownerPlayer, seed);
     doEventFireWeapon(ownerPlayer, seed);
-} else if (chainGun) {
+} else if (chainGun and !owner.cloak) {
     // prevent sputtering
     if (ammoCount &lt; 2)
         ammoCount -= 2;

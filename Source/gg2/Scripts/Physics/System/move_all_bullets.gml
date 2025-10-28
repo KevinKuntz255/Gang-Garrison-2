@@ -280,11 +280,15 @@ with(Mine)
         if (reflector != noone and alarm[0] < 0)
             alarm[0] = 30 / global.delta_factor;
         splashThreshhold = false;
+        if(object_index == TUMine) {
+            explosionDamage=20;
+            alpha=0.4;
+        }  
     }
     else
     {
-        vspeed += 0.2 * global.delta_factor;
-        vspeed = min(vspeed,8);
+        if(object_index != Grenade) vspeed += 0.2 * global.delta_factor; else vspeed += 0.6 * global.delta_factor;
+        if(object_index != Grenade) vspeed = min(vspeed,8);
         splashThreshhold = true;
         if (global.run_virtual_ticks)
         {
@@ -293,6 +297,8 @@ with(Mine)
                 instance_create(x, y, MineTrail);
         }
     }
+    
+    if (object_index == Grenade) image_angle = direction;
     
     if(speed != 0)
     {
@@ -328,8 +334,8 @@ with(Mine)
             
             colliding |= !place_free(x, y);
         }
-    
-        if (colliding)
+        
+        if (colliding and object_index != Grenade)
         {
             if(place_meeting(x, y, Obstacle))
             {
@@ -343,6 +349,21 @@ with(Mine)
             }
             if (!place_free(x, y))
                 instance_destroy();
+        }
+        if (!place_free(x + hspeed, y + vspeed) && object_index == Grenade)
+        {
+            bounces += 1;
+            if (bounces > maxBounces) event_user(2);
+            if (place_free(x + hspeed, y-1)) {
+                hspeed *= 0.85;
+                vspeed *= -0.75;
+            } else {
+                speed *= -1;
+            }
+            if (slowOnCollide) hspeed *= bounced;
+            bounced -= 0.35;
+            playsound(x,y,ImpactSnd);
+            if (!explodeOnChar) hitSelf = true;
         }
     
         x -= hspeed;

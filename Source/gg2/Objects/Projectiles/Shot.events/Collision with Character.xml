@@ -37,7 +37,7 @@
                     }
                 break;
                 case DAMAGE_SOURCE_RSHOOTER:
-                    if (!onground and moveStatus == 3 and crit &lt; 1) crit *= 1.15; // would be insane if it counted up while existing crits
+                    if (!onground and moveStatus == 3 and crit &lt; 1) crit *= 1.15; // would be insane if it counted up existing crits
                     motion_add(other.direction, other.speed*0.03);
                 break;
                 case DAMAGE_SOURCE_NATACHA:
@@ -48,26 +48,9 @@
                 motion_add(other.direction, other.speed*other.speedMultiply);
             }
         }
-        damageCharacter(ownerPlayer, other.id, hitDamage, id);
-        if (other.abilityActive[0] &amp;&amp; other.ability[0] == INVULN || other.abilityActive[1] &amp;&amp; other.ability[1] == INVULN) exit;
-        if (other.lastDamageDealer != ownerPlayer and other.lastDamageDealer != other.player)
-        {
-            other.secondToLastDamageDealer = other.lastDamageDealer;
-            other.alarm[4] = other.alarm[3]
-        }
-        other.alarm[3] = ASSIST_TIME / global.delta_factor;
-        other.lastDamageDealer = ownerPlayer;
-        other.lastDamageSource = weapon;
+        projectileCollision(ownerPlayer, other, hitDamage, object_index, 1);
 
-        var blood;
-        if(global.gibLevel &gt; 0)
-        {
-            blood = instance_create(x,y,Blood);
-            blood.direction = direction-180;
-        }
-        dealFlicker(other.id);
-
-        if (sprite_index != LaserShotS) instance_destroy(); // lorgan made 50 shots when he could just do a single if sttatement, boom done
+        if (sprite_index != LaserShotS) instance_destroy(); // lorgan made 50 shots when he could just do a single if statement, boom done
     }
 
 </argument>

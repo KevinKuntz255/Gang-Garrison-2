@@ -27,11 +27,13 @@ spark = 0;
 alarm[9]= 2;
 
 ability = -1;
+abilityBuffer = -1;
 abilityName = "";
 abilityVisual = "";
 abilityCharge = -1;
 activateAbility = -1;
 cancelAbility = -1;
+depleteAbility = -1;
 rechargeAbility = RECHARGE;
 
 meter = 0;
@@ -54,10 +56,11 @@ t = 0;
 baseDamage=-1;
 unscopedDamage = 0;
 
-// need this for projectile destruction, todo: minegun template
+// need this for projectile destruction
 specialProjectile = -1;
-
+destructProjectilesOnDeath = false;
 isThrowable = false;
+maxMines = 8;
 
 // weaponGrade for Unique/Stock/Special
 weaponGrade = STOCK;
@@ -93,7 +96,7 @@ switch(owner.player.class)
     uberReady = owner.uberReadyC;
     break;
     case CLASS_DEMOMAN:
-        lobbed = owner.lobbedC;
+        lobbed = owner.lobbed[owner.activeWeapon];
     break;
 }
 // 'GW' reward - *G*olden *W*eapon

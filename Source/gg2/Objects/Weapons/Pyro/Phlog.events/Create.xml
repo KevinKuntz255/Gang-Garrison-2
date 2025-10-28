@@ -26,15 +26,22 @@
     canBlast = false;
     flameDamage = 2.4;
     burnIncrease=1;
+    durationIncrease = 35;
     shot = false;
     index = 0;
-
+    
+    crit = 1;
+    
+    damSource = DAMAGE_SOURCE_PHLOG;
+    weapon = damSource;
+    
     ability = CRIT;
     abilityName = "MMMPH";
     maxMeter = 250;
     meter = 0;
     rechargeAbility = DAMAGE;
     activateAbility = MAX;
+    //activateAbility = MAX_TAUNT;
     
     damSource = DAMAGE_SOURCE_PHLOG;
 }

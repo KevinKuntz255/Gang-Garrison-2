@@ -42,6 +42,8 @@
         index = 0;
         bounced = 1;
         crit = 1;
+        maxBounces = 8; // stops crashing
+        bounces = 0;
 }
 </argument>
       </arguments>

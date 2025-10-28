@@ -25,21 +25,15 @@ with (Character) {
     if (distance_to_object(other) &lt; other.blastRadius and !(team == other.team and id != other.ownerPlayer.object and place_meeting(x, y+1, Obstacle))){
         if(other.team != team) &amp;&amp; !ubered and hp &gt; 0 {
             soaked = true;
-            for(i=0; i&lt;4; i+=1) {
-                if (soakType[i] == milk) break;
-                if (soakType[i] != milk) soakType[i] = milk; // Test later
-            }
-       alarm[8]= (250-distance_to_object(other)) / global.delta_factor;
-       cloak=false;     
+            var milk_stacks;
+            milk_stacks = ds_map_find_value(effects, SOAK_MILK);
+            if (milk_stacks &lt; 1) ds_map_replace(effects, SOAK_MILK, 1); // soak only once
+            tracker.alarm[SOAK_MILK] = (other.debuffTime-distance_to_object(other)) / global.delta_factor;
+            cloak = false;     
      }
- /*if radioactive {
-    var text;
-    text=instance_create(x,y,Text);
-    text.sprite_index=MissS;
- }*/
-secondToLastDamageDealer = other.ownerPlayer;
-//lastDamageCrit = other.crit;
-cloakAlpha = min(cloakAlpha + 0.2, 1);
+    secondToLastDamageDealer = other.ownerPlayer;
+    //lastDamageCrit = other.crit;
+    cloakAlpha = min(cloakAlpha + 0.2, 1);
     } if (distance_to_object(other) &lt; other.blastRadius and team == other.team){
      if(other.team == team) &amp;&amp; !ubered and hp &gt; 0 {
         burnDuration = 0;

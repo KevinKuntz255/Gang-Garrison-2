@@ -23,6 +23,8 @@ shooting=false;
 rotating=false;
 nearestTarget = noone;
 alarm[0] = refireTime / global.delta_factor;
+weapon = DAMAGE_SOURCE_SENTRYTURRET;
+crit = 1; // prevent projectileCollision crashes
 </argument>
       </arguments>
     </action>

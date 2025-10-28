@@ -132,16 +132,45 @@ if(keyState &amp; $10 &amp;&amp; currentWeapon.chainGun) {
 }
 
 for(i=0; i&lt;2; i+=1) {
-    if (abilityActive[i] &amp;&amp; weaponType[i] == BANNER)
+    if (abilityActive[i])
     {
-        // todo: add the whole library of abilities, oops copy pasting
-        with(Character){
-            if distance_to_point(other.x,other.y) &lt; 128 &amp;&amp; team == other.team {
-                currentWeapon.crit=1.15;
-                alarm[9] = 2;
+        if (ability[i] == DASH)
+        {
+            jumpStrength = 0;
+            if (moveStatus != 4) meter[i] -= 2; else if (moveStatus == 4) meter[i] -= 0.8; // lol, I am crazy for this
+            //if (moveStatus != 4) meter[1] -= chargeDrain; else if (moveStatus == 4) meter[1] -= chargeDrain * 0.4;
+            if (meter[i] &lt;= 0) abilityActive[i] = false;
+            if (dashon) { // todo: figure out lastTurn
+                if (moveStatus != 4) {
+                    if (image_xscale == -1) {
+                        hspeed -= 3;
+                    } else if (image_xscale == 1) {
+                        hspeed += 3;
+                    }
+                } else {
+                    if (image_xscale == -1) {
+                        hspeed -= 1.8 + (accel * 0.15);
+                    } else if (image_xscale == 1) {
+                        hspeed += 1.8 + (accel * 0.15);
+                    }
+                }
             }
         }
+        if (weaponType[i] == BANNER) {
+        // todo: add the whole library of abilities, oops copy pasting
+            with(Character){
+                if distance_to_point(other.x,other.y) &lt; 128 &amp;&amp; team == other.team {
+                    currentWeapon.crit=1.15;
+                    alarm[9] = 2;
+                }
+            }
+        }
+    } else {
+      lastTurn = 0;
+      jumpStrength = 8+(0.6/2);
     }
+    if (rechargeAbility[i] == RECHARGE &amp;&amp; !abilityActive[i])
+     if (meter[i] &lt; maxMeter[i]) meter[i] += rechargeRate * global.delta_factor;
 }
 
 // blurring

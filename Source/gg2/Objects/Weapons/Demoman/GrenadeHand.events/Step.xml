@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if owner.team == TEAM_BLUE {
+    if owner.ammo[owner.activeWeapon] &gt;= 1
+        image_index = 5;
+    else
+        image_index = 6;
+} else {
+    if owner.ammo[owner.activeWeapon] &lt; 1
+        image_index = 1;
+    else
+        image_index = 0;
+}
+if charge {
+    justShot = true;
+    time+=1;
+    if time &gt;= 89 {
+        var oid;
+        ammoCount -= 1;
+        
+        oid = createShot(x+lengthdir_x(10,owner.aimDirection),y+lengthdir_y(10,owner.aimDirection), Grenade, DAMAGE_SOURCE_GRENADE, owner.aimDirection, 17);
+        oid.image_angle = 0;
+        oid.vspeed-=2.5;
+        oid.alarm[2] = 90-min(89,time);
+        oid.explodeOnChar = false;
+        oid.explosionDamage = 60;
+        oid.slowOnCollide = false;
+        readyToShoot = false;
+        alarm[0] = refireTime / global.delta_factor;
+        alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
+        
+        charge = false;
+        time = 0;
+        alarm[3] = -1;
+    }
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

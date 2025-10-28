@@ -19,6 +19,10 @@ burnIncrease = 8;
 durationIncrease = 35;
 afterburnFalloff = false;
 penetrateCap = 0;
+// detonator vars
+exploded = false;
+knockback = 15;
+reflector = noone;
 </argument>
       </arguments>
     </action>

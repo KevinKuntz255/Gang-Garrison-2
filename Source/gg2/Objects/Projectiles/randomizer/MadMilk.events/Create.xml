@@ -45,6 +45,7 @@
         team = -1;
         intel = 0;
         vis_angle = 0;
+        debuffTime = 250;
 }
 </argument>
       </arguments>

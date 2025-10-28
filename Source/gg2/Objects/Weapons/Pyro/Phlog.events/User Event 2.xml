@@ -16,7 +16,7 @@
         <argument kind="STRING">if (owner.meter[owner.activeWeapon] &gt;= owner.maxMeter[owner.activeWeapon]) {
     taunting=true;
     tauntindex=0;
-    image_speed=tauntspeed;
+    image_speed=tauntspeed*0.5;
     /*
     owner.hp = owner.maxHp;
     owner.overheal += 25;

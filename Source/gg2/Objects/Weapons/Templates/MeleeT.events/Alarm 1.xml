@@ -16,7 +16,7 @@
         <argument kind="STRING">shot = instance_create(x,y,MeleeMask);
 for(i=0; i&lt;2; i+=1) {
     // todo: move this clump to Character Begin Step, maybe?
-    if (owner.abilityActive &amp;&amp; owner.ability[i] == DASH) {
+    if (owner.abilityActive[i] &amp;&amp; owner.ability[i] == DASH) {
         shot.splashHit = true;
         shot.splashAmount = 3;
         shot.knockBack = true;
@@ -30,7 +30,7 @@ for(i=0; i&lt;2; i+=1) {
             shot.crit=1.15;
         }
         owner.meter[i] = 0;
-        owner.abilityActive = false;
+        owner.abilityActive[i] = false;
     }
 }
     shot.direction = owner.aimDirection;

@@ -35,6 +35,8 @@
     abilityVisual = "BLUR";
     rechargeAbility = ALARM;
     cancelAbility = ALARM;
+    activateAbility = TAUNT;
+    abilityBuffer = ACTIVE;
     
     owner.eatCooldown = 300;
     maxMeter = owner.eatCooldown;

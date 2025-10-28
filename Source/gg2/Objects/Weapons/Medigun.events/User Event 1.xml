@@ -14,7 +14,7 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">{
-    if(!instance_exists(healTarget) and readyToShoot)
+    if(!instance_exists(healTarget) and readyToShoot and !owner.cloak)
     {
         var bestTarget, bestScore, mouseX, mouseY, aimRayEndX, aimRayEndY;
         bestTarget = noone;

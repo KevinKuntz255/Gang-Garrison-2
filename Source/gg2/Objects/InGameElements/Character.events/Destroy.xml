@@ -28,7 +28,7 @@
     }
     
     for(i=0; i&lt;2; i+=1) {
-        if (weaponType[i] == MINEGUN || weaponType[i] == GRENADELAUNCHER)
+        if (destructProjectilesOnDeath[i])
         {
             with(specialProjectile[i])
             {
@@ -44,6 +44,8 @@
     with HealingParticle {
         if owner=other.id owner=-1
     }
+    
+    ds_map_destroy(effects);
     
     with(bubble) {
         instance_destroy();

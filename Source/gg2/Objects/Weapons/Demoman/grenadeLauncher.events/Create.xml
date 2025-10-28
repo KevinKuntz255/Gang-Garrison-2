@@ -23,6 +23,8 @@
     maxAmmo = 4;
     event_inherited();
     
+    destructProjectilesOnDeath = true;
+    
     ammoCount = owner.ammo[owner.activeWeapon];
     idle=true;
     
@@ -31,7 +33,7 @@
     if (ammoCount &lt; maxAmmo) alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
     
     weaponGrade = STOCK;
-    weaponType = GRENADELAUNCHER;
+    weaponType = PROJECTILE;
     
     normalSprite = grenadeLauncherS;
     recoilSprite = grenadeLauncherFS;

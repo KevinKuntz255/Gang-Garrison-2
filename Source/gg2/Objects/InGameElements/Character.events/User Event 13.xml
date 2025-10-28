@@ -42,9 +42,8 @@
         moveStatus = (temp &gt;&gt; 1) &amp; $07;
     }
 
-// todo: add readyToShoot, currentWeapon.alarm[0], lobbedC
 if(global.updateType == FULL_UPDATE){
-        receiveCompleteMessage(global.serverSocket,10,global.deserializeBuffer);
+        receiveCompleteMessage(global.serverSocket,12,global.deserializeBuffer);
         animationOffset = read_ubyte(global.deserializeBuffer);
         
         // track whether holding primary/secondary
@@ -66,7 +65,7 @@ if(global.updateType == FULL_UPDATE){
             if(currentWeapon.t) zoomed = true; // Quick hack
             break;
         default:
-            read_ubyte(global.deserializeBuffer)
+            read_ubyte(global.deserializeBuffer);
         }
         alarm[1] = read_short(global.deserializeBuffer)/global.delta_factor; 
         if (alarm[1] != 0)
@@ -77,12 +76,40 @@ if(global.updateType == FULL_UPDATE){
         // track the primary/secondary
         weapons[0] = read_ubyte(global.deserializeBuffer);
         weapons[1] = read_ubyte(global.deserializeBuffer);
-        // todo: maybe remove this? needs to get used somewhere
         player.weapons[0] = weapons[0];
         player.weapons[1] = weapons[1];
         
         // switch to primary/secondary
         weaponSwitch(weapons[activeWeapon]);
+
+        currentWeapon.readyToShoot = read_ubyte(global.deserializeBuffer);
+        currentWeapon.alarm[0] = read_ubyte(global.deserializeBuffer)/global.delta_factor;
+        
+        //weapon specific syncs
+        if (weaponType[0] == MINEGUN)
+        {
+            var i, mine;
+            receiveCompleteMessage(global.serverSocket, 1, global.deserializeBuffer);
+            lobbed[0] = read_ubyte(global.deserializeBuffer);
+    
+            with(specialProjectile[0]) {
+                if (variable_local_exists("ownerPlayer")) {
+                    if(ownerPlayer == other.player) {
+                        instance_destroy();
+                    }
+                }
+            }
+            
+            for(i=0; i&lt;lobbed[0]; i+=1) {
+                mine = instance_create(0,0,specialProjectile[0]);
+                mine.owner = id;
+                mine.ownerPlayer = player;
+                mine.team = player.team;
+                with(mine) {
+                    event_user(13);
+                }
+            }
+        }
     }
     event_user(1);
 }

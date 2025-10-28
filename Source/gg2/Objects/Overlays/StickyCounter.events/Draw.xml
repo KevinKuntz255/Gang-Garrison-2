@@ -28,15 +28,13 @@ draw_set_alpha(1);
 draw_set_color(make_color_rgb(217, 217, 183));
 draw_set_valign(fa_center);
 draw_set_halign(fa_left);
-    
+
+// todo: maxMines onto Character instead, this'll complicate the lobbed[0] and lobbed[1] concept for randomizerMode, find out
 if (global.myself.object != -1 and global.myself.class == CLASS_DEMOMAN)
 {    
     draw_sprite_ext(sprite_index, image_index, xoffset+xsize-65, yoffset+ysize-78, 3, 3, 0, c_white, 1);
-    if (instance_exists(global.myself.object.currentWeapon))
-    {
-        if (global.myself.object.currentWeapon.object_index == Minegun) draw_text_transformed(xoffset+xsize-83, yoffset+ysize-76, global.myself.object.currentWeapon.lobbed, 1.5, 1.5, 0); else draw_text_transformed(xoffset+xsize-83, yoffset+ysize-76, global.myself.object.lobbedC, 1.5, 1.5, 0);
-        draw_text_transformed(xoffset+xsize-70, yoffset+ysize-76, "/8", 1.5, 1.5, 0);
-    }
+    draw_text_transformed(xoffset+xsize-83, yoffset+ysize-76, global.myself.object.lobbed[0], 1.5, 1.5, 0);
+    draw_text_transformed(xoffset+xsize-70, yoffset+ysize-76, "/" + string(global.myself.object.maxMines[0]), 1.5, 1.5, 0);
 }
 </argument>
       </arguments>

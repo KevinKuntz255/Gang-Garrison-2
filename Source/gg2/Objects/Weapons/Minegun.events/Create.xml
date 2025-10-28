@@ -23,6 +23,8 @@
     reloadBuffer = 26;
     event_inherited();
     
+    destructProjectilesOnDeath = true;
+    
     maxMines = 8;
     
     ammoCount = owner.ammo[owner.activeWeapon];

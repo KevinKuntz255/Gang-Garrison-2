@@ -23,6 +23,7 @@
         
     if (readyToShoot and ammoCount &gt;= flameDrain
         and !collision_line_bulletblocking(x,y,newx,newy))
+        and !owner.cloak
     {
         if(alarm[3] &lt;= 0)
             loopsoundstart(x,y,FlamethrowerSnd);

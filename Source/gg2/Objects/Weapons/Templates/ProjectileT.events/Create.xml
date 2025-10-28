@@ -33,8 +33,6 @@
     // this isnt commonly used, and having to type it over and over to every weapon seems excessive
     useSpecialSprite = false;
     specialSprite = RocketS;
-    specialSpriteR = RedRocketS;
-    specialSpriteB = BlueRocketS;
     specialSnd = RocketSnd;
     
     fullReload = false;
@@ -46,7 +44,6 @@
     
     // minegun specific
     destructProjectilesOnDeath = false;
-    trackProjectileNetworking = false;
     
     if (!variable_local_exists("normalSprite")) normalSprite = RocketlauncherS;
     if (!variable_local_exists("recoilSprite")) recoilSprite = RocketlauncherFS;

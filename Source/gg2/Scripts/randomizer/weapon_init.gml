@@ -89,14 +89,14 @@ global.name[WEAPON_FAMILYBUSINESS] = "Family Business";
 global.weapons[WEAPON_CHOCOLATE] = ChocolateHand;
 global.name[WEAPON_CHOCOLATE] = "Dalokohs Bar"
 global.weapons[WEAPON_KGOB] = KGOB;
-global.name[WEAPON_KGOB] = "Killing Gloves Of Boxing";/*
+global.name[WEAPON_KGOB] = "Killing Gloves Of Boxing";
 
 // Demoman
 global.weapons[WEAPON_MINEGUN] = Minegun;
 global.name[WEAPON_MINEGUN] = "Minegun";
 global.weapons[WEAPON_TIGERUPPERCUT] = TigerUppercut;
 global.name[WEAPON_TIGERUPPERCUT] = "Tiger Uppercut";
-global.weapons[WEAPON_SCOTTISHRESISTANCE] = ScottishResitance;
+global.weapons[WEAPON_SCOTTISHRESISTANCE] = ScottishResistance;
 global.name[WEAPON_SCOTTISHRESISTANCE] = "Scottish Resistance";
 global.weapons[WEAPON_STICKYJUMPER] = StickyJumper;
 global.name[WEAPON_STICKYJUMPER] = "Sticky Jumper";
@@ -112,7 +112,7 @@ global.weapons[WEAPON_PAINTRAIN] = Paintrain;
 global.name[WEAPON_PAINTRAIN] = "Paintrain";
 global.weapons[WEAPON_GRENADE] = GrenadeHand;
 global.name[WEAPON_GRENADE] = "Hand Grenade";
-
+/*
 // Medic
 global.weapons[WEAPON_NEEDLEGUN] = Needlegun;
 global.name[WEAPON_NEEDLEGUN] = "Needlegun";
@@ -230,11 +230,6 @@ global.name[WEAPON_SAXTONHALE] = "HAXTON SAAAAAAAAALE";
 */
 
 // defaults
-
-global.weapons[WEAPON_MINEGUN] = Minegun;
-global.name[WEAPON_MINEGUN] = "Minegun";
-global.weapons[WEAPON_GRENADELAUNCHER] = grenadeLauncher;
-global.name[WEAPON_GRENADELAUNCHER] = "Grenade Launcher";
 
 global.weapons[WEAPON_NEEDLEGUN] = Needlegun;
 global.name[WEAPON_NEEDLEGUN] = "Needlegun";

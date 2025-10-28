@@ -39,38 +39,61 @@
         write_ubyte(global.serializeBuffer, temp);               
     }
    
-
-if(global.updateType == FULL_UPDATE){
-    write_ubyte(global.serializeBuffer, animationOffset);
+    // todo: move class specific syncs to weapons instead for randomizerMode
+    /*
+    above is a daunting task:
+    move nutsNBolts tracking to Character instead of Engineer, create nutsNBoltsHUD based on canBuild
+    make BUILD_SENTRY a call any character can make
+    canCloak on any character who wields a knife
+    */
+    if(global.updateType == FULL_UPDATE){
+        write_ubyte(global.serializeBuffer, animationOffset);
+        
+        // tracking whether holding primary or secondary
+        write_ubyte(global.serializeBuffer, activeWeapon);
+        
+        //class specific syncs
+        switch(player.class)
+        {
+        case CLASS_SPY:
+            write_ubyte(global.serializeBuffer, cloakAlpha*255);
+            break;
+        case CLASS_MEDIC:
+            write_ubyte(global.serializeBuffer, uberChargeC*255/2000);
+            break;
+        case CLASS_ENGINEER:
+            write_ubyte(global.serializeBuffer, nutsNBolts);
+            break;
+        case CLASS_SNIPER:
+            write_ubyte(global.serializeBuffer, currentWeapon.t);
+            break;
+        default:
+            write_ubyte(global.serializeBuffer, 0);
+        }
+        write_short(global.serializeBuffer, alarm[1]*global.delta_factor);
+        write_ubyte(global.serializeBuffer, intel);
+        write_short(global.serializeBuffer, intelRecharge);
+        
+        // tracking weapons themselves
+        write_ubyte(global.serializeBuffer, weapons[0]);
+        write_ubyte(global.serializeBuffer, weapons[1]);
     
-    // tracking whether holding primary or secondary
-    write_ubyte(global.serializeBuffer, activeWeapon);
+        // tracking currentWeapon vars
+        write_ubyte(global.serializeBuffer, currentWeapon.readyToShoot);
+        write_ubyte(global.serializeBuffer, currentWeapon.alarm[0]*global.delta_factor);
     
-    //class specific syncs
-    switch(player.class)
-    {
-    case CLASS_SPY:
-        write_ubyte(global.serializeBuffer, cloakAlpha*255);
-        break;
-    case CLASS_MEDIC:
-        write_ubyte(global.serializeBuffer, uberChargeC*255/2000);
-        break;
-    case CLASS_ENGINEER:
-        write_ubyte(global.serializeBuffer, nutsNBolts);
-        break;
-    case CLASS_SNIPER:
-        write_ubyte(global.serializeBuffer, currentWeapon.t);
-        break;
-    default:
-        write_ubyte(global.serializeBuffer, 0);
-    }
-    write_short(global.serializeBuffer, alarm[1]*global.delta_factor);
-    write_ubyte(global.serializeBuffer, intel);
-    write_short(global.serializeBuffer, intelRecharge);
-    
-    // tracking weapons themselves
-    write_ubyte(global.serializeBuffer, weapons[0]);
-    write_ubyte(global.serializeBuffer, weapons[1]);
+        //weapon specific syncs
+        if (weaponType[0] == MINEGUN)
+        {
+            write_ubyte(global.serializeBuffer, lobbed[0]);
+            with(specialProjectile[0]) {
+                if variable_local_exists("ownerPlayer") {
+                    if(ownerPlayer == other.player) {
+                        event_user(12);
+                    }
+                }
+            }
+        }
     }
 }
 

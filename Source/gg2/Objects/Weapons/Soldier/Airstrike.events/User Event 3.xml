@@ -13,7 +13,8 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">with(Rocket) {
+        <argument kind="STRING">// TODO: move to an ability?
+with(Rocket) {
     if ownerPlayer == other.ownerPlayer and gun.object_index == Airstrike event_user(5);
 }
 </argument>

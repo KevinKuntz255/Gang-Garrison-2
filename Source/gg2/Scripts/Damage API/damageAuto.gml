@@ -1,9 +1,9 @@
-// damageAuto( sourcePlayer, damagedObject, damageDealt, damageSource)
+// damageAuto( sourcePlayer, damagedObject, damageDealt, damageSource, blood)
 var object;
 object = argument1.object_index;
 
 if(object_is_ancestor(object, Character) or object == Character )
-    damageCharacter( argument0, argument1, argument2, argument3 );
+    projectileCollision( argument0, argument1, argument2, argument3);
 else if(object_is_ancestor(object, Sentry) or object == Sentry )
     damageSentry( argument0, argument1, argument2 );
 else if(object_is_ancestor(object, Generator) or object == Generator )

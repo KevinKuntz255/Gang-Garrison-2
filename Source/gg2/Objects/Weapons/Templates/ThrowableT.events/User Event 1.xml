@@ -13,7 +13,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if(owner.meter[owner.activeWeapon] == owner.maxMeter[owner.activeWeapon] &amp;&amp; readyToShoot) {
+        <argument kind="STRING">if(owner.meter[owner.activeWeapon] == owner.maxMeter[owner.activeWeapon] and readyToShoot and !owner.cloak) {
     playsound(x, y, swingSnd);
     owner.meter[owner.activeWeapon] = 0;
     ammoCount = 0;

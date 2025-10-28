@@ -23,6 +23,9 @@
     reloadBuffer = 1;
     event_inherited();
     
+    weaponGrade = STOCK;
+    weaponType = RIFLE;
+    
     reloadTime = 40;
     unscopedDamage = 35;
     baseDamage = 45;
@@ -32,6 +35,7 @@
     ammoCount = maxAmmo;
     shot=false;
     t=0;
+    crit = 1;
     
     if(golden)
     {

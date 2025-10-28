@@ -43,6 +43,7 @@
     ability = CHARGEUP;
     rechargeAbility = AMMO;
     cancelAbility = DEPLETE;
+    activateAbility = PRESSM2;
     
     abilityVisual = "WEAPON";
     abilityName = "CHARGE";

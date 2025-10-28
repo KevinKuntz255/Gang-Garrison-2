@@ -13,13 +13,14 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if(readyToShoot and ammoCount &gt;0 and !owner.cloak and global.isHost)
+        <argument kind="STRING">if(readyToShoot and !owner.cloak and global.isHost)
 {
     var seed;
     seed = irandom(65535);
     sendEventFireWeapon(ownerPlayer, seed);
     doEventFireWeapon(ownerPlayer, seed);
 }
+
 </argument>
       </arguments>
     </action>

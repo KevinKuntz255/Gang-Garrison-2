@@ -319,6 +319,8 @@ global.launchMap = "";
     draw_set_font(global.gg2Font);
     cursor_sprite = CrosshairS;
     global.dealDamageFunction = ""; // executed after dealDamage, with same args
+    global.dealOverhealDamageFunction = ""; // executed instead of dealDamage, with same args
+    global.projectileCollisionFunction = "" // executed ontop of dealDamageFunction, for modding it
     
     if(!directory_exists(working_directory + "\Maps")) directory_create(working_directory + "\Maps");
     

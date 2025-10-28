@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset = -3;
+    yoffset = -2;
+    refireTime = 24;
+    
+    maxAmmo = 5;
+    reloadTime = 17;
+    reloadBuffer = 26;
+    maxMines = 5;
+    
+    normalSprite = TigerUppercutS;
+    recoilSprite = TigerUppercutFS;
+    reloadSprite = TigerUppercutFRS;
+    event_inherited();
+    
+    damSource = DAMAGE_SOURCE_TIGERUPPERCUT;
+
+    specialProjectile = TUMine;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

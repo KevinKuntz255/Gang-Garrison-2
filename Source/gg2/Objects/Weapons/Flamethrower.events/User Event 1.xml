@@ -20,7 +20,7 @@
     // prevent sputtering
     if (ammoCount &lt; 1.8)
         ammoCount -= 1.8;
-    if (readyToShoot and ammoCount &gt;= 1.8
+    if (readyToShoot and ammoCount &gt;= 1.8 and !owner.cloak
         and !collision_line_bulletblocking(x,y,newx,newy))
     {
         if(alarm[3] &lt;= 0)

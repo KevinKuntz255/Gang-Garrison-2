@@ -26,6 +26,8 @@
     
     ability = ALARM;
     rechargeAbility = ALARM;
+    activateAbility = PRESSM2;
+    abilityBuffer = ACTIVE;
     maxMeter = reloadTime;
     meter = maxMeter;
     abilityName = "BALL";

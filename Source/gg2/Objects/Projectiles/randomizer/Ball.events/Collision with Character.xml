@@ -14,38 +14,39 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">if(/*other.id != ownerPlayer.object and*/other.team != team  &amp;&amp; other.hp &gt; 0 &amp;&amp; other.ubered == 0 &amp;&amp; used==0 &amp;&amp; speed &gt;= 0.2) &amp;&amp; bounced &lt;2 {
-        if (other.lastDamageDealer != ownerPlayer &amp;&amp; other.lastDamageDealer != other.player){
-            other.secondToLastDamageDealer = other.lastDamageDealer;
-            other.alarm[4] = other.alarm[3];
-        }
-        other.alarm[3] = ASSIST_TIME / global.delta_factor;
-        other.lastDamageDealer = ownerPlayer;
-        other.lastDamageSource = weapon;
-        //other.lastDamageCrit = 1;
-
-if bounced &lt; 1
-damage *= (1+0*0.35);
-else
-damage *= (1+0*0.35)*.50;
-
-damageCharacter(ownerPlayer, other.id, damage, id);
-
-//other.hp -= damage*(1+0*0.35); else other.hp -= damage*(1+0*0.35)*.50;
-
-        with(other) {
-            motion_add(other.direction, other.speed*0.03);
-            cloakAlpha = min(cloakAlpha + 0.1, 1);    
-        }
-        instance_destroy();
-    } else if other.team == team &amp;&amp; other.currentWeapon.object_index == Sandman {
-        if other.currentWeapon.ammoCount &lt; 1 {
-            other.currentWeapon.ammoCount = 1;
-            other.currentWeapon.alarm[5] =-1;
-            other.meter[other.activeWeapon] = other.maxMeter[other.activeWeapon];
-            playsound(x,y,PickupSnd);
-            instance_destroy(); 
-        }
+    if (other.lastDamageDealer != ownerPlayer &amp;&amp; other.lastDamageDealer != other.player){
+        other.secondToLastDamageDealer = other.lastDamageDealer;
+        other.alarm[4] = other.alarm[3];
     }
+    other.alarm[3] = ASSIST_TIME / global.delta_factor;
+    other.lastDamageDealer = ownerPlayer;
+    other.lastDamageSource = weapon;
+    //other.lastDamageCrit = 1;
+
+    // todo: move this crit code over to projectileCollision, maybe through DAMAGE_SOURCE
+    if bounced &lt; 1
+        damage *= (1+0*0.35);
+    else
+        damage *= (1+0*0.35)*.50;
+
+    projectileCollision(ownerPlayer, other, damage, object_index, 0);
+
+    //other.hp -= damage*(1+0*0.35); else other.hp -= damage*(1+0*0.35)*.50;
+
+    with(other) {
+        motion_add(other.direction, other.speed*0.03);
+        cloakAlpha = min(cloakAlpha + 0.1, 1);    
+    }
+    instance_destroy();
+} else if other.team == team &amp;&amp; other.currentWeapon.object_index == Sandman {
+    if other.currentWeapon.ammoCount &lt; 1 {
+        other.currentWeapon.ammoCount = 1;
+        other.currentWeapon.alarm[5] =-1;
+        other.meter[other.activeWeapon] = other.maxMeter[other.activeWeapon];
+        playsound(x,y,PickupSnd);
+        instance_destroy(); 
+    }
+}
 </argument>
       </arguments>
     </action>

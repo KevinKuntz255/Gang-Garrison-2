@@ -54,6 +54,7 @@ if(onNonSurfingGround)
 if(onground) {
     doublejumpUsed = 0;
     triplejumpUsed = 0;
+    dashon = true;
 }
 
 // Apply afterburn
@@ -148,20 +149,16 @@ if(!taunting and !omnomnomnom)
         }
         else if(canTriplejump and !triplejumpUsed)
         {
-            deathmatch_invuln_decay = 1;
-            wantToJump = false;
             vspeed = -jumpStrength;
-            onground = false; // Correct unless you are standing on a platform which moves up faster than jumpStrength
             playsound(x,y,JumpSnd);
             triplejumpUsed = 1;
-            moveStatus = 0;
+            // no moveStatus, heheheh
         }
     }
 }
 if (taunting)
 {
-    if (!abilityActive[activeWeapon] and activateAbility[activeWeapon] == TAUNT) {
-    }
+    if (!abilityActive[activeWeapon] and activateAbility[activeWeapon] == TAUNT) abilityActive[activeWeapon] = true;
 }
 
 // Right click
@@ -188,27 +185,30 @@ if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
         }
     }
     for(i=0; i&lt;2; i+=1) {
+        var canActivate;
+        canActivate = true;
         //if (ability[i] != ability[activeWeapon]) break; // stop abilities passing if they dont exist, added specifically for CHARGEUP
-        if (!abilityActive[i]) {
+        //todo: this is cumbersome
+        if (abilityBuffer[i] == ACTIVE &amp;&amp; activeWeapon != i) canActivate = false;
+        if (activateAbility[i] != PRESSM2) canActivate = false; // that'll do it
+        if (!abilityActive[i] &amp;&amp; canActivate) {
             switch(ability[i])
             {
                 case CHARGEUP:
-                    if (ability[activeWeapon] != CHARGEUP) break; // stop abilities passing if they're not chargeup, this is single-weapon-specific
-                    // todo: figure this out without the above if statement
-                    //if (i != activeWeapon) continue;
-                    if (i == activeWeapon &amp;&amp; meter[activeWeapon] &gt;= maxMeter[activeWeapon]) abilityActive = true;
-                    with(currentWeapon) {
-                        readyToShoot = false;
-                        readyToStab = false;
-                        readyToSwing = false;
-                        readyToFlare = false;
-                        readyToBlast = false;
+                    if (ammo[i] &gt;= currentWeapon.maxAmmo) {
+                        with(currentWeapon) {
+                            readyToShoot = false;
+                            readyToStab = false;
+                            readyToSwing = false;
+                            readyToFlare = false;
+                            readyToBlast = false;
+                        }
+                        abilityActive[i] = true;
+                        canSwitch = false;
+                        playsound(x,y,ManglerChargeSnd);
                     }
-                    canSwitch = false;
-                    playsound(x,y,ManglerChargeSnd);
                 break;
                 case DASH:
-                    if (ability[i] != DASH) break; // same deal, happens wit sandman
                     doubleTapped = !doubleTapped;
                     if ((currentWeapon.weaponType == MINEGUN || currentWeapon.weaponType == HEALBEAM || currentWeapon.isThrowable) &amp;&amp; !doubleTapped) exit; // a sort of buffer for weapons like SandvichHand and Minegun
                     if (abilityActive[i] &amp;&amp; meter[i] &gt;= 20) {
@@ -223,10 +223,8 @@ if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
                         doubleTapped = true;
                         playsound(x,y,ChargeSnd);
                         // its very unorganized how there's multiple readyToGun variables, change this in later releases?
-                        readyToSwing = true;
+                        readyToStab = true;
                     }
-                break;
-                default:
                 break;
             }
         }

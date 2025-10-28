@@ -45,18 +45,24 @@
     dashon = true;
     runCombo = false; // for quick switching after airblasting
     
-    // todo: replace soakType and uberType with YB's suggestion
+    // goal with this is turning 120 variables for each weapon into 20, I'll count later on how much this saves
+    // sorted by use
     for(i=0; i&lt;4; i+=1) {
-        ammo[i] = 255; // largest number, todo: change this with some proper reloading
-        soakType[i] = -1;
+        ammo[i] = 255; // largest number, todo: change this with some proper reloading (idk what i meant here, shove it to the backside of ur mind until you get it)
         ability[i] = -1;
+        abilityBuffer[i] = -1;
         abilityName[i] = "";
         abilityVisual[i] = "";
         abilityActive[i] = false;
-        activateAbility[i] = -1;
+        activateAbility[i] = -1; // hmm, work on this later, its cumbersome
         cancelAbility[i] = -1;
-        rechargeAbility[i] = -1;
         chargeWhileActive[i] = false;
+        depleteAbility[i] = -1;
+        rechargeAbility[i] = -1;
+        specialProjectile[i] = -1;
+        destructProjectilesOnDeath[i] = false;
+        lobbed[i] = 0;
+        maxMines[i] = 8;
         meter[i] = -1;
         meterGain[i] = 1;
         maxMeter[i] = -1;
@@ -64,24 +70,21 @@
         meterDrain[i] = 1;
         pauseMeter[i] = false;
         weaponType[i] = -1;
-        specialProjectile[i] = -1;
-    }
-
-    for(i=0; i&lt;5; i+=1) {
-        uberType[i] = -1; // sounds bonkers to have more than one, or even 3 types of ubers at the same time but lets cover large public server cases.
     }
     
-    // aaaaaaaand I'm out of space okay lets just put this in then
+    effects = init_character_effects_map();
+    
+    soaked = false;
+    // aaaaaaaand I'm out of alarm space okay lets just put this in then
+    // reminder: idk how I'd jsonify this in the future if i go that distance, think I'll go out of my way to stop using alarms one day
     tracker = instance_create(x,y,SpecialTracker);
     tracker.owner = id;
     blur = -1;
-    // use the effects variable on this instead
-    specialUber = false;
+    // todo: add specialUbered with ubered variables
+    specialUbered = false;
     
-    lobbedC = 0;
     uberChargeC = 0;
     uberReadyC = false;
-
       
     // 
     hp = maxHp;
@@ -283,7 +286,8 @@
     //}
     
     // bulk of the magic
-    activeWeapon = player.activeWeapon;
+    //activeWeapon = player.activeWeapon;
+    activeWeapon = 0;
     
     currentWeapon = instance_create(x,y,global.weapons[weapons[activeWeapon]]);
     
@@ -296,10 +300,12 @@
     
     if (currentWeapon.ability != -1) {
         ability[0] = currentWeapon.ability;
+        abilityBuffer[0] = currentWeapon.abilityBuffer;
         abilityName[0] = currentWeapon.abilityName;
         abilityVisual[0] = currentWeapon.abilityVisual;
         activateAbility[0] = currentWeapon.activateAbility;
         cancelAbility[0] = currentWeapon.cancelAbility;
+        depleteAbiliy[0] = currentWeapon.depleteAbility;
         rechargeAbility[0] = currentWeapon.rechargeAbility;
         chargeWhileActive[0] = currentWeapon.chargeWhileActive;
         meter[0] = currentWeapon.meter;
@@ -307,12 +313,21 @@
         meterGain[0] = currentWeapon.meterGain;
         meterDrain[0] = currentWeapon.meterDrain;
     }
+    destructProjectilesOnDeath[0] = currentWeapon.destructProjectilesOnDeath;
     specialProjectile[0] = currentWeapon.specialProjectile;
+    if (weaponType[0] == MINEGUN)
+    {
+        lobbed[0] = currentWeapon.lobbed;
+        maxMines[0] = currentWeapon.maxMines;
+    }
 
     //currentWeapon.alarm[5] = -1;
 
     var checkWeapon;
-    checkWeapon = instance_create(0,0,global.weapons[weapons[1]]);
+    if (activeWeapon == 1) 
+        checkWeapon = instance_create(0,0,global.weapons[weapons[0]]);
+    else
+        checkWeapon = instance_create(0,0,global.weapons[weapons[1]]);
 
     weaponType[1] = checkWeapon.weaponType;
 
@@ -320,10 +335,12 @@
 
     if (checkWeapon.ability != -1) {
         ability[1] = checkWeapon.ability;
+        abilityBuffer[1] = checkWeapon.abilityBuffer;
         abilityName[1] = checkWeapon.abilityName;
         abilityVisual[1] = checkWeapon.abilityVisual;
         activateAbility[1] = checkWeapon.activateAbility;
         cancelAbility[1] = checkWeapon.cancelAbility;
+        depleteAbiliy[1] = checkWeapon.depleteAbility;
         rechargeAbility[1] = checkWeapon.rechargeAbility;
         chargeWhileActive[1] = checkWeapon.chargeWhileActive;
         meter[1] = checkWeapon.meter;
@@ -331,7 +348,13 @@
         meterGain[1] = checkWeapon.meterGain;
         meterDrain[1] = checkWeapon.meterDrain;
     }
+    destructProjectilesOnDeath[1] = checkWeapon.destructProjectilesOnDeath;
     specialProjectile[1] = checkWeapon.specialProjectile;
+    if (weaponType[1] == MINEGUN)
+    {
+        lobbed[1] = currentWeapon.lobbed;
+        maxMines[1] = currentWeapon.lobbed;
+    }
 
     // reset max ammo on character create since ammo[i] is the largest number possible
     checkWeapon.ammoCount = checkWeapon.maxAmmo;

@@ -5,6 +5,7 @@ with(argument0) {
         jumpStrength = 6+(0.6/2);
         with(currentWeapon)
             hitDamage = baseDamage;
+        playsound(x,y,PickupSnd);
     } else {
         runPower = baseRunPower;
         jumpStrength = baseJumpStrength;

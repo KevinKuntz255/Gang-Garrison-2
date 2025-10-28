@@ -24,7 +24,8 @@
     weaponType = SHOT;
     
     damSource = DAMAGE_SOURCE_SHOTGUN;
-
+    
+    crit = 1;
     specialShot = Shot;
     shots = 5;
     shotSpeed[0] = 13;

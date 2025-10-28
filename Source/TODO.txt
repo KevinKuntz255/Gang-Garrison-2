@@ -2,7 +2,10 @@
 
 all:
 BUG: Rocket sometimes doesnt find other.shootingPlayer
+BUG: HUD flickers on Rocket Launcher Kill, related to a re-assignment to Draw???
 light reminder: bonus is a minicrit factor from flares hitting
+maybe you dont need entire ds_maps and could use the trackers themselves?
+could try making a system that's alarmless instead of using specialTracker for a flexible framework, find the grounds for that
 try moving ability activation to network calls, they will eventually desync, right?
 
 Fix LoadoutMenu breaking positions in other resolutions
@@ -43,6 +46,7 @@ Entire Kit
 
 # Rifleman
 Entire Kit
+Fix zoomed using baseJumpStrength/baseRunPower at all times
 
 FINAL:
 Q/C after all loadouts implemented

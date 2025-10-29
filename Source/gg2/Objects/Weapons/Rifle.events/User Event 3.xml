@@ -123,13 +123,7 @@ ds_list_destroy(bulletStoppingObjects);
 with(hitInstance) {
     if(object_index == Character or object_is_ancestor(object_index, Character)) {
         if(!ubered and team != other.owner.team) {
-            projectileCollision(other.ownerPlayer, id, other.hitDamage, other.object_index, 2);
-            // todo: move bottom (and other such areas such as gibbing by Rocket) to projectileCollision via projectile object_index check
-            if (!other.owner.zoomed) {
-                lastDamageSource = DAMAGE_SOURCE_RIFLE;
-            } else {
-                lastDamageSource = DAMAGE_SOURCE_RIFLE_CHARGED;
-            }
+            projectileCollision(other.ownerPlayer, id, other.hitDamage, other.id, 2);
         }
     } else if(object_index == Sentry or object_is_ancestor(object_index, Sentry)) {
         damageSentry(other.ownerPlayer, id, other.hitDamage);

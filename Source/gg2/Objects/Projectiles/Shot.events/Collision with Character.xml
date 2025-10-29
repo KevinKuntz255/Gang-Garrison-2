@@ -48,7 +48,7 @@
                 motion_add(other.direction, other.speed*other.speedMultiply);
             }
         }
-        projectileCollision(ownerPlayer, other, hitDamage, object_index, 1);
+        projectileCollision(ownerPlayer, other, hitDamage, id, 1);
 
         if (sprite_index != LaserShotS) instance_destroy(); // lorgan made 50 shots when he could just do a single if statement, boom done
     }

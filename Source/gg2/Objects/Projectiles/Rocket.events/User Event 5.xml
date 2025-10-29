@@ -45,23 +45,8 @@
                 if(!ubered and hp &gt; 0)
                 {
                     if (other.team != team) or (id==other.ownerPlayer.object)
-                    {
-                        projectileCollision( other.ownerPlayer, id, other.explosionDamage*(1-(fake_distance/other.blastRadius)), other, 3);
-                        
-                        if(id == other.ownerPlayer.object and instance_exists(lastDamageDealer) and lastDamageDealer != other.ownerPlayer)
-                            lastDamageSource = DAMAGE_SOURCE_FINISHED_OFF_GIB;
-                        else 
-                        {
-                            if (lastDamageDealer != other.ownerPlayer &amp;&amp; lastDamageDealer != player){
-                                secondToLastDamageDealer = lastDamageDealer;
-                                alarm[4] = alarm[3]
-                            }
-                            if (other.ownerPlayer != id)
-                                alarm[3] = ASSIST_TIME / global.delta_factor;
-                            lastDamageDealer = other.ownerPlayer;
-                            lastDamageSource = other.weapon;
-                        }
-                    }
+                    projectileCollision( other.ownerPlayer, id, other.explosionDamage*(1-(fake_distance/other.blastRadius)), other, 3);
+                    
                     if id==other.ownerPlayer.object and other.team == team {
                         moveStatus = 1;
                         speed*=1.06;

@@ -17,24 +17,11 @@
 {
     if (ds_list_find_index(enemiesHit,other.id) != -1)
         exit;
-    
-    projectileCollision(ownerPlayer, other, hitDamage, object_index, 0);
         
-    if (other.lastDamageDealer != ownerPlayer and other.lastDamageDealer != other.player)
-    {
-        other.secondToLastDamageDealer = other.lastDamageDealer;
-        other.alarm[4] = other.alarm[3];
-    }
-    other.alarm[3] = ASSIST_TIME / global.delta_factor;
-    other.lastDamageDealer = ownerPlayer;
-    other.lastDamageSource = weapon;
+    projectileCollision(ownerPlayer, other, hitDamage, id, 0);
     
-    //show_message(other.abilityActive[0]);
     // afterburn stuff
-    if(!object_is_ancestor(object_index, Pyro)) {
-        if ((other.abilityActive[0] &amp;&amp; other.ability[0] != INVULN) or (other.abilityActive[1] and other.ability[1] != INVULN)) exit;
-        if variable_local_exists("isSnowflake") other.frozen = true; else other.frozen = false;
-    
+    {
         other.burnDuration += durationIncrease; 
         
         var falloffAmount;
@@ -58,7 +45,6 @@
         other.afterburnSource = weapon;
         other.alarm[0] = other.decayDelay / global.delta_factor;
     }
-    dealFlicker(other.id);
     
     if (ds_list_size(enemiesHit) &gt;= penetrateCap and !perseverant)
         instance_destroy();

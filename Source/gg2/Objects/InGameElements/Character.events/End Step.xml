@@ -28,9 +28,10 @@ if(vspeed == 0 and ((keyState &amp; $02) or !place_meeting(x, y+1, DropdownPlatf
 xprevious = x;
 yprevious = y;
 
+
 // dash goes here for collision detection
 for(i=0; i&lt;2; i+=1) {
-    if (abilityActive[i] and ability[i] == DASH) {
+    if (abilityActive[i] and ability[i] == ABILITY_DASH) {
         if(!place_free(x + hspeed, y)) { // we hit a wall on the left or right
             if(place_free(x + sign(hspeed), y - 6)) // if we could just walk up the step
             {
@@ -141,10 +142,11 @@ if overhealHp &gt; 0 {
 if random((30 * overhealMaxHp / overhealHp) / global.delta_factor) &lt; 10 {
     xr= round(x);
     yr= round(y);
-    xh= random_range(-10,10);
-    yh= random_range(-6,3);
+    xh= random_range(-30,5);
+    yh= random_range(-26,13);
     healie = instance_create(xh+xr,yh+yr,HealingParticle);
     healie.owner = id;
+    if (team == TEAM_RED) healie.sprite_index = HealingParticleRedS; else healie.sprite_index = HealingParticleBlueS
     healie.xoffset = xh;
     healie.yoffset = yh;
     healie.depth = choose(2,-2);
@@ -156,11 +158,11 @@ if (overhealHp&gt;overhealMaxHp) {
 }
 
 // misc tracking
-if (weaponType[activeWeapon] == MINEGUN)
+if (weaponType[activeWeapon] == WTYPE_MINEGUN)
 {
     lobbed[activeWeapon] = currentWeapon.lobbed;
 }
-if (weaponType[activeWeapon] == HEALBEAM)
+if (weaponType[activeWeapon] == WTYPE_HEALBEAM)
 {
     uberChargeC = currentWeapon.uberCharge;
     uberReadyC = currentWeapon.uberReady;
@@ -170,7 +172,7 @@ if (weaponType[activeWeapon] == HEALBEAM)
     */
 }
 
-ammo[activeWeapon] = currentWeapon.ammoCount;
+ammo[currentWeapon.activeWeapon] = currentWeapon.ammoCount;
 
 // ability tracking
 // todo: move to a networking call, find out after playtesting
@@ -180,19 +182,37 @@ ammo[activeWeapon] = currentWeapon.ammoCount;
     socket_send(global.server);
     doEventAbility(ability[activeWeapon]);
 */
-if (ability[activeWeapon] == MAXAMMO and currentWeapon.maxAmmo != meter[activeWeapon]) currentWeapon.maxAmmo = meter[activeWeapon];
+if (ability[activeWeapon] == ABILITY_AMMOGAIN and currentWeapon.maxAmmo != meter[activeWeapon]) currentWeapon.maxAmmo = meter[activeWeapon];
 for(i=0; i&lt;2; i+=1) {
     if (abilityActive[i]) {
+        /*if (abilityBuffer[i] == ABUFFER_ACTIVE and i != activeWeapon) {
+            abilityActive[i] = false;
+            break;
+        }*/
         switch(ability[i])
         {
-            case MINICRIT:
-                currentWeapon.crit = 1.15;
-                alarm[9] = 2 / global.delta_factor;
+            case ABILITY_HEAL:
+                with(Character) {
+                    if point_distance(other.x,other.y,x,y) &lt; 64
+                        if player.team == other.team &amp;&amp; hp &lt; maxHp &amp;&amp; id != other hp = min(maxHp,hp+0.7);
+                }
             break;
-            case CRIT:
+            case ABILITY_MINICRIT:
+                currentWeapon.crit = 1.15;
+                if (cancelAbility[i] == ACANCEL_ALARM and tracker.alarm[i] &lt;= 0)
+                {
+                    tracker.alarm[i] = currentWeapon.reloadTime / global.delta_factor;
+                }
+            break;
+            case ABILITY_CRIT:
                 currentWeapon.crit = 1.35;
-                alarm[9] = 2 / global.delta_factor;
-            case CHARGEUP:
+                if (cancelAbility[i] == ACANCEL_ALARM and tracker.alarm[i] &lt;= 0)
+                {
+                    tracker.alarm[i] = currentWeapon.reloadTime / global.delta_factor;
+                    abilityAlarmPrimed[i] = true;
+                }
+            break;
+            case ABILITY_CHARGEDSHOT:
                 if (meter[i] &gt; 0) {
                     runPower = 0.6;
                     jumpStrength = 6;
@@ -221,7 +241,7 @@ for(i=0; i&lt;2; i+=1) {
                     jumpStrength = baseJumpStrength;
                 }
             break;
-            case INVULN:
+            case ABILITY_INVULN:
                 // todo: its very unorganized how there's multiple readyToGun variables, change this in later releases?
                 with(currentWeapon) {
                     readyToShoot = false;
@@ -232,25 +252,31 @@ for(i=0; i&lt;2; i+=1) {
                 }
             break;
         }
-        if (meter[i] &lt;= 0 and cancelAbility[i] == DEPLETE) abilityActive[i] = false;
+        if (meter[i] &lt;= 0 and cancelAbility[i] == ADEPLETE) {
+            abilityActive[i] = false;
+            if (ability[i] == ABILITY_DASH and currentWeapon.weaponType == WTYPE_MELEE) {
+                currentWeapon.crit = 1;
+                playsound(x,y,UberEndSnd);
+            }
+        }
     }
     if (i != activeWeapon and chargeWhileActive[i] || pauseMeter[i]) continue;
-    if (meter[i] &gt;= maxMeter[i] and activateAbility[i] == MAX) abilityActive[i] = true;
-    if (abilityActive[i]) meter[i] -= meterDrain[i] * global.delta_factor;
+    if (meter[i] &gt;= maxMeter[i] and activateAbility[i] == AACTIVATE_MAX) abilityActive[i] = true;
+    if (abilityActive[i] and meter[i] &gt; 0) meter[i] -= meterDrain[i] * global.delta_factor;
     
     switch(rechargeAbility[i])
     {
-        case ALARM:
-            if (weaponType[i] == CONSUMABLE) {
+        case ACHARGE_ALARM:
+            if (weaponType[i] == WTYPE_CONSUMABLE) {
                 if (alarm[6] != -1) meter[i] = alarm[6];
             } else {
                 if (meter[i] != maxMeter[i]) meter[i] = tracker.alarm[i];
             }
         break;
-        case AMMO:
+        case ACHARGE_AMMO:
             if (!abilityActive) meter[i] = ammo[i];
         break;
-        case RUN:
+        case ACHARGE_RUN:
             if (hspeed != 0 &amp;&amp; onground &amp;&amp; !abilityActive[i]) {
                 meter[i] += (rechargeRate[i] / 16 * speed) * global.delta_factor;
             }
@@ -327,6 +353,11 @@ if (omnomnomnom)
     }
     if (hp &lt;= maxHp)
         hp += nomRate * global.delta_factor;
+    if (hp == maxHp and currentWeapon.object_index == ChocolateHand || global.weapons[weapons[1]] == ChocolateHand)
+    {
+        overhealed=true;
+        overhealHp = min(overhealHp + 0.33 * global.delta_factor, overhealMaxHp);
+    }
     if (omnomnomnomindex &gt;= omnomnomnomend)
         omnomnomnom=false;
 }

@@ -17,7 +17,8 @@
 yoffset += sprite_yoffset;
 readyToShoot = false;
 justShot = false;
-// todo: switchBuffer?
+// todo: switchBuffer? 
+// update: what? I should be more specific writing these, I was in a zone 2 months ago
 alarm[0] = refireTime / global.delta_factor;
 
 ubering = false;
@@ -34,7 +35,7 @@ abilityCharge = -1;
 activateAbility = -1;
 cancelAbility = -1;
 depleteAbility = -1;
-rechargeAbility = RECHARGE;
+rechargeAbility = ACHARGE_RECHARGE;
 
 meter = 0;
 maxMeter = 100;
@@ -63,15 +64,26 @@ isThrowable = false;
 maxMines = 8;
 
 // weaponGrade for Unique/Stock/Special
-weaponGrade = STOCK;
+weaponGrade = WGRADE_STOCK;
 // weaponType for each weapon
-weaponType = SHOT;
+weaponType = WTYPE_SHOT;
 
 owner = global.paramOwner;
 
+// this took 3 hours of my life
+// elaboration: it took me 3 hours trying to avoid this
+// elaboration: this line is repeated in processClientCommands and Character Create step
+// elaboration: I hate redundancy.
+// despite all my rage this is the most reliable way to track activeWeapon as a cleaner variable than constantly asking the same if over and over
+if object_index == global.weapons[owner.weapons[1]] {
+    activeWeapon = 1;
+} else {
+    activeWeapon = 0;
+}
+
 jumpSlowdown = owner.baseJumpStrength;
 
-pauseMeter[owner.activeWeapon] = false;
+pauseMeter[activeWeapon] = false;
 // todo: decrease the alarm instead, or make a switchBuffer alarm instead of using refireTime, that's too strict
 if (owner.runCombo) {
     readyToShoot = true;
@@ -82,13 +94,16 @@ if (owner.runCombo) {
     owner.runCombo = false;
 }
 
-if (owner.ammo[owner.activeWeapon] &lt; maxAmmo) {
+if (owner.ammo[activeWeapon] &lt; maxAmmo) {
     alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
     alarm[6] = refireTime / global.delta_factor;
 }
 
 ownerPlayer = global.paramOwner.player;
+
+
 // old variables are kept around for old plugins, can't replace em that easy
+// todo: randomizerMode, move all weaponGrade/weaponType calls to child objects (hoo boyh)
 switch(owner.player.class)
 {
     case CLASS_MEDIC:
@@ -96,7 +111,7 @@ switch(owner.player.class)
     uberReady = owner.uberReadyC;
     break;
     case CLASS_DEMOMAN:
-        lobbed = owner.lobbed[owner.activeWeapon];
+        lobbed = owner.lobbed[activeWeapon];
     break;
 }
 // 'GW' reward - *G*olden *W*eapon

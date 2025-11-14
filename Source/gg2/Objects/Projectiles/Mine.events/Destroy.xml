@@ -15,7 +15,8 @@
       <arguments>
         <argument kind="STRING">if (object_index == Grenade || !owner || !instance_exists(owner)) exit;
 if (owner.hp &lt;= 0) exit;
-if (owner.weaponType[owner.activeWeapon] == MINEGUN) owner.currentWeapon.lobbed -= 1; else owner.lobbed[owner.activeWeapon] -= 1;
+owner.doubleTapped = true;
+if (owner.weaponType[owner.currentWeapon.activeWeapon] == WTYPE_MINEGUN) owner.currentWeapon.lobbed -= 1; else owner.lobbed[ownerPlayer.activeWeapon] -= 1;
 </argument>
       </arguments>
     </action>

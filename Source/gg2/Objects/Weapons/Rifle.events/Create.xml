@@ -23,8 +23,8 @@
     reloadBuffer = 1;
     event_inherited();
     
-    weaponGrade = STOCK;
-    weaponType = RIFLE;
+    weaponGrade = WGRADE_STOCK;
+    weaponType = WTYPE_RIFLE;
     
     reloadTime = 40;
     unscopedDamage = 35;

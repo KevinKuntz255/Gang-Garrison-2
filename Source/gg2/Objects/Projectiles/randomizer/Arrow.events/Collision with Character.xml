@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="COLLISION" with="Character">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">attached = other.id;
+xoffset=x-other.x;
+yoffset=y-other.y;
+alarm[0]= -1 / global.delta_factor;
+speed=0;
+dir = direction;
+scale=image_xscale*other.image_xscale;
+depth=1;
+if(other.id != ownerPlayer.object and other.team == team &amp;&amp; other.hp &gt; 0 and (healBow || gun == Crossbow)) // shocking: gun variable now used
+{
+    other.hp += 45;
+    attached = other.id;
+    xoffset=x-other.x;
+    yoffset=y-other.y;
+    alarm[0]=-1;
+    speed=0;
+    dir = direction;
+    scale=image_xscale*other.image_xscale;
+    depth=1;
+    with(Text)
+    {
+        if (variable_local_exists("owner")) {
+            if (owner == other.owner) {
+                instance_destroy(); // cleaner, and closer to original tf2
+            }    
+        }
+    }
+    var text;
+    text=instance_create(other.x,other.y,Text);
+    text.sprite_index=Plus45S;
+    if (instance_exists(owner)) text.owner = owner;
+}
+else if (other.id != ownerPlayer.object and other.team != team  &amp;&amp; other.hp &gt; 0 &amp;&amp; other.ubered == 0)
+{
+    // allow knockback to radioactive players as god gaben intended
+    with(other)
+    {
+        motion_add(other.direction, other.speed*other.speedMultiply);
+    }
+    projectileCollision(ownerPlayer, other, hitDamage, id, 1);
+}
+
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

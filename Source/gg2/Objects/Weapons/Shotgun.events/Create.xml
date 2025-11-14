@@ -23,7 +23,7 @@
     reloadBuffer = 20;
     event_inherited();
     
-    ammoCount = owner.ammo[owner.activeWeapon];;
+    ammoCount = owner.ammo[activeWeapon];
     
     idle=true;
     
@@ -35,7 +35,7 @@
     }*/
     
     // todo: gold
-    
+    // idea: could consolidate this by using the same code that parses taunts
     if (ownerPlayer.class == CLASS_PYRO) {
         normalSprite = PyroShotgunS;
         recoilSprite = PyroShotgunFS;

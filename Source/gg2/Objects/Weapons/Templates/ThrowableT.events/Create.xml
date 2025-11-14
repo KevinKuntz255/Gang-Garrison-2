@@ -24,12 +24,12 @@
 
     isMelee = true;
 
-    ability = ALARM;
-    rechargeAbility = ALARM;
+    ability = 50;
+    rechargeAbility = ACHARGE_ALARM;
     maxMeter = 300;
     meter = maxMeter;
     
-    if (meter &gt;= maxAmmo) ammoCount = maxAmmo; else ammoCount = 0;
+    if (owner.meter[activeWeapon] &gt;= maxAmmo) ammoCount = maxAmmo; else ammoCount = 0;
 
     shotSpeed = 13;
 
@@ -40,8 +40,8 @@
     projectileDir[1] = 4;
     
     
-    weaponType = THROWABLE;
-    weaponGrade = UNIQUE;
+    weaponType = WTYPE_THROWABLE;
+    weaponGrade = WGRADE_UNIQUE;
     
     if (!variable_local_exists("normalSprite")) normalSprite = JarateHandS;
     if (!variable_local_exists("recoilSprite")) recoilSprite = JarateHandS;

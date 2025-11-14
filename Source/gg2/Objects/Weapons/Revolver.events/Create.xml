@@ -27,7 +27,7 @@
     readyToStab = true;
 
     stabdirection=0;
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     ejected = 0;
     idle=true;
     

@@ -23,8 +23,7 @@
     reloadBuffer = 20;
     event_inherited();
     
-    
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     
     idle=true;
     

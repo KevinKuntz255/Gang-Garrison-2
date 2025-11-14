@@ -22,16 +22,16 @@
     reloadSprite = AtomizerS;
     event_inherited();
     
+    damage = 25;
+    
     damSource = DAMAGE_SOURCE_ATOMIZER;
     
     TK = false;
-    if (owner.team == TEAM_BLUE) TKF = 47 else TKF = 18;
-    owner._oldTauntSprite = owner.tauntsprite;
-    owner.tauntsprite = ScoutTKillS;
-    owner.tauntlength = sprite_get_number(owner.tauntsprite)/2;
-    owner.tauntindex=owner.tauntlength * owner.player.team;
-    owner.tauntend=owner.tauntlength * (1 + owner.player.team) - 1;
+    TKF = 18;
+    owner.tauntsprite = getCharacterSpriteId(ownerPlayer.class, ownerPlayer.team, "TKill");
+    owner.tauntend=sprite_get_number(owner.tauntsprite)-1;
     owner.tauntspeed = 4;
+    owner.tauntlength = sprite_get_number(owner.tauntsprite);
     owner.canTriplejump = true; // todo: iirc we were gonna move this into an attributes list in a plan to make weapon_schema, for now, working that far ahead requires finishing first
     // might've overdone myself with the whole refactoring bit, dude trust me ill make it through this
 }

@@ -79,7 +79,7 @@ if (global.run_virtual_ticks)
         if instance_exists(lastDamageDealer) {
             if lastDamageDealer.object != -1 {
                 for(i=0; i&lt;2; i+=1) {
-                    if (lastDamageDealer.object.rechargeAbility[i] == DAMAGE)
+                    if (lastDamageDealer.object.rechargeAbility[i] == ACHARGE_DAMAGE)
                     {
                         if (lastDamageDealer.object.meter[i] &lt;= lastDamageDealer.object.maxMeter[i]) lastDamageDealer.object.meter[i] += burnIntensity / (30*(frozen+1));
                     }
@@ -107,14 +107,13 @@ if(player.queueJump)
         wantToJump = false;
 }
 
-// prevent accidentally charging
-if (pressedKeys &amp; $10) doubleTapped = true;
-    
 if(!taunting and !omnomnomnom)
 {
     if(!player.humiliated and downOrPressedKeys &amp; $10)
     {
         with(currentWeapon) event_user(1);
+        // prevent accidentally charging
+        doubleTapped = true;
         deathmatch_invulnerable = 0;
     }
     if(!player.humiliated and pressedKeys &amp; $01)  {
@@ -158,8 +157,9 @@ if(!taunting and !omnomnomnom)
 }
 if (taunting)
 {
-    if (!abilityActive[activeWeapon] and activateAbility[activeWeapon] == TAUNT) abilityActive[activeWeapon] = true;
+    if (!abilityActive[activeWeapon] and activateAbility[activeWeapon] == AACTIVATE_TAUNT) abilityActive[activeWeapon] = true;
 }
+
 
 // Right click
 if (!player.humiliated and (downOrPressedKeys &amp; $08)
@@ -170,7 +170,7 @@ if (!player.humiliated and (downOrPressedKeys &amp; $08)
         event_user(2);
 }
 
-// Abilities
+// M2 Abilities
 // todo: 3rd ability button for spies for the specific case of randomizerMode
 // todo: allow any player carrying a knife to cloak...make stab animations for each class?
 if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
@@ -187,14 +187,31 @@ if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
     for(i=0; i&lt;2; i+=1) {
         var canActivate;
         canActivate = true;
-        //if (ability[i] != ability[activeWeapon]) break; // stop abilities passing if they dont exist, added specifically for CHARGEUP
-        //todo: this is cumbersome
-        if (abilityBuffer[i] == ACTIVE &amp;&amp; activeWeapon != i) canActivate = false;
-        if (activateAbility[i] != PRESSM2) canActivate = false; // that'll do it
+        //todo: this is cumbersome, could've made buffer into a string combo? trylater
+        if ((abilityBuffer[i] == ABUFFER_ACTIVE || abilityBuffer[i] == AACTIVATE_ACTIVE_TAUNT) &amp;&amp; i != activeWeapon) canActivate = false;
+        if (activateAbility[i] != AACTIVATE_PRESSM2) canActivate = false; // that'll do it
         if (!abilityActive[i] &amp;&amp; canActivate) {
+            // todo: not this, yeah the ubersaw is kind of a tangle
+            if (abilityBuffer[i] == AACTIVATE_ACTIVE_TAUNT) {
+                tauntsprite = currentWeapon.abilityTaunt;
+                taunting=true;
+                tauntindex=0;
+                image_speed=tauntspeed;
+                playsound(x,y,currentWeapon.tauntSound);
+                if (team == TEAM_BLUE &amp;&amp; tauntindex &lt;= (sprite_get_number(tauntsprite)/2)) tauntindex += (sprite_get_number(tauntsprite)/2)+1; // its called we do a little jerry-rigging
+                abilityActive = true;
+            }
             switch(ability[i])
             {
-                case CHARGEUP:
+                case AACTIVATE_TAUNT:
+                    tauntsprite = currentWeapon.abilityTaunt;
+                    taunting=true;
+                    tauntindex=0;
+                    image_speed=tauntspeed;
+                    playsound(x,y,currentWeapon.tauntSound);
+                    if (team == TEAM_BLUE &amp;&amp; tauntindex &lt;= (sprite_get_number(tauntsprite)/2)) tauntindex += (sprite_get_number(tauntsprite)/2)+1; // its called we do a little jerry-rigging
+                break;
+                case ABILITY_CHARGEDSHOT:
                     if (ammo[i] &gt;= currentWeapon.maxAmmo) {
                         with(currentWeapon) {
                             readyToShoot = false;
@@ -205,22 +222,23 @@ if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
                         }
                         abilityActive[i] = true;
                         canSwitch = false;
-                        playsound(x,y,ManglerChargeSnd);
+                        playsound(x,y,ManglerChargeSnd); // mangler exclusive for now
                     }
                 break;
-                case DASH:
-                    doubleTapped = !doubleTapped;
-                    if ((currentWeapon.weaponType == MINEGUN || currentWeapon.weaponType == HEALBEAM || currentWeapon.isThrowable) &amp;&amp; !doubleTapped) exit; // a sort of buffer for weapons like SandvichHand and Minegun
+                case ABILITY_DASH:
+                    // note: exit statement exited the entire Begin Step Event WOW.
+                    if ((currentWeapon.weaponType == WTYPE_MINEGUN || currentWeapon.weaponType == WTYPE_HEALBEAM || currentWeapon.isThrowable) &amp;&amp; doubleTapped) break; // a sort of buffer for weapons like SandvichHand and Minegun
                     if (abilityActive[i] &amp;&amp; meter[i] &gt;= 20) {
                         abilityActive[i] = false;
                         meter[i] = 0;
+                        if (currentWeapon.weaponType == WTYPE_MELEE) currentWeapon.crit = 1;
                     } // stop, no matter what
                     if (!abilityActive[i] &amp;&amp; !cloak &amp;&amp; meter[i] &gt;= maxMeter[i]) {
                         abilityActive[i] = true;
                         accel = 0;
                         moveStatus = 0;
                         dashon = true;
-                        doubleTapped = true;
+                        doubleTapped = false;
                         playsound(x,y,ChargeSnd);
                         // its very unorganized how there's multiple readyToGun variables, change this in later releases?
                         readyToStab = true;
@@ -229,6 +247,7 @@ if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
             }
         }
     }
+    doubleTapped = !doubleTapped; // put it in the i statement, does it twice, I would move switch into if statement, but thaat looks sooooo dirty tho
 }
 
 switch(moveStatus) // moveStatus is reset in collision with ceilings (including doors if they reject you)
@@ -352,7 +371,11 @@ repeat(global.frameskip)
     // divide friction as normal if going way too fast
     if(abs(hspeed) &gt; basemaxspeed * 2 or
        (downOrPressedKeys &amp; $60 and abs(hspeed) &lt; basemaxspeed))
-        hspeed /= delta_mult_skip(baseFriction);
+        if (moveStatus == 4 &amp;&amp; (abilityActive[0] &amp;&amp; ability[0] == ABILITY_DASH || abilityActive[1] &amp;&amp; ability[1] == ABILITY_DASH || currentWeapon.object_index == StickyJumper))
+        {
+            hspeed /= delta_mult_skip(1.02);
+        } else
+            hspeed /= delta_mult_skip(baseFriction);
     else //otherwise divide by the moveStatus's friction
         hspeed /= delta_mult_skip(frictionFactor);
 }
@@ -462,7 +485,7 @@ if (intel and (ubered or global.mapchanging) and global.isHost) {
 nutsNBolts = min(nutsNBolts+(0.1 * global.delta_factor), maxNutsNBolts);
 
 //ubered max out ammo and extinguish flames
-if ubered {
+if ubered || tracker.alarm[UBER_KRITZ] &gt; 0 {
     if (burnIntensity &gt; 0 || burnDuration &gt; 0)
     {
         burnIntensity = 0;

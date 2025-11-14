@@ -13,18 +13,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if owner.team == TEAM_BLUE {
-    if owner.ammo[owner.activeWeapon] &gt;= 1
-        image_index = 5;
-    else
-        image_index = 6;
-} else {
-    if owner.ammo[owner.activeWeapon] &lt; 1
-        image_index = 1;
-    else
-        image_index = 0;
-}
-if charge {
+        <argument kind="STRING">if charge {
     justShot = true;
     time+=1;
     if time &gt;= 89 {

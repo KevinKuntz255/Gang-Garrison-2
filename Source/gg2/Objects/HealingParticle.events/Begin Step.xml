@@ -20,8 +20,8 @@
     owner = -1;
 }
 yoffset += 0.5 / global.delta_factor;
-alpha *= 0.95 * global.delta_factor;
-if alpha &lt; 0.02 instance_destroy();
+image_alpha *= 0.95 * global.delta_factor;
+if image_alpha &lt; 0.02 instance_destroy();
 </argument>
       </arguments>
     </action>

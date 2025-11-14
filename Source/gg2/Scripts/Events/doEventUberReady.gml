@@ -10,7 +10,7 @@ uberer = argument0;
 if(uberer.object != -1) {
     playsound(uberer.object.x,uberer.object.y,UberChargedSnd);
     setChatBubble(uberer, 46);
-    with(Medigun) {
+    with(uberer.object.currentWeapon) { // why was this using the original line using the Medigun object?
         if(ownerPlayer == uberer) {
             uberReady = true;
             uberCharge = 2000;

@@ -33,10 +33,15 @@
 
     var myMedigun;
     myMedigun = -1;
-    with(Medigun)
+    /*with(Medigun)
     {
         if(ownerPlayer == global.myself)
             myMedigun = id;
+    }*/
+    with(global.myself.object.currentWeapon)
+    {
+        if(weaponType = WTYPE_HEALBEAM)
+            myMedigun = id;   
     }
     if(myMedigun != -1)
     {

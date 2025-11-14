@@ -33,7 +33,7 @@
     bladeDamage = 17;
     depletedBladeDamage = 8;
     replenishingRate = 2;
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     lowAmmoThreshold = 1/3 * maxAmmo;
     highAmmoThreshold = 2/3 * maxAmmo;
     

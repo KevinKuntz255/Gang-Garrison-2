@@ -13,11 +13,11 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if(owner.meter[owner.activeWeapon] == owner.maxMeter[owner.activeWeapon] and readyToShoot and !owner.cloak) {
+        <argument kind="STRING">if(owner.meter[activeWeapon] == owner.maxMeter[activeWeapon] and readyToShoot and !owner.cloak) {
     playsound(x, y, swingSnd);
-    owner.meter[owner.activeWeapon] = 0;
+    owner.meter[activeWeapon] = 0;
     ammoCount = 0;
-    shot = instance_create(x,y + yoffset + 1,throwProjectile);
+    shot = instance_create(x,y + yoffset + 1, throwProjectile);
     if (randomDir) shot.direction = owner.aimDirection + random(projectileDir[0]) - projectileDir[1]; else shot.direction = owner.aimDirection;
     shot.speed = projectileSpeed;
     shot.owner = owner;
@@ -25,7 +25,7 @@
     shot.team = owner.team;
     with(shot)
         hspeed += owner.hspeed;    
-    owner.tracker.alarm[owner.activeWeapon] = owner.maxMeter[owner.activeWeapon] / global.delta_factor;
+    owner.tracker.alarm[activeWeapon] = owner.maxMeter[activeWeapon] / global.delta_factor;
     readyToShoot = false;
     alarm[0] = refireTime / global.delta_factor;
 }

@@ -35,7 +35,7 @@
     readyToFlare = false;
     justBlast = false;
     
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     soundLoopTime = 30;
     currentTime = 0;
     
@@ -51,12 +51,13 @@
     specialFlame = Flame;
     
     damSource = DAMAGE_SOURCE_FLAMETHROWER;
+    weapon = damSource;
     
     reloadBuffer = 7;
     isRefilling = false;
     
-    weaponGrade = UNIQUE;
-    weaponType = FLAMETHROWER;
+    weaponGrade = WGRADE_UNIQUE;
+    weaponType = WTYPE_FLAMETHROWER;
     
     if (!variable_local_exists("normalSprite")) normalSprite = FlamethrowerS;
     if (!variable_local_exists("recoilSprite")) recoilSprite = FlamethrowerFS;

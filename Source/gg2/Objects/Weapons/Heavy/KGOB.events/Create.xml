@@ -22,12 +22,15 @@
     reloadSprite = BoxingGlovesS;
     event_inherited();
     
-    reloadTime = 150;
+    reloadTime = 120;
     
     // todo: activeCheck
-    ability = MINICRIT;
-    activateAbility = KILLS;
-    cancelAbility = ALARM;
+    ability = ABILITY_MINICRIT;
+    activateAbility = AACTIVATE_KILLS;
+    abilityBuffer = ABUFFER_ACTIVE;
+    cancelAbility = ACANCEL_ALARM;
+    maxMeter = 120;
+    meter = maxMeter;
     
     
     damSource = DAMAGE_SOURCE_KGOB;

@@ -1,18 +1,25 @@
 // givePassiveEffect(character, weapon)
+var character,weapon;
 character = argument0;
 weapon = argument1;
 switch(weapon)
 {
-    //case StickyJumper:
-  case ForceANature:
-  //case TerminalBreath:
-  //case BigEarner:
-     character.maxHp -= 20;
-     character.hp -= 20;
-  break;
-  case Atomizer:
-    character.canTriplejump = 1;
-  break;
+    case ForceANature:
+        character.maxHp -= 10;
+        character.hp -= 10;
+    break;
+    case StickyJumper:
+    case TerminalBreath:
+    //case BigEarner:
+        character.maxHp -= 20;
+        character.hp -= 20;
+    break;
+    case Paintrain:
+    if instance_exists(IntelligenceBaseBlue) || instance_exists(IntelligenceBaseRed) || instance_exists(IntelligenceRed) || instance_exists(IntelligenceBlue) {
+        character.maxHp+=30;
+        character.hp+=30;
+    }
+    break;
 }
 /*
 if argument0 != -1 {

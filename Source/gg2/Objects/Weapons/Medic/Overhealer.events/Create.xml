@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset = -7;
+    yoffset = 0;
+    refireTime = 3;
+    
+    maxAmmo = 40;
+    reloadTime = 55;
+    reloadBuffer = 1;
+    event_inherited();
+    
+    weaponGrade = WGRADE_UNIQUE;
+    weaponType = WTYPE_HEALBEAM;
+    
+    canOverheal = false;
+    
+    healTarget = noone;
+    healedThisStep = false;
+    healAmount = 2/2.5;
+    hphealed = 0;
+    maxHealDistance = 300;
+    maxMouseSelectDistance = 150; // Heal target selection will favor the character closest to the mouse, as long as it is within this distance of the mouse cursor.
+    ammoCount = owner.ammo[activeWeapon];
+    
+    idle=true;
+    
+    // Threshhold system numbers
+    healTierHealth = 125; // HP above which healing is slowed
+    healTierAmount = 0.75; // Factor to which healing is slowed (stacks with healing ramp)
+    
+
+    normalSprite = OverhealerS;
+    recoilSprite = OverhealerFS;
+    reloadSprite = OverhealerS;
+    
+    sprite_index = normalSprite;
+        
+    //This makes it so that the timer will keep resetting
+    //Until Mouse1 is let go
+    recoilTime = refireTime+1;
+    recoilAnimLength = sprite_get_number(recoilSprite)/2;
+    recoilImageSpeed = recoilAnimLength/recoilTime;
+    
+    reloadAnimLength = sprite_get_number(reloadSprite)/2;
+    reloadImageSpeed = reloadAnimLength/reloadTime;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

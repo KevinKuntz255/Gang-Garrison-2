@@ -26,7 +26,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">{
+        <argument kind="STRING">/*{
     var i, mine;
     receiveCompleteMessage(global.serverSocket, 1, global.deserializeBuffer);
     lobbed = read_ubyte(global.deserializeBuffer);

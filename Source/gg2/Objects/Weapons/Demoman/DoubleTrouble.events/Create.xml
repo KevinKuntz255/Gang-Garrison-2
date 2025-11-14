@@ -25,15 +25,15 @@
     
     destructProjectilesOnDeath = true;
     
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     idle=true;
     
     damSource = DAMAGE_SOURCE_GRENADE;
     
     if (ammoCount &lt; maxAmmo) alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
     
-    weaponGrade = UNIQUE;
-    weaponType = PROJECTILE;
+    weaponGrade = WGRADE_UNIQUE;
+    weaponType = WTYPE_PROJECTILE;
     
     normalSprite = DoubleTroubleS;
     recoilSprite = DoubleTroubleFS;

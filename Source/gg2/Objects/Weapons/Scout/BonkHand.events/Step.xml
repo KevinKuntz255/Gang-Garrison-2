@@ -15,19 +15,20 @@
       <arguments>
         <argument kind="STRING">image_index = owner.team+2*real(owner.canEat);
 
-if (owner.taunting &amp;&amp; owner.tauntsprite == ScoutBonkS) {
-    if (owner.team = TEAM_BLUE &amp;&amp; owner.tauntindex &lt;= 10) owner.tauntindex += sprite_get_number(owner.tauntsprite)/2; // its called we do a little jerry-rigging
-        if (owner.tauntindex &gt;= owner.tauntend &amp;&amp; !owner.abilityActive[owner.activeWeapon]) {
-            owner.abilityActive[owner.activeWeapon] = true;
-            playsound(x,y,BallSnd);
-            owner.tauntsprite = owner._oldTauntSprite;
-            owner.tauntlength = sprite_get_number(owner.tauntsprite)/2;
-            owner.tauntspeed = 3;
-            owner.canEat = false;
-            owner.alarm[6] = owner.eatCooldown / global.delta_factor;
-            owner.tracker.alarm[owner.activeWeapon] = reloadTime / global.delta_factor;
-            owner.burnDuration = 0; // extinguish bonked player
-            write_ubyte(global.serverSocket, WEAPON_SWAP);
+if (owner.taunting &amp;&amp; (owner.tauntsprite == ScoutRedBonkS || owner.tauntsprite == ScoutBlueBonkS)) 
+{
+    if (owner.tauntindex &gt;= sprite_get_number(owner.tauntsprite)-1 &amp;&amp; !owner.abilityActive[activeWeapon]) {
+        owner.abilityActive[activeWeapon] = true;
+        playsound(x,y,BallSnd);
+        owner.tauntsprite = getCharacterSpriteId(ownerPlayer.class, ownerPlayer.team, "Taunt");
+        owner.tauntlength = sprite_get_number(owner.tauntsprite);
+        owner.tauntend=owner.tauntlength;
+        owner.tauntspeed = 3; // prolly should change this if randomizerMode gets added, btw would be funny if there was SpyBonkS or HeavyBonkS, lol
+        owner.alarm[6] = owner.eatCooldown / global.delta_factor;
+        owner.tracker.alarm[activeWeapon] = reloadTime / global.delta_factor;
+        owner.burnDuration = 0; // extinguish bonked player
+        owner.maxDuration  = 1; // cannot burn bonked player!
+        write_ubyte(global.serverSocket, WEAPON_SWAP);
     }
 }
 </argument>

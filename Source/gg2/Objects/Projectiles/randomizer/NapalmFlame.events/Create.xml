@@ -18,6 +18,7 @@ flameLife = 15;
 burnIncrease = 3.33;
 durationIncrease = 60;
 afterburnFalloff = true;
+isSnowflake = false;
 penetrateCap = 0;
 dying=false;
 

@@ -32,9 +32,17 @@ if(killer)
 {
     if (killer.object) {
         for(i=0; i<2; i+=1) {
-            if (killer.object.rechargeAbility[i] == KILLS) {
-                killer.object.meter[i] = min(killer.object.maxMeter[i], killer.object.meter[i] + meterGain[i]);
+        if (killer.object.rechargeAbility[i] == ACHARGE_KILLS) {
+                killer.object.meter[i] = min(killer.object.maxMeter[i], killer.object.meter[i] + killer.object.meterGain[i]);
+                switch(killer.object.ability[i])
+                {
+                    case ABILITY_AMMOGAIN:
+                        killer.object.currentWeapon.ammoCount = min(killer.object.currentWeapon.maxAmmo, killer.object.currentWeapon.ammoCount + killer.object.meterGain[i]);
+                    break;
+                }
             }
+            if (killer.object.activateAbility[i] == AACTIVATE_KILLS)
+                killer.object.abilityActive[i] = true;
         }
     }
     
@@ -46,16 +54,16 @@ if(killer)
         killer.roundStats[POINTS] +=1;
     }
     
-    
-    
-    if (victim.object.currentWeapon.object_index == Medigun)
-    {
-        if (victim.object.currentWeapon.uberReady)
+    if (victim.object) {
+        if (victim.object.currentWeapon.object_index == Medigun)
         {
-            killer.stats[BONUS] += 1;
-            killer.roundStats[BONUS] += 1;
-            killer.stats[POINTS] += 1;
-            killer.roundStats[POINTS] += 1;
+            if (victim.object.currentWeapon.uberReady)
+            {
+                killer.stats[BONUS] += 1;
+                killer.roundStats[BONUS] += 1;
+                killer.stats[POINTS] += 1;
+                killer.roundStats[POINTS] += 1;
+            }
         }
     }
         
@@ -86,11 +94,19 @@ if (assistant)
     assistant.roundStats[POINTS] += .5;
     
     ds_list_add(killersForDomination, assistant);
-    for(i=0; i<2; i+=1) 
-    {
-        if (assistant.object.rechargeAbility[i] == KILLS) {
-            if (meterGain[i] > 1) killer.object.meter[i] = min(killer.object.maxMeter[i], killer.object.meter[i] + (meterGain[i] * 0.5));
-        } // iron maiden exclusive
+    if (assistant.object) {
+        for(i=0; i<2; i+=1) 
+        {
+            if (assistant.object.rechargeAbility[i] == ACHARGE_KILLS) {
+                assistant.object.meter[i] = min(assistant.object.maxMeter[i], assistant.object.meter[i] + (assistant.object.meterGain[i] * 0.5));
+                switch(killer.object.ability[i])
+                {
+                        case ABILITY_AMMOGAIN:
+                            killer.object.currentWeapon.ammoCount += assistant.object.meterGain[i];
+                        break;
+                }
+            } // iron maiden exclusive so far
+        }
     }
 }
 

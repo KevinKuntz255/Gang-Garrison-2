@@ -13,12 +13,13 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if (!owner.cloak &amp;&amp; owner.meter[owner.activeWeapon] &gt;= owner.maxMeter[owner.activeWeapon])
+        <argument kind="STRING">// todo: move to global ability call
+if (!owner.cloak &amp;&amp; owner.meter[activeWeapon] &gt;= owner.maxMeter[activeWeapon])
 {
-    owner.meter[owner.activeWeapon] = 0;
+    owner.meter[activeWeapon] = 0;
     playsound(x,y,specialSnd);
-    owner.abilityActive[owner.activeWeapon] = true;
-    owner.tracker.alarm[owner.activeWeapon] = reloadTime / global.delta_factor;
+    owner.abilityActive[activeWeapon] = true;
+    owner.tracker.alarm[activeWeapon] = reloadTime / global.delta_factor;
 }
 </argument>
       </arguments>

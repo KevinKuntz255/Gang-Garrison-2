@@ -15,11 +15,11 @@
       <arguments>
         <argument kind="STRING">if(global.isHost) {
     if (timeUnscathed &lt; 7 * 30)
-        hp += 3;
+        hp += regenRate;
     else if (timeUnscathed &lt; 14 * 30)
-        hp += 4;
+        hp += regenRate + 1;
     else
-        hp += 5;
+        hp += regenRate + 2;
     alarm[11] = 30 / global.delta_factor;
 }
 </argument>

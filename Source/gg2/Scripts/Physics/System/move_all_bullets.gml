@@ -6,6 +6,18 @@ with(Shot)
         firststep = true;
     
     if (sprite_index != LaserShotS) vspeed += 0.15 * global.delta_factor;
+    if (object_index == Arrow) {
+        if attached == -1 {
+            vspeed+=1.5/speed;
+        }
+        if (global.run_virtual_ticks)
+        {
+            particleCycle = (particleCycle + 1) mod 2;
+            if(particleCycle and attached == -1)
+                instance_create(x, y, MineTrail);
+        }
+    }
+    
     if(global.particles != PARTICLES_OFF)
     {
         //We don't want it to be almost invisible if it's still "active", so
@@ -23,7 +35,7 @@ with(Shot)
     
     colliding |= !place_free(x, y);
         
-    if (colliding)
+    if (colliding and attached == -1)
     {
         imp = instance_create(x,y,Impact);
         imp.image_angle=direction;
@@ -287,8 +299,13 @@ with(Mine)
     }
     else
     {
-        if(object_index != Grenade) vspeed += 0.2 * global.delta_factor; else vspeed += 0.6 * global.delta_factor;
-        if(object_index != Grenade) vspeed = min(vspeed,8);
+        if(object_index != Grenade) {
+            vspeed += 0.2 * global.delta_factor; 
+            vspeed = min(vspeed,8);
+        }
+        else 
+            vspeed += 0.6 * global.delta_factor;
+            
         splashThreshhold = true;
         if (global.run_virtual_ticks)
         {
@@ -363,7 +380,7 @@ with(Mine)
             if (slowOnCollide) hspeed *= bounced;
             bounced -= 0.35;
             playsound(x,y,ImpactSnd);
-            if (!explodeOnChar) hitSelf = true;
+            if (explodeOnChar) hitSelf = true;
         }
     
         x -= hspeed;

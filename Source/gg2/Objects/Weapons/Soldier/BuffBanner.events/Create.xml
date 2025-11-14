@@ -30,16 +30,17 @@
     
     isMelee = true;
     
-    weaponGrade = UNIQUE;
-    weaponType = BANNER;
+    weaponGrade = WGRADE_UNIQUE;
+    weaponType = WTYPE_BANNER;
     
-    ability = MINICRIT;
+    ability = ABILITY_MINICRIT;
     abilityName = "RAGE";
-    rechargeAbility = KILLS;
+    rechargeAbility = ACHARGE_KILLS;
     abilityDuration = reloadTime;
-    cancelAbility = ALARM;
-    activateAbility = PRESSM1;
+    cancelAbility = ACANCEL_ALARM;
+    activateAbility = AACTIVATE_PRESSM1;
     maxMeter = 4;
+    meterGain = 1;
     meter = 0;
     
     normalSprite = BuffBannerS;

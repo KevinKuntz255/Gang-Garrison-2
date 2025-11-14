@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset=-17;
+    yoffset=-36;
+    
+    normalSprite = UbersawS;
+    recoilSprite = UbersawFS;
+    reloadSprite = UbersawS;
+    event_inherited();
+    
+    damSource = DAMAGE_SOURCE_UBERSAW;
+    
+    ability = ABILITY_HEAL;
+    abilityBuffer = AACTIVATE_ACTIVE_TAUNT;
+    activateAbility = AACTIVATE_PRESSM2;
+    abilityTaunt = getCharacterSpriteId(ownerPlayer.class, ownerPlayer.team, "THeal");
+    tauntSound = ViolinSnd;
+    
+    TK = false;
+    TKF = 16;
+    owner.tauntsprite = getCharacterSpriteId(ownerPlayer.class, ownerPlayer.team, "TKill");
+    owner.tauntlength = sprite_get_number(owner.tauntsprite)/2;
+    owner.tauntspeed = 3;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

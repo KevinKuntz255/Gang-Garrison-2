@@ -38,14 +38,14 @@ if(global.myself.class == CLASS_ENGINEER || global.myself.object.canBuild)
     if(!instance_exists(NutsNBoltsHud))
         instance_create(0,0,NutsNBoltsHud);
 }
-if(global.myself.class == CLASS_HEAVY || global.myself.object.weaponType[1] == CONSUMABLE)
+if(global.myself.class == CLASS_HEAVY || global.myself.object.weaponType[1] == WTYPE_CONSUMABLE)
 {
     if(!instance_exists(SandwichHud))
         instance_create(0,0,SandwichHud);
 }
 
 // Sticky HUD. Because real men let computers count for them.
-else if global.myself.object.weaponType[0] == MINEGUN &amp;&amp; !instance_exists(StickyCounter) instance_create(0,0,StickyCounter);
+else if global.myself.object.weaponType[0] == WTYPE_MINEGUN &amp;&amp; !instance_exists(StickyCounter) instance_create(0,0,StickyCounter);
   
 else if global.myself.class == CLASS_MEDIC {
     //Uber HUD

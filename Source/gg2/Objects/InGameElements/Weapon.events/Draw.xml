@@ -47,8 +47,8 @@ if (!owner.invisible and !owner.taunting and !owner.omnomnomnom and !owner.playe
             ubercolour = c_blue;
         draw_sprite_ext(sprite_index, imageOffset, round(x+xoffset*image_xscale), round(y+yoffset) + owner.equipmentOffset, image_xscale, image_yscale, image_angle, ubercolour, 0.7*image_alpha);
     }
-    if ((owner.abilityActive &amp;&amp; string_count("WEAPON", abilityVisual) &gt; 0) || crit &gt; 1) 
-   {
+    if ((owner.abilityActive[activeWeapon] &amp;&amp; string_count("WEAPON", owner.abilityVisual[activeWeapon]) &gt; 0) || crit &gt; 1) 
+    {
         if (owner.team == TEAM_RED)
        ubercolour = c_orange;
     else if (owner.team == TEAM_BLUE)
@@ -58,7 +58,7 @@ if (!owner.invisible and !owner.taunting and !owner.omnomnomnom and !owner.playe
     if (!isMelee) 
        draw_sprite_ext(Spark2S,spark,round(x+xoffset*image_xscale),round(y+yoffset) + owner.equipmentOffset ,image_xscale,image_yscale,image_angle,ubercolour,0.3);
     else
-       draw_sprite_ext(Spark2S,spark,round(x+xoffset*image_xscale),round(y+yoffset+40) + owner.equipmentOffset ,image_xscale,image_yscale,image_angle,ubercolour,0.3);
+       draw_sprite_ext(Spark2S,spark,round(x+xoffset*image_xscale),round(y+yoffset) + owner.equipmentOffset ,image_xscale,image_yscale,image_angle,ubercolour,0.3);
     }
 }
 </argument>

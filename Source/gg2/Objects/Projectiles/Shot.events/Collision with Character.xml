@@ -36,10 +36,6 @@
                         other.moveStatus = 3;
                     }
                 break;
-                case DAMAGE_SOURCE_RSHOOTER:
-                    if (!onground and moveStatus == 3 and crit &lt; 1) crit *= 1.15; // would be insane if it counted up existing crits
-                    motion_add(other.direction, other.speed*0.03);
-                break;
                 case DAMAGE_SOURCE_NATACHA:
                     speed *= 0.93;
                 break;

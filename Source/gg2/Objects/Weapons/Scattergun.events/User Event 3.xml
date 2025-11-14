@@ -35,7 +35,7 @@ readyToShoot = false;
 alarm[0] = refireTime / global.delta_factor;
 alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
 
-if (crit &gt; 1) playsound(_x,_y,CritSnd);
+if (crit &gt; 1) playsound(x,y,CritSnd);
 </argument>
       </arguments>
     </action>

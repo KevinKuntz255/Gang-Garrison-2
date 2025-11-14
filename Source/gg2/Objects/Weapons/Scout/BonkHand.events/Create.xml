@@ -20,7 +20,7 @@
 
     maxAmmo = 1;
     
-    reloadTime = 300;
+    reloadTime = 500;
     reloadBuffer = refireTime;
     event_inherited();
 
@@ -29,21 +29,20 @@
     
     isMelee = true;
     
-    // used to be INVIS, maybe make that later?
-    ability = INVULN;
+    ability = ABILITY_INVULN;
     abilityName = "BONK";
-    abilityVisual = "BLUR";
-    rechargeAbility = ALARM;
-    cancelAbility = ALARM;
-    activateAbility = TAUNT;
-    abilityBuffer = ACTIVE;
+    abilityVisual = " BLUR ";
+    rechargeAbility = ACHARGE_ALARM;
+    cancelAbility = ACANCEL_ALARM;
+    //activateAbility = AACTIVATE_TAUNT;
+    //abilityBuffer = ABUFFER_ACTIVE;
     
-    owner.eatCooldown = 300;
-    maxMeter = owner.eatCooldown;
+    owner.eatCooldown = 150;
+    maxMeter = reloadTime;
     meter = maxMeter;
     
-    weaponGrade = UNIQUE;
-    weaponType = CONSUMABLE;
+    weaponGrade = WGRADE_UNIQUE;
+    weaponType = WTYPE_CONSUMABLE;
     
     normalSprite = BonkHandS;
     recoilSprite = BonkHandS;
@@ -59,13 +58,13 @@
 
     reloadAnimLength = sprite_get_number(reloadSprite) / 2;
     reloadImageSpeed = reloadAnimLength / reloadTime;
-    
-    if (!owner.abilityActive[owner.activeWeapon]) {
-        owner._oldTauntSprite = owner.tauntsprite;
-        owner.tauntsprite = ScoutBonkS;
-        owner.tauntlength = sprite_get_number(owner.tauntsprite)/2;
-        owner.tauntindex=owner.tauntlength * owner.player.team;
-        owner.tauntend=owner.tauntlength * (1 + owner.player.team) - 1;
+
+    if (!owner.abilityActive[activeWeapon]) 
+    {
+        owner.tauntsprite = getCharacterSpriteId(ownerPlayer.class, ownerPlayer.team, "Bonk");
+        //owner.tauntlength = sprite_get_number(owner.tauntsprite);
+        //owner.tauntindex=owner.tauntlength * owner.player.team;
+        owner.tauntend=sprite_get_number(owner.tauntsprite)-1;
         owner.tauntspeed = 4;
     }
 }

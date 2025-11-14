@@ -1,16 +1,22 @@
 # next commit:
-
 all:
+BUG: two charged weapons desync on switching, swap activeWeapon variables
 BUG: Rocket sometimes doesnt find other.shootingPlayer
 BUG: HUD flickers on Rocket Launcher Kill, related to a re-assignment to Draw???
+
 light reminder: bonus is a minicrit factor from flares hitting
+
 maybe you dont need entire ds_maps and could use the trackers themselves?
+
 could try making a system that's alarmless instead of using specialTracker for a flexible framework, find the grounds for that
-try moving ability activation to network calls, they will eventually desync, right?
+
+try moving ability activation to network calls, they desync!!
 
 Fix LoadoutMenu breaking positions in other resolutions
+
 Implement crits in kill log (re-add lastDamageCrit?)
 add headshots
+
 add randomizerMode
 add medievalMode
 add HALE
@@ -18,22 +24,18 @@ add HALE
 Loadouts (Start Chronologically):
 
 # Overweight
-finalize IronMaiden MAXAMMO ability
-finalize/test KGOB crit mechanic
-create overheal when eating ChocolateHand
 add overlay for each omnomnom weapon instead of copy-pasting the whole animation
 
 # Detonator
 DETONATION_POS
-GrenadeHand team affiliation image_index
-DASH doubleTapped fix
 randomizerMode specific:
 	make M2 detonate both stickybombs (client option tracked to serverside)
 	add lobbed[0] and lobbed[1]
 
 # Healer
-Entire Kit
-options for merging Needleguns into one + an entire substituted Melee Kit with more purpose
+options for merging Needleguns into one + an entire substituted Melee Kit with more utility purpose
+give kritzkrieg/quickfix undebug heal rate
+add Holy Water for the -2 holy water fans
 randomizerMode specific:
 	gee billy why does ur mom let u have two medic beams
 	same deal as detonator
@@ -46,8 +48,11 @@ Entire Kit
 
 # Rifleman
 Entire Kit
-Fix zoomed using baseJumpStrength/baseRunPower at all times
 
 FINAL:
+Host Options: 
+Needlegun Merging
+Sandvich always available
+
 Q/C after all loadouts implemented
 Implement sentry upgrades

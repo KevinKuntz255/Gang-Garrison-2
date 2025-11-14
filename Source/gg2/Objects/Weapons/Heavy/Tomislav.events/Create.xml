@@ -29,7 +29,7 @@
 
     shotDamage = 8;
     
-    weaponType = MINIGUN;
+    weaponType = WTYPE_MINIGUN;
     
     shotDir[0] = 7;
     shotDir[1] = 3.5;

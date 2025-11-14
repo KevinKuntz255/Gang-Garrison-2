@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-  <resource name="ScoutBonkS" type="RESOURCE"/>
-  <resource name="ScoutTKillS" type="RESOURCE"/>
+  <resource name="ScoutRedBonkS" type="RESOURCE"/>
+  <resource name="ScoutBlueBonkS" type="RESOURCE"/>
+  <resource name="ScoutRedTKillS" type="RESOURCE"/>
+  <resource name="ScoutBlueTKillS" type="RESOURCE"/>
 </resources>

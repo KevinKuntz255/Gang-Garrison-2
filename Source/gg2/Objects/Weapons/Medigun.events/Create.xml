@@ -23,8 +23,8 @@
     reloadBuffer = 1;
     event_inherited();
     
-    weaponGrade = STOCK;
-    weaponType = HEALBEAM;
+    weaponGrade = WGRADE_STOCK;
+    weaponType = WTYPE_HEALBEAM;
     
     canOverheal = false;
     
@@ -34,7 +34,7 @@
     hphealed = 0;
     maxHealDistance = 300;
     maxMouseSelectDistance = 150; // Heal target selection will favor the character closest to the mouse, as long as it is within this distance of the mouse cursor.
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     
     idle=true;
     

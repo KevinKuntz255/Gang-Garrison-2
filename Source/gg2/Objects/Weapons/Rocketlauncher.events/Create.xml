@@ -24,7 +24,7 @@
     event_inherited();
     
     
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     rocketrange = 501;
     idle=true;
     

@@ -35,7 +35,6 @@
                     if burnDuration &gt; 0 {
                         //if other.crit == 1 bonus = MINICRIT_FACTOR; ohhh this is bonus
                     }
-                    // todo: move to projectileCollision
                     var dmg;
                     dmg = other.explosionDamage*(1-(distance_to_object(other)/other.blastRadius));
                     //dmg *= (1+0*0.35*crit*bonus);
@@ -43,8 +42,7 @@
                         dmg *= 5/9;
                     
                     projectileCollision(other.ownerPlayer, id, dmg, other, 0);
-                    if(!object_is_ancestor(object_index, Pyro) || id != other.ownerPlayer.object) {
-                        if ((abilityActive[0] &amp;&amp; ability[0] != INVULN) or (abilityActive[1] and ability[1] != INVULN)) exit;
+                    {
                         if (burnDuration &lt; maxDuration) {
                             burnDuration += other.durationIncrease; 
                             burnDuration = min(burnDuration, maxDuration);
@@ -57,7 +55,6 @@
                         afterburnSource = WEAPON_DETONATOR;
                         alarm[0] = decayDelay / global.delta_factor;
                     }
-                    // todo: ownerPlayer gets afterburn for a lil while, fix that
 
                     //if true hp -= other.explosionDamage*sqr((1-(distance_to_object(other)/other.blastRadius)))*(1+0*0.35)*1*bonus;
                     //if player == other.ownerPlayer hp-= 10*sqr((1-(distance_to_object(other)/other.blastRadius)))*(1+0*0.35)*1;

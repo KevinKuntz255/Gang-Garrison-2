@@ -67,10 +67,9 @@ createGlobalDamageSource("DAMAGE_SOURCE_TIGERUPPERCUT",       TigerUppercutKL);
 createGlobalDamageSource("DAMAGE_SOURCE_SCOTTISHRESISTANCE",  ScottishResistanceKL);
 createGlobalDamageSource("DAMAGE_SOURCE_STICKYSTICKER",       StickyStickerKL);
 createGlobalDamageSource("DAMAGE_SOURCE_EYELANDER",           EyelanderKL);
-createGlobalDamageSource("DAMAGE_SOURCE_PAINTRAIN",           PaintrainKL);/*
+createGlobalDamageSource("DAMAGE_SOURCE_PAINTRAIN",           PaintrainKL);
 
 createGlobalDamageSource("DAMAGE_SOURCE_BLUTSAUGER",          BlutsaugerKL);
-
-
-
-
+createGlobalDamageSource("DAMAGE_SOURCE_TERMINALBREATH",      TerminalBreathKL);
+createGlobalDamageSource("DAMAGE_SOURCE_ARROW",               ArrowKL);
+createGlobalDamageSource("DAMAGE_SOURCE_UBERSAW",             UbersawKL);

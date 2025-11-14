@@ -29,7 +29,7 @@
     event_inherited();
 
         
-    weaponType = MINIGUN;
+    weaponType = WTYPE_MINIGUN;
     
     shotDamage = 8;
     
@@ -38,8 +38,8 @@
     shotPosition = 20;
     revSlowdown = 0.3;
     
-    ability = MAXAMMO;
-    rechargeAbility = KILLS;
+    ability = ABILITY_AMMOGAIN;
+    rechargeAbility = ACHARGE_KILLS;
     meter = 200;
     maxMeter = 600;
     meterGain = 66; // use *0.5 for assist

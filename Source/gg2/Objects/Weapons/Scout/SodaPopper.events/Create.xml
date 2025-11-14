@@ -29,14 +29,14 @@
     
     damSource = DAMAGE_SOURCE_SODAPOPPER;
     
-    ability = MINICRIT;
+    ability = ABILITY_MINICRIT;
     abilityName = "HYPE";
-    rechargeAbility = RUN;
+    rechargeAbility = ACHARGE_RUN;
     abilityVisual = "WEAPON";
     chargeWhileActive = true;
     pauseOnDestruction = true;
-    activateAbility = MAX;
-    cancelAbility = DEPLETE;
+    activateAbility = AACTIVATE_MAX;
+    cancelAbility = ADEPLETE;
     
     meter = 0;
     maxMeter = 210;

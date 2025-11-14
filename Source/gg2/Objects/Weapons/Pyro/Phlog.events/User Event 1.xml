@@ -84,9 +84,8 @@
                 if(id != other.ownerPlayer and team != other.owner.team and object != -1) {
                     if(collision_line(other.x,other.y,other.x2,other.y2,object,true,false)&gt;=0) &amp;&amp; object.ubered == 0 {
                         projectileCollision(other.ownerPlayer, object, other.flameDamage, other.object_index, 0);
-                        if(!object_is_ancestor(object.object_index, Pyro)) {
-                            if ((object.abilityActive[0] &amp;&amp; object.ability[0] != INVULN) or (object.abilityActive[1] and object.ability[1] != INVULN)) exit;
-                                object.frozen = false;
+                        {
+                            object.frozen = false;
                             if (object.burnDuration &lt; object.maxDuration) {
                                 object.burnDuration += other.durationIncrease; 
                                 object.burnDuration = min(object.burnDuration, object.maxDuration);
@@ -96,10 +95,10 @@
                                 object.burnIntensity = min(object.burnIntensity, object.maxIntensity);
                             }
                             object.burnedBy = other.ownerPlayer;
-                            object.afterburnSource = damSource;
+                            object.afterburnSource = other.damSource;
                             object.alarm[0] = object.decayDelay;
                         }
-                        object.lastDamageSource = damSource;
+                        object.lastDamageSource = other.damSource;
                     }
                     exit;
                 }

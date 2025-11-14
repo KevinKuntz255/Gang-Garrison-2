@@ -27,7 +27,7 @@
     reloadBuffer = 15;
     event_inherited();
 
-    weaponType = MINIGUN;
+    weaponType = WTYPE_MINIGUN;
     
     shotDamage = 10;
     

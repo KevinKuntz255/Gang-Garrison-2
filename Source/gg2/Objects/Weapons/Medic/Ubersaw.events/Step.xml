@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if (owner.taunting &amp;&amp; (owner.tauntsprite == MedicRedTKillS || owner.tauntsprite == MedicBlueTKillS)) {
+    if (owner.tauntindex &gt;= TKF &amp;&amp; !TK) {
+        shot = instance_create(x,y,MeleeMask);
+        shot.direction = owner.aimDirection;
+        shot.speed = owner.speed;
+        shot.owner = owner;
+        shot.ownerPlayer = ownerPlayer;
+        shot.team = owner.team;
+        shot.hitDamage = 200;
+        shot.weapon=DAMAGE_SOURCE_UBERSAW;
+        playsound(x,y,BallSnd);
+        TK = true;
+    }
+} 
+else 
+{
+    TK = false;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

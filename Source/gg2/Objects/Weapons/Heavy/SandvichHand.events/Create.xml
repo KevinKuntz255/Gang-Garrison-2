@@ -24,15 +24,15 @@
     event_inherited();
 
     
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     
     idle=true;
     
     isMelee = true;
     isThrowable = true;
     
-    weaponGrade = STOCK;
-    weaponType = CONSUMABLE;
+    weaponGrade = WGRADE_STOCK;
+    weaponType = WTYPE_CONSUMABLE;
     
     normalSprite = SandvichHandS;
     recoilSprite = SandvichHandS;

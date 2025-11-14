@@ -25,7 +25,7 @@ if global.myself.object != -1 {
         var weapon;
         weapon = global.myself.object.currentWeapon;
         weaponType = weapon.weaponType;
-        if (weaponType == MELEE || weaponType == CONSUMABLE || weaponType == THROWABLE || global.myself.object.rechargeAbility[global.myself.object.activeWeapon] == AMMO) exit;
+        if (weaponType == WTYPE_MELEE || weaponType == WTYPE_CONSUMABLE || weaponType == WTYPE_THROWABLE || global.myself.object.rechargeAbility[global.myself.object.activeWeapon] == ACHARGE_AMMO) exit;
         barcolor = make_color_rgb(217,217,183);
         draw_set_color(barcolor);
 
@@ -35,7 +35,7 @@ if global.myself.object != -1 {
         else toffset = 0;
     
         var weapon_index;
-        if(global.myself.object.activeWeapon == 1){
+        if(global.myself.object.currentWeapon.activeWeapon == 1){
             weapon_index = real(string_copy(string(global.loadout[global.myself.class]), 4, 2));
         }else{
             weapon_index = real(string_copy(string(global.loadout[global.myself.class]), 2, 2));
@@ -133,13 +133,13 @@ if global.myself.object != -1 {
                 draw_sprite_ext(AmmoHUDsS,weapon_index,xoffset+728,yoffset+ysize/1.26+86,2.4,2.4,0,c_white,100);
                 reloadscalar = 100-weapon.alarm[5]/weapon.reloadTime*100;
                 switch(weaponType) {
-                    case MINIGUN:
+                    case WTYPE_MINIGUN:
                         barcolor = merge_color(barcolor, make_color_rgb(255,0,0), 1-(weapon.ammoCount/weapon.maxAmmo));
                         barcolor = merge_color(barcolor, make_color_rgb(50,50,50), max(0,weapon.alarm[5]*global.delta_factor)/25);
                         draw_healthbar(xoffset+689,yoffset+ysize/1.26+90,xoffset+723,yoffset+ysize/1.26+98,
                         weapon.ammoCount/weapon.maxAmmo*100,c_black,barcolor,barcolor,0,true,false);
                     break;
-                    case FLAMETHROWER:
+                    case WTYPE_FLAMETHROWER:
                         if (weapon.ammoCount &lt;= 1/4 * weapon.maxAmmo) { barcolor = make_color_rgb(255,0,0); }
                         draw_healthbar(xoffset+689,yoffset+ysize/1.26+90,xoffset+723,yoffset+ysize/1.26+98,weapon.ammoCount/2,c_black,barcolor,barcolor,0,true,false);
                         offset = 0;

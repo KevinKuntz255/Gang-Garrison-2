@@ -14,5 +14,7 @@
   <resource name="BlueAirstrikeS" type="RESOURCE"/>
   <resource name="RedAirstrikeS" type="RESOURCE"/>
   <resource name="LaserShotS" type="RESOURCE"/>
+  <resource name="ArrowS" type="RESOURCE"/>
+  <resource name="SplashPotionS" type="RESOURCE"/>
   <resource name="Mines" type="GROUP"/>
 </resources>

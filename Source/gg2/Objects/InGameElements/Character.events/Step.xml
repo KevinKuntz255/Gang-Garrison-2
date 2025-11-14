@@ -17,8 +17,16 @@
 
 // Limit speed to prevent obstacle penetration
 // (each dimension separately to avoid one vector affecting the other)
-hspeed = min(abs(hspeed), 15) * sign(hspeed);
-vspeed = min(abs(vspeed), 15) * sign(vspeed);
+if (abilityActive[0] and ability[0] == ABILITY_DASH || abilityActive[1] and ability[1] == ABILITY_DASH || currentWeapon.object_index == StickyJumper)
+{
+    vspeed = min(abs(vspeed), 20) * sign(vspeed);
+    hspeed = min(abs(hspeed), 30) * sign(hspeed);
+}
+else
+{
+    vspeed = min(abs(vspeed), 15) * sign(vspeed);
+    hspeed = min(abs(hspeed), 15) * sign(hspeed);
+}
 
 // Pretty sure this is for the healing ramp (crit heals)
 // Done here instead of begin step to avoid code execution order mistakes
@@ -126,24 +134,28 @@ if((keyState &amp; $10 &amp;&amp; currentWeapon.chainGun) || zoomed) {
     runPower = currentWeapon.revSlowdown;
     jumpStrength = currentWeapon.jumpSlowdown;
     //if (class != CLASS_HEAVY) jumpStrength = 0; // u want scouts jumping up n down?
-} else {
-    if (!zoomed) {
-        runPower = baseRunPower;
-        jumpStrength = baseJumpStrength;
-    }
+} 
+else
+{
+    runPower = baseRunPower;
+    jumpStrength = baseJumpStrength;
 }
 
 for(i=0; i&lt;2; i+=1) {
     if (abilityActive[i])
     {
-        if (ability[i] == DASH)
+        if (ability[i] == ABILITY_DASH)
         {
             jumpStrength = 0;
-            if (moveStatus != 4) meter[i] -= 2; else if (moveStatus == 4) meter[i] -= 0.8; // lol, I am crazy for this
+            if (moveStatus != 4) 
+                meter[i] -= 1; 
+            else if (moveStatus == 4) 
+                meter[i] -= 0.2; // lol, I am crazy for this
             //if (moveStatus != 4) meter[1] -= chargeDrain; else if (moveStatus == 4) meter[1] -= chargeDrain * 0.4;
-            if (meter[i] &lt;= 0) abilityActive[i] = false;
-            if (dashon) { // todo: figure out lastTurn
-                if (moveStatus != 4) {
+            if (dashon) 
+            { // todo: figure out lastTurn
+                if (moveStatus != 4) 
+                {
                     if (image_xscale == -1) {
                         hspeed -= 3;
                     } else if (image_xscale == 1) {
@@ -158,8 +170,9 @@ for(i=0; i&lt;2; i+=1) {
                 }
             }
         }
-        if (weaponType[i] == BANNER) {
+        if (weaponType[i] == WTYPE_BANNER) {
         // todo: add the whole library of abilities, oops copy pasting
+        // todo: nvm, we should try condensing the ability tree into a function that uses with(Character)
             with(Character){
                 if distance_to_point(other.x,other.y) &lt; 128 &amp;&amp; team == other.team {
                     currentWeapon.crit=1.15;
@@ -169,10 +182,10 @@ for(i=0; i&lt;2; i+=1) {
         }
     } else {
       lastTurn = 0;
-      jumpStrength = 8+(0.6/2);
+       if ((keyState &amp; $10 &amp;&amp; currentWeapon.chainGun) || zoomed) jumpStrength = 8+(0.6/2);
     }
-    if (rechargeAbility[i] == RECHARGE &amp;&amp; !abilityActive[i])
-     if (meter[i] &lt; maxMeter[i]) meter[i] += rechargeRate * global.delta_factor;
+    if (rechargeAbility[i] == ACHARGE_RECHARGE &amp;&amp; !abilityActive[i])
+        if (meter[i] &lt; maxMeter[i]) meter[i] += rechargeRate * global.delta_factor;
 }
 
 // blurring
@@ -183,7 +196,7 @@ canBlur2 = (abilityActive[0] &amp;&amp; string_count("BLUR", abilityVisual[0]) !
 
 if (canBlur1 || canBlur2) {
     if (blur == -1) {
-        blur =instance_create(x,y,RadioBlur);
+        blur = instance_create(x,y,RadioBlur);
         blur.owner = id;
     }
 } else {

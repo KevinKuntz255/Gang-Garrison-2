@@ -31,7 +31,7 @@
 
     damSource = DAMAGE_SOURCE_BLACKBOX;
     // default vars
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
 }
 </argument>
       </arguments>

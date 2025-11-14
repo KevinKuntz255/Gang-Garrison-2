@@ -26,7 +26,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if owner != -1 &amp;&amp; instance_exists(owner) owner.ammo[owner.activeWeapon] = 1;
+        <argument kind="STRING">if owner != -1 &amp;&amp; instance_exists(owner) owner.ammo[ownerPlayer.activeWeapon] = 1;
 </argument>
       </arguments>
     </action>

@@ -17,11 +17,11 @@
     event_inherited();
 
     // default vars
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     idle=true;
     
-    weaponGrade = UNIQUE;
-    weaponType = SHOT;
+    weaponGrade = WGRADE_UNIQUE;
+    weaponType = WTYPE_SHOT;
     
     damSource = DAMAGE_SOURCE_SHOTGUN;
     

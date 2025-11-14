@@ -43,6 +43,11 @@
     }
     with HealingParticle {
         if owner=other.id owner=-1
+        instance_destroy();
+    }
+    with RadioBlur {
+        if owner=other.id owner=-1
+        instance_destroy();
     }
     
     ds_map_destroy(effects);

@@ -29,31 +29,29 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">with(owner) {
-    if (ability[0] != ALARM || cancelAbility == ALARM) abilityActive[0] = false;
-    if (ability[0] == INVULN)
+    if (cancelAbility[0] == ACANCEL_ALARM) abilityActive[0] = false;
+    switch(ability[0])
     {
-        currentWeapon.readyToShoot = true;
-        currentWeapon.readyToStab = true;
-        currentWeapon.readyToFlare = true;
-        currentWeapon.readyToBlast = true;
-        if (weapons[0] == BonkHand and activeWeapon == 0)
-        {
+        case ABILITY_INVULN:
+            currentWeapon.readyToShoot = true;
+            currentWeapon.readyToStab = true;
+            currentWeapon.readyToFlare = true;
+            currentWeapon.readyToBlast = true;
             playsound(x,y,UberEndSnd);
-            owner._oldTauntSprite = owner.tauntsprite;
-            tauntsprite = ScoutBonkS;
-            tauntlength = sprite_get_number(tauntsprite)/2;
-            tauntindex=tauntlength * player.team;
-            tauntend=tauntlength * (1 + player.team) - 1;
-            tauntspeed = 4;
-        }
+            maxDuration  = 120;
+        break;
+        case ABILITY_CRIT:
+        case ABILITY_MINICRIT:
+            currentWeapon.crit = 1;
+        break;
     }
-    if (rechargeAbility[0] == ALARM)
+    if (rechargeAbility[0] == ACHARGE_ALARM)
     {
         meter[0] = maxMeter[0];
-        if (weaponType[0] == THROWABLE and activeWeapon == 0) currentWeapon.ammoCount = currentWeapon.maxAmmo;
-    }
-    if (depleteAbility[0] == ALARM) meter[0] = 0;
-    if (weaponType[0] != CONSUMABLE) playsound(x,y,rechargeSnd);
+        if (weaponType[0] == WTYPE_THROWABLE and currentWeapon.activeWeapon == 0) currentWeapon.ammoCount = currentWeapon.maxAmmo;
+    } 
+    if (depleteAbility[0] == ADEPLETE_ALARM) meter[0] = 0;
+    if (weaponType[0] != WTYPE_CONSUMABLE) playsound(x,y,rechargeSnd);
 }
 </argument>
       </arguments>

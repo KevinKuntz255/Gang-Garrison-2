@@ -21,6 +21,7 @@
     originy = y;
     
     crit = 1; // draw event crashes without this
+    attached = -1;
     
     // Controls whether this bullet penetrates bubbles or not
     // Also controls whether this bullet destroys friendly bubbles

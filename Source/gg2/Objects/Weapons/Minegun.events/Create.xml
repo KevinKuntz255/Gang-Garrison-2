@@ -27,11 +27,11 @@
     
     maxMines = 8;
     
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     idle=true;
     
-    weaponGrade = STOCK;
-    weaponType = MINEGUN;
+    weaponGrade = WGRADE_STOCK;
+    weaponType = WTYPE_MINEGUN;
     
     if(golden)
     {

@@ -22,6 +22,7 @@
     
     // afterburn stuff
     {
+        if (isSnowflake) other.frozen = true else other.frozen = false;
         other.burnDuration += durationIncrease; 
         
         var falloffAmount;

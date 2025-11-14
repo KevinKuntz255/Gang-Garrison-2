@@ -30,6 +30,10 @@
       <arguments>
         <argument kind="STRING">canEat = true;
 playsound(x,y,rechargeSnd);
+if (weapons[1] == BonkHand and currentWeapon.activeWeapon == 1 || weapons[0] == BonkHand and currentWeapon.activeWeapon == 0)
+{
+    tauntsprite = getCharacterSpriteId(player.class, player.team, "Bonk");
+}
 </argument>
       </arguments>
     </action>

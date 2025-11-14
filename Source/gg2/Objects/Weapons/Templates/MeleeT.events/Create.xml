@@ -36,10 +36,10 @@
     
     damSource = DAMAGE_SOURCE_KNIFE;
     
-    damage = 10;
+    damage = 35;
     
-    weaponGrade = UNIQUE;
-    weaponType = MELEE;
+    weaponGrade = WGRADE_UNIQUE;
+    weaponType = WTYPE_MELEE;
     
     if (!variable_local_exists("normalSprite")) normalSprite = Knife2S;
     if (!variable_local_exists("recoilSprite")) recoilSprite = Knife2FS;

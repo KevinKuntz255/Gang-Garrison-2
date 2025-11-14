@@ -59,13 +59,13 @@
         title2 = global.myself.object.abilityName[1];
     }
     
-    if (me.rechargeAbility[0] == ALARM){
+    if (me.rechargeAbility[0] == ACHARGE_ALARM){
         if (me.meter[0] == me.maxMeter[0]) message1 = -1;
-        if (me.weaponType[0] == CONSUMABLE &amp;&amp; me.canEat) message1 = -1;
+        if (me.weaponType[0] == WTYPE_CONSUMABLE &amp;&amp; me.canEat) message1 = -1;
     }
-    if (me.rechargeAbility[1] == ALARM){
+    if (me.rechargeAbility[1] == ACHARGE_ALARM){
         if (me.meter[1] == me.maxMeter[1]) message2 = -1;
-        if (me.weaponType[1] == CONSUMABLE &amp;&amp; me.canEat) message2 = -1;
+        if (me.weaponType[1] == WTYPE_CONSUMABLE &amp;&amp; me.canEat) message2 = -1;
     }
     if (message1 == -1) messageoffset = 0;
     if message1 != -1 {

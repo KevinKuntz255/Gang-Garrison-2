@@ -30,8 +30,12 @@
         
         //overheal
         write_byte(global.serializeBuffer, overhealHp);
-        write_ubyte(global.serializeBuffer, overhealed);      
-
+        write_ubyte(global.serializeBuffer, overhealed);
+        
+        // tracking abilityActive
+        write_ubyte(global.serializeBuffer, abilityActive[0]);
+        write_ubyte(global.serializeBuffer, abilityActive[1]);
+        
         temp = 0;
         if(cloak) temp |= $01;
         //allocate the next three bits of the byte for movestatus sync
@@ -81,9 +85,9 @@
         // tracking currentWeapon vars
         write_ubyte(global.serializeBuffer, currentWeapon.readyToShoot);
         write_ubyte(global.serializeBuffer, currentWeapon.alarm[0]*global.delta_factor);
-    
+
         //weapon specific syncs
-        if (weaponType[0] == MINEGUN)
+        if (weaponType[0] == WTYPE_MINEGUN)
         {
             write_ubyte(global.serializeBuffer, lobbed[0]);
             with(specialProjectile[0]) {

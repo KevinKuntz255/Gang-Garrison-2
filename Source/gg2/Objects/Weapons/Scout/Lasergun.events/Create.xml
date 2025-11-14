@@ -23,7 +23,7 @@
     maxAmmo = 4;
     event_inherited();
     
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     idle=true;
     
     shot = 0;
@@ -35,8 +35,8 @@
     
     if (ammoCount &lt; maxAmmo) alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
     
-    weaponGrade = UNIQUE;
-    weaponType = SPECIAL;
+    weaponGrade = WGRADE_UNIQUE;
+    weaponType = WTYPE_SPECIAL;
     
     normalSprite = LasergunS;
     recoilSprite = LasergunFS;

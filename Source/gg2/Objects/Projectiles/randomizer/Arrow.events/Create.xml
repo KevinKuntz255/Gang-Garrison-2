@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="604" library="1">
+      <!--action name: Inherited-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>FUNCTION</actionType>
+      <functionName>action_inherited</functionName>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments/>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    hitDamage = 6;
+    
+    lifetime = 100;
+    alarm[0] = lifetime / global.delta_factor;
+    originx=x;
+    originy=y;
+    used=0;
+    xoffset=0;
+    yoffset=0;
+    dir=0;
+    burning = false;
+    scale=1;
+    helper = -1;
+    gun = -1;
+    burnIncrease = 1;
+    durationIncrease = 30;
+    afterburnFalloff = false;
+    crit = 1;
+    particleCycle = 0;
+    
+    perseverant = 1; // they penetrate bubbles
+    healBow = false; // for crossbow
+    speedMultiply = 0.03;
+    
+    if instance_number(Arrow) &gt; 20 with(Arrow) {
+        if attached != -1 {
+            instance_destroy();
+            break;
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

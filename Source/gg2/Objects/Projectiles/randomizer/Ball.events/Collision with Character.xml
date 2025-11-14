@@ -29,7 +29,7 @@
     else
         damage *= (1+0*0.35)*.50;
 
-    projectileCollision(ownerPlayer, other, damage, object_index, 0);
+    projectileCollision(ownerPlayer, other, damage, id, 0);
 
     //other.hp -= damage*(1+0*0.35); else other.hp -= damage*(1+0*0.35)*.50;
 

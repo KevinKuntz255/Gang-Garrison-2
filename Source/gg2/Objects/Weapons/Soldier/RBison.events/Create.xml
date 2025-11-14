@@ -28,8 +28,9 @@
     maxAmmo = 3;
     event_inherited();
 
+    weaponType = WTYPE_SPECIAL;
     // default vars
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     
     damSource = DAMAGE_SOURCE_RBISON;
 

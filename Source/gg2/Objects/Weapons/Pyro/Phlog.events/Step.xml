@@ -13,9 +13,9 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if (owner.taunting &amp;&amp; owner.meter[owner.activeWeapon] &gt;= owner.maxMeter[owner.activeWeapon]) {
-    if (owner.tauntindex &gt;= owner.tauntend &amp;&amp; !owner.abilityActive[owner.activeWeapon]) {
-        owner.abilityActive[owner.activeWeapon] = true;
+        <argument kind="STRING">if (owner.taunting &amp;&amp; owner.meter[activeWeapon] &gt;= owner.maxMeter[activeWeapon]) {
+    if (owner.tauntindex &gt;= owner.tauntend &amp;&amp; !owner.abilityActive[activeWeapon]) {
+        owner.abilityActive[activeWeapon] = true;
     }
 }
 </argument>

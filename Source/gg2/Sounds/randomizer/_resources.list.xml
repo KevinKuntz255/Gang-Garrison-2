@@ -23,4 +23,6 @@
   <resource name="BuffbannerSnd" type="RESOURCE"/>
   <resource name="ManglerChargeSnd" type="RESOURCE"/>
   <resource name="LaserShotSnd" type="RESOURCE"/>
+  <resource name="BowSnd" type="RESOURCE"/>
+  <resource name="ViolinSnd" type="RESOURCE"/>
 </resources>

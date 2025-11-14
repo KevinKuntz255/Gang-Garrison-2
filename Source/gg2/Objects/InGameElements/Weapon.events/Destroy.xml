@@ -13,7 +13,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if (pauseOnDestruction) pauseMeter[owner.activeWeapon] = true;
+        <argument kind="STRING">if (pauseOnDestruction) pauseMeter[activeWeapon] = true;
 </argument>
       </arguments>
     </action>

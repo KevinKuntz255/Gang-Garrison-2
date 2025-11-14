@@ -25,7 +25,7 @@
     
     destructProjectilesOnDeath = false; // hehehehehehehehehehehehehehehehehe
     
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     idle=true;
     
     damSource = DAMAGE_SOURCE_GRENADE;
@@ -34,23 +34,23 @@
     
     if (ammoCount &lt; maxAmmo) alarm[5] = (reloadBuffer + reloadTime) / global.delta_factor;
     
-    weaponGrade = UNIQUE;
-    weaponType = PROJECTILE;
+    weaponGrade = WGRADE_UNIQUE;
+    weaponType = WTYPE_PROJECTILE;
     /* TODO: implement ability instead of using time/charge
     until then, added a lil SpecialHUD fix
-    ability = CHARGEUP;
-    abilityBuffer = HOLDM1;
+    ability = ABILITY_CHARGEDSHOT;
+    abilityBuffer = AACTIVATE_HOLDM1;
     abilityName = "CHARGE";
     meter = 0;
     maxMeter = 89;*/
     time = 0;
     charge = false;
-    ability = CHARGEUP;
+    ability = 50; // dummy variable
     abilityName = "CHARGE"
     
     normalSprite = GrenadehandS;
     recoilSprite = GrenadehandFS;
-    reloadSprite = GrenadehandS;
+    reloadSprite = GrenadehandFRS;
 
     sprite_index = normalSprite;
 

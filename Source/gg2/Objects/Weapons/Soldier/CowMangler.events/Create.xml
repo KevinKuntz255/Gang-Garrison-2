@@ -31,7 +31,7 @@
     maxMeter = 100;
     meter = 100;
     // default vars
-    ammoCount = owner.meter[owner.activeWeapon];
+    ammoCount = owner.meter[activeWeapon];
     
     damSource = DAMAGE_SOURCE_COWMANGLER;
 
@@ -40,12 +40,13 @@
     useSpecialSprite = true;
     specialSprite = ManglerShotS;
     
-    ability = CHARGEUP;
-    rechargeAbility = AMMO;
-    cancelAbility = DEPLETE;
-    activateAbility = PRESSM2;
-    
-    abilityVisual = "WEAPON";
+    ability = ABILITY_CHARGEDSHOT;
+    rechargeAbility = ACHARGE_AMMO;
+    cancelAbility = ADEPLETE;
+    activateAbility = AACTIVATE_PRESSM2;
+    abilityBuffer = ABUFFER_ACTIVE;
+        
+    abilityVisual = " WEAPON ";
     abilityName = "CHARGE";
     
     directDamage = 25;

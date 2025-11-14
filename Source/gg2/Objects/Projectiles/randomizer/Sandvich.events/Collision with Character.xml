@@ -17,9 +17,21 @@
     //other.hp += other.maxHp
     other.burnIntensity = 0;
     other.burnDuration = 0;
-    other.hp += 40;
+    other.hp += 45;
     if other.hp &gt; other.maxHp other.hp = other.maxHp;
-    instance_destroy()
+    with(Text)
+    {
+        if (variable_local_exists("owner")) {
+            if (owner == other.owner) {
+                instance_destroy(); // cleaner, and closer to original tf2
+            }    
+        }
+    }
+    var text;
+    text=instance_create(other.x,other.y,Text);
+    text.sprite_index=Plus45S;
+    if (instance_exists(owner)) text.owner = owner;
+    instance_destroy();
 }
 </argument>
       </arguments>

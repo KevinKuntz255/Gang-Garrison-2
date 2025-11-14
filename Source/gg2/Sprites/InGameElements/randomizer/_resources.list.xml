@@ -3,4 +3,6 @@
   <resource name="Spark2S" type="RESOURCE"/>
   <resource name="MiniCritS" type="RESOURCE"/>
   <resource name="CritS" type="RESOURCE"/>
+  <resource name="PlusOneS" type="RESOURCE"/>
+  <resource name="Plus45S" type="RESOURCE"/>
 </resources>

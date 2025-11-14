@@ -13,11 +13,10 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if (owner.taunting &amp;&amp; owner.tauntsprite == ScoutTKillS) {
+        <argument kind="STRING">if (owner.taunting &amp;&amp; (owner.tauntsprite == ScoutRedTKillS || owner.tauntsprite == ScoutBlueTKillS)) {
     //if (owner.tauntindex &gt;= sprite_get_number(owner.tauntsprite) &amp;&amp; !abilityActive) {
             //owner.inheritAbility = true;
 
-    if (owner.team == TEAM_BLUE &amp;&amp; owner.tauntindex &lt;= 29) owner.tauntindex += sprite_get_number(owner.tauntsprite)/2; // its called we do a little jerry-rigging
     if (owner.tauntindex &gt;= TKF &amp;&amp; !TK) {
         shot = instance_create(x,y,MeleeMask);
         shot.direction = owner.aimDirection;
@@ -30,9 +29,6 @@
         playsound(x,y,BallSnd);
         TK = true;
     }
-  if (owner.tauntindex &gt;= owner.tauntend &amp;&amp; owner.team == TEAM_RED) {
-        owner.taunting = false;
-  }
 } else {
 TK = false;
 }

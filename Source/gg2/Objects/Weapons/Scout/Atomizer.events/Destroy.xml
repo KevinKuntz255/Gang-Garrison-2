@@ -14,9 +14,9 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">owner.canTriplejump = false;
-owner.tauntsprite = owner._oldTauntSprite;
-owner.tauntlength = sprite_get_number(owner.tauntsprite)/2;
-owner.tauntindex=owner.tauntlength * owner.player.team;
+owner.tauntsprite = getCharacterSpriteId(ownerPlayer.class, ownerPlayer.team, "Taunt");
+owner.tauntlength = sprite_get_number(owner.tauntsprite);
+owner.tauntend=owner.tauntlength;
 owner.tauntspeed = 3;
 </argument>
       </arguments>

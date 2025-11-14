@@ -62,6 +62,8 @@
             shell = instance_create(x, y+4, Shell);
             shell.direction = owner.aimDirection + (140 - random(40)) * image_xscale;
         }
+        
+        if (crit &gt; 1) playsound(x,y,CritSnd);
     }
 }
 </argument>

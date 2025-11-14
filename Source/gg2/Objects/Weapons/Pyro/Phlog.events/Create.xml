@@ -35,12 +35,12 @@
     damSource = DAMAGE_SOURCE_PHLOG;
     weapon = damSource;
     
-    ability = CRIT;
+    ability = ABILITY_CRIT;
     abilityName = "MMMPH";
     maxMeter = 250;
     meter = 0;
-    rechargeAbility = DAMAGE;
-    activateAbility = MAX;
+    rechargeAbility = ACHARGE_DAMAGE;
+    activateAbility = AACTIVATE_MAX;
     //activateAbility = MAX_TAUNT;
     
     damSource = DAMAGE_SOURCE_PHLOG;

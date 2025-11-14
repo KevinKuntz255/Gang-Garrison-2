@@ -23,14 +23,14 @@
     event_inherited();
     
     damSource = DAMAGE_SOURCE_EYELANDER;
-    abilityVisual = "WEAPON BLUR";
-    ability = DASH;
-    activateAbility = PRESSM2;
+    abilityVisual = " WEAPON BLUR ";
+    ability = ABILITY_DASH; 
+    activateAbility = AACTIVATE_PRESSM2;
     abilityName = "CHARGE";
     meter = 100;
     maxMeter = 100;
-    rechargeAbility = RECHARGE;
-    cancelAbility = PRESSM1;
+    rechargeAbility = ACHARGE_RECHARGE;
+    cancelAbility = ADEPLETE;
 }
 </argument>
       </arguments>

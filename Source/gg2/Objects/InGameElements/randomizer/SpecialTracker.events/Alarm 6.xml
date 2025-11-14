@@ -29,6 +29,8 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">with(owner) {
+    specialUbered = 0;
+    currentWeapon.crit = 1;
     ds_map_replace(effects, UBER_KRITZ, 0);
     playsound(x,y,UberEndSnd);
 }

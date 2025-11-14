@@ -262,59 +262,61 @@
   <constant name="REAL" value="1"/>
   <constant name="BOOL" value="2"/>
   <constant name="HEX" value="3"/>
-  <constant name="SHOT" value="0"/>
-  <constant name="FLAMETHROWER" value="1"/>
-  <constant name="PROJECTILE" value="2"/>
-  <constant name="MINIGUN" value="3"/>
-  <constant name="MINEGUN" value="4"/>
-  <constant name="CONSUMABLE" value="5"/>
-  <constant name="GRENADELAUNCHER" value="6"/>
-  <constant name="HEALBEAM" value="7"/>
-  <constant name="RIFLE" value="8"/>
-  <constant name="MELEE" value="9"/>
-  <constant name="BANNER" value="10"/>
-  <constant name="THROWABLE" value="11"/>
-  <constant name="SPECIAL" value="12"/>
-  <constant name="LASERGUN" value="13"/>
-  <constant name="BACKPACK" value="14"/>
-  <constant name="CROSSBOW" value="15"/>
-  <constant name="WEAR" value="16"/>
-  <constant name="BLADE" value="17"/>
-  <constant name="STOCK" value="0"/>
-  <constant name="UNIQUE" value="1"/>
-  <constant name="FUN" value="2"/>
-  <constant name="MINICRIT" value="0"/>
-  <constant name="CRIT" value="1"/>
-  <constant name="INVULN" value="2"/>
-  <constant name="DASH" value="3"/>
-  <constant name="FLIGHT" value="4"/>
-  <constant name="FLIGHT_HORIZONTAL" value="5"/>
-  <constant name="FLIGHT_VERTICAL" value="6"/>
-  <constant name="HEAL" value="7"/>
-  <constant name="CHARGEUP" value="8"/>
+  <constant name="WTYPE_SHOT" value="0"/>
+  <constant name="WTYPE_FLAMETHROWER" value="1"/>
+  <constant name="WTYPE_PROJECTILE" value="2"/>
+  <constant name="WTYPE_MINIGUN" value="3"/>
+  <constant name="WTYPE_MINEGUN" value="4"/>
+  <constant name="WTYPE_CONSUMABLE" value="5"/>
+  <constant name="WTYPE_HEALBEAM" value="6"/>
+  <constant name="WTYPE_RIFLE" value="7"/>
+  <constant name="WTYPE_MELEE" value="8"/>
+  <constant name="WTYPE_BANNER" value="9"/>
+  <constant name="WTYPE_THROWABLE" value="10"/>
+  <constant name="WTYPE_SPECIAL" value="11"/>
+  <constant name="WTYPE_BOW" value="12"/>
+  <constant name="WTYPE_WEAR" value="13"/>
+  <constant name="WTYPE_BLADE" value="14"/>
+  <constant name="WGRADE_STOCK" value="0"/>
+  <constant name="WGRADE_UNIQUE" value="1"/>
+  <constant name="WGRADE_FUN" value="2"/>
   <constant name="SOAK_PISS" value="3"/>
   <constant name="SOAK_MILK" value="4"/>
   <constant name="SOAK_BLOOD" value="5"/>
   <constant name="UBER_KRITZ" value="6"/>
   <constant name="UBER_FIX" value="7"/>
-  <constant name="FIRERATE" value="7"/>
-  <constant name="RECHARGE" value="9"/>
-  <constant name="RUN" value="10"/>
-  <constant name="DAMAGE" value="11"/>
-  <constant name="ALARM" value="12"/>
-  <constant name="AMMO" value="13"/>
-  <constant name="MAXAMMO" value="14"/>
-  <constant name="KILLS" value="15"/>
-  <constant name="PRESSM1" value="0"/>
-  <constant name="HOLDM1" value="1"/>
-  <constant name="PRESSM2" value="2"/>
-  <constant name="HOLDM2" value="3"/>
-  <constant name="MAX" value="4"/>
-  <constant name="TAUNT" value="5"/>
-  <constant name="DEPLETE" value="0"/>
-  <constant name="DEPLETE_REPRESS" value="1"/>
-  <constant name="REPRESS" value="2"/>
-  <constant name="ACTIVE" value="0"/>
+  <constant name="UBER_FIRERATE" value="8"/>
+  <constant name="ABILITY_MINICRIT" value="0"/>
+  <constant name="ABILITY_CRIT" value="1"/>
+  <constant name="ABILITY_INVULN" value="2"/>
+  <constant name="ABILITY_DASH" value="3"/>
+  <constant name="ABILITY_FLIGHT" value="4"/>
+  <constant name="ABILITY_FLIGHT_HORIZONTAL" value="5"/>
+  <constant name="ABILITY_FLIGHT_VERTICAL" value="6"/>
+  <constant name="ABILITY_HEAL" value="7"/>
+  <constant name="ABILITY_CHARGEDSHOT" value="8"/>
+  <constant name="ABILITY_AMMOGAIN" value="9"/>
+  <constant name="ACHARGE_RECHARGE" value="10"/>
+  <constant name="ACHARGE_RUN" value="11"/>
+  <constant name="ACHARGE_DAMAGE" value="12"/>
+  <constant name="ACHARGE_ALARM" value="13"/>
+  <constant name="ACHARGE_AMMO" value="14"/>
+  <constant name="ACHARGE_MAXAMMO" value="15"/>
+  <constant name="ACHARGE_KILLS" value="16"/>
+  <constant name="AACTIVATE_PRESSM1" value="17"/>
+  <constant name="AACTIVATE_HOLDM1" value="18"/>
+  <constant name="AACTIVATE_PRESSM2" value="19"/>
+  <constant name="AACTIVATE_HOLDM2" value="20"/>
+  <constant name="AACTIVATE_MAX" value="21"/>
+  <constant name="AACTIVATE_TAUNT" value="22"/>
+  <constant name="AACTIVATE_ACTIVE_TAUNT" value="23"/>
+  <constant name="AACTIVATE_KILLS" value="24"/>
+  <constant name="ADEPLETE" value="25"/>
+  <constant name="ADEPLETE_REPRESS" value="26"/>
+  <constant name="ADEPLETE_ALARM" value="27"/>
+  <constant name="ACANCEL_REPRESS" value="28"/>
+  <constant name="ACANCEL_ALARM" value="29"/>
+  <constant name="ABUFFER_ACTIVE" value="30"/>
   <constant name="GEAR_PARTY_HAT" value="&quot;PartyHat&quot;"/>
   <constant name="GEAR_CROWN" value="&quot;Crown&quot;"/>
   <constant name="GEAR_NAVIGATORHAT" value="&quot;NavigatorHat&quot;"/>

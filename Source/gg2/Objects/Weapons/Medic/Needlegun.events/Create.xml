@@ -13,7 +13,8 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">{
+        <argument kind="STRING">// todo: convert Needlegun into a ShotT template with a draw if condition
+{
     xoffset = -7;
     yoffset = -3;
     refireTime = 3;
@@ -23,14 +24,12 @@
     reloadBuffer = 1;
     event_inherited();
     
-    ammoCount = owner.ammo[owner.activeWeapon];
+    ammoCount = owner.ammo[activeWeapon];
     
     idle=true;
     
-    weaponGrade = STOCK;
-    weaponType = SHOT;
-    
-
+    weaponGrade = WGRADE_STOCK;
+    weaponType = WTYPE_SHOT;
 
     normalSprite = NeedlegunS;
     recoilSprite = NeedlegunFS;

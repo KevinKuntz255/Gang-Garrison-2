@@ -13,7 +13,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if(readyToShoot and ammoCount &gt;0 and global.isHost and !owner.cloak)
+        <argument kind="STRING">if(readyToShoot and ammoCount &gt;0 and !owner.cloak)
 {
     charge = true;
     alarm[3]=2;

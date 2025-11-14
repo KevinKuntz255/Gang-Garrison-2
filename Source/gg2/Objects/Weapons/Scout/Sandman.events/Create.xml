@@ -24,14 +24,15 @@
     
     reloadTime = 300;
     
-    ability = ALARM;
-    rechargeAbility = ALARM;
-    activateAbility = PRESSM2;
-    abilityBuffer = ACTIVE;
+    ability = 50;
+    rechargeAbility = ACHARGE_ALARM;
+    activateAbility = AACTIVATE_PRESSM2;
+    abilityBuffer = ABUFFER_ACTIVE;
     maxMeter = reloadTime;
     meter = maxMeter;
     abilityName = "BALL";
     
+    damage = 25;
     
     damSource = DAMAGE_SOURCE_SANDMAN;
 }

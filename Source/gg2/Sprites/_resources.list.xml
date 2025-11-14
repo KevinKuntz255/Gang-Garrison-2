@@ -15,4 +15,6 @@
   <resource name="pointS" type="RESOURCE"/>
   <resource name="emptyMaskS" type="RESOURCE"/>
   <resource name="HealingParticleS" type="RESOURCE"/>
+  <resource name="HealingParticleBlueS" type="RESOURCE"/>
+  <resource name="HealingParticleRedS" type="RESOURCE"/>
 </resources>

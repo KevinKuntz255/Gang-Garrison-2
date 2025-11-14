@@ -26,8 +26,12 @@
     connecting |= !collision_line_bulletblocking(x, y-12, other.x, other.y);
     if(connecting)
     {
+        if sign(other.image_xscale) == sign(image_xscale)
+            weapon = DAMAGE_SOURCE_BACKSTAB;
+        else
+            weapon = DAMAGE_SOURCE_KNIFE;
+            
         projectileCollision(ownerPlayer, other, hitDamage, id, 70);
-
         
         numKills += 1;
         if (numKills &gt;= maxKills)

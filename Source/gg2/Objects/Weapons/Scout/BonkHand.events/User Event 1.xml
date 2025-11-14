@@ -13,12 +13,11 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if(!owner.player.humiliated &amp;&amp; owner.canEat &amp;&amp; !owner.abilityActive[owner.activeWeapon])  {
+        <argument kind="STRING">if(!owner.player.humiliated &amp;&amp; owner.canEat &amp;&amp; !owner.abilityActive[activeWeapon])  {
     owner.taunting=true;
     owner.tauntindex=0;
     owner.image_speed=owner.tauntspeed;
     owner.canEat = false;
-    playsound(x,y,PickupSnd);
 }
 </argument>
       </arguments>

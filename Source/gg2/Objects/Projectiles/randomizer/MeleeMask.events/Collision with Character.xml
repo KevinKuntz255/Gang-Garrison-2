@@ -21,9 +21,7 @@ if(other.id != ownerPlayer.object and other.team != team  and other.hp &gt; 0 an
 {
     if(!collision_line(x,y-12,other.x,other.y,Obstacle,true,true)) and (!collision_line(x,y-12,other.x,other.y,TeamGate,true,true) and (!collision_line(x,y-12,other.x,other.y,BulletWall,true,true)))
     {
-        if weapon == WEAPON_WRECKER &amp;&amp; other.burnDuration &gt; 0 hitDamage*= 1.43;
-        hitDamage *= (1+0*0.35);
-        projectileCollision(ownerPlayer, other, hitDamage, object_index, 10);
+        projectileCollision(ownerPlayer, other, hitDamage, id, 10);
 
         playsound(x,y,MeleeHitSnd);
         
@@ -36,7 +34,7 @@ if(other.id != ownerPlayer.object and other.team != team  and other.hp &gt; 0 an
         }
         
         // todo: move this to projectileCollision
-        if(!object_is_ancestor(other.object_index, Pyro) &amp;&amp; true &amp;&amp; weapon = DAMAGE_SOURCE_AXE) { //Removed thing here
+        if(weapon = DAMAGE_SOURCE_AXE) { //Removed thing here
             with(other) {
                 if (burnDuration &lt; maxDuration) {
                     burnDuration += 30*6; 

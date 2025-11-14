@@ -6,7 +6,7 @@
  
 var uberer;
 uberer = argument0;
-                    
+// why was uberReady using the entire Medigun object while this uses currentWeapon? curiously want to ask a lead dev                
 if(uberer.object != -1) {
     playsound(uberer.object.x,uberer.object.y,UberStartSnd);
     with(uberer.object.currentWeapon) {

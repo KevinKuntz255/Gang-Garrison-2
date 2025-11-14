@@ -21,7 +21,7 @@
     
     var temp, newIntel;
     if(global.updateType == QUICK_UPDATE) or (global.updateType == FULL_UPDATE) {
-        receiveCompleteMessage(global.serverSocket,12,global.deserializeBuffer);
+        receiveCompleteMessage(global.serverSocket,14,global.deserializeBuffer);
         x = read_ushort(global.deserializeBuffer)/5;
         y = read_ushort(global.deserializeBuffer)/5;
         hspeed = read_byte(global.deserializeBuffer)/8.5;
@@ -37,6 +37,9 @@
         overhealHp = read_byte(global.deserializeBuffer);
         overhealed = read_ubyte(global.deserializeBuffer);
         
+        abilityActive[0] = read_ubyte(global.deserializeBuffer);
+        abilityActive[1] = read_ubyte(global.deserializeBuffer);
+        
         temp = read_ubyte(global.deserializeBuffer);
         cloak = (temp &amp; $01 != 0);
         moveStatus = (temp &gt;&gt; 1) &amp; $07;
@@ -46,7 +49,7 @@ if(global.updateType == FULL_UPDATE){
         receiveCompleteMessage(global.serverSocket,12,global.deserializeBuffer);
         animationOffset = read_ubyte(global.deserializeBuffer);
         
-        // track whether holding primary/secondary
+        // tracking whether holding primary or secondary
         activeWeapon = read_ubyte(global.deserializeBuffer);
         //class specific syncs
         switch(player.class)
@@ -81,12 +84,12 @@ if(global.updateType == FULL_UPDATE){
         
         // switch to primary/secondary
         weaponSwitch(weapons[activeWeapon]);
-
+        
         currentWeapon.readyToShoot = read_ubyte(global.deserializeBuffer);
         currentWeapon.alarm[0] = read_ubyte(global.deserializeBuffer)/global.delta_factor;
         
         //weapon specific syncs
-        if (weaponType[0] == MINEGUN)
+        if (weaponType[0] == WTYPE_MINEGUN)
         {
             var i, mine;
             receiveCompleteMessage(global.serverSocket, 1, global.deserializeBuffer);

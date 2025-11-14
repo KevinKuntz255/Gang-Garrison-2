@@ -30,11 +30,11 @@ if(global.myself.class == CLASS_ENGINEER)
         write_ubyte(global.serverSocket, BUILD_SENTRY);
         socket_send(global.serverSocket);
     }
-} else if global.myself.object.taunting==false && global.myself.object.omnomnomnom==false && global.myself.class==CLASS_HEAVY {
-//} else if global.myself.object.taunting==false && global.myself.object.omnomnomnom==false && global.myself.object.weaponType[1] == CONSUMABLE {
+} else if global.myself.object.taunting==false && global.myself.object.omnomnomnom==false && global.myself.class==CLASS_HEAVY && global.myself.object.currentWeapon.object_index != SandvichHand {
+//} else if global.myself.object.taunting==false && global.myself.object.omnomnomnom==false && global.myself.object.weaponType[1] == WTYPE_CONSUMABLE {
     write_ubyte(global.serverSocket, OMNOMNOMNOM);
 } else if global.myself.class == CLASS_SNIPER {
-    if (global.myself.object.weaponType[global.myself.object.activeWeapon] == RIFLE) write_ubyte(global.serverSocket, TOGGLE_ZOOM); // todo: zoom scrunch anims on all characters
+    if (global.myself.object.weaponType[global.myself.object.activeWeapon] == WTYPE_RIFLE) write_ubyte(global.serverSocket, TOGGLE_ZOOM); // todo: zoom scrunch anims on all characters
 }/* else if (global.myself.object.currentWeapon.object_index == ScottishResistance)
 {
     write_ubyte(global.serverSocket, DETONATION_POS);

@@ -4,4 +4,5 @@
   <resource name="ScottishResistanceFRS" type="RESOURCE"/>
   <resource name="StickyJumperFRS" type="RESOURCE"/>
   <resource name="StickyStickerFRS" type="RESOURCE"/>
+  <resource name="GrenadehandFRS" type="RESOURCE"/>
 </resources>

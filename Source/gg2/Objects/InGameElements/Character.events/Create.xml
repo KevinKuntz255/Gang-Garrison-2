@@ -31,6 +31,7 @@
     baseJumpStrength = 8+(0.6/2); // reduce the part of the initial frame of gravity that we don't apply anymore (not framerate dependent, meant to match old 30fps arc)
     jumpStrength = baseJumpStrength;
     capStrength = 1;
+    regenRate = 3;
     
     // for true framerate-independent jumping arcs
     applied_gravity = 0;
@@ -48,12 +49,13 @@
     // goal with this is turning 120 variables for each weapon into 20, I'll count later on how much this saves
     // sorted by use
     for(i=0; i&lt;4; i+=1) {
-        ammo[i] = 255; // largest number, todo: change this with some proper reloading (idk what i meant here, shove it to the backside of ur mind until you get it)
+        ammo[i] = 255;
         ability[i] = -1;
         abilityBuffer[i] = -1;
         abilityName[i] = "";
         abilityVisual[i] = "";
         abilityActive[i] = false;
+        abilityWasActive[i] = false; // goddamn, using this system is crazy!
         activateAbility[i] = -1; // hmm, work on this later, its cumbersome
         cancelAbility[i] = -1;
         chargeWhileActive[i] = false;
@@ -63,9 +65,9 @@
         destructProjectilesOnDeath[i] = false;
         lobbed[i] = 0;
         maxMines[i] = 8;
-        meter[i] = -1;
+        meter[i] = 0;
         meterGain[i] = 1;
-        maxMeter[i] = -1;
+        maxMeter[i] = 1;
         rechargeRate[i] = 1;
         meterDrain[i] = 1;
         pauseMeter[i] = false;
@@ -233,7 +235,7 @@
     frictionFactor = baseFriction;
     runPower = baseRunPower;
     basemaxspeed = abs(baseRunPower * baseControl / (baseFriction-1));
-    highestbasemaxspeed = 9.735; // approximation error &lt; 0.0017 of scout's base max speed
+    highestbasemaxspeed = 9.735; // approximation error &amp;lt; 0.0017 of scout's base max speed
 
     // used for certain rewards
     stillOverlays = ds_list_create();
@@ -258,6 +260,7 @@
     // Let's spawn our weapon
     global.paramOwner = id;
     
+    // magic
     //syncLoadout(global.loadout[player.class], global.serverSocket);
     //socket_send(global.serverSocket);
     // made from my anger with networking, that set of tangled wires, gonna keep it, I bet this isn't the end of the work I'm doing
@@ -289,11 +292,11 @@
     //activeWeapon = player.activeWeapon;
     activeWeapon = 0;
     
-    currentWeapon = instance_create(x,y,global.weapons[weapons[activeWeapon]]);
+    currentWeapon = instance_create(x,y,global.weapons[weapons[0]]);
     
     weaponType[0] = currentWeapon.weaponType;
     
-    //if (currentWeapon.weaponType == WEAR) inputSwitch(); not sure about this until randomizerMode is implemented
+    //if (currentWeapon.weaponType == WTYPE_WEAR) inputSwitch(); not sure about this until randomizerMode is implemented
     
     currentWeapon.ammoCount = currentWeapon.maxAmmo;
     ammo[0] = currentWeapon.maxAmmo;
@@ -315,7 +318,7 @@
     }
     destructProjectilesOnDeath[0] = currentWeapon.destructProjectilesOnDeath;
     specialProjectile[0] = currentWeapon.specialProjectile;
-    if (weaponType[0] == MINEGUN)
+    if (weaponType[0] == WTYPE_MINEGUN)
     {
         lobbed[0] = currentWeapon.lobbed;
         maxMines[0] = currentWeapon.maxMines;
@@ -324,15 +327,15 @@
     //currentWeapon.alarm[5] = -1;
 
     var checkWeapon;
-    if (activeWeapon == 1) 
-        checkWeapon = instance_create(0,0,global.weapons[weapons[0]]);
-    else
+    //if (activeWeapon == 1) 
+    //   checkWeapon = instance_create(0,0,global.weapons[weapons[0]]);
+    //else
         checkWeapon = instance_create(0,0,global.weapons[weapons[1]]);
 
     weaponType[1] = checkWeapon.weaponType;
 
-    if (checkWeapon.weaponType == WEAR) canSwitch = false;
-
+    if (checkWeapon.weaponType == WTYPE_WEAR) canSwitch = false;
+    
     if (checkWeapon.ability != -1) {
         ability[1] = checkWeapon.ability;
         abilityBuffer[1] = checkWeapon.abilityBuffer;
@@ -350,7 +353,7 @@
     }
     destructProjectilesOnDeath[1] = checkWeapon.destructProjectilesOnDeath;
     specialProjectile[1] = checkWeapon.specialProjectile;
-    if (weaponType[1] == MINEGUN)
+    if (weaponType[1] == WTYPE_MINEGUN)
     {
         lobbed[1] = currentWeapon.lobbed;
         maxMines[1] = currentWeapon.lobbed;
@@ -550,6 +553,7 @@
         }
     }
 }
+
 </argument>
       </arguments>
     </action>

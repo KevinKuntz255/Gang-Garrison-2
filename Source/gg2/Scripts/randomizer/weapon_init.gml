@@ -112,7 +112,7 @@ global.weapons[WEAPON_PAINTRAIN] = Paintrain;
 global.name[WEAPON_PAINTRAIN] = "Paintrain";
 global.weapons[WEAPON_GRENADE] = GrenadeHand;
 global.name[WEAPON_GRENADE] = "Hand Grenade";
-/*
+
 // Medic
 global.weapons[WEAPON_NEEDLEGUN] = Needlegun;
 global.name[WEAPON_NEEDLEGUN] = "Needlegun";
@@ -126,18 +126,18 @@ global.weapons[WEAPON_OVERDOSE] = Ubersaw;
 global.name[WEAPON_OVERDOSE] = "Ubersaw";
 global.weapons[WEAPON_MEDIGUN] = Medigun;
 global.name[WEAPON_MEDIGUN] = "Medigun"
-global.weapons[WEAPON_KRITSKRIEG] = Kritzieg;
+global.weapons[WEAPON_KRITSKRIEG] = Kritzkrieg;
 global.name[WEAPON_KRITSKRIEG] = "Kritzkrieg"
 global.weapons[WEAPON_QUICKFIX] = QuickFix;
 global.name[WEAPON_QUICKFIX] = "Quickfix";
 global.weapons[WEAPON_OVERHEALER] = Overhealer;
 global.name[WEAPON_OVERHEALER] = "Overhealer";
-global.weapons[WEAPON_POTION] = Brewinggun;
+global.weapons[WEAPON_POTION] = Kritzkrieg;
 global.name[WEAPON_POTION] = "Holy Water";
 
 // Engineer
 global.weapons[WEAPON_SHOTGUN] = Shotgun;
-global.name[WEAPON_SHOTGUN] = "Shotgun"
+global.name[WEAPON_SHOTGUN] = "Shotgun"/*
 global.weapons[WEAPON_FRONTIERJUSTICE] = FrontierJustice;
 global.name[WEAPON_FRONTIERJUSTICE] = "Frontier Justice";
 global.weapons[WEAPON_SHERIFF] = Sheriff;

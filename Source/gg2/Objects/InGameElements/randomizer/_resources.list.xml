@@ -3,4 +3,6 @@
   <resource name="Text" type="RESOURCE"/>
   <resource name="RadioBlur" type="RESOURCE"/>
   <resource name="SpecialTracker" type="RESOURCE"/>
+  <resource name="Sparks" type="RESOURCE"/>
+  <resource name="Buildings" type="GROUP"/>
 </resources>

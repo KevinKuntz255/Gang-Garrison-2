@@ -55,6 +55,11 @@ else if (global.paramPlayer.team == TEAM_BLUE)
       <arguments>
         <argument kind="STRING">// Override defaults
 numFlames = 3;
+//build = Sentry;
+if (buildObject[0] == -1)
+{
+    buildObject[0] = Sentry;
+}
 </argument>
       </arguments>
     </action>

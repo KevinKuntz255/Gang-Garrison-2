@@ -13,7 +13,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">ammoCount = max(0, ammoCount-1);
+        <argument kind="STRING">ammoCount = max(0, ammoCount-ammoDrain);
 playsound(x,y,specialSnd);
 var shot;
 repeat(shots) {

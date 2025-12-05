@@ -81,6 +81,8 @@ if object_index == global.weapons[owner.weapons[1]] {
     activeWeapon = 0;
 }
 
+if (!global.isHost) owner.activeWeapon = activeWeapon;
+
 jumpSlowdown = owner.baseJumpStrength;
 
 pauseMeter[activeWeapon] = false;

@@ -5,4 +5,5 @@
   <resource name="BubbleMenuZ" type="RESOURCE"/>
   <resource name="BubbleMenuX" type="RESOURCE"/>
   <resource name="BubbleMenuC" type="RESOURCE"/>
+  <resource name="BuildMenu" type="RESOURCE"/>
 </resources>

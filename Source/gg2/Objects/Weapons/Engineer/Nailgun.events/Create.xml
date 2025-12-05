@@ -42,8 +42,11 @@
     specialSnd = PistolSnd;
     specialSprite = NailS;
     
+    owner.build = EXTRA;
+    owner.buildObject[0] = MiniSentry;
+    owner.buildObject[1] = Dispenser;
+    owner.buildAmount = 80;
     
-
     reloadShell = true;
 }
 </argument>

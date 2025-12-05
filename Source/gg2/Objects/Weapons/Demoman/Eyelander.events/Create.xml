@@ -30,6 +30,7 @@
     meter = 100;
     maxMeter = 100;
     rechargeAbility = ACHARGE_RECHARGE;
+    depleteAbility = ADEPLETE;
     cancelAbility = ADEPLETE;
 }
 </argument>

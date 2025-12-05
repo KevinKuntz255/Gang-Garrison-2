@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset = -3;
+    yoffset = -6;
+    refireTime = 20;
+    
+    normalSprite = WidowmakerS;
+    recoilSprite = WidowmakerFS;
+    reloadSprite = WidowmakerS;
+    
+    maxAmmo = 0;
+    reloadTime = 15;
+    reloadBuffer = 20;
+    event_inherited();
+
+    shots = 5;
+
+    shotDamage = 7;
+    fullReload = true;
+    
+    shotDir[0] = 11;
+    shotDir[1] = 5;
+    
+    randomizeSpeed = true;
+    
+    damSource = DAMAGE_SOURCE_WIDOWMAKER;
+    
+    specialSnd = WidowMakerSnd;
+
+    reloadShell = true;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -345,6 +345,12 @@ do {
             player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
             buildSentry(player, read_ushort(global.tempBuffer)/5, read_ushort(global.tempBuffer)/5, read_byte(global.tempBuffer));
             break;
+        
+        case BUILD_DISPENSER:
+            receiveCompleteMessage(global.serverSocket,5,global.tempBuffer);
+            player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
+            buildDispenser(player, read_ushort(global.tempBuffer)/5, read_ushort(global.tempBuffer)/5);
+            break;
               
         case DESTROY_SENTRY:
             receiveCompleteMessage(global.serverSocket,4,global.tempBuffer);
@@ -366,7 +372,27 @@ do {
                 }
             }
             break;
-                      
+        
+        case DESTROY_DISPENSER:
+            receiveCompleteMessage(global.serverSocket,4,global.tempBuffer);
+            playerID = read_ubyte(global.tempBuffer);
+            otherPlayerID = read_ubyte(global.tempBuffer);
+            assistantPlayerID = read_ubyte(global.tempBuffer);
+            causeOfDeath = read_ubyte(global.tempBuffer);
+            
+            player = ds_list_find_value(global.players, playerID);
+            if(otherPlayerID == 255) {
+                doEventDestructionDispenser(player, noone, noone, causeOfDeath);
+            } else {
+                otherPlayer = ds_list_find_value(global.players, otherPlayerID);
+                if (assistantPlayerID == 255) {
+                    doEventDestructionDispenser(player, otherPlayer, noone, causeOfDeath);
+                } else {
+                    assistantPlayer = ds_list_find_value(global.players, assistantPlayerID);
+                    doEventDestructionDispenser(player, otherPlayer, assistantPlayer, causeOfDeath);
+                }
+            }
+            break;       
         case GRAB_INTEL:
             receiveCompleteMessage(global.serverSocket,1,global.tempBuffer);
             player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
@@ -615,7 +641,19 @@ do {
                 player.sentry.vspeed = 0;
             }
             break;
-          
+        
+        case DISPENSER_POSITION:
+            receiveCompleteMessage(global.serverSocket,5,global.tempBuffer);
+            player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
+            if(player.dispenser)
+            {
+                player.dispenser.x = read_ushort(global.tempBuffer) / 5;
+                player.dispenser.y = read_ushort(global.tempBuffer) / 5;
+                player.dispenser.xprevious = player.sentry.x;
+                player.dispenser.yprevious = player.sentry.y;
+                player.dispenser.vspeed = 0;
+            }
+            break;
         case WEAPON_FIRE:
             receiveCompleteMessage(global.serverSocket,9,global.tempBuffer);
             player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));

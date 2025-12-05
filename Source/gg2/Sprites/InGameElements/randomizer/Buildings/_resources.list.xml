@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="SentryMask2" type="RESOURCE"/>
+  <resource name="MiniSentryRed" type="RESOURCE"/>
+  <resource name="Sentry2RedS" type="RESOURCE"/>
+  <resource name="Sentry3RedS" type="RESOURCE"/>
+  <resource name="MiniSentryBlue" type="RESOURCE"/>
+  <resource name="Sentry2Blue" type="RESOURCE"/>
+  <resource name="Sentry3Blue" type="RESOURCE"/>
+  <resource name="Sentry2GibsS" type="RESOURCE"/>
+  <resource name="MiniSentryGibS" type="RESOURCE"/>
+  <resource name="MiniTurretRotateS" type="RESOURCE"/>
+  <resource name="TurretRotate2S" type="RESOURCE"/>
+  <resource name="TurretRotate3S" type="RESOURCE"/>
+  <resource name="MiniSentryTurretS" type="RESOURCE"/>
+  <resource name="SentryTurret2S" type="RESOURCE"/>
+  <resource name="SentryTurret3S" type="RESOURCE"/>
+  <resource name="SappedSentryS" type="RESOURCE"/>
+  <resource name="SappedSentry2S" type="RESOURCE"/>
+  <resource name="SappedSentry3S" type="RESOURCE"/>
+  <resource name="DispenserRedS" type="RESOURCE"/>
+  <resource name="SappedDispenser" type="RESOURCE"/>
+  <resource name="DispenserBlueS" type="RESOURCE"/>
+  <resource name="DispenserGibS" type="RESOURCE"/>
+  <resource name="ParachuteMiniSentry" type="RESOURCE"/>
+  <resource name="SentryRocketLauncherS" type="RESOURCE"/>
+</resources>

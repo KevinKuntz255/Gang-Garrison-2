@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset=-3;
+    yoffset=-6;
+    
+    normalSprite = PumpsonS;
+    recoilSprite = PumpsonFS;
+    reloadSprite = PumpsonS;
+    
+    refireTime = 30;
+    reloadTime = 25;
+    reloadBuffer = 30;
+    
+    maxAmmo = 3;
+    event_inherited();
+
+    weaponType = WTYPE_SPECIAL;
+    // default vars
+    ammoCount = owner.ammo[activeWeapon];
+    
+    damSource = DAMAGE_SOURCE_PUMSON;
+
+    shotSpeed[0] = 22;
+    randomizeSpeed = false;
+    shotDir[0] = 3;
+    shotDir[1] = 1
+    shots = 1;
+    specialSnd = LaserShotSnd;
+    specialSprite = LaserShotS;
+    
+    reloadShell = false;
+    
+    shotDamage = 16;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

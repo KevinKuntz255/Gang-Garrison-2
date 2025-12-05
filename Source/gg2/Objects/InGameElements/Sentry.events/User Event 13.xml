@@ -22,7 +22,7 @@
     yprevious = y;
 }
 if(global.updateType == QUICK_UPDATE or global.updateType == FULL_UPDATE) {
-    receiveCompleteMessage(global.serverSocket, 1, global.deserializeBuffer);
+    receiveCompleteMessage(global.serverSocket, 4, global.deserializeBuffer);
     var tbyte;
     tbyte = read_ubyte(global.deserializeBuffer);
     built = (tbyte &amp; $80) != false;
@@ -36,6 +36,9 @@ if(global.updateType == QUICK_UPDATE or global.updateType == FULL_UPDATE) {
     {
         vspeed = 0;
     }
+    level = read_ubyte(global.deserializeBuffer);
+    upgrade = read_ubyte(global.deserializeBuffer);
+    buildTime = read_ubyte(global.deserializeBuffer);
 }
 </argument>
       </arguments>

@@ -10,5 +10,6 @@
   <resource name="NapalmGrenade" type="RESOURCE"/>
   <resource name="NapalmFlame" type="RESOURCE"/>
   <resource name="Arrow" type="RESOURCE"/>
+  <resource name="StunShot" type="RESOURCE"/>
   <resource name="Mines" type="GROUP"/>
 </resources>

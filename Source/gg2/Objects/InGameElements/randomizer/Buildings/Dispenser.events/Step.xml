@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if !instance_exists(ownerPlayer) {
+    instance_destroy();
+	exit;
+}
+var lasthealing;
+lasthealing = healing;
+if !built exit;
+	with Player {
+		if (object != -1 &amp;&amp; object != noone &amp;&amp; instance_exists(object)) {
+			//FIX: If statement now checks if player is even alive to avoid errors on death when being healed by dispenser
+			if ((team == other.team || class == CLASS_SPY) &amp;&amp; object != -1) {
+				//FIX: Moved check below other check to avoid checking not yet existant variable
+				if (!object.cloak) {
+				with other {
+					if(point_distance(x,y,other.object.x, other.object.y)&lt;=maxHealDistance) {
+						if(collision_line(x,y, other.object.x, other.object.y, Obstacle, true, true)&lt;0) {
+							healing = true;
+							if (other.object.burnDuration &gt; 0)
+								other.object.burnDuration -= 1 * global.delta_factor;
+							var healthGained;
+							healthGained = healAmount * calculateHealingFactor(other.object.timeUnscathed);
+							if(other.object.hp &gt; healTierHealth)
+								healthGained *= healTierAmount;
+							other.object.hp = min(other.object.hp + healthGained * global.delta_factor, other.object.maxHp);
+							// Reload weapons 50% faster when standing next to a dispenser, ammo regen for heavy/pyro += 100%.
+							with other.object.currentWeapon {
+						    	if variable_local_exists("isRefilling") {
+							    	event_perform_object(object_index,ev_step,ev_step_begin);
+								} else {
+									if alarm[5] &gt; 0 {
+										if !(alarm[6] &gt; 0) alarm[5] -= global.delta_factor/2;
+									} else {
+										event_perform_object(object_index,ev_alarm,5);
+									}
+								}
+							}
+							hphealed += healthGained * global.delta_factor;
+							ownerPlayer.stats[HEALING] += healthGained * global.delta_factor;
+							ownerPlayer.roundStats[HEALING] += healthGained * global.delta_factor;
+						
+							if hphealed &gt;= HP_PER_POINT {
+								ownerPlayer.stats[POINTS] += 1;
+								ownerPlayer.roundStats[POINTS] += 1;
+								hphealed -= HP_PER_POINT;
+							}
+							alarm[3] = 2 / global.delta_factor;
+						}
+					}
+			
+			
+					if(alarm[3] &lt;= 0) {
+						healing = false;
+					}
+	
+					if humiliated || !built healing = false;
+		
+					if !lasthealing and healing loopsoundstart(x,y,MedigunSnd);
+		
+					if healing loopsoundmaintain(x,y,MedigunSnd);
+		
+					if !healing loopsoundstop(MedigunSnd);
+				}
+			}
+			}
+		}
+	}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

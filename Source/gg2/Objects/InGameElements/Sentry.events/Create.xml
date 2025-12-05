@@ -18,7 +18,15 @@ vspeed = .001;
 oldVspeed = .001;
 maxHp = 100;
 hp = 25;
-weapons[0]=SentryTurret;
+weapons[1]=SentryTurret;
+weapons[2]=SentryTurret2;
+weapons[3]=SentryTurret3;
+sprites[0]=SentryRed;
+sprites[1]=Sentry2RedS;
+sprites[2]=Sentry3RedS;
+sprites[3]=SentryBlue;
+sprites[4]=Sentry2Blue;
+sprites[5]=Sentry3Blue;
 currentWeapon=-1;
 built=0;
 kills=0;
@@ -27,7 +35,6 @@ image_speed = 0;
 landed=0;
 humiliated = 0;
 buildrate = 1.2;
-
 // For self-knockback when destroyed
 blastRadius = 65;
 knockback = 4;
@@ -36,6 +43,13 @@ lastDamageDealer = noone;
 lastDamageSource = -1;
 
 idleTimer = true;
+
+buildTime=0;
+upgrade=0;
+upgradeMax = 100;
+level=1;
+dispenser=0;
+addedHp=0;
 </argument>
       </arguments>
     </action>

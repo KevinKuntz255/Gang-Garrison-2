@@ -2,4 +2,6 @@
 <resources>
   <resource name="SentryHUD" type="RESOURCE"/>
   <resource name="NutsNBoltsHudS" type="RESOURCE"/>
+  <resource name="RevengeCritHudS" type="RESOURCE"/>
+  <resource name="BuildMenuS" type="RESOURCE"/>
 </resources>

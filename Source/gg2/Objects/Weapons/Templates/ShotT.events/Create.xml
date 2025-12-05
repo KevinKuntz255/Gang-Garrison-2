@@ -34,6 +34,7 @@
     shotDir[1] = 5;
     shotPosition = 15; 
     
+    ammoDrain = 1;
     /*chaingun template
         shotDir[0] = 14;
         shotDir[1] = 7;

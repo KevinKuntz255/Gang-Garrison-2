@@ -153,7 +153,8 @@ if random((30 * overhealMaxHp / overhealHp) / global.delta_factor) &lt; 10 {
     }
 }
 
-if (overhealHp&gt;overhealMaxHp) {
+if (overhealHp&gt;overhealMaxHp) 
+{
     overhealHp=overhealMaxHp;
 }
 
@@ -182,11 +183,13 @@ ammo[currentWeapon.activeWeapon] = currentWeapon.ammoCount;
     socket_send(global.server);
     doEventAbility(ability[activeWeapon]);
 */
-if (ability[activeWeapon] == ABILITY_AMMOGAIN and currentWeapon.maxAmmo != meter[activeWeapon]) currentWeapon.maxAmmo = meter[activeWeapon];
+if (ability[currentWeapon.activeWeapon] == ABILITY_AMMOGAIN and currentWeapon.maxAmmo != meter[currentWeapon.activeWeapon]) currentWeapon.maxAmmo = meter[currentWeapon.activeWeapon];
 for(i=0; i&lt;2; i+=1) {
-    if (abilityActive[i]) {
-        /*if (abilityBuffer[i] == ABUFFER_ACTIVE and i != activeWeapon) {
-            abilityActive[i] = false;
+    if (abilityActive[i]) 
+    {
+        /*if (abilityBuffer[i] == ABUFFER_ACTIVE and i != currentWeapon.activeWeapon) {
+            //abilityActive[i] = false;
+            playsound(x,y,PickupSnd);
             break;
         }*/
         switch(ability[i])
@@ -213,7 +216,8 @@ for(i=0; i&lt;2; i+=1) {
                 }
             break;
             case ABILITY_CHARGEDSHOT:
-                if (meter[i] &gt; 0) {
+                if (meter[i] &gt; 0) 
+                {
                     runPower = 0.6;
                     jumpStrength = 6;
                     with(currentWeapon) {
@@ -224,7 +228,8 @@ for(i=0; i&lt;2; i+=1) {
                         readyToBlast = false;
                     }
                 }
-                else if (meter[i] &lt;= 0) {
+                else if (meter[i] &lt;= 0) 
+                {
                     abilityActive[i] = false;
                     playsound(x,y,PickupSnd);
                     canSwitch = true;
@@ -252,9 +257,11 @@ for(i=0; i&lt;2; i+=1) {
                 }
             break;
         }
-        if (meter[i] &lt;= 0 and cancelAbility[i] == ADEPLETE) {
+        if (cancelAbility[i] == ADEPLETE and meter[i] &lt;= 0) 
+        {
             abilityActive[i] = false;
-            if (ability[i] == ABILITY_DASH and currentWeapon.weaponType == WTYPE_MELEE) {
+            playsound(x,y,PickupSnd);
+            if (ability[i] == ABILITY_DASH and currentWeapon.weaponType == WTYPE_MELEE || ability[i] == ABILITY_CRIT || ability[i] == ABILITY_MINICRIT) {
                 currentWeapon.crit = 1;
                 playsound(x,y,UberEndSnd);
             }
@@ -262,7 +269,14 @@ for(i=0; i&lt;2; i+=1) {
     }
     if (i != activeWeapon and chargeWhileActive[i] || pauseMeter[i]) continue;
     if (meter[i] &gt;= maxMeter[i] and activateAbility[i] == AACTIVATE_MAX) abilityActive[i] = true;
-    if (abilityActive[i] and meter[i] &gt; 0) meter[i] -= meterDrain[i] * global.delta_factor;
+    if (abilityBuffer[i] == ABUFFER_METER)
+    {
+        if (meter[i] &gt; 0)
+            abilityActive[i] = true; 
+        else 
+            abilityActive[i] = false;
+    }
+    if (abilityActive[i] and meter[i] &gt; 0 and depleteAbility[i] == ADEPLETE) meter[i] -= meterDrain[i] * global.delta_factor;
     
     switch(rechargeAbility[i])
     {
@@ -274,7 +288,7 @@ for(i=0; i&lt;2; i+=1) {
             }
         break;
         case ACHARGE_AMMO:
-            if (!abilityActive) meter[i] = ammo[i];
+            if (!abilityActive[i]) meter[i] = ammo[i];
         break;
         case ACHARGE_RUN:
             if (hspeed != 0 &amp;&amp; onground &amp;&amp; !abilityActive[i]) {
@@ -334,6 +348,7 @@ if (taunting)
     tauntindex += tauntspeed*0.1 * global.delta_factor;
     if (tauntindex &gt;= sprite_get_number(tauntsprite))
         taunting = false;
+        // todo: taunt abilities go around here
     if (hasClassReward(player, "TauntMoney_"))
     {
         if (tauntindex == 0.30)

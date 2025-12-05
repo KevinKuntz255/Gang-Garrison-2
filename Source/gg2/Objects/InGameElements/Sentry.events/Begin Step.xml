@@ -19,15 +19,23 @@
     doEventDestruction(ownerPlayer, noone, noone, 0);
     exit;
 }
-
+maxHp=80+level*15;
 if (built == 0 and vspeed == 0)
 {
-    if (hp &lt; maxHp)
-        hp += buildrate * global.delta_factor;
-    else
+    if (buildTime &lt; 100)
+    {
+        if level = 1 buildTime += buildrate * global.delta_factor;;
+        if level = 2 or level = 3 buildTime += 2 * buildrate * global.delta_factor;
+        if addedHp &lt; 100 {
+            if hp &lt; maxHp {
+            hp += min(buildrate * global.delta_factor, abs(hp - maxHp));
+            hp += buildrate * global.delta_factor;
+          }
+        }
+    } else
         built = 1;
     buildrate = min(buildrate, buildrate+(0.6*global.delta_factor/45)); // Buildrate increases from 0.5 to 1 over 1.5 seconds
-    image_index = floor(hp/maxHp*10);
+    image_index = floor((image_number-1)*buildTime/100);
     if (landed == 0)
     {
         landed = 1;
@@ -40,8 +48,7 @@ if (built == 1 and currentWeapon == -1)
 {
     image_index=11;
     image_speed=0;
-    hp=maxHp;
-    currentWeapon = instance_create(x,y,weapons[0]);
+    currentWeapon = instance_create(x,y,weapons[level]);
     currentWeapon.ownerPlayer=ownerPlayer;
     currentWeapon.team=team;
     currentWeapon.startDirection=startDirection;
@@ -88,6 +95,18 @@ x += hspeed * global.delta_factor;
 y += vspeed * global.delta_factor;
 x -= hspeed;
 y -= vspeed;
+
+if upgrade &gt;= upgradeMax &amp;&amp; level &lt; 3 {
+    upgrade = 0;
+    level += 1;
+    buildTime = 0;
+    built = 0;
+    landed = 0;
+    with currentWeapon {
+        instance_destroy()
+    }
+    currentWeapon = -1;
+}
 
 </argument>
       </arguments>

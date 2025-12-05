@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="COLLISION" with="Character">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">gunSetSolids();
+if (!place_free(x, y)) 
+{
+    instance_destroy();
+    gunUnsetSolids();
+    exit;
+}
+gunUnsetSolids();
+if(other.id != ownerPlayer.object and other.team != team  &amp;&amp; other.hp &gt; 0 &amp;&amp; other.ubered == 0)
+{
+    attached = other.id;
+    with(other)
+    {
+        player.humiliated = 1;
+    }
+}
+
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

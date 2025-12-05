@@ -20,5 +20,6 @@
   <resource name="Engineer" type="GROUP"/>
   <resource name="Spy" type="GROUP"/>
   <resource name="Sniper" type="GROUP"/>
+  <resource name="Sentrys" type="GROUP"/>
   <resource name="Templates" type="GROUP"/>
 </resources>

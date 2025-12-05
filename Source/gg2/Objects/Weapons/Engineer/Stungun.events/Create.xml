@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset = -3;
+    yoffset = -6;
+    refireTime = 6;
+    
+    normalSprite = StungunS;
+    recoilSprite = StungunS;
+    reloadSprite = StungunS;
+    
+    maxAmmo = 100;
+    reloadTime = 20;
+    reloadBuffer = 20;
+    event_inherited();
+    
+    weaponType = WTYPE_SPECIAL;
+    hasShot = true;
+    
+    shots = 1;
+
+    shotDamage = 4;
+    fullReload = false;
+    
+    shotDir[0] = 7;
+    shotDir[1] = 4;
+    
+    ammoDrain = 20;
+    randomizeSpeed = false;
+    
+    damSource = DAMAGE_SOURCE_STUNGUN;
+    
+    specialSnd = PistolSnd;
+    specialShot = StunShot;
+
+    owner.buildObject[0] = MiniSentry;
+    owner.buildAmount = 80;
+    
+    reloadShell = false;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -68,7 +68,7 @@
     {
         if(!sentry)
         {
-            sentry = instance_create(0,0,Sentry);
+            sentry = instance_create(0,0,object.buildObject[0]);
             sentry.ownerPlayer = id;
             sentry.team = team;
             sentry.startDirection = image_xscale;
@@ -80,6 +80,26 @@
         with(sentry)
             instance_destroy();
     }
+    
+    var subobjects_BASS;
+    receiveCompleteMessage(global.serverSocket,1,global.deserializeBuffer);
+    subobjects_BASS = read_ubyte(global.deserializeBuffer);
+    //I used bitwise shit cuz I be fancy af
+  if(subobjects_BASS &amp; $10)
+  {
+      if(!dispenser)
+     {
+        dispenser = instance_create(0,0,Dispenser);
+        dispenser.ownerPlayer = id;
+        dispenser.team = team;
+        dispenser.startDirection = image_xscale;
+     }
+  with(dispenser)
+    event_user(13);
+  } else {
+    with(dispenser)
+        instance_destroy();
+  }
     
 </argument>
       </arguments>

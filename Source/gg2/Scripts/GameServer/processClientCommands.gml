@@ -278,7 +278,7 @@ while(commandLimitRemaining > 0) {
             {
                 if(player.class == CLASS_ENGINEER
                         and collision_circle(player.object.x, player.object.y, 50, Sentry, false, true) < 0
-                        and player.object.nutsNBolts == 100
+                        and player.object.nutsNBolts >= player.object.buildAmount
                         and (collision_point(player.object.x,player.object.y,SpawnRoom,0,0) < 0)
                         and !player.sentry
                         and !player.object.onCabinet)
@@ -292,12 +292,36 @@ while(commandLimitRemaining > 0) {
                 }
             }
             break;                                       
-
+        
+        case BUILD_DISPENSER:
+            if(player.object != -1)
+            {
+                if(player.object.weapons[1] == WEAPON_NAILGUN
+                    /*and !player.object.carrySentry*/
+                    and collision_circle(player.object.x, player.object.y, 50, Sentry, false, true) < 0
+                    and player.object.nutsNBolts >= 100
+                    and (collision_point(player.object.x,player.object.y,SpawnRoom,0,0) < 0)
+                    and !player.sentry 
+                    and !player.object.onCabinet)
+                {
+                    write_ubyte(global.sendBuffer, BUILD_DISPENSER);
+                    write_ubyte(global.sendBuffer, playerId);
+                    write_ushort(global.serializeBuffer, round(player.object.x*5));
+                    write_ushort(global.serializeBuffer, round(player.object.y*5));
+                    buildDispenser(player, player.object.x, player.object.y);
+                } 
+            }
+            break;                
+            
         case DESTROY_SENTRY:
             with(player.sentry)
                 instance_destroy();
             break;                     
         
+        case DESTROY_DISPENSER:
+            with(player.dispenser)
+                instance_destroy();
+            break;
         case DROP_INTEL:
             if (player.object != -1)
             {

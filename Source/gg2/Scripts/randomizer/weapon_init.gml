@@ -137,7 +137,7 @@ global.name[WEAPON_POTION] = "Holy Water";
 
 // Engineer
 global.weapons[WEAPON_SHOTGUN] = Shotgun;
-global.name[WEAPON_SHOTGUN] = "Shotgun"/*
+global.name[WEAPON_SHOTGUN] = "Shotgun"
 global.weapons[WEAPON_FRONTIERJUSTICE] = FrontierJustice;
 global.name[WEAPON_FRONTIERJUSTICE] = "Frontier Justice";
 global.weapons[WEAPON_SHERIFF] = Sheriff;
@@ -156,7 +156,7 @@ global.weapons[WEAPON_WRANGLER] = Wrangler;
 global.name[WEAPON_WRANGLER] = "Wrangler";
 global.weapons[WEAPON_EUREKAEFFECT] = Eeffect;
 global.name[WEAPON_EUREKAEFFECT] = "Eureka Effect";
-
+/*
 // Spy
 global.weapons[WEAPON_REVOLVER] = Revolver;
 global.name[WEAPON_REVOLVER] = "Revolver";
@@ -230,16 +230,6 @@ global.name[WEAPON_SAXTONHALE] = "HAXTON SAAAAAAAAALE";
 */
 
 // defaults
-
-global.weapons[WEAPON_NEEDLEGUN] = Needlegun;
-global.name[WEAPON_NEEDLEGUN] = "Needlegun";
-global.weapons[WEAPON_MEDIGUN] = Medigun;
-global.name[WEAPON_MEDIGUN] = "Medigun"
-
-global.weapons[WEAPON_SHOTGUN] = Shotgun;
-global.name[WEAPON_SHOTGUN] = "Shotgun"
-global.weapons[WEAPON_NAILGUN] = Nailgun;
-global.name[WEAPON_NAILGUN] = "Nailgun";
 
 global.weapons[WEAPON_REVOLVER] = Revolver;
 global.name[WEAPON_REVOLVER] = "Revolver";

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset=-3;
+    yoffset=-6;
+    refireTime = 5;
+    
+    normalSprite = WranglerS;
+    recoilSprite = WranglerS;
+    reloadSprite = WranglerS;
+    maxAmmo = 100;
+    reloadTime = 20;
+    reloadBuffer = 20;
+    event_inherited();
+    
+    weaponType = WTYPE_SPECIAL;
+    weaponGrade = WGRADE_UNIQUE;
+    ammoCount = owner.ammo[activeWeapon];
+    
+    owner.buildObject[0] = MiniSentry;
+    owner.buildAmount = 80;
+    
+    sprite_index = normalSprite;
+    
+    recoilTime = refireTime;
+    recoilAnimLength = sprite_get_number(recoilSprite)/2;
+    recoilImageSpeed = recoilAnimLength/recoilTime;
+    
+    reloadAnimLength = sprite_get_number(reloadSprite)/2;
+    reloadImageSpeed = reloadAnimLength/reloadTime;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

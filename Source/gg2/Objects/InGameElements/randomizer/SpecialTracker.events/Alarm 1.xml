@@ -51,7 +51,7 @@
         if (weaponType[1] == WTYPE_THROWABLE and currentWeapon.activeWeapon == 1) currentWeapon.ammoCount = currentWeapon.maxAmmo;
     } 
     if (depleteAbility[1] == ADEPLETE_ALARM) meter[1] = 0;
-    if (weaponType[1] != WTYPE_CONSUMABLE) playsound(x,y,rechargeSnd);
+    if (weaponType[1] != WTYPE_CONSUMABLE and weaponType[1] != WTYPE_BANNER) playsound(x,y,rechargeSnd);
 }
 </argument>
       </arguments>

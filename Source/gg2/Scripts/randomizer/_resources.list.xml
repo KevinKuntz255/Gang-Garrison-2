@@ -7,4 +7,7 @@
   <resource name="givePassiveEffect" type="RESOURCE"/>
   <resource name="ServerLoadoutSync" type="RESOURCE"/>
   <resource name="syncLoadout" type="RESOURCE"/>
+  <resource name="buildDispenser" type="RESOURCE"/>
+  <resource name="sendEventDestructionDispenser" type="RESOURCE"/>
+  <resource name="doEventDestructionDispenser" type="RESOURCE"/>
 </resources>

@@ -64,6 +64,10 @@ if !instance_exists(HealedHud) &amp;&amp; global.showHealer = 1 instance_create(
 
 //this hud does most of the special displays (cooldown &amp; charge timers)
 if !instance_exists(SpecialHud) instance_create(0,0,SpecialHud);
+
+// Frontier Justice HUD
+if (global.myself.object.currentWeapon.object_index == FrontierJustice) &amp;&amp; !instance_exists(RevengeCritHud) instance_create(0,0,RevengeCritHud);
+
 </argument>
       </arguments>
     </action>

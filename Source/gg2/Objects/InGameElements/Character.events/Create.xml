@@ -46,6 +46,12 @@
     dashon = true;
     runCombo = false; // for quick switching after airblasting
     
+    build = -1;
+    OGBuild = -1;
+    buildAmount = 100;
+    
+    humiliatedBy = noone;
+    
     // goal with this is turning 120 variables for each weapon into 20, I'll count later on how much this saves
     // sorted by use
     for(i=0; i&lt;4; i+=1) {
@@ -55,8 +61,10 @@
         abilityName[i] = "";
         abilityVisual[i] = "";
         abilityActive[i] = false;
+        // these two ability vars go unused but they're here for preservation
         abilityWasActive[i] = false; // goddamn, using this system is crazy!
         activateAbility[i] = -1; // hmm, work on this later, its cumbersome
+        buildObject[i] = -1;
         cancelAbility[i] = -1;
         chargeWhileActive[i] = false;
         depleteAbility[i] = -1;
@@ -281,7 +289,6 @@
         weapons[0] = player.weapons[0];
         weapons[1] = player.weapons[1];
     //}
-   
     /*if (player == global.myself) {
     } else {*/
         //weapons[0] = global.weapons[player.weapons[0]];
@@ -308,7 +315,7 @@
         abilityVisual[0] = currentWeapon.abilityVisual;
         activateAbility[0] = currentWeapon.activateAbility;
         cancelAbility[0] = currentWeapon.cancelAbility;
-        depleteAbiliy[0] = currentWeapon.depleteAbility;
+        depleteAbility[0] = currentWeapon.depleteAbility;
         rechargeAbility[0] = currentWeapon.rechargeAbility;
         chargeWhileActive[0] = currentWeapon.chargeWhileActive;
         meter[0] = currentWeapon.meter;
@@ -343,7 +350,7 @@
         abilityVisual[1] = checkWeapon.abilityVisual;
         activateAbility[1] = checkWeapon.activateAbility;
         cancelAbility[1] = checkWeapon.cancelAbility;
-        depleteAbiliy[1] = checkWeapon.depleteAbility;
+        depleteAbility[1] = checkWeapon.depleteAbility;
         rechargeAbility[1] = checkWeapon.rechargeAbility;
         chargeWhileActive[1] = checkWeapon.chargeWhileActive;
         meter[1] = checkWeapon.meter;

@@ -114,6 +114,22 @@ if(!taunting and !omnomnomnom)
         with(currentWeapon) event_user(1);
         // prevent accidentally charging
         doubleTapped = true;
+        // ability buffer
+        for(i=0; i&lt;2; i+=1) 
+        {
+            /*
+                if (activateAbility[i] == AACTIVATE_PRESSM1)
+                {
+                    abilityActive[i] = true; 
+                }
+                holdover
+            */
+            if (depleteAbility[i] == ADEPLETE_SHOOT and meter[i] &gt;= 1) 
+            {
+                playsound(x,y,PickupSnd);
+                meter[i] -= meterDrain[i] * global.delta_factor;
+            }
+        }
         deathmatch_invulnerable = 0;
     }
     if(!player.humiliated and pressedKeys &amp; $01)  {
@@ -199,7 +215,7 @@ if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
                 image_speed=tauntspeed;
                 playsound(x,y,currentWeapon.tauntSound);
                 if (team == TEAM_BLUE &amp;&amp; tauntindex &lt;= (sprite_get_number(tauntsprite)/2)) tauntindex += (sprite_get_number(tauntsprite)/2)+1; // its called we do a little jerry-rigging
-                abilityActive = true;
+                abilityActive[i] = true;
             }
             switch(ability[i])
             {

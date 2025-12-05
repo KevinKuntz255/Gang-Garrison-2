@@ -17,7 +17,7 @@
 {
     if(!collision_line(x,y-12,other.x,other.y,Obstacle,true,true)) and (!collision_line(x,y-12,other.x,other.y,TeamGate,true,true) and (!collision_line(x,y-12,other.x,other.y,BulletWall,true,true)))
     {
-        if weapon == WEAPON_WRECKER hitDamage = 80; //Enough to 1-hit a mini and 2-hit any other
+        if weapon == DAMAGE_SOURCE_AXE hitDamage = 80; //Enough to 1-hit a mini and 2-hit any other
         damageSentry(ownerPlayer, other.id, hitDamage);
         other.lastDamageDealer = ownerPlayer;
         other.lastDamageSource = weapon;
@@ -38,6 +38,37 @@
     }
     else
         alarm[0] = 1 / global.delta_factor;
+} else if weapon == DAMAGE_SOURCE_WRENCH or weapon == DAMAGE_SOURCE_EEFFECT {
+    if other.level != 3 {
+        if other.built == 0 {
+            var amount;
+            other.buildrate += 0.25;
+            playsound(x,y,MeleeHitMapSnd);
+        } else if other.hp &lt; other.maxHp {
+            var amount;
+            amount = min(other.maxHp-other.hp,10);
+            if owner.nutsNBolts &gt;= amount {
+                other.hp += amount;
+                owner.nutsNBolts -= amount;
+            } else {
+                other.hp += owner.nutsNBolts;
+                owner.nutsNBolts = 0;
+            }
+            playsound(x,y,MeleeHitMapSnd);
+        } else if other.upgrade &lt; other.upgradeMax &amp;&amp; other.level &lt; 3 {
+            var amount;
+            amount = min(other.upgradeMax - other.upgrade, 20);
+            if owner.nutsNBolts &gt;= amount {
+                owner.nutsNBolts -= amount;
+                other.upgrade += amount;
+            } else {
+                other.upgrade += owner.nutsNBolts;
+                owner.nutsNBolts=0;
+            }
+            playsound(x,y,MeleeHitMapSnd);
+        } else playsound(x,y,WrenchFailSnd);
+    } else playsound(x,y,WrenchFailSnd);
+    instance_destroy();
 }
 </argument>
       </arguments>

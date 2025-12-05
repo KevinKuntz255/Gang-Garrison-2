@@ -43,6 +43,7 @@
     ability = ABILITY_CHARGEDSHOT;
     rechargeAbility = ACHARGE_AMMO;
     cancelAbility = ADEPLETE;
+    depleteAbility = ADEPLETE;
     activateAbility = AACTIVATE_PRESSM2;
     abilityBuffer = ABUFFER_ACTIVE;
         

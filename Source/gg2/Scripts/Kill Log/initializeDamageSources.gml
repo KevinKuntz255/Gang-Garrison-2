@@ -73,3 +73,11 @@ createGlobalDamageSource("DAMAGE_SOURCE_BLUTSAUGER",          BlutsaugerKL);
 createGlobalDamageSource("DAMAGE_SOURCE_TERMINALBREATH",      TerminalBreathKL);
 createGlobalDamageSource("DAMAGE_SOURCE_ARROW",               ArrowKL);
 createGlobalDamageSource("DAMAGE_SOURCE_UBERSAW",             UbersawKL);
+
+createGlobalDamageSource("DAMAGE_SOURCE_FRONTIERJUSTICE",     FrontierJusticeKL);
+createGlobalDamageSource("DAMAGE_SOURCE_SHERIFF",             SheriffKL);
+createGlobalDamageSource("DAMAGE_SOURCE_PUMSON",              PomsonKL);
+createGlobalDamageSource("DAMAGE_SOURCE_WIDOWMAKER",          WidowMakerKL);
+createGlobalDamageSource("DAMAGE_SOURCE_STUNGUN",             StungunKL);
+createGlobalDamageSource("DAMAGE_SOURCE_WRENCH",              WrenchKL);
+createGlobalDamageSource("DAMAGE_SOURCE_EEFFECT",             EeffectKL);

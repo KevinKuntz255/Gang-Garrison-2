@@ -20,6 +20,9 @@
 }
 if(global.updateType == QUICK_UPDATE or global.updateType == FULL_UPDATE) {
     write_ubyte(global.serializeBuffer, (built != false)*$80 + min(127,hp));
+    write_ubyte(global.serializeBuffer, level);
+    write_ubyte(global.serializeBuffer, upgrade);
+    write_ubyte(global.serializeBuffer, buildTime);
 }
 if(!built and global.updateType == FULL_UPDATE)
     write_ubyte(global.serializeBuffer, vspeed);

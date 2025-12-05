@@ -40,7 +40,7 @@
 
     var me;
     me = global.myself.object;
-    if (instance_exists(StickyCounter))
+    if (instance_exists(StickyCounter) || instance_exists(NutsNBoltsHud))
         yoffset -= 50;
     
     // todo: not this
@@ -66,6 +66,17 @@
     if (me.rechargeAbility[1] == ACHARGE_ALARM){
         if (me.meter[1] == me.maxMeter[1]) message2 = -1;
         if (me.weaponType[1] == WTYPE_CONSUMABLE &amp;&amp; me.canEat) message2 = -1;
+    }
+    if (me.weaponType[0] == WTYPE_SPECIAL and me.currentWeapon.activeWeapon == 0 and title1 == "")
+    {
+        title1 = "CHARGE";
+        message1 = (global.myself.object.ammo[0] / global.myself.object.currentWeapon.maxAmmo) * 100;
+    }
+    
+    if (me.weaponType[1] == WTYPE_SPECIAL and me.currentWeapon.activeWeapon == 1 and title2 == "")
+    {
+        title2 = "CHARGE";
+        message2 = (global.myself.object.ammo[1] / global.myself.object.currentWeapon.maxAmmo) * 100;
     }
     if (message1 == -1) messageoffset = 0;
     if message1 != -1 {

@@ -7,7 +7,7 @@ startDirection = argument3;
 
 if(!player.sentry)
 {
-    player.sentry = instance_create(xPos, yPos, Sentry);
+    player.sentry = instance_create(xPos, yPos, player.object.buildObject[0]);
     player.sentry.ownerPlayer = player;
     player.sentry.team = player.team;
 }
@@ -19,4 +19,4 @@ else
 
 player.sentry.startDirection = startDirection;
 player.sentry.image_xscale = startDirection;
-player.object.nutsNBolts -= 100;
+player.object.nutsNBolts -= player.object.buildAmount;

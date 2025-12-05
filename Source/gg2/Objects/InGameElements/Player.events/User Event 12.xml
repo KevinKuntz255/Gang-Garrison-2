@@ -54,6 +54,16 @@
     if(object != -1) with(object) event_user(12);     
     with(sentry)
         event_user(12);
+        
+    var subobjects_BASS;
+    subobjects_BASS=0;
+    
+    if(dispenser) subobjects_BASS |= $10;
+
+    write_ubyte(global.serializeBuffer, subobjects_BASS);
+ 
+    with(dispenser) 
+        event_user(12);
 </argument>
       </arguments>
     </action>

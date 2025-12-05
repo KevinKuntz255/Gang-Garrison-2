@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="1">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if animFrame&gt;=14 {
+    animFrame=0
+} else if animFrame != 0 {
+    animFrame+=0.25*global.delta_factor
+}
+if muzzleFlashing = 1 &amp;&amp; !rotating &amp;&amp; nearestTarget != noone {
+    if animFrame = 1 {
+        playsound(x,y,RocketSnd);
+        var oid, newx, newy;
+        oid = instance_create(x+lengthdir_x(-4,direction),y+lengthdir_y(-17,direction), Rocket);
+        oid.lastknownx =x+lengthdir_x(-4,direction)
+        oid.lastknowny =y+lengthdir_y(-17,direction);
+        oid.direction=direction
+        oid.speed=18;
+        oid.ownerPlayer=ownerPlayer;
+        oid.owner=ownerPlayer.object;
+        oid.team=ownerPlayer.team;
+        oid.gun=id;
+        oid.weapon=DAMAGE_SOURCE_SENTRYTURRET;
+        if (collision_line(x,y,x+lengthdir_x(28,direction),y+lengthdir_y(28,direction),Obstacle,1,0) || place_meeting(x+lengthdir_x(25,direction), y+lengthdir_y(25, direction), TeamGate)) {
+            oid.characterHit = -1;
+            with (oid)
+                event_user(5);
+        } 
+    }
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

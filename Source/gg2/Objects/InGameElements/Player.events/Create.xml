@@ -73,8 +73,9 @@
     
     deathmatch_respawn_bypass = 0;
     
-    //Sentries for Engies
+    //Buildings for Engies
     sentry = noone;
+    dispenser = noone;
     
     // Haxxy rewards
     rewards = ds_map_create();

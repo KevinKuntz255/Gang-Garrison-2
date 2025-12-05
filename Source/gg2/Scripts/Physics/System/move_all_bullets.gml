@@ -5,10 +5,17 @@ with(Shot)
     if(!variable_local_exists("firststep"))
         firststep = true;
     
-    if (sprite_index != LaserShotS) vspeed += 0.15 * global.delta_factor;
+    if (object_index == StunShot)
+    {
+        if attached == -1 {
+            vspeed += 0.15 * global.delta_factor; 
+        }
+    }
+    else
+        if (sprite_index != LaserShotS) vspeed += 0.15 * global.delta_factor;
     if (object_index == Arrow) {
         if attached == -1 {
-            vspeed+=1.5/speed;
+            vspeed += (1.5/speed) * global.delta_factor;
         }
         if (global.run_virtual_ticks)
         {

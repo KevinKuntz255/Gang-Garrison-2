@@ -31,8 +31,10 @@ victim.stats[DEATHS] += 1;
 if(killer)
 {
     if (killer.object) {
-        for(i=0; i<2; i+=1) {
-        if (killer.object.rechargeAbility[i] == ACHARGE_KILLS) {
+        for(i=0; i<2; i+=1) 
+        {
+            if ((killer.object.rechargeAbility[i] == ACHARGE_SENTRY_KILLS and damageSource == DAMAGE_SOURCE_SENTRYTURRET) or (killer.object.rechargeAbility[i] == ACHARGE_KILLS)) 
+            {
                 killer.object.meter[i] = min(killer.object.maxMeter[i], killer.object.meter[i] + killer.object.meterGain[i]);
                 switch(killer.object.ability[i])
                 {
@@ -64,6 +66,10 @@ if(killer)
                 killer.stats[POINTS] += 1;
                 killer.roundStats[POINTS] += 1;
             }
+        }
+        if (weapons[1] == Sheriff || weapons[0] == Sheriff) {
+            if victim.sentry victim.sentry.hp = -999;
+            if victim.dispenser victim.dispenser.hp = -999;
         }
     }
         

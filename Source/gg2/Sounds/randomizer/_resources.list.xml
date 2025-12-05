@@ -25,4 +25,6 @@
   <resource name="LaserShotSnd" type="RESOURCE"/>
   <resource name="BowSnd" type="RESOURCE"/>
   <resource name="ViolinSnd" type="RESOURCE"/>
+  <resource name="WidowMakerSnd" type="RESOURCE"/>
+  <resource name="WrenchFailSnd" type="RESOURCE"/>
 </resources>

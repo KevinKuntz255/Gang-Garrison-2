@@ -57,6 +57,14 @@ if (team == TEAM_RED)
     sentrygibs.image_index = 0;
 else
     sentrygibs.image_index = 1;
+if level &gt; 1{
+sentrygibs=instance_create(x,y,SentryGibs);
+sentrygibs.image_speed = 0;
+if (team == TEAM_RED)
+    sentrygibs.image_index = 0;
+else
+    sentrygibs.image_index = 1;
+}
 </argument>
       </arguments>
     </action>

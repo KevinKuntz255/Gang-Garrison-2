@@ -6,7 +6,6 @@ global.paramOwner = id;
 
 currentWeapon = instance_create(x,y,global.weapons[argument0]);
 
-
 // TODO: move to networking. this'll do
 if (currentWeapon.ability != -1 and ability[currentWeapon.activeWeapon] == -1) {
     ability[currentWeapon.activeWeapon] = currentWeapon.ability;
@@ -15,7 +14,7 @@ if (currentWeapon.ability != -1 and ability[currentWeapon.activeWeapon] == -1) {
     abilityVisual[currentWeapon.activeWeapon] = currentWeapon.abilityVisual;
     activateAbility[currentWeapon.activeWeapon] = currentWeapon.activateAbility;
     cancelAbility[currentWeapon.activeWeapon] = currentWeapon.cancelAbility;
-    depleteAbiliy[currentWeapon.activeWeapon] = currentWeapon.depleteAbility;
+    depleteAbility[currentWeapon.activeWeapon] = currentWeapon.depleteAbility;
     rechargeAbility[currentWeapon.activeWeapon] = currentWeapon.rechargeAbility;
     chargeWhileActive[currentWeapon.activeWeapon] = currentWeapon.chargeWhileActive;
     meter[currentWeapon.activeWeapon] = currentWeapon.meter;

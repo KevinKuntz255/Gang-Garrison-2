@@ -16,5 +16,6 @@
   <resource name="LaserShotS" type="RESOURCE"/>
   <resource name="ArrowS" type="RESOURCE"/>
   <resource name="SplashPotionS" type="RESOURCE"/>
+  <resource name="StunShotS" type="RESOURCE"/>
   <resource name="Mines" type="GROUP"/>
 </resources>

@@ -30,9 +30,9 @@ if ((afktimer &lt;= 0) and !global.myself.object.afk)
         afk = true;
 }
 
-if(global.myself.class == CLASS_ENGINEER || global.myself.object.canBuild)
+if(global.myself.class == CLASS_ENGINEER || global.myself.object.buildObject[0] != -1)
 {
-    if(global.myself.sentry and !instance_exists(SentryHealthHud))
+    if((global.myself.sentry || global.myself.dispenser) and !instance_exists(SentryHealthHud))
         instance_create(0,0,SentryHealthHud);
 
     if(!instance_exists(NutsNBoltsHud))

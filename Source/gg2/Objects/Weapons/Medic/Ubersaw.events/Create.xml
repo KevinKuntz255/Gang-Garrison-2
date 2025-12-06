@@ -15,7 +15,7 @@
       <arguments>
         <argument kind="STRING">{
     xoffset=-17;
-    yoffset=-36;
+    yoffset=-38;
     
     normalSprite = UbersawS;
     recoilSprite = UbersawFS;

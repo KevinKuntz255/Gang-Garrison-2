@@ -31,6 +31,7 @@ ability = -1;
 abilityBuffer = -1;
 abilityName = "";
 abilityVisual = "";
+abilityTaunt = "";
 abilityCharge = -1;
 activateAbility = -1;
 cancelAbility = -1;

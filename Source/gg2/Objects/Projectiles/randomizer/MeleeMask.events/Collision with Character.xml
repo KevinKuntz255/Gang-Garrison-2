@@ -33,23 +33,6 @@ if(other.id != ownerPlayer.object and other.team != team  and other.hp &gt; 0 an
             }
         }
         
-        // todo: move this to projectileCollision
-        if(weapon = DAMAGE_SOURCE_AXE) { //Removed thing here
-            with(other) {
-                if (burnDuration &lt; maxDuration) {
-                    burnDuration += 30*6; 
-                    burnDuration = min(burnDuration, maxDuration);
-                }
-                if (burnIntensity &lt; maxIntensity) {
-                    burnIntensity += other.burnIncrease * 3;
-                    burnIntensity = min(burnIntensity, maxIntensity);
-                }
-                burnedBy = other.ownerPlayer;
-                afterburnSource = DAMAGE_SOURCE_AXE;
-                alarm[0] = decayDelay / global.delta_factor;
-            }
-        }
-        
         if (!splashHit) {
             instance_destroy(); 
         } else {

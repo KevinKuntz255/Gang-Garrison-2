@@ -317,6 +317,12 @@ do {
             setChatBubble(player, read_ubyte(global.tempBuffer));
             break;
             
+        case DETONATION_POS:
+            receiveCompleteMessage(global.serverSocket,2,global.tempBuffer);
+            player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
+            doDetonation(player, 2*read_ubyte(global.tempBuffer));
+            break;
+        
         case WEAPON_SWAP:
             receiveCompleteMessage(global.serverSocket,3,global.tempBuffer);
             player = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));

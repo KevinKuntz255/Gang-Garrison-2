@@ -18,7 +18,7 @@
 else
     image_index = 0;
 
-if(global.myself.object == -1 or global.myself.class != CLASS_ENGINEER)
+if(global.myself.object == -1)
 {
     instance_destroy();
     exit; 

@@ -214,7 +214,6 @@ if (!player.humiliated &amp;&amp; (pressedKeys &amp; $08)) {
                 tauntindex=0;
                 image_speed=tauntspeed;
                 playsound(x,y,currentWeapon.tauntSound);
-                if (team == TEAM_BLUE &amp;&amp; tauntindex &lt;= (sprite_get_number(tauntsprite)/2)) tauntindex += (sprite_get_number(tauntsprite)/2)+1; // its called we do a little jerry-rigging
                 abilityActive[i] = true;
             }
             switch(ability[i])

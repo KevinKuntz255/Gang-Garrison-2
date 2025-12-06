@@ -1,4 +1,3 @@
-// todo: add canBuild to weapon creation instances, secondaries specifically
 if(global.myself.object.buildObject[0] != -1)
 {
     if (global.myself.object.buildObject[1] != -1)
@@ -38,8 +37,6 @@ if(global.myself.object.buildObject[0] != -1)
     write_ubyte(global.serverSocket, OMNOMNOMNOM);
 } else if global.myself.class == CLASS_SNIPER {
     if (global.myself.object.weaponType[global.myself.object.activeWeapon] == WTYPE_RIFLE) write_ubyte(global.serverSocket, TOGGLE_ZOOM); // todo: zoom scrunch anims on all characters
-}/* else if (global.myself.object.currentWeapon.object_index == ScottishResistance)
-{
-    write_ubyte(global.serverSocket, DETONATION_POS);
-    socket_send(global.serverSocket);
+} else if (global.myself.object.currentWeapon.object_index == ScottishResistance) {
+    sendDetonation(global.myself,mouse_x,mouse_y);
 }

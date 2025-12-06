@@ -8,18 +8,9 @@ projectile = argument3;
 blood = argument4;
 
 execute_string( global.projectileCollisionFunction, argument0, argument1, argument2, argument3, argument4); // place before everything so as to override INVIS exit
-// be smart of you or me to add it back in case you still need it, eh fugg around n find out
+// be smart of you or me to add INVULN detection back in case you still need it, eh fugg around n find out
 for(i=0; i<2; i+=1) 
 {
-    /* todo: test this if statement with ACTIVE specific abilities, might need to pass the variables like this
-        if (argument1.abilityActive[i])
-        {
-            if (argument1.ability[i] == ABILITY_INVULN)
-            {
-    
-            }
-        }
-    */
     if (shotCharacter.abilityActive[i] and shotCharacter.ability[i] == ABILITY_INVULN)
     {
         var text;
@@ -64,9 +55,28 @@ if (shootingPlayer.object != -1) {
         case DAMAGE_SOURCE_AXE:
             if (shotCharacter.burnDuration > 0 and projectile.crit <= 1.35) 
                 projectile.crit *= 1.43;
+            with(shotCharacter)
+            {
+                if (burnDuration < maxDuration) {
+                    burnDuration += 30*6; 
+                    burnDuration = min(burnDuration, maxDuration);
+                }
+                if (burnIntensity < maxIntensity) {
+                    burnIntensity += other.burnIncrease * 3;
+                    burnIntensity = min(burnIntensity, maxIntensity);
+                }
+                burnedBy = other.ownerPlayer;
+                afterburnSource = DAMAGE_SOURCE_AXE;
+                alarm[0] = decayDelay / global.delta_factor;
+            }
+        break;
+        case DAMAGE_SOURCE_UBERSAW:
+            if (shootingPlayer.object.currentWeapon.weaponType == WTYPE_HEALBEAM)
+                shootingPlayer.object.currentWeapon.uberCharge += 50;
+            else
+                shootingPlayer.object.uberChargeC += 50;
         break;
     }
-    
     
     if shotCharacter.tracker.alarm[SOAK_MILK] >= 1
         shootingPlayer.object.hp += damage*0.35;

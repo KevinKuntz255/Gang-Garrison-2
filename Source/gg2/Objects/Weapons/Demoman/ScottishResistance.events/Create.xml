@@ -27,6 +27,8 @@
     recoilSprite = ScottishResistanceFS;
     reloadSprite = ScottishResistanceFRS;
     event_inherited();
+    
+    canDetonate = false;
 }
 </argument>
       </arguments>

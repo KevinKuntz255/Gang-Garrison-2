@@ -10,4 +10,6 @@
   <resource name="buildDispenser" type="RESOURCE"/>
   <resource name="sendEventDestructionDispenser" type="RESOURCE"/>
   <resource name="doEventDestructionDispenser" type="RESOURCE"/>
+  <resource name="sendDetonation" type="RESOURCE"/>
+  <resource name="doDetonation" type="RESOURCE"/>
 </resources>

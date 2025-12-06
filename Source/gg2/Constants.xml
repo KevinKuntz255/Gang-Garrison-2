@@ -79,6 +79,7 @@
   <constant name="BUILD_DISPENSER" value="63"/>
   <constant name="DESTROY_DISPENSER" value="64"/>
   <constant name="DISPENSER_POSITION" value="65"/>
+  <constant name="DETONATION_POS" value="67"/>
   <constant name="WEAPON_AIRSTRIKE" value="14"/>
   <constant name="WEAPON_ARROWHEADSHOT" value="109"/>
   <constant name="WEAPON_ATOMIZER" value="9"/>

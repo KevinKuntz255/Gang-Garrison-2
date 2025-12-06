@@ -29,7 +29,6 @@ NAPALM_EXPLOSION and NAPALM_THROW net parse
 add overlay for each omnomnom weapon instead of copy-pasting the whole animation
 
 # Detonator
-DETONATION_POS
 randomizerMode specific:
 	make M2 detonate both stickybombs (client option tracked to serverside, select or explode both)
 

@@ -45,9 +45,7 @@
    
     // todo: move class specific syncs to weapons instead for randomizerMode
     /*
-    above is a daunting task:
-    move nutsNBolts tracking to Character instead of Engineer, create nutsNBoltsHUD based on canBuild
-    make BUILD_SENTRY a call any character can make
+    move nutsNBolts tracking to Character instead of Engineer
     canCloak on any character who wields a knife
     */
     if(global.updateType == FULL_UPDATE){
@@ -56,6 +54,19 @@
         // tracking whether holding primary or secondary
         write_ubyte(global.serializeBuffer, activeWeapon);
         
+        /*
+            WIP, Possibly better suited to WTYPE tracking overall
+            if (buildObject[0] != -1)
+                write_ubyte(global.serializeBuffer, nutsNBolts);
+            else if (weaponType[0] == WTYPE_HEALBEAM || weaponType[1] == WTYPE_HEALBEAM)
+                write_ubyte(global.serializeBuffer, uberChargeC*255/2000);
+            else if (weaponType[0] == WTYPE_RIFLE || weaponType[1] == WTYPE_RIFLE)
+                write_ubyte(global.serializeBuffer, currentWeapon.t);
+            else if player.class == CLASS_SPY
+                write_ubyte(global.serializeBuffer, cloakAlpha*255);
+            else
+                write_ubyte(global.serializeBuffer, 0);
+        */
         //class specific syncs
         switch(player.class)
         {

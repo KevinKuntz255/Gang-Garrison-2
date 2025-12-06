@@ -37,6 +37,7 @@
     pauseOnDestruction = true;
     activateAbility = AACTIVATE_MAX;
     cancelAbility = ADEPLETE;
+    depleteAbility = ADEPLETE;
     
     meter = 0;
     maxMeter = 210;

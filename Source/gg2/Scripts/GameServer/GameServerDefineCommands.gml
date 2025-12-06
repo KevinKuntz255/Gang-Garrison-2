@@ -22,6 +22,7 @@ commandBytes[OMNOMNOMNOM] = 0;
 commandBytes[TOGGLE_ZOOM] = 0;
 commandBytes[PLAYER_CHANGENAME] = commandBytesPrefixLength1;
 commandBytes[INPUTSTATE] = 4;
+commandBytes[DETONATION_POS] = 1;       //for the scottish resistance
 commandBytes[WEAPON_SWAP] = 0;          // the most important part
 commandBytes[BUILD_DISPENSER] = 0;
 commandBytes[DESTROY_DISPENSER] = 0;

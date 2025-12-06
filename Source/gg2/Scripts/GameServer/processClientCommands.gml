@@ -229,7 +229,21 @@ while(commandLimitRemaining > 0) {
             
             setChatBubble(player, bubbleImage);
             break;
-
+        
+         case DETONATION_POS:
+            var mouse_dist;
+            mouse_dist = read_ubyte(socket);
+            if player.object != -1 {
+                if player.object.currentWeapon.object_index == ScottishResistance {
+                    write_ubyte(global.sendBuffer, DETONATION_POS);
+                    write_ubyte(global.sendBuffer, playerId);
+                    write_ubyte(global.sendBuffer, mouse_dist);
+                    
+                    doDetonation(player, mouse_dist*2);
+                }
+            }
+            break;
+            
         case WEAPON_SWAP:
             if player.object != -1 {
                 if player.object.taunting == true 

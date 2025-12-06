@@ -269,6 +269,7 @@ for(i=0; i&lt;2; i+=1) {
     }
     if (i != activeWeapon and chargeWhileActive[i] || pauseMeter[i]) continue;
     if (meter[i] &gt;= maxMeter[i] and activateAbility[i] == AACTIVATE_MAX) abilityActive[i] = true;
+    
     if (abilityBuffer[i] == ABUFFER_METER)
     {
         if (meter[i] &gt; 0)
@@ -276,7 +277,7 @@ for(i=0; i&lt;2; i+=1) {
         else 
             abilityActive[i] = false;
     }
-    if (abilityActive[i] and meter[i] &gt; 0 and depleteAbility[i] == ADEPLETE) meter[i] -= meterDrain[i] * global.delta_factor;
+    if (abilityActive[i] and depleteAbility[i] == ADEPLETE) meter[i] -= meterDrain[i] * global.delta_factor;
     
     switch(rechargeAbility[i])
     {
@@ -347,8 +348,18 @@ if (taunting)
 {
     tauntindex += tauntspeed*0.1 * global.delta_factor;
     if (tauntindex &gt;= sprite_get_number(tauntsprite))
+    {
         taunting = false;
-        // todo: taunt abilities go around here
+        if (player.class == CLASS_MEDIC)
+        {
+            if (tauntsprite == getCharacterSpriteId(player.class, player.team, "THeal")) // todo: case by case basis
+            {
+                tauntsprite = getCharacterSpriteId(player.class, player.team, "TKill");
+                tauntlength = sprite_get_number(tauntsprite)/2;
+                tauntspeed = 3;
+            }
+        }
+    }
     if (hasClassReward(player, "TauntMoney_"))
     {
         if (tauntindex == 0.30)

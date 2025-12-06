@@ -313,9 +313,9 @@ while(commandLimitRemaining > 0) {
                 if(player.object.weapons[1] == WEAPON_NAILGUN
                     /*and !player.object.carrySentry*/
                     and collision_circle(player.object.x, player.object.y, 50, Sentry, false, true) < 0
-                    and player.object.nutsNBolts >= 100
+                    and player.object.nutsNBolts >= 50
                     and (collision_point(player.object.x,player.object.y,SpawnRoom,0,0) < 0)
-                    and !player.sentry 
+                    and !player.dispenser 
                     and !player.object.onCabinet)
                 {
                     write_ubyte(global.sendBuffer, BUILD_DISPENSER);

@@ -14,8 +14,8 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">animFrame=0;
-xoffset = sprite_xoffset+2;
-yoffset = sprite_yoffset-1;
+xoffset = sprite_xoffset-16;
+yoffset = sprite_yoffset-30;
 refireTime=3;
 readyToShoot=false;
 noticedTarget=true;

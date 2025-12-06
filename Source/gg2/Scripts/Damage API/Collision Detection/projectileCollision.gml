@@ -32,6 +32,17 @@ todo: server-side option to enable random crits
 if random(100) < 15 && crit < 1.15 shot.crit = 1.35;
 */
 
+//if (argument3.crit > 1) {
+    with(Text)
+    {
+        if (variable_local_exists("owner")) {
+            if (owner == other.argument0) {
+                instance_destroy(); // cleaner, and closer to original tf2
+            }    
+        }
+    }
+//}
+
 if shotCharacter.tracker.alarm[SOAK_PISS] >= 1 and argument3.crit < 1.35
     argument3.crit = 1.15;
     
@@ -42,11 +53,14 @@ if (shootingPlayer.object != -1) {
             if (shotCharacter != shootingPlayer.object) shootingPlayer.object.hp += damage*0.3;
         break;
         case DAMAGE_SOURCE_BLUTSAUGER:
-            shootingPlayer.object.hp += 1;
-            var text;
-            text=instance_create(shootingPlayer.object.x,shootingPlayer.object.y - 8,Text);
-            text.sprite_index=PlusOneS;
-            if (instance_exists(shootingPlayer)) text.owner = shootingPlayer;
+            if (shootingPlayer.object.hp < shootingPlayer.object.maxHp)
+            {
+                shootingPlayer.object.hp += 1;
+                var text;
+                text=instance_create(shootingPlayer.object.x,shootingPlayer.object.y - 8,Text);
+                text.sprite_index=PlusOneS;
+                text.owner = shootingPlayer;
+            }
         break;
         case DAMAGE_SOURCE_RSHOOTER:
             if (!shotCharacter.onground and shotCharacter.moveStatus == 3 and projectile.crit < 1.15)
@@ -81,17 +95,6 @@ if (shootingPlayer.object != -1) {
     if shotCharacter.tracker.alarm[SOAK_MILK] >= 1
         shootingPlayer.object.hp += damage*0.35;
 }
-
-//if (argument3.crit > 1) {
-    with(Text)
-    {
-        if (variable_local_exists("owner")) {
-            if (owner == other.argument0) {
-                instance_destroy(); // cleaner, and closer to original tf2
-            }    
-        }
-    }
-//}
 
 // todo: two crit sprites? thats dumb
 if (argument3.crit == 1.15) {

@@ -29,7 +29,7 @@
     maxMeter = 300;
     meter = maxMeter;
     
-    if (owner.meter[activeWeapon] &gt;= maxAmmo) ammoCount = maxAmmo; else ammoCount = 0;
+    if (owner.meter[activeWeapon] &gt;= owner.maxMeter[activeWeapon]) ammoCount = maxAmmo; else ammoCount = 0;
 
     shotSpeed = 13;
 

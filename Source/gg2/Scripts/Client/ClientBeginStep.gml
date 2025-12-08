@@ -655,8 +655,8 @@ do {
             {
                 player.dispenser.x = read_ushort(global.tempBuffer) / 5;
                 player.dispenser.y = read_ushort(global.tempBuffer) / 5;
-                player.dispenser.xprevious = player.sentry.x;
-                player.dispenser.yprevious = player.sentry.y;
+                player.dispenser.xprevious = player.dispenser.x;
+                player.dispenser.yprevious = player.dispenser.y;
                 player.dispenser.vspeed = 0;
             }
             break;

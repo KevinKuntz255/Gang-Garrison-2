@@ -20,6 +20,8 @@
     normalSprite = EyeLanderS;
     recoilSprite = EyeLanderFS;
     reloadSprite = EyeLanderS;
+    
+    smashDamage = 42;
     event_inherited();
     
     damSource = DAMAGE_SOURCE_EYELANDER;

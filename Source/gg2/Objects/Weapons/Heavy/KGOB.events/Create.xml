@@ -23,8 +23,7 @@
     event_inherited();
     
     reloadTime = 120;
-    
-    // todo: activeCheck
+
     ability = ABILITY_MINICRIT;
     activateAbility = AACTIVATE_KILLS;
     abilityBuffer = ABUFFER_ACTIVE;

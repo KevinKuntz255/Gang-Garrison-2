@@ -27,6 +27,7 @@ if(other.id != ownerPlayer.object and other.team != team  &amp;&amp; other.hp &g
     with(other)
     {
         player.humiliated = 1;
+        wasStunned = true;
     }
 }
 

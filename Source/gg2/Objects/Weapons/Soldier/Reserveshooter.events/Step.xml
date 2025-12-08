@@ -14,7 +14,7 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">// todo: could move this and alot of other steps in weapons into the template itself
-// although, constantly checking for an if or a switch statement is inefficient, but that's a global development issue worth a year of work
+// although, constantly checking for an if or a switch statement is inefficient, but that's a global development issue worth months of work
 if(ammoCount &gt;= maxAmmo){
     owner.canSwitch = true;
 } else {

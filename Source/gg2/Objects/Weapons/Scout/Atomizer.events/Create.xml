@@ -20,9 +20,9 @@
     normalSprite = AtomizerS;
     recoilSprite = AtomizerFS;
     reloadSprite = AtomizerS;
+       
+    smashDamage = 25;
     event_inherited();
-    
-    damage = 25;
     
     damSource = DAMAGE_SOURCE_ATOMIZER;
     

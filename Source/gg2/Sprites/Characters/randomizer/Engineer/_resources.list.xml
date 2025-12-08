@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="EngineerRedTaunt2S" type="RESOURCE"/>
+  <resource name="EngineerBlueTaunt2S" type="RESOURCE"/>
+  <resource name="EEffectGlowS" type="RESOURCE"/>
+</resources>

@@ -13,6 +13,14 @@ try moving ability activation to network calls, they desync!!
 
 Fix LoadoutMenu breaking positions in other resolutions
 
+PlayerControl Draw Event used for milk\piss\blood\thunder
+
+Convert Text into actual draw_text renders instead of using sprites
+
+move Taunt activation abilities into Character End Step
+
+move ability detection/activation into a Script
+
 Implement crits in kill log (re-add lastDamageCrit?)
 add headshots
 
@@ -21,6 +29,9 @@ add medievalMode
 add HALE
 
 Loadouts (Start Chronologically):
+
+# Runner
+make Bonk stop capping\Intel
 
 # Firebug
 NAPALM_EXPLOSION and NAPALM_THROW net parse

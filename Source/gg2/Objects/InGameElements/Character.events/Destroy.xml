@@ -49,6 +49,10 @@
         if owner=other.id owner=-1
         instance_destroy();
     }
+    if(variable_local_exists("wasStunned"))
+    {
+        player.humiliated = false;
+    }
     
     ds_map_destroy(effects);
     

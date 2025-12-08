@@ -4,5 +4,6 @@
   <resource name="RadioBlur" type="RESOURCE"/>
   <resource name="SpecialTracker" type="RESOURCE"/>
   <resource name="Sparks" type="RESOURCE"/>
+  <resource name="EEFectGlow" type="RESOURCE"/>
   <resource name="Buildings" type="GROUP"/>
 </resources>

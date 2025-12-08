@@ -301,31 +301,34 @@
   <constant name="ABILITY_HEAL" value="7"/>
   <constant name="ABILITY_CHARGEDSHOT" value="8"/>
   <constant name="ABILITY_AMMOGAIN" value="9"/>
-  <constant name="ACHARGE_RECHARGE" value="10"/>
-  <constant name="ACHARGE_RUN" value="11"/>
-  <constant name="ACHARGE_DAMAGE" value="12"/>
-  <constant name="ACHARGE_ALARM" value="13"/>
-  <constant name="ACHARGE_AMMO" value="14"/>
-  <constant name="ACHARGE_MAXAMMO" value="15"/>
-  <constant name="ACHARGE_KILLS" value="16"/>
-  <constant name="ACHARGE_SENTRY_KILLS" value="17"/>
-  <constant name="AACTIVATE_PRESSM1" value="18"/>
-  <constant name="AACTIVATE_HOLDM1" value="19"/>
-  <constant name="AACTIVATE_PRESSM2" value="20"/>
-  <constant name="AACTIVATE_HOLDM2" value="21"/>
-  <constant name="AACTIVATE_MAX" value="22"/>
-  <constant name="AACTIVATE_TAUNT" value="23"/>
-  <constant name="AACTIVATE_ACTIVE_TAUNT" value="24"/>
-  <constant name="AACTIVATE_KILLS" value="25"/>
-  <constant name="ADEPLETE" value="26"/>
-  <constant name="ADEPLETE_REPRESS" value="27"/>
-  <constant name="ADEPLETE_ALARM" value="28"/>
-  <constant name="ADEPLETE_SHOOT" value="29"/>
-  <constant name="ACANCEL_REPRESS" value="30"/>
-  <constant name="ACANCEL_ALARM" value="31"/>
-  <constant name="ABUFFER_ACTIVE" value="32"/>
-  <constant name="ABUFFER_METER" value="33"/>
+  <constant name="ABILITY_TELEPORT_TO_SENTRY" value="10"/>
+  <constant name="ACHARGE_RECHARGE" value="11"/>
+  <constant name="ACHARGE_RUN" value="12"/>
+  <constant name="ACHARGE_DAMAGE" value="13"/>
+  <constant name="ACHARGE_ALARM" value="14"/>
+  <constant name="ACHARGE_AMMO" value="15"/>
+  <constant name="ACHARGE_MAXAMMO" value="16"/>
+  <constant name="ACHARGE_KILLS" value="17"/>
+  <constant name="ACHARGE_SENTRY_KILLS" value="18"/>
+  <constant name="AACTIVATE_PRESSM1" value="19"/>
+  <constant name="AACTIVATE_HOLDM1" value="20"/>
+  <constant name="AACTIVATE_PRESSM2" value="21"/>
+  <constant name="AACTIVATE_HOLDM2" value="22"/>
+  <constant name="AACTIVATE_MAX" value="23"/>
+  <constant name="AACTIVATE_TAUNT" value="24"/>
+  <constant name="AACTIVATE_ACTIVE_TAUNT" value="25"/>
+  <constant name="AACTIVATE_KILLS" value="26"/>
+  <constant name="ADEPLETE" value="27"/>
+  <constant name="ADEPLETE_REPRESS" value="28"/>
+  <constant name="ADEPLETE_ALARM" value="29"/>
+  <constant name="ADEPLETE_SHOOT" value="30"/>
+  <constant name="ACANCEL_REPRESS" value="31"/>
+  <constant name="ACANCEL_ALARM" value="32"/>
+  <constant name="ABUFFER_ACTIVE" value="33"/>
+  <constant name="ABUFFER_METER" value="34"/>
   <constant name="EXTRA" value="0"/>
+  <constant name="MINICRIT_FACTOR" value="1.5"/>
+  <constant name="CRIT_FACTOR" value="2.4"/>
   <constant name="GEAR_PARTY_HAT" value="&quot;PartyHat&quot;"/>
   <constant name="GEAR_CROWN" value="&quot;Crown&quot;"/>
   <constant name="GEAR_NAVIGATORHAT" value="&quot;NavigatorHat&quot;"/>

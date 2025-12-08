@@ -30,8 +30,6 @@
         var shot, shotx, shoty;
         randomize();
         
-        // todo: maybe setup shotPositionExtra
-        
         shotx = x+lengthdir_x(shotPosition,owner.aimDirection);
         shoty = y+12+lengthdir_y(shotPosition,owner.aimDirection);
         if(!collision_line_bulletblocking(x, y, shotx, shoty))

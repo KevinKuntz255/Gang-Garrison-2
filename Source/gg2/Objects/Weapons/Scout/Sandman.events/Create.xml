@@ -20,6 +20,8 @@
     normalSprite = SandmanS;
     recoilSprite = SandmanFS;
     reloadSprite = SandmanS;
+    
+    smashDamage = 25;
     event_inherited();
     
     reloadTime = 300;
@@ -31,8 +33,6 @@
     maxMeter = reloadTime;
     meter = maxMeter;
     abilityName = "BALL";
-    
-    damage = 25;
     
     damSource = DAMAGE_SOURCE_SANDMAN;
 }

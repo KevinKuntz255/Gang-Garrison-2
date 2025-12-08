@@ -14,16 +14,14 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">shot = instance_create(x,y,MeleeMask);
-shot.hitDamage = damage;
 shot.direction = owner.aimDirection;
 shot.speed = owner.speed;
 shot.owner = owner;
 shot.ownerPlayer = ownerPlayer;
 shot.team = owner.team;
-shot.hitDamage = damage;
+shot.hitDamage = smashDamage;
 shot.weapon = damSource;
 shot.crit = owner.currentWeapon.crit;
-
 for(i=0; i&lt;2; i+=1) {
     // todo: move this clump to Character Begin Step, maybe?
     if (owner.abilityActive[i] &amp;&amp; owner.ability[i] == ABILITY_DASH) {
@@ -31,14 +29,15 @@ for(i=0; i&lt;2; i+=1) {
         shot.splashAmount = 3;
         shot.knockBack = true;
         if (owner.meter[i] &lt;= 50 || owner.moveStatus == 4 &amp;&amp; owner.meter[i] &lt;= 56) { // give grace since youre flying
-            playsound(x,y,CritSnd);
+           shot.crit = CRIT_FACTOR;
+           playsound(x,y,CritSnd);
         } else if (owner.meter[i] &lt;= 70 || owner.moveStatus == 4 &amp;&amp; owner.meter[i] &lt;= 76) {
+            shot.crit = MINICRIT_FACTOR;
             //shotDamage = 40; 
             playsound(x,y,CritSnd);
         }
         owner.meter[i] = 0;
         owner.abilityActive[i] = false;
-        crit = 1;
     }
 }
 </argument>

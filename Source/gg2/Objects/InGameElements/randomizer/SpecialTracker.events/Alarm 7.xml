@@ -28,10 +28,9 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">with(owner) {
-    ds_map_replace(effects, UBER_FIX, 0);
-    playsound(x,y,UberEndSnd);
-}
+        <argument kind="STRING">//ds_map_replace(owner.effects, UBER_FIX, 0);
+playsound(x,y,UberEndSnd);
+
 </argument>
       </arguments>
     </action>

@@ -29,7 +29,6 @@ draw_set_color(make_color_rgb(217, 217, 183));
 draw_set_valign(fa_center);
 draw_set_halign(fa_left);
 
-// todo: maxMines onto Character instead, this'll complicate the lobbed[0] and lobbed[1] concept for randomizerMode, find out
 if (global.myself.object != -1 and global.myself.class == CLASS_DEMOMAN)
 {    
     draw_sprite_ext(sprite_index, image_index, xoffset+xsize-65, yoffset+ysize-78, 3, 3, 0, c_white, 1);

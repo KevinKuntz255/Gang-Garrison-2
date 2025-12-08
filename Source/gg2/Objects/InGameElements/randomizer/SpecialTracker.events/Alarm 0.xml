@@ -28,31 +28,29 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">with(owner) {
-    if (cancelAbility[0] == ACANCEL_ALARM) abilityActive[0] = false;
-    switch(ability[0])
-    {
-        case ABILITY_INVULN:
-            currentWeapon.readyToShoot = true;
-            currentWeapon.readyToStab = true;
-            currentWeapon.readyToFlare = true;
-            currentWeapon.readyToBlast = true;
-            playsound(x,y,UberEndSnd);
-            maxDuration  = 120;
-        break;
-        case ABILITY_CRIT:
-        case ABILITY_MINICRIT:
-            currentWeapon.crit = 1;
-        break;
-    }
-    if (rechargeAbility[0] == ACHARGE_ALARM)
-    {
-        meter[0] = maxMeter[0];
-        if (weaponType[0] == WTYPE_THROWABLE and currentWeapon.activeWeapon == 0) currentWeapon.ammoCount = currentWeapon.maxAmmo;
-    } 
-    if (depleteAbility[0] == ADEPLETE_ALARM) meter[0] = 0;
-    if (weaponType[0] != WTYPE_CONSUMABLE and weaponType[0] != WTYPE_BANNER) playsound(x,y,rechargeSnd);
+        <argument kind="STRING">if (owner.cancelAbility[0] == ACANCEL_ALARM) owner.abilityActive[0] = false;
+switch(owner.ability[0])
+{
+    case ABILITY_INVULN:
+        owner.currentWeapon.readyToShoot = true;
+        owner.currentWeapon.readyToStab = true;
+        owner.currentWeapon.readyToFlare = true;
+        owner.currentWeapon.readyToBlast = true;
+        playsound(x,y,UberEndSnd);
+        owner.maxDuration = 120;
+    break;
+    case ABILITY_CRIT:
+    case ABILITY_MINICRIT:
+        owner.currentWeapon.crit = 1;
+    break;
 }
+if (owner.rechargeAbility[0] == ACHARGE_ALARM)
+{
+    owner.meter[0] = owner.maxMeter[0];
+    if (owner.weaponType[0] == WTYPE_THROWABLE and owner.currentWeapon.activeWeapon == 0) owner.currentWeapon.ammoCount = owner.currentWeapon.maxAmmo;
+} 
+if (owner.depleteAbility[0] == ADEPLETE_ALARM) owner.meter[0] = 0;
+if (owner.weaponType[0] != WTYPE_CONSUMABLE and owner.weaponType[0] != WTYPE_BANNER) playsound(x,y,rechargeSnd);
 </argument>
       </arguments>
     </action>

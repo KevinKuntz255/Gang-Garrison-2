@@ -112,7 +112,7 @@
                     } else if(ubering == true){
                         if !healTarget.object.specialUbered playsound(x,y,UberStartSnd);
                         healTarget.object.specialUbered = true;
-                        healTarget.object.currentWeapon.crit = 1.35;
+                        healTarget.object.currentWeapon.crit = CRIT_FACTOR;
                         var uber_kritz;
                         uber_kritz = ds_map_find_value(healTarget.object.effects, UBER_KRITZ);
                         if (uber_kritz &lt; 1) ds_map_replace(healTarget.object.effects, UBER_KRITZ, 1); // soak only once

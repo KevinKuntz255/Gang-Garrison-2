@@ -28,7 +28,6 @@ if (owner.taunting &amp;&amp; (owner.tauntsprite == ScoutRedBonkS || owner.taunt
         owner.tracker.alarm[activeWeapon] = reloadTime / global.delta_factor;
         owner.burnDuration = 0; // extinguish bonked player
         owner.maxDuration  = 1; // cannot burn bonked player!
-        write_ubyte(global.serverSocket, WEAPON_SWAP);
     }
 }
 </argument>

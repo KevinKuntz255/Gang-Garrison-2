@@ -16,8 +16,7 @@
         <argument kind="STRING">if ownerPlayer.object != -1 {
     ownerPlayer.object.currentWeapon.hasShot=true;
 }
-if (attached)
-{
+if attached != -1 &amp;&amp; instance_exists(attached){
     attached.player.humiliated = 0;
 }
 </argument>

@@ -28,31 +28,30 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">with(owner) {
-    if (cancelAbility[1] == ACANCEL_ALARM) abilityActive[1] = false;
-    switch(ability[1])
-    {
-        case ABILITY_INVULN:
-            currentWeapon.readyToShoot = true;
-            currentWeapon.readyToStab = true;
-            currentWeapon.readyToFlare = true;
-            currentWeapon.readyToBlast = true;
-            playsound(x,y,UberEndSnd);
-            maxDuration  = 121;
-        break;
-        case ABILITY_CRIT:
-        case ABILITY_MINICRIT:
-            currentWeapon.crit = 1;
-        break;
-    }
-    if (rechargeAbility[1] == ACHARGE_ALARM)
-    {
-        meter[1] = maxMeter[1];
-        if (weaponType[1] == WTYPE_THROWABLE and currentWeapon.activeWeapon == 1) currentWeapon.ammoCount = currentWeapon.maxAmmo;
-    } 
-    if (depleteAbility[1] == ADEPLETE_ALARM) meter[1] = 0;
-    if (weaponType[1] != WTYPE_CONSUMABLE and weaponType[1] != WTYPE_BANNER) playsound(x,y,rechargeSnd);
+        <argument kind="STRING">if (owner.cancelAbility[1] == ACANCEL_ALARM) owner.abilityActive[1] = false;
+switch(owner.ability[1])
+{
+    case ABILITY_INVULN:
+        owner.currentWeapon.readyToShoot = true;
+        owner.currentWeapon.readyToStab = true;
+        owner.currentWeapon.readyToFlare = true;
+        owner.currentWeapon.readyToBlast = true;
+        playsound(x,y,UberEndSnd);
+        owner.maxDuration = 121;
+    break;
+    case ABILITY_CRIT:
+    case ABILITY_MINICRIT:
+        owner.currentWeapon.crit = 1;
+    break;
 }
+if (owner.rechargeAbility[1] == ACHARGE_ALARM)
+{
+    owner.meter[1] = owner.maxMeter[1];
+    if (owner.weaponType[1] == WTYPE_THROWABLE and owner.currentWeapon.activeWeapon == 1) owner.currentWeapon.ammoCount = owner.currentWeapon.maxAmmo;
+} 
+if (owner.depleteAbility[1] == ADEPLETE_ALARM) owner.meter[1] = 0;
+if (owner.weaponType[1] != WTYPE_CONSUMABLE and owner.weaponType[1] != WTYPE_BANNER) playsound(x,y,rechargeSnd);
+
 </argument>
       </arguments>
     </action>

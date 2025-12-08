@@ -43,24 +43,14 @@ if random(100) < 15 && crit < 1.15 shot.crit = 1.35;
     }
 //}
 
-if shotCharacter.tracker.alarm[SOAK_PISS] >= 1 and argument3.crit < 1.35
-    argument3.crit = 1.15;
+if shotCharacter.tracker.alarm[SOAK_PISS] >= 1 and argument3.crit < CRIT_FACTOR
+    argument3.crit = MINICRIT_FACTOR;
     
 if (shootingPlayer.object != -1) {
     switch(projectile.weapon)
     {
         case DAMAGE_SOURCE_BLACKBOX:
             if (shotCharacter != shootingPlayer.object) shootingPlayer.object.hp += damage*0.3;
-        break;
-        case DAMAGE_SOURCE_BLUTSAUGER:
-            if (shootingPlayer.object.hp < shootingPlayer.object.maxHp)
-            {
-                shootingPlayer.object.hp += 1;
-                var text;
-                text=instance_create(shootingPlayer.object.x,shootingPlayer.object.y - 8,Text);
-                text.sprite_index=PlusOneS;
-                text.owner = shootingPlayer;
-            }
         break;
         case DAMAGE_SOURCE_RSHOOTER:
             if (!shotCharacter.onground and shotCharacter.moveStatus == 3 and projectile.crit < 1.15)
@@ -84,11 +74,24 @@ if (shootingPlayer.object != -1) {
                 alarm[0] = decayDelay / global.delta_factor;
             }
         break;
+        case DAMAGE_SOURCE_BLUTSAUGER:
+            if (shootingPlayer.object.hp < shootingPlayer.object.maxHp)
+            {
+                shootingPlayer.object.hp += 1;
+                var text;
+                text=instance_create(shootingPlayer.object.x,shootingPlayer.object.y - 8,Text);
+                text.sprite_index=PlusOneS;
+                text.owner = shootingPlayer;
+            }
+        break;
         case DAMAGE_SOURCE_UBERSAW:
             if (shootingPlayer.object.currentWeapon.weaponType == WTYPE_HEALBEAM)
                 shootingPlayer.object.currentWeapon.uberCharge += 50;
             else
                 shootingPlayer.object.uberChargeC += 50;
+        break;
+        case DAMAGE_SOURCE_WIDOWMAKER:
+            shootingPlayer.object.nutsNBolts += damage*projectile.crit;
         break;
     }
     
@@ -97,13 +100,13 @@ if (shootingPlayer.object != -1) {
 }
 
 // todo: two crit sprites? thats dumb
-if (argument3.crit == 1.15) {
+if (argument3.crit == MINICRIT_FACTOR) {
     var text;
     text=instance_create(shotCharacter.x,shotCharacter.y,Text);
     text.sprite_index=MiniCritS;
     if (instance_exists(shootingPlayer)) text.owner = shootingPlayer;
 }
-if (argument3.crit >= 1.35) {
+if (argument3.crit >= CRIT_FACTOR) {
     var text;
     text=instance_create(shotCharacter.x,shotCharacter.y,Text);
     text.sprite_index=CritS;
@@ -111,7 +114,7 @@ if (argument3.crit >= 1.35) {
 }
 
 //(1*0.35) outdated and unused crit reduction. just modify the whole crit instead
-damageCharacter(shootingPlayer, shotCharacter.id, damage*projectile.crit, projectile);
+damageCharacter(shootingPlayer, shotCharacter.id, argument2*projectile.crit, projectile);
 
 {
     if (projectile.object_index == Rocket)

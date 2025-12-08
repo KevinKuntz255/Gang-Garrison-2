@@ -39,7 +39,8 @@ idleTimer = true;
 
 buildTime=0;
 upgrade=0;
-level=1;
+upgradeMax = 100;
+level=3;
 dispenser=0;
 addedHp=0;
 </argument>

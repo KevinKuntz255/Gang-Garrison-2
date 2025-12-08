@@ -23,8 +23,8 @@
 } else {
         image_index=4*owner.team;
 }
-if owner.cloak damage=10;
-else damage = min(35,damage+0.5);
+if owner.cloak smashDamage=10;
+else smashDamage = min(smashDamageMax,smashDamage+0.5);
 </argument>
       </arguments>
     </action>

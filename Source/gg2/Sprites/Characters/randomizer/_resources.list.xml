@@ -2,5 +2,6 @@
 <resources>
   <resource name="Scout" type="GROUP"/>
   <resource name="Medic" type="GROUP"/>
+  <resource name="Engineer" type="GROUP"/>
   <resource name="Spy" type="GROUP"/>
 </resources>

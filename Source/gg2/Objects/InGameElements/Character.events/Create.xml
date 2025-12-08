@@ -90,7 +90,6 @@
     tracker = instance_create(x,y,SpecialTracker);
     tracker.owner = id;
     blur = -1;
-    // todo: add specialUbered with ubered variables
     specialUbered = false;
     
     uberChargeC = 0;

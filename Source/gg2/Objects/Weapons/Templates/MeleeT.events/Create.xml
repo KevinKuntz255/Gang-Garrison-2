@@ -36,10 +36,12 @@
     
     damSource = DAMAGE_SOURCE_KNIFE;
     
-    damage = 35;
-    
     weaponGrade = WGRADE_UNIQUE;
     weaponType = WTYPE_MELEE;
+    
+    if (!variable_local_exists("smashDamage")) smashDamage = 35;
+    
+    smashDamageMax = smashDamage;
     
     if (!variable_local_exists("normalSprite")) normalSprite = Knife2S;
     if (!variable_local_exists("recoilSprite")) recoilSprite = Knife2FS;

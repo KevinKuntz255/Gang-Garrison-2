@@ -33,9 +33,7 @@
         recoilSprite = ShotgunGoldFS;
         reloadSprite = ShotgunGoldFRS;
     }*/
-    
-    // todo: gold
-    // idea: could consolidate this by using the same code that parses taunts
+
     if (ownerPlayer.class == CLASS_PYRO) {
         normalSprite = PyroShotgunS;
         recoilSprite = PyroShotgunFS;

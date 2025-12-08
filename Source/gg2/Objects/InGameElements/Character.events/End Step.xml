@@ -201,14 +201,14 @@ for(i=0; i&lt;2; i+=1) {
                 }
             break;
             case ABILITY_MINICRIT:
-                currentWeapon.crit = 1.15;
+                currentWeapon.crit = MINICRIT_FACTOR;
                 if (cancelAbility[i] == ACANCEL_ALARM and tracker.alarm[i] &lt;= 0)
                 {
                     tracker.alarm[i] = currentWeapon.reloadTime / global.delta_factor;
                 }
             break;
             case ABILITY_CRIT:
-                currentWeapon.crit = 1.35;
+                currentWeapon.crit = CRIT_FACTOR;
                 if (cancelAbility[i] == ACANCEL_ALARM and tracker.alarm[i] &lt;= 0)
                 {
                     tracker.alarm[i] = currentWeapon.reloadTime / global.delta_factor;
@@ -235,7 +235,7 @@ for(i=0; i&lt;2; i+=1) {
                     canSwitch = true;
                     meter[i] = 25;
                     with(currentWeapon) {
-                        crit = 1.35;
+                        crit = CRIT_FACTOR;
                         readyToShoot = true;
                         readyToSwing = true;
                         event_user(1);
@@ -248,6 +248,11 @@ for(i=0; i&lt;2; i+=1) {
             break;
             case ABILITY_INVULN:
                 // todo: its very unorganized how there's multiple readyToGun variables, change this in later releases?
+                 /*
+                    readyToPrimary = false;
+                    readyToSecondary = false;
+                    readyToTertiary = false;
+                */
                 with(currentWeapon) {
                     readyToShoot = false;
                     readyToStab = false;
@@ -357,6 +362,27 @@ if (taunting)
                 tauntsprite = getCharacterSpriteId(player.class, player.team, "TKill");
                 tauntlength = sprite_get_number(tauntsprite)/2;
                 tauntspeed = 3;
+            }
+        }
+        if (activateAbility[activeWeapon] == AACTIVATE_TAUNT) {
+            if (ability[activeWeapon] == ABILITY_TELEPORT_TO_SENTRY) {
+             if player.sentry {
+                    var xmid, ymid, afterglow;
+                    xmid = view_xview[0] + view_wview[0]/2;
+                    ymid = view_yview[0] + view_hview[0]/2;
+                    if sqrt((xmid-x)*(xmid-x) + (ymid-y)*(ymid-y)) &lt; 415 {
+                        //PlayerControl.thunder = 1;
+                        playsound(x,y,EETPSnd);
+                    }
+                    afterglow = instance_create(x,y,EEFectGlow);
+                    afterglow.team = player.team;
+                    if (intel) {
+                        sendEventDropIntel(player);
+                        doEventDropIntel(player);
+                    }
+                    x=player.sentry.x;
+                    y=player.sentry.y-18;
+                }
             }
         }
     }

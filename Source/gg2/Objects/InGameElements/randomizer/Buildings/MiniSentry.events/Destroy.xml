@@ -44,8 +44,6 @@ with(ownerPlayer.object)
             continue;
         motion_add(rdir, min(15, other.knockback-other.knockback*(distance_to_object(other)/other.blastRadius)) * vectorfactor);
     }
-    if (weapons[1] == WEAPON_WRANGLER)
-        ammo[1] = 100;
     if (currentWeapon.object_index == Wrangler)
         currentWeapon.ammoCount = 100;
 }

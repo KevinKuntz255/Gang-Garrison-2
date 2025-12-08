@@ -29,6 +29,8 @@ if (justShot)
     }
     alarm[6] = recoilTime / global.delta_factor;
 }
+
+if global.mapchanging &amp;&amp; global.winners == ownerPlayer.team crit = CRIT_FACTOR;
 </argument>
       </arguments>
     </action>

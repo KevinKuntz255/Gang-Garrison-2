@@ -67,7 +67,7 @@ if(killer)
                 killer.roundStats[POINTS] += 1;
             }
         }
-        if (weapons[1] == Sheriff || weapons[0] == Sheriff) {
+        if (victim.object.weapons[1] == Sheriff || victim.object.weapons[0] == Sheriff) {
             if victim.sentry victim.sentry.hp = -999;
             if victim.dispenser victim.dispenser.hp = -999;
         }

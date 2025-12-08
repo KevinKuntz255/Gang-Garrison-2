@@ -28,7 +28,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">with(owner) ds_map_replace(effects, SOAK_BLOOD, 0);
+        <argument kind="STRING">//with(owner) ds_map_replace(effects, SOAK_BLOOD, 0);
 
 </argument>
       </arguments>

@@ -25,7 +25,7 @@ if global.myself.object != -1 {
         var weapon;
         weapon = global.myself.object.currentWeapon;
         weaponType = weapon.weaponType;
-        if (weapon.object_index == Nailgun || weapon.object_index == Widowmaker || weaponType == WTYPE_BANNER || weaponType == WTYPE_MELEE || weaponType == WTYPE_CONSUMABLE || weaponType == WTYPE_THROWABLE || global.myself.object.rechargeAbility[global.myself.object.activeWeapon] == ACHARGE_AMMO || weaponType == WTYPE_SPECIAL) exit;
+        if (weapon.object_index == Nailgun || weapon.object_index == Widowmaker || weaponType == WTYPE_BANNER || weaponType == WTYPE_MELEE || weaponType == WTYPE_MELEE_STAB || weaponType == WTYPE_CONSUMABLE || weaponType == WTYPE_THROWABLE || global.myself.object.rechargeAbility[global.myself.object.activeWeapon] == ACHARGE_AMMO || weaponType == WTYPE_SPECIAL) exit;
         barcolor = make_color_rgb(217,217,183);
         draw_set_color(barcolor);
 

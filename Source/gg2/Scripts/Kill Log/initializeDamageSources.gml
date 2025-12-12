@@ -81,3 +81,12 @@ createGlobalDamageSource("DAMAGE_SOURCE_WIDOWMAKER",          WidowMakerKL);
 createGlobalDamageSource("DAMAGE_SOURCE_STUNGUN",             StungunKL);
 createGlobalDamageSource("DAMAGE_SOURCE_WRENCH",              WrenchKL);
 createGlobalDamageSource("DAMAGE_SOURCE_EEFFECT",             EeffectKL);
+
+createGlobalDamageSource("DAMAGE_SOURCE_ETRANGER",            EtrangerKL);
+createGlobalDamageSource("DAMAGE_SOURCE_DIAMONDBACK",         DiamondbackKL);
+createGlobalDamageSource("DAMAGE_SOURCE_DIPLOMAT",            DiplomatKL);
+createGlobalDamageSource("DAMAGE_SOURCE_NORDICGOLD",          GoldAssistantKL);
+createGlobalDamageSource("DAMAGE_SOURCE_CHAINSTAB",           KunaiKL);
+createGlobalDamageSource("DAMAGE_SOURCE_BIGEARNER",           BigEarnerKL);
+createGlobalDamageSource("DAMAGE_SOURCE_SPYCICLE",            SpycicleKL);
+createGlobalDamageSource("DAMAGE_SOURCE_ZAPPER",              ZapperKL);

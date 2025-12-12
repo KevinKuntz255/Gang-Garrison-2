@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset = -3;
+    yoffset = -6;
+    refireTime = 18;
+    
+    normalSprite = DiamondbackS;
+    recoilSprite = DiamondbackFS;
+    reloadSprite = DiamondbackS;
+    
+    maxAmmo = 6;
+    reloadTime = 45;
+    reloadBuffer = refireTime;
+    
+    weaponType = WTYPE_REVOLVER;
+    event_inherited();
+
+    damSource = DAMAGE_SOURCE_DIAMONDBACK;
+    
+    shots = 1;
+
+    shotDamage = 22;
+    fullReload = true;
+    
+    shotSpeed[0] = 21;
+    shotSpeed[1] = 2;
+    shotSpeed[2] = 1;
+    
+    shotDir[0] = 2;
+    shotDir[1] = 1;
+    
+    randomizeSpeed = false;
+    
+    specialSnd = RevolverSnd;
+
+    reloadShell = true;
+    
+    ability = ABILITY_CRIT;
+    //activateAbility = AACTIVATE_DESTROY_SENTRY;
+    abilityBuffer = ABUFFER_METER;
+    cancelAbility = ADEPLETE;
+    rechargeAbility = ACHARGE_KILLS;
+    depleteAbility = ADEPLETE_SHOOT;
+    maxMeter = 21;
+    meter = 0;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

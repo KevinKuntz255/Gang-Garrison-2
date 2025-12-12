@@ -14,6 +14,12 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">image_speed = 1 * global.delta_factor;
+for(i=0; i&lt;2; i+=1) {  
+    if (ownerPlayer.object.ability[i] == ABILITY_STABSPEED and ownerPlayer.object.meter[i] &gt; 0) {
+        ownerPlayer.object.currentWeapon.alarm[3] /= 2;
+        image_speed = 2 * global.delta_factor;
+    }
+}
 </argument>
       </arguments>
     </action>

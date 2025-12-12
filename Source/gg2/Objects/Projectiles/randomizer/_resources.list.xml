@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
   <resource name="Sandvich" type="RESOURCE"/>
+  <resource name="Medkit" type="RESOURCE"/>
   <resource name="MeleeMask" type="RESOURCE"/>
   <resource name="Grenade" type="RESOURCE"/>
   <resource name="SplashPotion" type="RESOURCE"/>

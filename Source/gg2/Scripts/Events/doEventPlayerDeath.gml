@@ -31,10 +31,10 @@ victim.stats[DEATHS] += 1;
 if(killer)
 {
     if (killer.object) {
-        for(i=0; i<2; i+=1) 
-        {
-            if ((killer.object.rechargeAbility[i] == ACHARGE_SENTRY_KILLS and damageSource == DAMAGE_SOURCE_SENTRYTURRET) or (killer.object.rechargeAbility[i] == ACHARGE_KILLS)) 
-            {
+        for(i=0; i<2; i+=1) {
+            if ((killer.object.rechargeAbility[i] == ACHARGE_SENTRY_KILLS and damageSource == DAMAGE_SOURCE_SENTRYTURRET) 
+                or (killer.object.rechargeAbility[i] == ACHARGE_KILLS) 
+                or (killer.object.rechargeAbility[i] == ACHARGE_STAB_KILLS and (damageSource == DAMAGE_SOURCE_BACKSTAB || damageSource == DAMAGE_SOURCE_KNIFE))) {
                 killer.object.meter[i] = min(killer.object.maxMeter[i], killer.object.meter[i] + killer.object.meterGain[i]);
                 switch(killer.object.ability[i])
                 {
@@ -45,6 +45,7 @@ if(killer)
             }
             if (killer.object.activateAbility[i] == AACTIVATE_KILLS)
                 killer.object.abilityActive[i] = true;
+            if (killer.object.ability[i] == ABILITY_SPAWN_HPKIT) instance_create(victim.object.x,victim.object.y,Medkit);
         }
     }
     
@@ -56,8 +57,13 @@ if(killer)
         killer.roundStats[POINTS] +=1;
     }
     
+    if (victim.weapons[1] == WEAPON_SHERIFF || victim.weapons[0] == WEAPON_SHERIFF) {
+        if victim.sentry victim.sentry.hp = -999;
+        if victim.dispenser victim.dispenser.hp = -999;
+    }
+    
     if (victim.object) {
-        if (victim.object.currentWeapon.object_index == Medigun)
+        if (victim.object.weaponType[activeWeapon] == WTYPE_HEALBEAM)
         {
             if (victim.object.currentWeapon.uberReady)
             {
@@ -67,9 +73,39 @@ if(killer)
                 killer.roundStats[POINTS] += 1;
             }
         }
-        if (victim.object.weapons[1] == Sheriff || victim.object.weapons[0] == Sheriff) {
-            if victim.sentry victim.sentry.hp = -999;
-            if victim.dispenser victim.dispenser.hp = -999;
+        // only damageSources that instakill, hmmm should probably account for that somewhere
+        // yes the brackets are inconsistent, shudduhp.
+        if(damageSource == DAMAGE_SOURCE_KNIFE || damageSource == DAMAGE_SOURCE_BACKSTAB)
+        {
+            if (killer.weapons[1] == WEAPON_MEDICHAIN || killer.weapons[0] == WEAPON_MEDICHAIN) {
+                with(Character) {   //Someone is healing me
+                    if weaponType[activeWeapon] == WTYPE_HEALBEAM {
+                        if currentWeapon.healTarget == victim {
+                            hp -= 200;
+                            if (other != killer && lastDamageDealer != other)
+                            {
+                                secondToLastDamageDealer = lastDamageDealer;
+                                alarm[4] = alarm[3];
+                            }
+                            alarm[3] = ASSIST_TIME / global.delta_factor;
+                            lastDamageDealer = killer;
+                            lastDamageSource = damageSource;
+                        }
+                    }
+                }
+                if (victim.object.weaponType[victim.object.activeWeapon] == WTYPE_HEALBEAM) {
+                    if (victim.object.currentWeapon.healTarget != noone) {
+                        victim.object.currentWeapon.healTarget.object.hp -= 200;
+                        if (victim.object.currentWeapon.healTarget != killer && victim.object.currentWeapon.healTarget.object.lastDamageDealer != victim.object.currentWeapon.healTarget) {
+                            victim.object.currentWeapon.healTarget.object.secondToLastDamageDealer = victim.object.currentWeapon.healTarget.object.lastDamageDealer;
+                            victim.object.currentWeapon.healTarget.object.alarm[4] = victim.object.currentWeapon.healTarget.alarm[3]
+                        }
+                        victim.object.currentWeapon.healTarget.object.alarm[3] = ASSIST_TIME / global.delta_factor;
+                        victim.object.currentWeapon.healTarget.object.lastDamageDealer = killer;
+                        victim.object.currentWeapon.healTarget.object.lastDamageSource = damageSource;
+                    }
+                }
+            }
         }
     }
         

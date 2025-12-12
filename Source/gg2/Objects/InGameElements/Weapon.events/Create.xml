@@ -16,6 +16,18 @@
         <argument kind="STRING">xoffset += sprite_xoffset;
 yoffset += sprite_yoffset;
 readyToShoot = false;
+/*
+readyToPrimary = false;
+readyToSecondary = false;
+readyToTertiary = false;
+readyToAbility = false;
+*/
+readyToStab = false;
+StabreloadTime = 32;
+if (alarm[2] &lt;= 0)
+{
+    alarm[2] = StabreloadTime / global.delta_factor;
+}
 justShot = false;
 // todo: switchBuffer? 
 // update: what? I should be more specific writing these, I was in a zone 2 months ago
@@ -58,6 +70,8 @@ t = 0;
 baseDamage=-1;
 unscopedDamage = 0;
 
+stabdirection=0;
+    
 // need this for projectile destruction
 specialProjectile = -1;
 destructProjectilesOnDeath = false;
@@ -65,9 +79,9 @@ isThrowable = false;
 maxMines = 8;
 
 // weaponGrade for Unique/Stock/Special
-weaponGrade = WGRADE_STOCK;
+if (!variable_local_exists("weaponGrade")) weaponGrade = WGRADE_STOCK;
 // weaponType for each weapon
-weaponType = WTYPE_SHOT;
+if (!variable_local_exists("weaponType")) weaponType = WTYPE_SHOT;
 
 owner = global.paramOwner;
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset= 5 - 32;
+    yoffset= -6 - 32;
+    
+    weaponType = WTYPE_MELEE_STAB;
+    
+    normalSprite = BigEarnerS;
+    recoilSprite = BigEarnerFS;
+    reloadSprite = BigEarnerS;
+    
+    event_inherited();
+    
+    damSource = DAMAGE_SOURCE_BIGEARNER;
+    
+    ability = ABILITY_STABSPEED;
+    maxMeter = 1;
+    meter = 0;
+    rechargeAbility = ACHARGE_STAB_KILLS;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

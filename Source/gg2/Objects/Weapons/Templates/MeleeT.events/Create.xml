@@ -19,6 +19,10 @@
     reloadTime = 300;
     reloadBuffer = refireTime;
     maxAmmo = 1;
+    
+    if (!variable_local_exists("weaponGrade")) weaponGrade = WGRADE_UNIQUE;
+    if (!variable_local_exists("weaponType")) weaponType = WTYPE_MELEE;
+    
     event_inherited();
     
     SwingreloadTime = 5;
@@ -34,10 +38,8 @@
     
     idle=true;
     
-    damSource = DAMAGE_SOURCE_KNIFE;
-    
-    weaponGrade = WGRADE_UNIQUE;
-    weaponType = WTYPE_MELEE;
+    if (!variable_local_exists("damSource")) damSource = DAMAGE_SOURCE_KNIFE;
+
     
     if (!variable_local_exists("smashDamage")) smashDamage = 35;
     

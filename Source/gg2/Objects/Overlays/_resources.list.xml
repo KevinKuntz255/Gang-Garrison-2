@@ -21,4 +21,7 @@
   <resource name="WinBanner" type="RESOURCE"/>
   <resource name="HealedHud" type="RESOURCE"/>
   <resource name="HealingHud" type="RESOURCE"/>
+  <resource name="DeadringerHud" type="RESOURCE"/>
+  <resource name="SapCritHud" type="RESOURCE"/>
+  <resource name="StabSpeedHud" type="RESOURCE"/>
 </resources>

@@ -14,14 +14,14 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">{
+    if (!variable_local_exists("weaponGrade")) weaponGrade = WGRADE_UNIQUE;
+    if (!variable_local_exists("weaponType")) weaponType = WTYPE_SHOT;
+    
     event_inherited();
 
     // default vars
     ammoCount = owner.ammo[activeWeapon];
     idle=true;
-    
-    weaponGrade = WGRADE_UNIQUE;
-    weaponType = WTYPE_SHOT;
     
     damSource = DAMAGE_SOURCE_SHOTGUN;
 

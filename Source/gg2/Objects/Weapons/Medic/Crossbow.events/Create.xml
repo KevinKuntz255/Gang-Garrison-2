@@ -20,7 +20,7 @@
     
     normalSprite = CrossbowS;
     recoilSprite = CrossbowFS;
-    reloadSprite = CrossbowS;
+    reloadSprite = CrossbowFRS;
     
     maxAmmo = 1;
     reloadTime = 1;

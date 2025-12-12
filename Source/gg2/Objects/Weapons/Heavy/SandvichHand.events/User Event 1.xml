@@ -23,7 +23,7 @@
         {                            
             write_ubyte(global.sendBuffer, OMNOMNOMNOM);
             write_ubyte(global.sendBuffer, ds_list_find_index(global.players, ownerPlayer));
-            with(owner)
+            with(ownerPlayer.object)
             {
                 omnomnomnom = true;
                 omnomnomnomindex=0;

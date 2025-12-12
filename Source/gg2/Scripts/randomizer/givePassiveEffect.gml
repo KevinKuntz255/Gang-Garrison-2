@@ -10,7 +10,7 @@ switch(weapon)
     break;
     case StickyJumper:
     case TerminalBreath:
-    //case BigEarner:
+    case Atomizer:
         character.maxHp -= 20;
         character.hp -= 20;
     break;
@@ -19,6 +19,8 @@ switch(weapon)
         character.maxHp+=30;
         character.hp+=30;
     }
+    case Goldassistant:
+        character.baseRunPower -= 0.08;
     break;
 }
 /*

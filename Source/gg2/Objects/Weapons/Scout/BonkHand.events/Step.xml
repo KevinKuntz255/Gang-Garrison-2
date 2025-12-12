@@ -28,6 +28,13 @@ if (owner.taunting &amp;&amp; (owner.tauntsprite == ScoutRedBonkS || owner.taunt
         owner.tracker.alarm[activeWeapon] = reloadTime / global.delta_factor;
         owner.burnDuration = 0; // extinguish bonked player
         owner.maxDuration  = 1; // cannot burn bonked player!
+        if (owner.intel) 
+        {
+            sendEventDropIntel(ownerPlayer);
+            doEventDropIntel(ownerPlayer);
+        }
+        // other classes
+        if (owner.canCloak) owner.canCloak = false;
     }
 }
 </argument>

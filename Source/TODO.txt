@@ -1,17 +1,17 @@
-# next commit:
-all:
-BUG: Rocket sometimes doesnt find other.shootingPlayer
-BUG: HUD flickers on Rocket Launcher Kill, related to a re-assignment to Draw???
+MCBOSS:
+	Fix LoadoutMenu breaking positions in other resolutions
+KEVIN:
+weaponClass for greator distinction wit randomizerMode
+
+change Collision With HealingCbnt and every instance of using weapons object_index instead of weaponType
+
+BUG: Rocket sometimes doesnt find other.shootingPlayer, Test this!
 
 light reminder: bonus is a minicrit factor from flares hitting
-
-maybe you dont need entire ds_maps and could use the trackers themselves?
 
 could try making a system that's alarmless instead of using specialTracker for a flexible framework, find the grounds for that
 
 try moving ability activation to network calls, they desync!!
-
-Fix LoadoutMenu breaking positions in other resolutions
 
 PlayerControl Draw Event used for milk\piss\blood\thunder
 
@@ -29,9 +29,6 @@ add medievalMode
 add HALE
 
 Loadouts (Start Chronologically):
-
-# Runner
-make Bonk stop capping\Intel
 
 # Firebug
 NAPALM_EXPLOSION and NAPALM_THROW net parse
@@ -54,8 +51,6 @@ randomizerMode specific:
 
 # Constructor
 carrying Sentries (SENTRY_PICKUP and SENTRY_PLACE)
-implement/test DESTROY_DISPENSER parse to BuildMenu
-implement Eeffect's taunt, taunt abilities need expansion, they parse weirdly (see Ubersaw), use Constant ABILITY_TELEPORT_TO_SENTRY
 Sapping? Maybe? not sure
 
 # Infiltrator
@@ -70,4 +65,3 @@ Needlegun Merging
 Sandvich always available
 
 Q/C after all loadouts implemented
-Implement sentry upgrades

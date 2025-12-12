@@ -16,6 +16,8 @@
         <argument kind="STRING">{
     xoffset= 5 - 32;
     yoffset= -6 - 32;
+    
+    weaponType = WTYPE_MELEE_STAB;
     event_inherited();
 }
 </argument>

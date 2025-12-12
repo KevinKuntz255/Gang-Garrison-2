@@ -31,6 +31,8 @@
     ejected = 0;
     idle=true;
     
+    weaponType = WTYPE_REVOLVER;
+    weaponGrade = WGRADE_STOCK;
     if(golden)
     {
         normalSprite = RevolverGoldS;

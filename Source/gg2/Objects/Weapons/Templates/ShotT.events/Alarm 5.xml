@@ -31,6 +31,10 @@
 } else {
     if (ammoCount &lt; maxAmmo) {
         if fullReload ammoCount = maxAmmo; else ammoCount += 1;
+        alarm[5] = reloadTime / global.delta_factor;
+        sprite_index = reloadSprite;
+        image_index = 0;
+        image_speed = reloadImageSpeed * global.delta_factor;
         if (reloadShell) {
           if (global.particles == PARTICLES_NORMAL)
           {
@@ -40,13 +44,6 @@
             shell.image_index = 1;
           }
         }
-    }
-    if ammoCount &lt; maxAmmo {
-        alarm[5] = reloadTime / global.delta_factor;
-        
-        sprite_index = reloadSprite;
-        image_index = 0;
-        image_speed = reloadImageSpeed * global.delta_factor;
     }
 }
 </argument>

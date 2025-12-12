@@ -29,6 +29,7 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">player.humiliated = false;
+wasStunned = false;
 </argument>
       </arguments>
     </action>

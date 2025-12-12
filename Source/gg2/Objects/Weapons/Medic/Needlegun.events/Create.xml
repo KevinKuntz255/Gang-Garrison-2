@@ -33,7 +33,7 @@
 
     normalSprite = NeedlegunS;
     recoilSprite = NeedlegunFS;
-    reloadSprite = NeedlegunS;
+    reloadSprite = NeedlegunFRS;
     
     sprite_index = normalSprite;
     
@@ -43,7 +43,7 @@
     recoilAnimLength = sprite_get_number(recoilSprite)/2;
     recoilImageSpeed = recoilAnimLength/recoilTime;
     
-    reloadAnimLength = sprite_get_number(reloadSprite)/2;
+    reloadAnimLength = round(sprite_get_number(reloadSprite)/2);
     reloadImageSpeed = reloadAnimLength/reloadTime;
 }
 </argument>

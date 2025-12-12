@@ -47,21 +47,18 @@
     runCombo = false; // for quick switching after airblasting
     
     build = -1;
-    OGBuild = -1;
     buildAmount = 100;
-    
-    humiliatedBy = noone;
     
     // goal with this is turning 120 variables for each weapon into 20, I'll count later on how much this saves
     // sorted by use
     for(i=0; i&lt;4; i+=1) {
         ammo[i] = 255;
         ability[i] = -1;
+        
         abilityBuffer[i] = -1;
         abilityName[i] = "";
         abilityVisual[i] = "";
         abilityActive[i] = false;
-        // these two ability vars go unused but they're here for preservation
         abilityWasActive[i] = false; // goddamn, using this system is crazy!
         activateAbility[i] = -1; // hmm, work on this later, its cumbersome
         buildObject[i] = -1;
@@ -81,6 +78,16 @@
         pauseMeter[i] = false;
         weaponType[i] = -1;
     }
+    /*
+        CONCEPTS FOR EXTREME MONTHS-WORK TODO
+        for(i=0; i&lt;6; i+=1) { 5 conditions, for editing purposes
+        // meant to replace givePassiveEffect
+            condition[i] = -1;
+            conVariable[i] = -1;
+            additions[i] = -1;
+            info[i] = -1;
+        }
+    */
     
     effects = init_character_effects_map();
     
@@ -89,6 +96,7 @@
     // reminder: idk how I'd jsonify this in the future if i go that distance, think I'll go out of my way to stop using alarms one day
     tracker = instance_create(x,y,SpecialTracker);
     tracker.owner = id;
+    tracker.ownerPlayer = player;
     blur = -1;
     specialUbered = false;
     

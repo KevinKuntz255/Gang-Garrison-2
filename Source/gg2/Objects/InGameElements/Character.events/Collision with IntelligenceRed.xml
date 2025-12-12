@@ -18,6 +18,7 @@ if(global.isHost and !global.mapchanging and !instance_exists(InvasionHUD))
 {
     if(team == TEAM_BLUE and !place_meeting(x,y,TeamGate) and (canGrabIntel or other.alarm[0] &lt;= 1) and !ubered and !cloak)
     {
+        if (abilityActive[0] and ability[0] == ABILITY_INVULN || abilityActive[1] and ability[1] == ABILITY_INVULN) exit;
         sendEventGrabIntel(player);
         doEventGrabIntel(player);
     }

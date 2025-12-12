@@ -156,7 +156,7 @@ global.weapons[WEAPON_WRANGLER] = Wrangler;
 global.name[WEAPON_WRANGLER] = "Wrangler";
 global.weapons[WEAPON_EUREKAEFFECT] = Eeffect;
 global.name[WEAPON_EUREKAEFFECT] = "Eureka Effect";
-/*
+
 // Spy
 global.weapons[WEAPON_REVOLVER] = Revolver;
 global.name[WEAPON_REVOLVER] = "Revolver";
@@ -178,7 +178,7 @@ global.weapons[WEAPON_SPYCICLE] = Spycicle;
 global.name[WEAPON_SPYCICLE] = "Spycicle";
 global.weapons[WEAPON_ZAPPER] = Zapper;
 global.name[WEAPON_ZAPPER] = "Zapper";
-
+/*
 // Sniper
 global.weapons[WEAPON_RIFLE] = Rifle;
 global.name[WEAPON_RIFLE] = "Sniper Rifle"
@@ -230,11 +230,6 @@ global.name[WEAPON_SAXTONHALE] = "HAXTON SAAAAAAAAALE";
 */
 
 // defaults
-
-global.weapons[WEAPON_REVOLVER] = Revolver;
-global.name[WEAPON_REVOLVER] = "Revolver";
-global.weapons[WEAPON_KNIFE] = Knife;
-global.name[WEAPON_KNIFE] = "Knife";
 
 global.weapons[WEAPON_RIFLE] = Rifle;
 global.name[WEAPON_RIFLE] = "Sniper Rifle"

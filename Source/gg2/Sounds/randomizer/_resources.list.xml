@@ -28,4 +28,5 @@
   <resource name="WidowMakerSnd" type="RESOURCE"/>
   <resource name="WrenchFailSnd" type="RESOURCE"/>
   <resource name="EETPSnd" type="RESOURCE"/>
+  <resource name="UbercloakSnd" type="RESOURCE"/>
 </resources>

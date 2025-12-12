@@ -25,9 +25,9 @@
 }
 else if(readyToStab &amp;&amp; owner.cloak &amp;&amp; !(owner.keyState &amp; $08))
 {
+    owner.stabbing = 1;
     owner.runPower = 0;
     owner.jumpStrength = 0;
-    owner.stabbing = 1;
     
     stabdirection = owner.aimDirection;
     stab = instance_create(x,y,StabAnim);

@@ -302,6 +302,8 @@ for(i=0; i&lt;2; i+=1) {
             }
         break;
     }
+    if (cloak and ability[i] == ABILITY_UBERCLOAK and meter[i] &gt; 0) // should prolly make ADEPLETE_CLOAK but this'll do, json shtuff is for later
+        meter[i] -= meterDrain[i] * global.delta_factor;
 }
 
 
@@ -405,7 +407,7 @@ if (omnomnomnom)
     }
     if (hp &lt;= maxHp)
         hp += nomRate * global.delta_factor;
-    if (hp == maxHp and currentWeapon.object_index == ChocolateHand || global.weapons[weapons[1]] == ChocolateHand)
+    if (hp == maxHp and (currentWeapon.object_index == ChocolateHand || global.weapons[weapons[1]] == ChocolateHand))
     {
         overhealed=true;
         overhealHp = min(overhealHp + 0.33 * global.delta_factor, overhealMaxHp);

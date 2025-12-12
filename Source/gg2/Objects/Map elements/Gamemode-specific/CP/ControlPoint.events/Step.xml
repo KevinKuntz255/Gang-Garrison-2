@@ -77,7 +77,7 @@ if(not arenaRoundEnd) {
             if(player == global.myself) {
                 myselfOnPoint = true;
             }
-            
+            if (abilityActive[0] and ability[0] == ABILITY_INVULN || abilityActive[1] and ability[1] == ABILITY_INVULN) break;
             if(player.team == TEAM_RED) {
                 if(ubered) {
                     other.redPresence = max(1, other.redPresence);

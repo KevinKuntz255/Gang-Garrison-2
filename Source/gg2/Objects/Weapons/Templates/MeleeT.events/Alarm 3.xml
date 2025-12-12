@@ -20,8 +20,14 @@
         shot.owner=owner;
         shot.ownerPlayer=ownerPlayer;
         shot.team=owner.team;
-        shot.hitDamage = 200;
-        shot.weapon=DAMAGE_SOURCE_KNIFE;
+        if ((owner.weapons[1] == WEAPON_ZAPPER || owner.weapons[0] == WEAPON_ZAPPER) and weaponType != WTYPE_MELEE_STAB) // correcting for randomizerMode
+        {
+            shot.hitDamage = smashDamage*2;
+            shot.weapon = damSource;
+        } else {
+            shot.hitDamage = 200;
+            shot.weapon=DAMAGE_SOURCE_KNIFE;
+        }
 }
 </argument>
       </arguments>

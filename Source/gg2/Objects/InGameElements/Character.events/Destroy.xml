@@ -45,6 +45,7 @@
         if owner=other.id owner=-1
         instance_destroy();
     }
+    // this is placed twice in Character Destroy for good reason problem Is i lost said good reason
     with RadioBlur {
         if owner=other.id owner=-1
         instance_destroy();
@@ -84,8 +85,9 @@
     }
     
     // yeah ammoCounter keeps crashing, out you go
-    with(AmmoCounter) instance_destroy();
-    with(HealedHud) instance_destroy();
+    //OHHH this is why rocketlauncher flickers, remind myself thru playtesting why I did this
+    //with(AmmoCounter) instance_destroy();
+    //with(HealedHud) instance_destroy();
     
     player.object=-1;
     if (place_meeting(x,y,SpawnRoom) or deathmatch_invulnerable != 0)

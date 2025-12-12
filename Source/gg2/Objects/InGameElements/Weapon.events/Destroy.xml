@@ -14,6 +14,17 @@
       <appliesTo>.self</appliesTo>
       <arguments>
         <argument kind="STRING">if (pauseOnDestruction) pauseMeter[activeWeapon] = true;
+with (StabAnim) {
+    if (ownerPlayer == other.ownerPlayer) {
+        instance_destroy();
+    }
+}
+            
+with (StabMask) {
+    if (ownerPlayer == other.ownerPlayer) {
+        instance_destroy();
+    }
+}
 </argument>
       </arguments>
     </action>

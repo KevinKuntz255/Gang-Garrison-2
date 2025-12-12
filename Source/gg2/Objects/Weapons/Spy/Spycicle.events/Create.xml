@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">{
+    xoffset= 5 - 32;
+    yoffset= -6 - 32;
+    
+    weaponType = WTYPE_MELEE_STAB;
+    
+    normalSprite = SpycicleS;
+    recoilSprite = SpycicleFS;
+    reloadSprite = SpycicleS;
+    
+    event_inherited();
+    
+    damSource = DAMAGE_SOURCE_SPYCICLE;
+    
+    ability = ABILITY_AFTERBURN_IMMUNITY;
+    maxMeter = 1;
+    meter = 1;
+    abilityBuffer = ABUFFER_METER;
+    rechargeAbility = ACHARGE_ALARM;
+    abilityName = "ICICLE";
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

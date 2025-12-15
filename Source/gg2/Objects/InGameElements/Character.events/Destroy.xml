@@ -45,10 +45,10 @@
         if owner=other.id owner=-1
         instance_destroy();
     }
-    // this is placed twice in Character Destroy for good reason problem Is i lost said good reason
-    with RadioBlur {
-        if owner=other.id owner=-1
-        instance_destroy();
+    with SpecialTracker {
+        if(owner=other.id) {
+            instance_destroy();
+        }
     }
     if(variable_local_exists("wasStunned"))
     {

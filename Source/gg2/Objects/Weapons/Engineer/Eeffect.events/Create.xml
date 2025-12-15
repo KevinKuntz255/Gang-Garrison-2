@@ -28,7 +28,7 @@
     ability = ABILITY_TELEPORT_TO_SENTRY
     activateAbility = AACTIVATE_TAUNT;
 
-    owner.tauntsprite = getCharacterSpriteId(ownerPlayer.class, ownerPlayer.team, "Taunt2");
+    owner.tauntsprite = getCharacterSpriteId(CLASS_ENGINEER, ownerPlayer.team, "Taunt2");
     owner.tauntlength = sprite_get_number(owner.tauntsprite);
     owner.tauntend=owner.tauntlength;
     owner.tauntspeed = 3;

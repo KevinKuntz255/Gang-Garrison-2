@@ -20,7 +20,7 @@
     ysize = view_hview[0];
 
 if global.myself.object == -1 exit;
-if ((global.myself.object.rechargeAbility[global.myself.object.activeWeapon] == ACHARGE_STAB_KILLS &amp;&amp; global.myself.object.meter[global.myself.object.activeWeapon] &lt;= 0) || global.myself.object.rechargeAbility[global.myself.object.activeWeapon] != ACHARGE_STAB_KILLS) exit;
+//if (global.myself.object.rechargeAbility[global.myself.object.activeWeapon] != ACHARGE_STAB_KILLS) exit;
 
 draw_set_valign(fa_center);
 draw_set_halign(fa_right);

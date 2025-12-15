@@ -148,7 +148,9 @@ if burnDuration &gt; 0 or burnIntensity &gt; 0 and ability[activeWeapon] == ABIL
         tracker.alarm[activeWeapon] = 60 * global.delta_factor;
         burnDuration = 0; 
         burnIntensity = 0;
-    }
+        meter[activeWeapon] = 0;
+}
+
 for(i=0; i&lt;2; i+=1) {
     if (abilityActive[i])
     {

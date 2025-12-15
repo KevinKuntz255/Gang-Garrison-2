@@ -63,7 +63,7 @@ if(killer)
     }
     
     if (victim.object) {
-        if (victim.object.weaponType[activeWeapon] == WTYPE_HEALBEAM)
+        if (victim.object.weaponType[victim.object.activeWeapon] == WTYPE_HEALBEAM)
         {
             if (victim.object.currentWeapon.uberReady)
             {

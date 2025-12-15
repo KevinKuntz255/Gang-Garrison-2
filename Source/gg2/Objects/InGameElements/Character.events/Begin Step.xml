@@ -146,28 +146,25 @@ if(!taunting and !omnomnomnom)
         // prevent accidentally charging
         doubleTapped = true;
         // ability buffer
-        for(i=0; i&lt;2; i+=1) 
-        {
-            /*
-                if (activateAbility[i] == AACTIVATE_PRESSM1)
-                {
-                    abilityActive[i] = true; 
-                }
-                holdover
-            */
-            if (depleteAbility[i] == ADEPLETE_SHOOT and meter[i] &gt;= 1) 
+        /*
+            if (activateAbility[i] == AACTIVATE_PRESSM1)
             {
-                playsound(x,y,PickupSnd);
-                meter[i] -= meterDrain[i] * global.delta_factor;
-                if (meter[i]-meterDrain[i] == 0)
+                abilityActive[i] = true; 
+            }
+            holdover
+        */
+        if (!cloak and depleteAbility[activeWeapon] == ADEPLETE_SHOOT and meter[activeWeapon] &gt;= 1) 
+        {
+            meter[activeWeapon] -= meterDrain[activeWeapon] * global.delta_factor;
+            if (meter[activeWeapon]-meterDrain[activeWeapon] == 0)
+            {
+                if (ability[activeWeapon] == ABILITY_CRIT || ability[activeWeapon] == ABILITY_MINICRIT)
                 {
-                    if (ability[i] == ABILITY_CRIT || ability[i] == ABILITY_MINICRIT)
-                    {
-                        currentWeapon.crit = 1;   
-                    }
+                    currentWeapon.crit = 1;   
                 }
             }
         }
+
         deathmatch_invulnerable = 0;
     }
     if(!player.humiliated and pressedKeys &amp; $01)  {

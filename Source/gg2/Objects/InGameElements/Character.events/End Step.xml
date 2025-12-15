@@ -59,7 +59,7 @@ for(i=0; i&lt;2; i+=1) {
                 {
                     part_particles_create(global.jumpFlameParticleSystem,x,y+19,jumpFlameParticleType,1);
                 }
-                accel += 0.35;
+                accel += 0.35 * global.delta_factor;
                 //if (!onground) vspeed += 1.5 * (accel * 1.5);
                 if (accel &gt;= 6 &amp;&amp; !onground) { 
                     vspeed /= -vspeed * -2;
@@ -89,7 +89,7 @@ for(i=0; i&lt;2; i+=1) {
                         //vspeed /= -vspeed * -0.1;
                     }
                 }
-                accel = min(0.35, accel - 0.1);
+                accel = min(0.35 * global.delta_factor, accel - 0.1);
                 //if place_free(x, y + 6) vspeed += 10;
                 //vspeed = min(vspeed * accel, vspeed + 2.5 * (-accel * 0.45));
             }
@@ -187,11 +187,10 @@ if (ability[currentWeapon.activeWeapon] == ABILITY_AMMOGAIN and currentWeapon.ma
 for(i=0; i&lt;2; i+=1) {
     if (abilityActive[i]) 
     {
-        /*if (abilityBuffer[i] == ABUFFER_ACTIVE and i != currentWeapon.activeWeapon) {
+        if ((abilityBuffer[i] == ABUFFER_ACTIVE || abilityBuffer[i] == ABUFFER_METER) and i != currentWeapon.activeWeapon) {
             //abilityActive[i] = false;
-            playsound(x,y,PickupSnd);
             break;
-        }*/
+        }
         switch(ability[i])
         {
             case ABILITY_HEAL:
@@ -283,7 +282,6 @@ for(i=0; i&lt;2; i+=1) {
             abilityActive[i] = false;
     }
     if (abilityActive[i] and depleteAbility[i] == ADEPLETE) meter[i] -= meterDrain[i] * global.delta_factor;
-    
     switch(rechargeAbility[i])
     {
         case ACHARGE_ALARM:
@@ -407,7 +405,7 @@ if (omnomnomnom)
     }
     if (hp &lt;= maxHp)
         hp += nomRate * global.delta_factor;
-    if (hp == maxHp and (currentWeapon.object_index == ChocolateHand || global.weapons[weapons[1]] == ChocolateHand))
+    if (hp == maxHp and currentWeapon.object_index == ChocolateHand || global.weapons[weapons[1]] == ChocolateHand)
     {
         overhealed=true;
         overhealHp = min(overhealHp + 0.33 * global.delta_factor, overhealMaxHp);

@@ -26,7 +26,7 @@
     weaponGrade = WGRADE_UNIQUE;
     weaponType = WTYPE_HEALBEAM;
     
-    canOverheal = false;
+    canOverheal = true;
     
     healTarget = noone;
     healedThisStep = false;
@@ -35,6 +35,7 @@
     maxHealDistance = 300;
     maxMouseSelectDistance = 150; // Heal target selection will favor the character closest to the mouse, as long as it is within this distance of the mouse cursor.
     ammoCount = owner.ammo[activeWeapon];
+    uberReady = false;
     
     idle=true;
     

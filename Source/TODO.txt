@@ -5,8 +5,6 @@ weaponClass for greator distinction wit randomizerMode
 
 change Collision With HealingCbnt and every instance of using weapons object_index instead of weaponType
 
-BUG: Rocket sometimes doesnt find other.shootingPlayer, Test this!
-
 light reminder: bonus is a minicrit factor from flares hitting
 
 could try making a system that's alarmless instead of using specialTracker for a flexible framework, find the grounds for that

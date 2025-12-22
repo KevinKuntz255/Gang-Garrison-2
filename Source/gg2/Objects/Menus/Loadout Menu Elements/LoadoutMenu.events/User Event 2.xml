@@ -13,10 +13,11 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">switch(mousedclass){
+        <argument kind="STRING">ysize = view_hview[0];
+switch(mousedclass){
     case 0:
         class = "RUNNER";
-        load1 = instance_create(40, 192, LoadoutSwitcher);
+        load1 = instance_create(view_wview[0]/2-260, 192-max(484-ysize, 0), LoadoutSwitcher);
         load1.value = 0;
         load1.loaded = real(string_copy(string(global.loadout[CLASS_SCOUT]),2,2));
         load1.description[0,0] = " •6 Ammo# •6 Bullets per Shot# •.66 Second Refire Rate# •8 Damage per Bullet";
@@ -32,7 +33,7 @@
         load1.description[4,0] = " •Fires a blast of laserbeams"
         load1.description[4,1] = " •Crits against sentries"
         load1.description[4,2] = " -33% ammo loaded"
-        load2 = instance_create(464, 192, LoadoutSwitcher);
+        load2 = instance_create(view_wview[0]/2+164, 192-max(484-ysize, 0), LoadoutSwitcher);
         load2.value = 5;
         load2.loaded = real(string_copy(string(global.loadout[CLASS_SCOUT]),4,2));
         load2.description[0,0] = " •12 Ammo# •.16 Second Refire Rate# •8 Damage";
@@ -46,7 +47,7 @@
         break;
     case 1:
         class = "FIREBUG";
-        load1 = instance_create(40, 192, LoadoutSwitcher);
+        load1 = instance_create(view_wview[0]/2-260, 192-max(484-ysize, 0), LoadoutSwitcher);
         load1.value = 80;
         load1.loaded = real(string_copy(string(global.loadout[CLASS_PYRO]),2,2));
         load1.description[0,0] = " •Secondary Fire: Airblast# •200 Ammo# •3.3 Damage per Flame# -50 Ammo per Airblast";
@@ -61,7 +62,7 @@
         load1.description[4,0] = " •Fill 'Mmph' by dealing damage# •Secondary Fire: Start 'Mmph'";
         load1.description[4,1] = " •While 'Mmph' is active...#   •Damage deals crits#   +50 Overheal";
         load1.description[4,2] = " •Cannot airblast# -30% damage";
-        load2 = instance_create(464, 192, LoadoutSwitcher);
+        load2 = instance_create(view_wview[0]/2+164, 192-max(484-ysize, 0), LoadoutSwitcher);
         load2.value = 85;
         load2.loaded = real(string_copy(string(global.loadout[CLASS_PYRO]),4,2));
         load2.description[0,0] = " •6 Ammo# •5 Bullets per Shot# •.66 Second Refire Rate# •7 Damage per Bullet";
@@ -77,7 +78,7 @@
         break;
     case 2:
         class = "ROCKETMAN";
-        load1 = instance_create(40, 192, LoadoutSwitcher);
+        load1 = instance_create(view_wview[0]/2-260, 192-max(484-ysize, 0), LoadoutSwitcher);
         load1.value = 10;
         load1.loaded = real(string_copy(string(global.loadout[CLASS_SOLDIER]),2,2));
         load1.description[0,0] = " •4 Ammo# •.5 Second Refire Rate# •45 Damage per Rocket";
@@ -91,7 +92,7 @@
         load1.description[3,2] = " -1 rocket loaded";
         load1.description[4,0] = " •Secondary fire bends trajectory";
         load1.description[4,2] = " •Shoots only 1 rocket at a time";
-        load2 = instance_create(464, 192, LoadoutSwitcher);
+        load2 = instance_create(view_wview[0]/2+164, 192-max(484-ysize, 0), LoadoutSwitcher);
         load2.value = 15;
         load2.loaded = real(string_copy(string(global.loadout[CLASS_SOLDIER]),4,2));
         load2.description[0,0] = " •6 Ammo# •5 Bullets per Shot# •.66 Second Refire Rate# •7 Damage per Bullet";
@@ -108,7 +109,7 @@
         break;
     case 3:
         class = "OVERWEIGHT";
-        load1 = instance_create(40, 192, LoadoutSwitcher);
+        load1 = instance_create(view_wview[0]/2-260, 192-max(484-ysize, 0), LoadoutSwitcher);
         load1.value = 60;
         load1.loaded = real(string_copy(string(global.loadout[CLASS_HEAVY]),2,2));
         load1.description[0,0] = " •200 Ammo# •.06 Second Refire Rate# •8 Damage per Bullet";
@@ -122,7 +123,7 @@
         load1.description[4,0] = " •Maximum 300 ammo";
         load1.description[4,1] = " •Each kill ups max ammo by 20# +70 ammo reloaded per kill# +35 ammo reloaded per assist";
         load1.description[4,2] = " •Starts with 100 ammo# -50% reload time for base ammo# -75% reload for extra ammo";
-        load2 = instance_create(464, 192, LoadoutSwitcher);
+        load2 = instance_create(view_wview[0]/2+164, 192-max(484-ysize, 0), LoadoutSwitcher);
         load2.value = 65;
         load2.loaded = real(string_copy(string(global.loadout[CLASS_HEAVY]),4,2));
         load2.description[0,0] = " •6 Ammo# •5 Bullets per Shot# •.66 Second Refire Rate# •7 Damage per Bullet";
@@ -138,7 +139,7 @@
         break;
     case 4:
         class = "DETONATOR";
-        load1 = instance_create(40,192,LoadoutSwitcher);
+        load1 = instance_create(view_wview[0]/2-260,192-max(484-ysize, 0),LoadoutSwitcher);
         load1.value = 30;
         load1.loaded = real(string_copy(string(global.loadout[CLASS_DEMOMAN]),2,2));
         load1.description[0,0] = " •Secondary Fire: Detonate# •8 Ammo# •.86 Second Refire Rate# •45 Damage per Sticky";
@@ -153,7 +154,7 @@
         load1.description[4,0] = " •Stickies stick to players";
         load1.description[4,1] = " +10% damage";
         load1.description[4,2] = " •Stickies only stick to players# •Stickies cannot be detonated# •Stickies only damage targets";
-        load2 = instance_create(464, 192, LoadoutSwitcher);
+        load2 = instance_create(view_wview[0]/2+164, 192-max(484-ysize, 0), LoadoutSwitcher);
         load2.value = 35;
         load2.loaded = real(string_copy(string(global.loadout[CLASS_DEMOMAN]),4,2));
         load2.description[0,0] = " •4 Ammo# •.73 Second Refire Rate# •40 Damage per Grenade ";
@@ -169,7 +170,7 @@
         break;
     case 5:
         class = "HEALER";
-        load1 = instance_create(40, 192, LoadoutSwitcher);
+        load1 = instance_create(view_wview[0]/2-260, 192-max(484-ysize, 0), LoadoutSwitcher);
         load1.value = 40;
         load1.loaded = real(string_copy(string(global.loadout[CLASS_MEDIC]),2,2));
         load1.description[0,0] = " •40 Ammo# •.1 Second Refire Rate# •4 Damage per Bullet";
@@ -184,7 +185,7 @@
         load1.description[4,0] = " •Secondary fire heals nearby#  teammates";
         load1.description[4,1] = " •Damage increases uber# •Can taunt kill";
         load1.description[4,2] = " •No random melee crits";
-        load2 = instance_create(464, 192, LoadoutSwitcher);
+        load2 = instance_create(view_wview[0]/2+164, 192-max(484-ysize, 0), LoadoutSwitcher);
         load2.value = 45;
         load2.loaded = real(string_copy(string(global.loadout[CLASS_MEDIC]),4,2));
         load2.description[0,0] = " •Ubercharge grants #  invincibility";
@@ -204,7 +205,7 @@
         break;
     case 6:
         class = "CONSTRUCTOR";
-        load1 = instance_create(40, 192, LoadoutSwitcher);
+        load1 = instance_create(view_wview[0]/2-260, 192-max(484-ysize, 0), LoadoutSwitcher);
         load1.value = 50;
         load1.loaded = real(string_copy(string(global.loadout[CLASS_ENGINEER]),2,2));
         load1.description[0,0] = " •6 Ammo# •5 Bullets per Shot# •.66 Second Refire Rate# •7 Damage per Bullet";
@@ -220,7 +221,7 @@
         load1.description[4,0] = " •Uses nuts 'n' bolts for ammo";
         load1.description[4,1] = " +20 per enemy shot";
         load1.description[4,2] = " -20 per enemy missed";
-        load2 = instance_create(464, 192, LoadoutSwitcher);
+        load2 = instance_create(view_wview[0]/2+164, 192-max(484-ysize, 0), LoadoutSwitcher);
         load2.value = 55;
         load2.loaded = real(string_copy(string(global.loadout[CLASS_ENGINEER]),4,2));
         load2.description[0,0] = " •Builds mini-sentries# -2 Nuts 'N' Bolts per Shot# •.2 Second Refire Rate# •7 Damage";
@@ -237,7 +238,7 @@
         break;
     case 7:
         class = "INFILTRATOR";
-        load1 = instance_create(40, 192, LoadoutSwitcher);
+        load1 = instance_create(view_wview[0]/2-260, 192-max(484-ysize, 0), LoadoutSwitcher);
         load1.value = 70;
         load1.loaded = real(string_copy(string(global.loadout[CLASS_SPY]),2,2));
         load1.description[0,0] = " •Secondary Fire: Cloak# •Cloaked Primary: Sapper# •6 Ammo# •.6 Refire Rate# •28 Damage per Bullet";
@@ -252,7 +253,7 @@
         load1.description[3,2] = " -25% damage on bodyshot# -30% refire speed";
         load1.description[4,1] = " •Drops health kits on kill";
         load1.description[4,2] = " •Slower movement speed# -10% damage";
-        load2 = instance_create(464,192,LoadoutSwitcher);
+        load2 = instance_create(view_wview[0]/2+164,192-max(484-ysize, 0),LoadoutSwitcher);
         load2.value = 75;
         load2.loaded = real(string_copy(string(global.loadout[CLASS_SPY]),4,2));
         load2.description[0,0] = " •While uncloaked, damage#  increases with each#  consecutive hit# •While cloaked...#  •200 damage against players#  •40 damage against sentries#  •50 dmg against generators";
@@ -271,7 +272,7 @@
         break;
     case 8:
         class = "RIFLEMAN";
-        load1 = instance_create(40,192,LoadoutSwitcher);
+        load1 = instance_create(view_wview[0]/2-260,192-max(484-ysize, 0),LoadoutSwitcher);
         load1.value = 20;
         load1.loaded = real(string_copy(string(global.loadout[CLASS_SNIPER]),2,2));
         load1.description[0,0] = " •Secondary Fire: Scope# •2.66 Second Refire Rate# •Min Damage: 35# •Max Damage: 75";
@@ -286,7 +287,7 @@
         load1.description[4,0] = " •Charged shots shoot Jarate";
         load1.description[4,1] = " •Soaked enemies take crits";
         load1.description[4,2] = " -15% damage# •No bonus damage on headshots";
-        load2 = instance_create(464, 192, LoadoutSwitcher);
+        load2 = instance_create(view_wview[0]/2+164, 192-max(484-ysize, 0), LoadoutSwitcher);
         load2.value = 25;
         load2.loaded = real(string_copy(string(global.loadout[CLASS_SNIPER]),4,2));
         load2.description[0,0] = " •25 Ammo# •.1 Second Refire Rate# •5 Damage per Bullet";

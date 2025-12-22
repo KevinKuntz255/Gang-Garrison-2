@@ -32,8 +32,7 @@
     class = '';
     rotation=1;
     firstX=-1;
-    if room == LoadoutRoom xoffset = view_xview[0];
-    else xoffset = view_xview[0]+100;
+    xoffset = view_xview[0];
     yoffset = view_yview[0];
     xsize = view_wview[0];
     ysize = view_hview[0];

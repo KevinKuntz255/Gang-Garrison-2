@@ -2,7 +2,8 @@
 <resources>
   <resource name="WeaponChoice" type="RESOURCE"/>
   <resource name="ScrollerS" type="RESOURCE"/>
-  <resource name="INGAMELOADOUTBG" type="RESOURCE"/>
+  <resource name="LoadoutBGTop" type="RESOURCE"/>
+  <resource name="LoadoutBGBottom" type="RESOURCE"/>
   <resource name="BackS" type="RESOURCE"/>
   <resource name="LoadoutSelectS" type="RESOURCE"/>
   <resource name="LoadoutS" type="RESOURCE"/>

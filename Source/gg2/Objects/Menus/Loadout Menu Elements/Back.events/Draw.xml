@@ -16,7 +16,7 @@
         <argument kind="STRING">xoffset = view_xview[0];
 yoffset = view_yview[0];
 
-draw_sprite(BackS,image_index,xoffset+32,yoffset+544);
+draw_sprite(BackS,image_index,xoffset+32,yoffset+view_hview[0]-56);
 </argument>
       </arguments>
     </action>

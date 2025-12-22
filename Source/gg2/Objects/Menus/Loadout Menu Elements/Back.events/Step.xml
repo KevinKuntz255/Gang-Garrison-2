@@ -13,7 +13,7 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if mouse_x &gt;xoffset+32 &amp;&amp; mouse_x &lt; xoffset+96 &amp;&amp; mouse_y &gt; yoffset+544 &amp;&amp; mouse_y &lt; yoffset + 576 image_index = 1;
+        <argument kind="STRING">if mouse_x &gt;xoffset+32 &amp;&amp; mouse_x &lt; xoffset+96 &amp;&amp; mouse_y &gt; yoffset+view_hview[0]-56 &amp;&amp; mouse_y &lt; yoffset+view_hview[0]-24 image_index = 1;
 else image_index = 0;
 </argument>
       </arguments>

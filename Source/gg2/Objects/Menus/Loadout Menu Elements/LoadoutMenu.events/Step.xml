@@ -13,57 +13,58 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if room == LoadoutRoom xoffset = view_xview[0];
-else xoffset = view_xview[0]+100;
+        <argument kind="STRING">xoffset = view_xview[0];
 yoffset = view_yview[0];
 xsize = view_wview[0];
 ysize = view_hview[0];
 
+classSelectOffset = xsize/2-sprite_get_width(LoadoutSelectS)/2+xoffset
+
 if !instance_exists(Back) instance_create(32+view_xview[0],544+yoffset,Back);
 
-if mouse_x&gt;xoffset+xoffset2+24 &amp;&amp; mouse_x &lt;xoffset+xoffset2+60 &amp;&amp; mouse_y&lt;yoffset+60{
+if mouse_x&gt;classSelectOffset+0 &amp;&amp; mouse_x &lt;classSelectOffset+36 &amp;&amp; mouse_y&lt;yoffset+60{
     newclass=0;
-    drawx=24;
+    drawx=0;
 }
 
-else if mouse_x&gt;xoffset+xoffset2+64 &amp;&amp; mouse_x &lt;xoffset+xoffset2+100 &amp;&amp; mouse_y&lt;yoffset+60{
+else if mouse_x&gt;classSelectOffset+40 &amp;&amp; mouse_x &lt;classSelectOffset+76 &amp;&amp; mouse_y&lt;yoffset+60{
     newclass=1;
-    drawx=64;
+    drawx=40;
 }
 
-else if mouse_x&gt;xoffset+xoffset2+104 &amp;&amp; mouse_x &lt;xoffset+xoffset2+140 &amp;&amp; mouse_y&lt;yoffset+60{
+else if mouse_x&gt;classSelectOffset+80 &amp;&amp; mouse_x &lt;classSelectOffset+116 &amp;&amp; mouse_y&lt;yoffset+60{
     newclass=2;
-    drawx=104;
+    drawx=80;
 }
 
-else if mouse_x&gt;xoffset+xoffset2+156 &amp;&amp; mouse_x &lt;xoffset+xoffset2+192 &amp;&amp; mouse_y&lt;yoffset+60{
+else if mouse_x&gt;classSelectOffset+132 &amp;&amp; mouse_x &lt;classSelectOffset+168 &amp;&amp; mouse_y&lt;yoffset+60{
     newclass=3;
-    drawx=156;
+    drawx=132;
 }
 
-else if mouse_x&gt;xoffset+xoffset2+196 &amp;&amp; mouse_x &lt;xoffset+xoffset2+232 &amp;&amp; mouse_y&lt;yoffset+60{
+else if mouse_x&gt;classSelectOffset+172 &amp;&amp; mouse_x &lt;classSelectOffset+208 &amp;&amp; mouse_y&lt;yoffset+60{
     newclass=4;
-    drawx=196;
+    drawx=172;
 }
 
-else if mouse_x&gt;xoffset+xoffset2+236 &amp;&amp; mouse_x &lt;xoffset+xoffset2+272 &amp;&amp; mouse_y&lt;yoffset+60{
+else if mouse_x&gt;classSelectOffset+212 &amp;&amp; mouse_x &lt;classSelectOffset+248 &amp;&amp; mouse_y&lt;yoffset+60{
     newclass=5;
-    drawx=236;
+    drawx=212;
 }
 
-else if mouse_x&gt;xoffset+xoffset2+288 &amp;&amp; mouse_x &lt;xoffset+xoffset2+324 &amp;&amp; mouse_y&lt;yoffset+60{
+else if mouse_x&gt;classSelectOffset+264 &amp;&amp; mouse_x &lt;classSelectOffset+300 &amp;&amp; mouse_y&lt;yoffset+60{
     newclass=6;
-    drawx=288;
+    drawx=264;
 }
 
-else if mouse_x&gt;xoffset+xoffset2+328 &amp;&amp; mouse_x &lt;xoffset+xoffset2+364 &amp;&amp; mouse_y&lt;yoffset+60{
+else if mouse_x&gt;classSelectOffset+304 &amp;&amp; mouse_x &lt;classSelectOffset+340 &amp;&amp; mouse_y&lt;yoffset+60{
     newclass=7;
-    drawx=328;
+    drawx=304;
 }
 
-else if mouse_x&gt;xoffset+xoffset2+368 &amp;&amp; mouse_x &lt;xoffset+xoffset2+404 &amp;&amp; mouse_y&lt;yoffset+60{
+else if mouse_x&gt;classSelectOffset+344 &amp;&amp; mouse_x &lt;classSelectOffset+380 &amp;&amp; mouse_y&lt;yoffset+60{
     newclass=8;
-    drawx=368;
+    drawx=344;
 }
 
 else newclass=-1;  

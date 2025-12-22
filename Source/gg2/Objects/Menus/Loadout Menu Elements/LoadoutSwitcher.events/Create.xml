@@ -18,8 +18,7 @@ image_alpha=0;
 image_xscale=2;
 image_yscale=2;
 
-if room == LoadoutRoom xoffset = view_xview[0];
-else xoffset = view_xview[0]+100;
+xoffset = view_xview[0];
 yoffset = view_yview[0];
 xsize = view_wview[0];
 ysize = view_hview[0];

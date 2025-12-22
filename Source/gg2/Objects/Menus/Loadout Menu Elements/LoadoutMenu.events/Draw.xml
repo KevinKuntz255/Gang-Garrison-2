@@ -13,39 +13,47 @@
       <not>false</not>
       <appliesTo>.self</appliesTo>
       <arguments>
-        <argument kind="STRING">if room == LoadoutRoom xoffset = view_xview[0];
-else xoffset = view_xview[0]+100;
-yoffset = view_yview[0];
+        <argument kind="STRING">xoffset = view_xview[0];
+staticyoffset = view_yview[0];
+yoffset = staticyoffset-max(528-ysize, 0);
 xsize = view_wview[0];
 ysize = view_hview[0];
 
 if room != LoadoutRoom {
-    draw_sprite_ext(INGAMELOADOUTBG,0,xoffset-100,yoffset,80,2.5,0,c_white,0.8); 
+    draw_sprite_ext(LoadoutBGTop,0,xoffset,staticyoffset,xsize/10,2.5,0,c_white,0.8);
+    if (staticyoffset+sprite_get_height(LoadoutBGTop)*2.5 &lt; (staticyoffset+ysize-sprite_get_height(LoadoutBGBottom)*2.5)+1){
+        draw_set_alpha(0.8)
+        draw_rectangle_color(xoffset,staticyoffset+sprite_get_height(LoadoutBGTop)*2.5,xoffset+xsize-1,(staticyoffset+ysize-sprite_get_height(LoadoutBGBottom)*2.5)+1,$D7DBD9,$D7DBD9,$D7DBD9,$D7DBD9,0);
+        draw_set_alpha(1)
+    }
+    draw_sprite_ext(LoadoutBGBottom,0,xoffset,staticyoffset+ysize,xsize/10,2.5,0,c_white,0.8);
 }
-draw_sprite_ext(LoadoutSelectS, 0, 112+xoffset, 16+yoffset, 1, 1, 0, c_white, 1);
-if newclass != -1 draw_sprite_ext(ClassSelectSpritesS,newclass,drawx+xoffset+xoffset2,16+yoffset,1,1,0,c_white, 1);
+draw_sprite_ext(LoadoutSelectS, 0, xsize/2-sprite_get_width(LoadoutSelectS)/2+xoffset, 16+staticyoffset, 1, 1, 0, c_white, 1);
+if newclass != -1 draw_sprite_ext(ClassSelectSpritesS,newclass,xsize/2-sprite_get_width(LoadoutSelectS)/2+xoffset+drawx+0.5,16+staticyoffset,1,1,0,c_white, 1);
     
-draw_sprite(DescriptionBoardS,0,160+xoffset,352+yoffset);
+draw_sprite(DescriptionBoardS, 0, xsize/2-sprite_get_width(DescriptionBoardS)/2+xoffset,352+yoffset);
 draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-draw_text_transformed(20+xoffset,96+yoffset,class,3,3,0);
+draw_text_transformed(20+xoffset,96+staticyoffset,class,3,3,0);
 
 
 draw_set_color(c_white);
-draw_text(175+xoffset,390+yoffset,name);    //name
-draw_text(175+xoffset,390+yoffset+13,description[0]);  //info
+draw_text(xsize/2-125+xoffset,390+yoffset,name);    //name
+draw_text(xsize/2-125+xoffset,390+yoffset+13,description[0]);  //info
 draw_set_color(make_color_rgb(10,245,10));
-draw_text(175+xoffset,390+yoffset+string_height(description[0])+13,description[1]);  //good
+draw_text(xsize/2-125+xoffset,390+yoffset+string_height(description[0])+13,description[1]);  //good
 draw_set_color(make_color_rgb(220,0,0));
-draw_text(175+xoffset,390+yoffset+string_height(description[0])+string_height(description[1])+13,description[2]);  //bad
+draw_text(xsize/2-125+xoffset,390+yoffset+string_height(description[0])+string_height(description[1])+13,description[2]);  //bad
 
 draw_set_halign(fa_center)
 draw_set_color(c_white);
-//draw_text(300+xoffset,144+yoffset,'Currently equipped:');
+//draw_text(300+xoffset,144+staticyoffset,'Currently equipped:');
 
-if mousedclass=-1 draw_sprite_ext(LoadoutS,9,300+xoffset,250+yoffset,4*rotation,4,0,c_white,1);
-else  draw_sprite_ext(LoadoutS,mousedclass,300+offset*rotation*4+xoffset,250+yoffset,4*rotation,4,0,c_white,1);
+if mousedclass=-1 draw_sprite_ext(LoadoutS,9,xsize/2+xoffset,250+yoffset,4*rotation,4,0,c_white,1);
+else  draw_sprite_ext(LoadoutS,mousedclass,xsize/2+offset*rotation*4+xoffset,250+yoffset,4*rotation,4,0,c_white,1);
+
+draw_line_color(xoffset+xsize/2, view_yview[0], xoffset+xsize/2, view_yview[0]+ysize, c_red, c_red);
 </argument>
       </arguments>
     </action>
